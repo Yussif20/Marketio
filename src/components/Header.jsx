@@ -6,10 +6,10 @@ const Header = () => {
   let linkStyles = `hover:font-semibold hover:text-basicRed hover:underline transition-all duration-300`;
 
   return (
-    <header className="w-full border-b border-gray-300 py-4 dark:bg-gray-900 dark:text-white">
+    <header className="w-full border-b border-gray-300 py-4 dark:bg-darkSecondary dark:text-white">
       <div className="flex items-center justify-between w-10/12 mx-auto">
         <h1 className="text-2xl leading-6 font-bold">
-          Mar<span className="text-basicRed">ket</span>io
+          MAE<span className="text-basicRed">KET</span>IO
         </h1>
         <nav>
           <ul className="flex text-base gap-10">

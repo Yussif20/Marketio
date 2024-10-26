@@ -1,24 +1,25 @@
 ### To Do
 
 - [x] Initialize the project
+
 - [] Create the project's components
 
   - [x] Typography (add font-family & font-sizes)
   - [x] Top Header
   - [x] Header
-  - [] Buttons with all states
-  - [] Text fields with all states
-  - [] Dropdowns
-  - [] Dialog
+  - [x] Image Slider
+  - [] Section Component
+  - [] Buttons with variants
+  - [] Flash Sales
+  - [] Aside
+  - [] Categories
+  - [] Our products
+  - [] Featured
+  - [] Footer
 
 - [] Create the project's layout
   - [] Header
-  - [] Sidebar
-  - [] Boards
-  - [] Columns
-  - [] Tasks
-  - [] Mock data and use it to render the boards
-- Project's functionality
+- [] Project's functionality
   - [] Responsiveness
   - [] Authentication
   - [] Add items to favorites

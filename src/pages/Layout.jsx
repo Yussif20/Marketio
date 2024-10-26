@@ -5,7 +5,7 @@ import TopHeader from '@components/TopHeader';
 import { AppContext } from '../AppContext';
 import { useEffect, useState } from 'react';
 
-import { data } from '../data';
+import { data } from '../data.js';
 
 const Layout = () => {
   const [lang, setLang] = useState('en');
@@ -24,7 +24,7 @@ const Layout = () => {
         setProducts,
       }}
     >
-      <div className="font-inter w-screen">
+      <div className="font-inter w-screen min-h-screen dark:bg-darkPrimary dark:text-white">
         <TopHeader />
         <Header />
         <Outlet />
