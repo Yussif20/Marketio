@@ -10,6 +10,9 @@ export default {
         inter: ['Inter', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
       },
+      colors:{
+        basicRed:"#DB4444",
+      }
     },
   },
   plugins: [],
