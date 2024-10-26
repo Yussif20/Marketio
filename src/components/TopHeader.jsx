@@ -1,14 +1,17 @@
+import LanguageSwitcher from './LanguageSwitcher';
+
 const TopHeader = () => {
   return (
-    <div className="w-full bg-black h-12 flex items-center justify-center">
-      <div className="text-sm text-white leading-5 font-poppins flex gap-2">
+    <div className="w-full bg-black text-white py-1 h-13 flex gap-4 items-center justify-center dark:bg-gray-300 dark:text-gray-900">
+      <div className="text-sm leading-5 font-poppins flex gap-2">
         <p>
           Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
         </p>
-        <button className="font-semibold underline hover:no-underline hover:text-gray-300 transition-all duration-[300ms] ease-in-out">
+        <button className="font-semibold underline hover:no-underline hover:text-basicRed transition-all duration-[300ms] ease-in-out">
           ShopNow
         </button>
       </div>
+      <LanguageSwitcher />
     </div>
   );
 };
