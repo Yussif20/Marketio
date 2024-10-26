@@ -4,6 +4,7 @@
 - [] Create the project's components
 
   - [x] Typography (add font-family & font-sizes)
+  - [] Top Header
   - [] Header
   - [] Buttons with all states
   - [] Text fields with all states
