@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
 import StarRating from './StarRating';
 
-const ProductSlider = ({ products }) => {
+const ProductSlider = ({ products, Card }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -69,7 +69,16 @@ const ProductSlider = ({ products }) => {
       >
         {products.map((product) => (
           <SwiperSlide key={product.id}>
-            <div className="font-poppins relative group rounded w-[270px] h-[350px] ">
+            <Card
+              discount={product.discount}
+              imgSrc={product.imgSrc}
+              title={product.title}
+              icon={product.icon}
+              price={product.price}
+              oldPrice={product.oldPrice}
+              rating={product.rating}
+              ratingCount={product.ratingCount}
+            >
               <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
                 {product.discount}
               </div>
@@ -143,7 +152,7 @@ const ProductSlider = ({ products }) => {
                   ({product.ratingCount})
                 </span>
               </div>
-            </div>
+            </Card>
           </SwiperSlide>
         ))}
       </Swiper>

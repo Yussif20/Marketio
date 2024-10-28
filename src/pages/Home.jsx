@@ -1,3 +1,4 @@
+import Categories from '../sections/Categories';
 import FlashSales from '../sections/FlashSales';
 import Hero from '../sections/Hero';
 
@@ -6,6 +7,7 @@ const Home = () => {
     <main>
       <Hero />
       <FlashSales />
+      <Categories />
     </main>
   );
 };

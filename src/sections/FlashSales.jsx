@@ -1,7 +1,8 @@
 import Button from '../components/Button';
 import Countdown from '../components/Countdown';
-import ProductSlider from '../components/ProductSlider';
+import ProductSlider from '../components/CardSlider';
 import Section from '../components/Section';
+import ProductCard from '../components/ProductCard';
 
 import { productsData } from '../data';
 
@@ -16,7 +17,7 @@ const FlashSales = () => {
         </div>
       }
     >
-      <ProductSlider products={productsData} />
+      <ProductSlider products={productsData} Card={ProductCard} />
       <div className="flex items-center justify-center">
         <Button variant="primary" size="md">
           View All Products
