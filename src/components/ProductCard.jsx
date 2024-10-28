@@ -11,9 +11,11 @@ const ProductCard = ({
 }) => {
   return (
     <div className="font-poppins relative group rounded w-[270px] h-[350px] ">
-      <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
-        {discount}
-      </div>
+      {discount && (
+        <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
+          {discount}
+        </div>
+      )}
       <div className="relative">
         <img
           src={imgSrc}

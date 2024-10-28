@@ -1,3 +1,4 @@
+import BestSelling from '../sections/BestSelling';
 import Categories from '../sections/Categories';
 import FlashSales from '../sections/FlashSales';
 import Hero from '../sections/Hero';
@@ -8,6 +9,7 @@ const Home = () => {
       <Hero />
       <FlashSales />
       <Categories />
+      <BestSelling />
     </main>
   );
 };
