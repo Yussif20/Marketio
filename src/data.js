@@ -115,7 +115,7 @@ export const categories = [
   { id: 1, title: "Camera", icon:"fas fa-camera" },
   { id: 2, title: "Phones", icon:"fas fa-mobile-alt"},
   { id: 3, title: "Computers", icon:"fas fa-laptop" },
-  { id: 4, title: "Smart Watches", icon:"fas fa-watch" },
+  { id: 4, title: "Formal Cloth", icon:"fa-solid fa-user-tie" },
   { id: 5, title: "Headphones", icon:"fas fa-headphones" },
   { id: 6, title: "Gaming", icon:"fas fa-gamepad" },
   { id: 7, title: "Cloth", icon:"fas fa-tshirt" },

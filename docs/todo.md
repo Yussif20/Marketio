@@ -14,9 +14,9 @@
   - [x] Buttons with variants
   - [x] flash sales countdown
   - [x] rating dynamically
-  - [] productCard
-  - [] CategoryCard
-  - [] Categories
+  - [x] productCard
+  - [x] CategoryCard
+  - [x] Categories
   - [] Our products
   - [] Featured
   - [] Footer

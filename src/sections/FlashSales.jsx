@@ -1,6 +1,6 @@
 import Button from '../components/Button';
 import Countdown from '../components/Countdown';
-import ProductSlider from '../components/CardSlider';
+import CardSlider from '../components/CardSlider';
 import Section from '../components/Section';
 import ProductCard from '../components/ProductCard';
 
@@ -13,11 +13,16 @@ const FlashSales = () => {
       headline={
         <div className="flex items-center gap-32">
           <p>Flash Sales</p>
-          <Countdown targetDate="2024-12-31T23:59:59" />
+          <Countdown targetDate="2024-10-31T23:59:59" />
         </div>
       }
     >
-      <ProductSlider products={productsData} Card={ProductCard} />
+      <CardSlider
+        products={productsData}
+        Card={ProductCard}
+        spaceBetween={20}
+        slidesPerView={4}
+      />
       <div className="flex items-center justify-center">
         <Button variant="primary" size="md">
           View All Products

@@ -5,7 +5,7 @@ import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
 import StarRating from './StarRating';
 
-const ProductSlider = ({ products, Card }) => {
+const CardSlider = ({ products, Card, spaceBetween, slidesPerView }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -57,8 +57,8 @@ const ProductSlider = ({ products, Card }) => {
       </div>
       <Swiper
         modules={[Navigation]}
-        spaceBetween={20}
-        slidesPerView={4}
+        spaceBetween={spaceBetween}
+        slidesPerView={slidesPerView}
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
@@ -160,4 +160,4 @@ const ProductSlider = ({ products, Card }) => {
   );
 };
 
-export default ProductSlider;
+export default CardSlider;
