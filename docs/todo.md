@@ -8,6 +8,7 @@
   - [x] Top Header
   - [x] Header
   - [x] Image Slider
+  - [] Aside
   - [] Section Component
   - [] Buttons with variants
   - [] Flash Sales
