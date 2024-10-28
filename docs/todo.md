@@ -9,10 +9,11 @@
   - [x] Header
   - [x] Image Slider
   - [x] Aside
-  - [] Section Component
-  - [] Flash Sales
-  - [] Buttons with variants
-  - [] Aside
+  - [x] Section Component
+  - [x] Flash Sales
+  - [x] Buttons with variants
+  - [] add rating dynamically
+  - [] add flash sales countdown
   - [] Categories
   - [] Our products
   - [] Featured

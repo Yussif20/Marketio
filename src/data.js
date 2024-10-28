@@ -1,3 +1,4 @@
+// first section
 export const sliderData = [
 
   {
@@ -24,6 +25,66 @@ export const sliderData = [
     id: 5,
     title: 'Rolex Watch',
        image: '/slider/watch.jpg',
+  },
+];
+
+// second section
+export const productsData =[
+  {
+    id: 1,
+    imgSrc: 'slider/controller.jpg',
+    title: 'Sony Joystick Controller',
+    price: '$120',
+    discount: '-40%',
+  },
+  {
+    id: 2,
+    imgSrc: 'slider/headphones.jpg',
+    title: 'Dragon Headphones',
+    price: '$960',
+    discount: '-35%',
+  },
+  {
+    id: 3,
+    imgSrc: 'slider/watch.jpg',
+    title: 'Rolex Water-Resist Watch',
+    price: '$370',
+    discount: '-30%',
+  },
+  {
+    id: 4,
+    imgSrc: 'slider/lens.jpg',
+    title: 'Canon Digital Camera',
+    price: '$375',
+    discount: '-25%',
+  },
+  {
+    id: 5,
+    imgSrc: 'slider/controller.jpg',
+    title: 'Sony Joystick Controller',
+    price: '$120',
+    discount: '-40%',
+  },
+  {
+    id: 6,
+    imgSrc: 'slider/headphones.jpg',
+    title: 'Dragon Headphones',
+    price: '$960',
+    discount: '-35%',
+  },
+  {
+    id: 7,
+    imgSrc: 'slider/watch.jpg',
+    title: 'Rolex Water-Resist Watch',
+    price: '$370',
+    discount: '-30%',
+  },
+  {
+    id: 8,
+    imgSrc: 'slider/lens.jpg',
+    title: 'Canon Digital Camera',
+    price: '$375',
+    discount: '-25%',
   },
 ];
 

@@ -14,7 +14,7 @@ const Aside = () => {
   return (
     <aside className="pt-8 w-[250px] border-r">
       <ul className="flex flex-col">
-        <li className="relative group w-full py-2 px-12 hover:bg-darkSecondary cursor-pointer flex items-center justify-between">
+        <li className="relative group w-full py-2 px-12 dark:hover:bg-darkSecondary hover:bg-gray-200 cursor-pointer flex items-center justify-between ">
           Men’s Fashion
           <svg
             width="8"
@@ -29,12 +29,12 @@ const Aside = () => {
               fill="black"
             />
           </svg>
-          <ul className="absolute left-full top-0 hidden group-hover:flex flex-col dark:bg-darkPrimary shadow-lg border border-darkSecondary border-l-0 ">
-            <li className="py-2 px-4 hover:bg-darkSecondary border-darkSecondary">
+          <ul className="absolute left-full top-0 hidden group-hover:flex flex-col dark:bg-darkPrimary shadow-lg border border-gray-200 dark:border-darkSecondary border-l-0 ">
+            <li className="py-2 px-4 dark:hover:bg-darkSecondary hover:bg-gray-200 border-b border-gray-200 dark:border-darkSecondary">
               <Link to="shirts">Shirts</Link>
             </li>
-            <li className="py-2 px-4 hover:bg-darkSecondary ">
-              <Link to="jeans">jeans</Link>
+            <li className="py-3 px-6 dark:hover:bg-darkSecondary hover:bg-gray-200">
+              <Link to="jeans">Jeans</Link>
             </li>
           </ul>
         </li>
@@ -42,7 +42,7 @@ const Aside = () => {
           return (
             <li
               key={category}
-              className="w-full py-2 px-12 hover:bg-darkSecondary"
+              className="w-full py-2 px-12 dark:hover:bg-darkSecondary hover:bg-gray-200"
             >
               <Link to={category}>{category}</Link>
             </li>

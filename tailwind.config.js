@@ -15,6 +15,7 @@ export default {
         basicRed:"#DB4444",
         darkPrimary:"hsl(235, 21%, 11%)",
         darkSecondary:"hsl(235, 24%, 19%)",
+        lightSecondary:"#F5F5F5",
       }
     },
   },
