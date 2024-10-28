@@ -12,8 +12,8 @@
   - [x] Section Component
   - [x] Flash Sales
   - [x] Buttons with variants
-  - [] add rating dynamically
-  - [] add flash sales countdown
+  - [x] add flash sales countdown
+  - [x] add rating dynamically
   - [] Categories
   - [] Our products
   - [] Featured
