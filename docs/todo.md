@@ -17,7 +17,10 @@
   - [x] productCard
   - [x] CategoryCard
   - [x] Categories
-  - [] Our products
+  - [x] Our products
+  - [x] Sale countDown
+  - [] Explore products
+  - [] Explore products
   - [] Featured
   - [] Footer
 
