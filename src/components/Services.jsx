@@ -1,7 +1,7 @@
 const Services = () => {
   return (
     <div className="flex gap-20 font-poppins">
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-col items-center">
         <div className="bg-black p-4 rounded-full border-[20px] border-gray-400">
           <svg
             width="41"
@@ -73,11 +73,13 @@ const Services = () => {
             </defs>
           </svg>
         </div>
-
-        <h3 className="font-semibold text-xl">FREE AND FAST DELIVERY</h3>
+        <h3 className="font-semibold text-xl mt-6 mb-3">
+          FREE AND FAST DELIVERY
+        </h3>
         <p className="text-sm">Free delivery for all orders over $140</p>
       </div>
-      <div className="flex flex-col items-center gap-6">
+
+      <div className="flex flex-col items-center">
         <div className="bg-black p-4 rounded-full border-[20px] border-gray-400">
           <svg
             width="40"
@@ -123,10 +125,13 @@ const Services = () => {
             </defs>
           </svg>
         </div>
-        <h3 className="font-semibold text-xl">24/7 CUSTOMER SERVICE</h3>
+        <h3 className="font-semibold text-xl mt-6 mb-3">
+          24/7 CUSTOMER SERVICE
+        </h3>
         <p className="text-sm">Friendly 24/7 customer support</p>
       </div>
-      <div className="flex flex-col items-center gap-6">
+
+      <div className="flex flex-col items-center ">
         <div className="bg-black p-4 rounded-full border-[20px] border-gray-400">
           <svg
             width="40"
@@ -147,7 +152,9 @@ const Services = () => {
             />
           </svg>
         </div>
-        <h3 className="font-semibold text-xl">MONEY BACK GUARANTEE</h3>
+        <h3 className="font-semibold text-xl mt-6 mb-3">
+          MONEY BACK GUARANTEE
+        </h3>
         <p className="text-sm">We reurn money within 30 days</p>
       </div>
     </div>
