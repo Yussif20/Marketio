@@ -6,6 +6,7 @@ import { AppContext } from '../AppContext';
 import { useEffect, useState } from 'react';
 
 import { data } from '../data.js';
+import Footer from '../sections/Footer.jsx';
 
 const Layout = () => {
   const [lang, setLang] = useState('en');
@@ -24,11 +25,12 @@ const Layout = () => {
         setProducts,
       }}
     >
-      <div className="font-inter w-screen min-h-screen dark:bg-darkPrimary dark:text-white">
-        <TopHeader />
-        <Header />
+      <TopHeader />
+      <Header />
+      <main className="font-inter w-screen min-h-screen dark:bg-darkPrimary dark:text-white">
         <Outlet />
-      </div>
+      </main>
+      <Footer />
     </AppContext.Provider>
   );
 };

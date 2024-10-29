@@ -6,7 +6,7 @@ const button = cva('px-6 duration-200 font-poppins leading-6 rounded h-12', {
     variant: {
       primary: 'text-white bg-basicRed hover:bg-red-500',
       secondary: 'bg-white border border-black',
-      green: 'text-white bg-basicGreen',
+      green: 'text-white bg-basicGreen hover:bg-green-400',
     },
     size: {
       sm: 'w-[142px]',

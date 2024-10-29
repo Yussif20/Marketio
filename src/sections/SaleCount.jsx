@@ -11,7 +11,7 @@ const SaleCount = () => {
     <section className="flex items-center justify-center py-16 relative">
       <img
         className="h-[500px] w-[1170px] "
-        src="slider/watch.jpg"
+        src="./headphones-lg.jpg"
         alt="sale Image"
       />
       <div className="z-10 absolute top-36 left-36 flex flex-col items-start ">

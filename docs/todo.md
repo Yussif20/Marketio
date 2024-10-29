@@ -20,9 +20,8 @@
   - [x] Our products
   - [x] Sale countDown
   - [] Explore products
-  - [] Explore products
   - [] Featured
-  - [] Footer
+  - [x] Footer
 
 - [] Create the project's layout
   - [] Header
