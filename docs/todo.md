@@ -20,6 +20,7 @@
   - [x] Our products
   - [x] Sale countDown
   - [] Explore products
+  - [] Sercvices
   - [] Featured
   - [x] Footer
 
