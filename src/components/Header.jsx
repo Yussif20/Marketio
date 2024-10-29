@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
 
 const Header = () => {
-  let linkStyles = `hover:font-semibold hover:text-basicRed hover:underline transition-all duration-300`;
+  let linkStyles = `hover:font-semibold hover:underline transition-all duration-300`;
 
   return (
     <header className="w-full border-b border-gray-300 py-4 dark:bg-darkSecondary dark:text-white">

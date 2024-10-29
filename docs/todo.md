@@ -19,9 +19,9 @@
   - [x] Categories
   - [x] Our products
   - [x] Sale countDown
-  - [] Explore products
   - [x] Sercvices
-  - [] Featured
+  - [] Explore products
+  - [x] Featured
   - [x] Footer
 
 - [] Create the project's Pages
