@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
 
@@ -14,16 +14,44 @@ const Header = () => {
         <nav>
           <ul className="flex text-base gap-10">
             <li className={linkStyles}>
-              <Link to="/">Home</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? ' text-basicRed underline' : ''
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li className={linkStyles}>
-              <Link href="/contact">Contact</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? ' text-basicRed underline' : ''
+                }
+                to="/contact"
+              >
+                Contact
+              </NavLink>
             </li>
             <li className={linkStyles}>
-              <Link to="/about">About</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? ' text-basicRed underline' : ''
+                }
+                to="/about"
+              >
+                About
+              </NavLink>
             </li>
             <li className={linkStyles}>
-              <Link href="/sign">Sign Up</Link>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? ' text-basicRed underline' : ''
+                }
+                to="/sign"
+              >
+                Sign Up
+              </NavLink>
             </li>
           </ul>
         </nav>

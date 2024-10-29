@@ -20,12 +20,12 @@
   - [x] Our products
   - [x] Sale countDown
   - [] Explore products
-  - [] Sercvices
+  - [x] Sercvices
   - [] Featured
   - [x] Footer
 
-- [] Create the project's layout
-  - [] Header
+- [] Create the project's Pages
+  - [x] Error page
 - [] Project's functionality
   - [] Responsiveness
   - [] Authentication
