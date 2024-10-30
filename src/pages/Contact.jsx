@@ -9,7 +9,7 @@ const Contact = () => {
           <Link className="text-gray-400" to="/">
             Home /
           </Link>
-          <span>Contact</span>
+          <span> Contact</span>
         </h5>
         <div className="flex gap-8">
           <div className="w-[340px] shadow-md flex flex-col items-center justify-center ">

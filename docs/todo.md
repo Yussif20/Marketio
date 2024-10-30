@@ -27,6 +27,10 @@
 - [] Create the project's Pages
   - [x] Error page
   - [x] Contact page
+  - [] About page
+  - [] Sign up page
+  - [] Sign page
+  - [] Wishlist
 - [] Project's functionality
   - [] Responsiveness
   - [] Authentication
