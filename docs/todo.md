@@ -26,6 +26,7 @@
 
 - [] Create the project's Pages
   - [x] Error page
+  - [x] Contact page
 - [] Project's functionality
   - [] Responsiveness
   - [] Authentication

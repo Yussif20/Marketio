@@ -22,7 +22,7 @@ const FlashSales = () => {
             colClasses={colClasses}
             dateIdentifierClasses={dateIdentifierClasses}
             dateCountClasses={dateCountClasses}
-            targetDate="2024-10-31T23:59:59"
+            targetDate="2024-12-31T23:59:59"
           />
         </div>
       }
