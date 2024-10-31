@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import Statics from '../components/statics';
+import Statics from '@components/statics';
 
 import aboutImg from '../assets/about.jpeg';
+import Founders from '../components/Founders';
 
 const About = () => {
   return (
@@ -36,6 +37,7 @@ const About = () => {
             alt="About us"
           />
         </div>
+        <Founders />
         <div className="flex items-center justify-center">
           <Statics />
         </div>

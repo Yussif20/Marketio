@@ -391,3 +391,19 @@ export const data = [
     },
   },
 ];
+
+
+//Founders
+
+import TomImage from './assets/tom.png'
+import WillImage from './assets/will.png'
+
+export const foundersData = [
+  { id: 1, name: "Ahmed Fathy",job:"Founder & Chairman", img:TomImage },
+  { id: 2, name: "Muhamed Abusrea",job:"Founder & Chairman", img:WillImage },
+  { id: 3, name: "Mohamed Ali",job:"Founder & Chairman", img:TomImage },
+  { id: 4, name: "Ibrahim Zakaria",job:"Founder & Chairman", img:WillImage },
+  { id: 5, name: "Abdelrahman Emara",job:"Founder & Chairman", img:TomImage },
+  { id: 6, name: "Mostafa Zeit",job:"Founder & Chairman", img:WillImage },
+  { id: 7, name: "Yousef Ayman",job:"Founder & Chairman", img:TomImage },
+];

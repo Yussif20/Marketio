@@ -17,7 +17,7 @@ const ImageSlider = () => {
         slidesPerView={1}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        allowTouchMove={false}
+        allowTouchMove={true}
         className="w-full max-w-3xl"
       >
         {sliderData.map((product, index) => (
