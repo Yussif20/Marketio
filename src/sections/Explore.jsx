@@ -1,18 +1,13 @@
 import Button from '../components/Button';
-import CardSlider from '../components/CardSlider';
-import ProductCard from '../components/ProductCard';
+
+import ExploreSlider from '../components/ExploreSlider';
 import Section from '../components/Section';
 import { productsData } from '../data';
 
 const Explore = () => {
   return (
     <Section title="Our Products" headline="Explore Our Products">
-      <CardSlider
-        products={productsData}
-        Card={ProductCard}
-        spaceBetween={20}
-        slidesPerView={4}
-      />
+      <ExploreSlider products={productsData} />
       <div className="flex items-center justify-center">
         <Button>View All Products</Button>
       </div>

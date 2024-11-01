@@ -22,7 +22,7 @@ const Founders = () => {
       >
         {foundersData.map((founder, index) => (
           <SwiperSlide
-            className="flex flex-col items-center gap-8 w-[370px] mb-12 shadow-lg p-2"
+            className="flex flex-col items-center gap-8 w-[370px] mb-12 shadow-md px-2 py-4 rounded"
             key={index}
           >
             <img className="w-full" src={founder.img} alt={founder.name} />

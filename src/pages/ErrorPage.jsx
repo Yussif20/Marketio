@@ -6,10 +6,10 @@ import Button from '../components/Button';
 
 const ErrorPage = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="flex flex-col justify-between dark:bg-darkPrimary dark:text-white">
       <Header />
-      <div className="w-screen h-[500px] dark:bg-darkPrimary dark:text-white">
-        <div className="w-10/12 mx-auto">
+      <div className="mx-12 h-[500px] ">
+        <div>
           <h5 className="py-10 font-poppins">
             <Link className="text-gray-400" to="/">
               Home /{' '}

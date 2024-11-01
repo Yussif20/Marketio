@@ -20,17 +20,18 @@
   - [x] Our products
   - [x] Sale countDown
   - [x] Sercvices
-  - [] Explore products
+  - [x] Explore products
   - [x] Featured
   - [x] Footer
 
 - [] Create the project's Pages
   - [x] Error page
   - [x] Contact page
-  - [] About page
+  - [x] About page
   - [] Sign up page
   - [] Sign page
   - [] Wishlist
+  - [] cart
 - [] Project's functionality
   - [] Responsiveness
   - [] Authentication
