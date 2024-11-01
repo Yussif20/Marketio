@@ -3,7 +3,7 @@ import Button from '../components/Button';
 
 const Contact = () => {
   return (
-    <div className="mx-12 h-[500px] dark:bg-darkPrimary dark:text-white font-poppins">
+    <section className="mx-12 h-[500px] dark:bg-darkPrimary dark:text-white font-poppins">
       <h5 className="py-10">
         <Link className="text-gray-400" to="/">
           Home /
@@ -90,7 +90,7 @@ const Contact = () => {
           <Button className="ml-auto">Send Massage</Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

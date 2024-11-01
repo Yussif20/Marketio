@@ -9,7 +9,7 @@ const Header = () => {
     <header className="w-full border-b border-gray-300 py-4 dark:bg-darkSecondary dark:text-white">
       <div className="flex items-center justify-between mx-12">
         <h1 className="text-2xl leading-6 font-bold">
-          MAE<span className="text-basicRed">KET</span>IO
+          MAR<span className="text-basicRed">KET</span>IO
         </h1>
         <nav>
           <ul className="flex text-base gap-10">

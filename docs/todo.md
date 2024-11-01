@@ -28,8 +28,8 @@
   - [x] Error page
   - [x] Contact page
   - [x] About page
-  - [] Sign up page
-  - [] Sign page
+  - [x] Sign up page
+  - [x] Sign page
   - [] Wishlist
   - [] cart
 - [] Project's functionality

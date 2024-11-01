@@ -8,7 +8,7 @@ import Services from '../components/Services';
 
 const About = () => {
   return (
-    <div className="mx-12 dark:bg-darkPrimary dark:text-white">
+    <section className="mx-12 dark:bg-darkPrimary dark:text-white">
       <h5 className="py-10 font-poppins">
         <Link className="text-gray-400" to="/">
           Home /{' '}
@@ -42,7 +42,7 @@ const About = () => {
         <Founders />
         <Services />
       </div>
-    </div>
+    </section>
   );
 };
 
