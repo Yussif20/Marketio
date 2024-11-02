@@ -16,7 +16,7 @@ const FlashSales = () => {
       title="Today's"
       isMultiHeadline={true}
       headline={
-        <div className="flex items-center gap-32 my-4">
+        <div className="flex flex-col gap-6 sm:flex-row items-center sm:gap-32 my-4">
           <h3 className="text-4xl font-semibold mt-4">Flash Sales</h3>
           <Countdown
             colClasses={colClasses}
@@ -27,12 +27,14 @@ const FlashSales = () => {
         </div>
       }
     >
-      <CardSlider
-        products={productsData}
-        Card={ProductCard}
-        spaceBetween={20}
-        slidesPerView={4}
-      />
+      <div className="mt-20">
+        <CardSlider
+          products={productsData}
+          Card={ProductCard}
+          spaceBetween={20}
+          slidesPerView={4}
+        />
+      </div>
       <div className="flex items-center justify-center">
         <Button variant="primary" size="md">
           View All Products

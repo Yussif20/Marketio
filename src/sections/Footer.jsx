@@ -4,7 +4,7 @@ import playStoreImg from '../assets/footer/download-appstore.svg';
 
 const Footer = () => {
   return (
-    <footer className="font-poppins grid grid-cols-5 place-items-start justify-center gap-20 p-16 bg-black text-[#FAFAFA] dark:bg-darkSecondary">
+    <footer className="font-poppins flex items-center justify-center text-center sm:text-left flex-wrap gap-20 p-16 bg-black text-[#FAFAFA] dark:bg-darkSecondary">
       <div className="flex flex-col gap-6">
         <h4 className="text-2xl leading-6 font-inter font-bold">Exclusive</h4>
         <p className="text-xl font-medium">Subscribe</p>

@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 const HeroSlider = () => {
   return (
-    <div className="flex justify-center items-center my-12 max-w-[350px] md:max-w-[500px] lg:max-w-[900px]">
+    <div className="flex justify-center items-center my-12 max-w-[320px] sm:max-w-[550px] lg:max-w-[900px]">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={50}
@@ -28,9 +28,9 @@ const HeroSlider = () => {
                 src={product.image}
                 alt={product.title}
               />
-              <div className="absolute z-10 text-white top-16 left-8 ">
+              <div className="absolute z-10 text-white top-20 left-8 sm:top-16 ">
                 <h3>{product.title}</h3>
-                <p className=" leading-[60px] text-5xl font-semibold my-4">
+                <p className="text-2xl sm:text-5xl font-semibold md:my-4">
                   Up to 10%
                   <br />
                   off Voucher

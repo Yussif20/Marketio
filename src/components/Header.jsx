@@ -4,7 +4,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 import { useState } from 'react';
 
 const Header = () => {
-  const [showSearchBar, setShowSearchBar] = useState(true);
+  const [showSearchBar, setShowSearchBar] = useState(false);
   let linkStyles = `hover:font-semibold hover:underline transition-all duration-300`;
 
   const toggleSearchBar = () => {
@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="w-full border-b border-gray-300 py-4 dark:bg-darkSecondary dark:text-white">
       <div className="flex items-center justify-evenly mx-4 md:mx-12 pb-2">
-        <h1 className="text-2xl leading-6 font-bold">
+        <h1 className="text-xl sm:text-2xl leading-6 font-bold">
           MAR<span className="text-basicRed">KET</span>IO
         </h1>
         <nav>
@@ -61,11 +61,11 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="flex items-center gap-6">
-          <button onClick={toggleSearchBar}>
+        <div className="flex items-center justify-center gap-6 ">
+          <button className="block sm:hidden" onClick={toggleSearchBar}>
             {' '}
             <i
-              className={`block sm:hidden fa-solid fa-magnifying-glass hover:text-basicRed ${
+              className={`fa-solid fa-magnifying-glass hover:text-basicRed ${
                 showSearchBar ? 'text-basicRed' : ''
               }`}
             ></i>

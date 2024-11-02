@@ -26,7 +26,7 @@ const Featured = () => {
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <div className="relative h-[284px] w-[400px] md:w-[570px] rounded bg-black max-w-full">
+          <div className="relative h-[284px] w-[300px] sm:w-[570px] rounded bg-black max-w-full">
             <div className="absolute bottom-12 left-8 flex flex-col items-start gap-4 text-white ">
               <h3 className="text-2xl">Women’s Collections</h3>
               <p className="text-sm font-poppins">
