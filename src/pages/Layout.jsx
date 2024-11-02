@@ -27,7 +27,7 @@ const Layout = () => {
     >
       <TopHeader />
       <Header />
-      <main className="font-inter w-screen min-h-screen bg-[#F5F5F5] dark:bg-darkPrimary dark:text-white">
+      <main className="font-inter w-screen min-h-screen bg-white dark:bg-darkPrimary dark:text-white">
         <Outlet />
       </main>
       <Footer />
