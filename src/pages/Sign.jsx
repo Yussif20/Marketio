@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import signImage from '../assets/sign.png';
+import signImage from '../assets/sign/sign.png';
 
 const Sign = () => {
   return (

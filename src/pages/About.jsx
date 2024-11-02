@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import Statics from '@components/statics';
 
-import aboutImg from '../assets/about.jpeg';
+import aboutImg from '../assets/about/about.jpeg';
 import Founders from '../components/Founders';
 import Services from '../components/Services';
 

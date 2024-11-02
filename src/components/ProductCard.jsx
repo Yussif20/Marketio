@@ -10,17 +10,17 @@ const ProductCard = ({
   ratingCount,
 }) => {
   return (
-    <div className="font-poppins relative group rounded w-[270px] h-[350px] ">
+    <div className="font-poppins relative group rounded ">
       {discount && (
         <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
           {discount}
         </div>
       )}
-      <div className="relative">
+      <div className=" relative h-[284px] w-[270px] rounded bg-white flex items-center justify-center">
         <img
           src={imgSrc}
           alt="product"
-          className="h-[250px] object-cover rounded-lg"
+          className="max-h-[200px] max-w-[200px]"
         />
         <div className="absolute top-4 right-2 flex flex-col gap-2">
           <button className="rounded-full p-2 bg-white">

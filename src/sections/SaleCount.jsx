@@ -1,6 +1,8 @@
 import Button from '../components/Button';
 import Countdown from '../components/Countdown';
 
+import headphoneImage from '../assets/sale-count/headphones-lg.jpg';
+
 const SaleCount = () => {
   let colClasses =
     'flex flex-col items-center justify-center rounded-full w-[62px] h-[62px] bg-white text-black';
@@ -11,7 +13,7 @@ const SaleCount = () => {
     <section className="flex items-center justify-center py-16 relative">
       <img
         className="h-[500px] w-[1170px] "
-        src="./headphones-lg.jpg"
+        src={headphoneImage}
         alt="sale Image"
       />
       <div className="z-10 absolute top-36 left-36 flex flex-col items-start ">

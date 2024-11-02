@@ -5,12 +5,12 @@ import TopHeader from '@components/TopHeader';
 import { AppContext } from '../AppContext';
 import { useEffect, useState } from 'react';
 
-import { data } from '../data.js';
+import { productsData } from '../data.js';
 import Footer from '../sections/Footer.jsx';
 
 const Layout = () => {
   const [lang, setLang] = useState('en');
-  const [products, setProducts] = useState(data);
+  const [products, setProducts] = useState(productsData);
 
   useEffect(() => {
     console.log(products);
@@ -27,7 +27,7 @@ const Layout = () => {
     >
       <TopHeader />
       <Header />
-      <main className="font-inter w-screen min-h-screen dark:bg-darkPrimary dark:text-white">
+      <main className="font-inter w-screen min-h-screen bg-[#F5F5F5] dark:bg-darkPrimary dark:text-white">
         <Outlet />
       </main>
       <Footer />

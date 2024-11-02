@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
-import StarRating from './StarRating';
+import ProductCard from './ProductCard';
 
 const ExploreSlider = ({ products }) => {
   const prevRef = useRef(null);
@@ -73,31 +73,17 @@ const ExploreSlider = ({ products }) => {
           <SwiperSlide key={index}>
             <div className="grid grid-cols-4 gap-4">
               {productChunk.map((product) => (
-                <div key={product.id} className="relative">
-                  <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
-                    {product.discount}
-                  </div>
-                  <img
-                    src={product.imgSrc}
-                    alt={product.title}
-                    className="h-[250px] object-cover rounded-lg"
-                  />
-                  <h4 className="text-base mt-2">{product.title}</h4>
-                  <div className="flex items-center gap-4 mt-2">
-                    <span className="text-basicRed">{product.price}</span>
-                    <span className="text-gray-500 line-through">
-                      {product.oldPrice}
-                    </span>
-                  </div>
-                  <div className="mt-2 flex items-center gap-2">
-                    <div className="flex gap-2 text-yellow-500">
-                      <StarRating rating={product.rating} />
-                    </div>
-                    <span className="text-gray-500 text-sm">
-                      ({product.ratingCount})
-                    </span>
-                  </div>
-                </div>
+                <ProductCard
+                  key={product.id}
+                  discount={product.discount}
+                  imgSrc={product.imgSrc}
+                  title={product.title}
+                  icon={product.icon}
+                  price={product.price}
+                  oldPrice={product.oldPrice}
+                  rating={product.rating}
+                  ratingCount={product.ratingCount}
+                ></ProductCard>
               ))}
             </div>
           </SwiperSlide>

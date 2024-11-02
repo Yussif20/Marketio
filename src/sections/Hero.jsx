@@ -1,5 +1,5 @@
 import Aside from '../components/Aside.jsx';
-import ImageSlider from '../components/ImageSlider.jsx';
+import HeroSlider from '../components/HeroSlider.jsx';
 
 const Hero = () => {
   return (
@@ -8,7 +8,7 @@ const Hero = () => {
         <Aside />
       </div>
       <div className="w-full flex items-center justify-center">
-        <ImageSlider />
+        <HeroSlider />
       </div>
     </section>
   );

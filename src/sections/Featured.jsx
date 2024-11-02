@@ -1,9 +1,9 @@
 import Section from '../components/Section';
 import Services from '../components/Services';
 
-import playstationImg from '../assets/playstation.png';
-import speakersImg from '../assets/speakers.png';
-import perfumeImg from '../assets/perfume.png';
+import playstationImg from '../assets/featured/playstation.png';
+import speakersImg from '../assets/featured/speakers.png';
+import perfumeImg from '../assets/featured/perfume.png';
 
 const Featured = () => {
   return (

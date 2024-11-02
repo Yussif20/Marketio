@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
 const SignIn = () => {
@@ -30,6 +31,12 @@ const SignIn = () => {
           Forget Password?
         </button>
       </div>
+      <p className="mt-6 text-gray-500">
+        Don&apos;t have an account?{' '}
+        <Link to="../" className="text-basicRed">
+          Sign Up
+        </Link>
+      </p>
     </div>
   );
 };
