@@ -16,7 +16,7 @@ const BestSelling = () => {
         </div>
       }
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center flex-wrap gap-2 justify-evenly">
         {productsData.map((product, index) => {
           if (index >= 4) return;
           return (

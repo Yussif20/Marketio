@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 const HeroSlider = () => {
   return (
-    <div className="flex justify-center items-center my-12">
+    <div className="flex justify-center items-center my-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px]">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={50}
@@ -24,7 +24,7 @@ const HeroSlider = () => {
           <SwiperSlide key={index}>
             <div className="relative">
               <img
-                className="w-full max-w-[900px] max-h-[350px] object-cover"
+                className="w-full  max-h-[350px] object-cover"
                 src={product.image}
                 alt={product.title}
               />

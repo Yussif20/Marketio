@@ -1,6 +1,6 @@
 const Services = () => {
   return (
-    <div className="flex gap-20 font-poppins pb-20">
+    <div className="flex items-center justify-evenly text-center flex-wrap gap-20 font-poppins pb-20">
       <div className="flex flex-col items-center">
         <div className="bg-black p-4 rounded-full border-[20px] border-gray-400">
           <svg

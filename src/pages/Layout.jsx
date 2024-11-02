@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import TopHeader from '@components/TopHeader';
 
 import { AppContext } from '../AppContext';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { productsData } from '../data.js';
 import Footer from '../sections/Footer.jsx';
@@ -11,10 +11,6 @@ import Footer from '../sections/Footer.jsx';
 const Layout = () => {
   const [lang, setLang] = useState('en');
   const [products, setProducts] = useState(productsData);
-
-  useEffect(() => {
-    console.log(products);
-  }, [lang, products]);
 
   return (
     <AppContext.Provider

@@ -7,12 +7,12 @@ const Header = () => {
 
   return (
     <header className="w-full border-b border-gray-300 py-4 dark:bg-darkSecondary dark:text-white">
-      <div className="flex items-center justify-between mx-12">
+      <div className="flex items-center justify-between mx-4 md:mx-12">
         <h1 className="text-2xl leading-6 font-bold">
           MAR<span className="text-basicRed">KET</span>IO
         </h1>
         <nav>
-          <ul className="flex text-base gap-10">
+          <ul className="lg:flex text-base gap-10 hidden">
             <li className={linkStyles}>
               <NavLink
                 className={({ isActive }) =>
