@@ -10,7 +10,7 @@ const ProductCard = ({
   ratingCount,
 }) => {
   return (
-    <div className="font-poppins relative group rounded pb-2 shadow-lg dark:bg-darkSecondary ">
+    <div className="font-poppins relative group rounded pb-2 shadow-lg dark:bg-darkSecondary border dark:border-none">
       {discount && (
         <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
           {discount}

@@ -10,7 +10,7 @@ import 'swiper/css/pagination';
 
 const HeroSlider = () => {
   return (
-    <div className="flex justify-center items-center my-12 max-w-[350px] md:max-w-[600px] lg:max-w-[900px]">
+    <div className="flex justify-center items-center my-12 max-w-[350px] md:max-w-[500px] lg:max-w-[900px]">
       <Swiper
         modules={[Autoplay, Pagination]}
         spaceBetween={50}

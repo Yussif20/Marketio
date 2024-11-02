@@ -1,13 +1,19 @@
 import { Link, NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
+import { useState } from 'react';
 
 const Header = () => {
+  const [showSearchBar, setShowSearchBar] = useState(true);
   let linkStyles = `hover:font-semibold hover:underline transition-all duration-300`;
+
+  const toggleSearchBar = () => {
+    setShowSearchBar(!showSearchBar);
+  };
 
   return (
     <header className="w-full border-b border-gray-300 py-4 dark:bg-darkSecondary dark:text-white">
-      <div className="flex items-center justify-between mx-4 md:mx-12">
+      <div className="flex items-center justify-evenly mx-4 md:mx-12 pb-2">
         <h1 className="text-2xl leading-6 font-bold">
           MAR<span className="text-basicRed">KET</span>IO
         </h1>
@@ -56,7 +62,18 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex items-center gap-6">
-          <SearchBar />
+          <button onClick={toggleSearchBar}>
+            {' '}
+            <i
+              className={`block sm:hidden fa-solid fa-magnifying-glass hover:text-basicRed ${
+                showSearchBar ? 'text-basicRed' : ''
+              }`}
+            ></i>
+          </button>
+
+          <div className="hidden sm:block">
+            <SearchBar />
+          </div>
           <Link to="/favorite">
             <i className="fa-regular fa-heart hover:text-basicRed text-2xl transition-all duration-300"></i>
           </Link>
@@ -101,6 +118,11 @@ const Header = () => {
           <ThemeSwitcher />
         </div>
       </div>
+      {showSearchBar && (
+        <div className="sm:hidden flex items-center justify-center pt-2">
+          <SearchBar />
+        </div>
+      )}
     </header>
   );
 };

@@ -12,7 +12,7 @@ const categories = [
 
 const Aside = () => {
   return (
-    <aside className="pt-8 w-[250px] border-r">
+    <aside className="pt-8 w-[250px] border-r hidden sm:block">
       <ul className="flex flex-col">
         <li className="relative group w-full py-2 px-12 dark:hover:bg-darkSecondary hover:bg-gray-200 cursor-pointer flex items-center justify-between ">
           Men’s Fashion
