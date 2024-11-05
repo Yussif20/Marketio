@@ -1,14 +1,12 @@
-import CategoryCard from '../components/CategoryCard';
-import CardSlider from '../components/CardSlider';
 import Section from '../components/Section';
 import { categories } from '../data';
+import CategorySlider from '../components/CategorySlider';
 
 const Categories = () => {
   return (
     <Section title="Categories" headline="Browse By Category">
-      <CardSlider
+      <CategorySlider
         products={categories}
-        Card={CategoryCard}
         spaceBetween={10}
         slidesPerView={6}
       />

@@ -1,9 +1,7 @@
 import Button from '../components/Button';
 import Countdown from '../components/Countdown';
-import CardSlider from '../components/CardSlider';
+import ProductSlider from '../components/ProductSlider';
 import Section from '../components/Section';
-import ProductCard from '../components/ProductCard';
-
 import { productsData } from '../data';
 
 const FlashSales = () => {
@@ -28,9 +26,8 @@ const FlashSales = () => {
       }
     >
       <div className="mt-20">
-        <CardSlider
+        <ProductSlider
           products={productsData}
-          Card={ProductCard}
           spaceBetween={20}
           slidesPerView={4}
         />

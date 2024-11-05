@@ -17,7 +17,7 @@ const Founders = () => {
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         allowTouchMove={true}
-        className="w-full max-w-3xl"
+        className="w-full max-w-3xl "
         breakpoints={{
           // when window width is >= 640px
           640: {

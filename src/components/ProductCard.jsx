@@ -27,7 +27,7 @@ const ProductCard = ({
             <i className="fa-solid fa-heart fa-beat text-gray-400 hover:text-basicRed text-2xl transition-all duration-300"></i>
           </button>
           <button className="rounded-full p-2 bg-white">
-            <i className="fa-regular fa-eye fa-bounce text-gray-400 hover:text-basicRed text-2xl transition-all duration-300"></i>
+            <i className="fa-regular fa-eye fa-bounce text-gray-400 hover:text-teal-500 text-2xl transition-all duration-300"></i>
           </button>
         </div>
         <button className="absolute bottom-[-4px] w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2">
