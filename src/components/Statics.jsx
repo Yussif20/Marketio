@@ -1,6 +1,6 @@
 const Statics = () => {
   return (
-    <div className="flex items-center gap-8 py-20">
+    <div className="flex items-center justify-evenly flex-wrap gap-8 py-20">
       <div className="flex flex-col items-center text-center border size-[270px] rounded p-4">
         <div className="bg-black p-4 rounded-full border-[20px] border-gray-400">
           <svg

@@ -15,8 +15,8 @@ const About = () => {
         </Link>
         <span> About</span>
       </h5>
-      <div className="flex items-center gap-6">
-        <div className="flex flex-col gap-6">
+      <div className="flex items-center text-center lg:text-left flex-col lg:flex-row gap-6">
+        <div className="flex flex-col gap-6 order-2 lg:order-1">
           <h2 className="font-semibold text-[54px]">Our Story</h2>
           <p>
             Launced in 2015, Exclusive is South Asia’s premier online shopping
@@ -32,7 +32,7 @@ const About = () => {
           </p>
         </div>
         <img
-          className="w-[700px] h-[600px] rounded-md"
+          className="order-1 lg:order-2 lg:w-[700px] lg:h-[600px] md:w-[550px] md:[440px] rounded-md"
           src={aboutImg}
           alt="About us"
         />
