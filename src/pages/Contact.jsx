@@ -2,17 +2,19 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 
 const Contact = () => {
+  const inputStyles =
+    'bg-[#F5F5F5] dark:bg-darkSecondary outline-none py-2 px-4 rounded w-full md:w-[300px] lg:w-fit';
   return (
-    <section className="mx-12 h-[500px] dark:bg-darkPrimary dark:text-white font-poppins">
+    <section className="mx-12 dark:bg-darkPrimary dark:text-white font-poppins">
       <h5 className="py-10">
         <Link className="text-gray-400" to="/">
           Home /
         </Link>
         <span> Contact</span>
       </h5>
-      <div className="flex gap-8">
-        <div className="w-[340px] shadow-md flex flex-col items-center justify-center ">
-          <div className=" flex flex-col items-start gap-4 py-10 w-10/12 mx-12 border-b">
+      <div className="flex flex-col sm:flex-row py-6 md:py-0 items-center md:justify-evenly gap-8">
+        <div className="order-2 sm:order-1 w-[340px]  shadow-md flex flex-col items-center justify-center ">
+          <div className=" flex flex-col items-center sm:items-start gap-4 py-10 w-10/12 mx-12 border-b">
             <div className="flex items-center gap-4 ">
               <svg
                 width="40"
@@ -35,7 +37,7 @@ const Contact = () => {
             <p className="text-sm">We are available 24/7, 7 days a week.</p>
             <p className="text-sm">Phone: +8801611112222</p>
           </div>
-          <div className="flex flex-col items-start gap-4 py-10 w-10/12 mx-12">
+          <div className="flex flex-col items-center sm:items-start gap-4 py-10 w-10/12 mx-12">
             <div className="flex items-center gap-4 ">
               <svg
                 width="40"
@@ -60,34 +62,34 @@ const Contact = () => {
             <p className="text-sm">Phone: +8801611112222</p>
           </div>
         </div>
-        <div className="flex flex-col gap-6">
-          <div className="flex items-center gap-4">
+        <div className="order-1 sm:order-2 flex flex-col lg:flex-1 gap-6">
+          <div className=" flex flex-col lg:flex-row items-center gap-4">
             <input
               type="text"
               name="name"
               placeholder="Your Name"
-              className="bg-[#F5F5F5] dark:bg-darkSecondary outline-none py-2 px-4 rounded"
+              className={inputStyles}
             />
             <input
               type="mail"
               name="mail"
               placeholder="Your Email"
-              className="bg-[#F5F5F5] dark:bg-darkSecondary outline-none py-2 px-4 rounded"
+              className={inputStyles}
             />
             <input
               type="tel"
               name="phone"
               placeholder="Your Phone"
-              className="bg-[#F5F5F5] dark:bg-darkSecondary outline-none py-2 px-4 rounded"
+              className={inputStyles}
             />
           </div>
           <textarea
-            className="bg-[#F5F5F5] dark:bg-darkSecondary resize-none rounded h-52 py-2 px-4 outline-none"
+            className="bg-[#F5F5F5] dark:bg-darkSecondary resize-none rounded h-36 md:h-52 py-2 px-4 outline-none"
             name="message"
             id="message"
             placeholder="Your Message"
           ></textarea>
-          <Button className="ml-auto">Send Massage</Button>
+          <Button className="lg:ml-auto">Send Massage</Button>
         </div>
       </div>
     </section>

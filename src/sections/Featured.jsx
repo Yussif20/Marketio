@@ -9,7 +9,7 @@ const Featured = () => {
   return (
     <Section title="Featured" headline="New Arrival">
       <div className="flex items-center justify-evenly gap-4 my-12 flex-wrap">
-        <div className="relative h-[600px] w-[570px] max-w-full rounded bg-black flex items-center justify-center ">
+        <div className="relative h-[600px] w-[350px] sm:w-[570px] rounded bg-black flex items-center justify-center ">
           <img
             className="hover:scale-105 transition-transform "
             src={playstationImg}
@@ -40,7 +40,7 @@ const Featured = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="relative h-[284px] w-[270px] rounded bg-black flex items-center justify-center">
               <img
-                className="hover:scale-105 transition-transform "
+                className="hover:scale-105 transition-transform"
                 src={speakersImg}
                 alt="speakers"
               />

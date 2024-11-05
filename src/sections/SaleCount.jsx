@@ -10,13 +10,13 @@ const SaleCount = () => {
   let dateCountClasses = 'font-semibold order-1';
 
   return (
-    <section className="flex items-center justify-center py-16 relative">
+    <section className="flex items-center justify-center py-8 md:py-16 relative">
       <img
         className="h-[500px] w-[1170px] "
         src={headphoneImage}
         alt="sale Image"
       />
-      <div className="z-10 absolute top-36 left-36 flex flex-col items-start ">
+      <div className="z-10 absolute top-20 left-20 md:top-36 md:left-36 flex flex-col items-start ">
         <h4 className="text-basicGreen font-poppins font-semibold order">
           categories
         </h4>
