@@ -104,7 +104,7 @@ const Header = () => {
       </div>
 
       {showSearchBar && (
-        <div className="sm:hidden flex items-center justify-center pt-2 sm:pt-0">
+        <div className="sm:hidden flex items-center justify-center py-2 sm:pt-0">
           <SearchBar />
         </div>
       )}
