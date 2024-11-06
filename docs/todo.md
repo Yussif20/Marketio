@@ -2,7 +2,7 @@
 
 - [x] Initialize the project
 
-- [] Create the project's components
+- [x] Create the project's components
 
   - [x] Typography (add font-family & font-sizes)
   - [x] Top Header

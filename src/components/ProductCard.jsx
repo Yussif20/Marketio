@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import StarRating from './StarRating';
+import { AppContext } from '../AppContext';
 
 const ProductCard = ({
   discount,
@@ -8,7 +10,16 @@ const ProductCard = ({
   oldPrice,
   rating,
   ratingCount,
+  id,
 }) => {
+  const { setFavorite, setCartItems } = useContext(AppContext);
+  const addToFavoriteHandler = () => {
+    setFavorite((prev) => [...prev, id]);
+  };
+  const addToCartHandler = () => {
+    setCartItems((prev) => [...prev, id]);
+  };
+
   return (
     <div className="font-poppins relative group rounded pb-2 shadow-lg dark:bg-darkSecondary border dark:border-none">
       {discount && (
@@ -23,14 +34,20 @@ const ProductCard = ({
           className="max-h-[200px] max-w-[200px] rounded-lg"
         />
         <div className="absolute top-4 right-2 flex flex-col gap-2">
-          <button className="rounded-full p-2 bg-white">
+          <button
+            onClick={addToFavoriteHandler}
+            className="rounded-full p-2 bg-white"
+          >
             <i className="fa-solid fa-heart fa-beat text-gray-400 hover:text-basicRed text-2xl transition-all duration-300"></i>
           </button>
           <button className="rounded-full p-2 bg-white">
             <i className="fa-regular fa-eye fa-bounce text-gray-400 hover:text-teal-500 text-2xl transition-all duration-300"></i>
           </button>
         </div>
-        <button className="absolute bottom-[-4px] w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2">
+        <button
+          onClick={addToCartHandler}
+          className="absolute bottom-[-4px] w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2"
+        >
           Add to Cart
         </button>
       </div>

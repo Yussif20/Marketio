@@ -14,45 +14,15 @@ const CategorySlider = ({ products }) => {
       <div className="flex gap-2 absolute right-8 top-[-48px] ">
         <button
           ref={prevRef}
-          className="text-gray-700 dark:text-white rounded-full p-2 bg-gray-200 
-            hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600"
+          className="text-darkPrimary dark:text-white bg-gray-200 dark:bg-gray-700 rounded-full py-2 px-3 hover:bg-gray-100  dark:hover:bg-gray-600"
         >
-          <svg
-            width="18"
-            height="16"
-            viewBox="0 0 18 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8 1L1 8L8 15M1 8H17"
-              stroke="black"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <i className="fa-solid fa-arrow-left"></i>
         </button>
         <button
           ref={nextRef}
-          className="text-gray-700 dark:text-white rounded-full p-2 bg-gray-200 
-            hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600"
+          className="text-darkPrimary dark:text-white bg-gray-200 dark:bg-gray-700 rounded-full py-2 px-3 hover:bg-gray-100  dark:hover:bg-gray-600"
         >
-          <svg
-            width="19"
-            height="16"
-            viewBox="0 0 19 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M1.5 8H18M18 8L11 1M18 8L11 15"
-              stroke="black"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <i className="fa-solid fa-arrow-right"></i>
         </button>
       </div>
       <Swiper
@@ -75,7 +45,7 @@ const CategorySlider = ({ products }) => {
         }}
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id}>
+          <SwiperSlide className="pt-6" key={product.id}>
             <CategoryCard title={product.title} icon={product.icon} />
           </SwiperSlide>
         ))}

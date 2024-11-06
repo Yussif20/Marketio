@@ -84,7 +84,7 @@ const Contact = () => {
             />
           </div>
           <textarea
-            className="bg-[#F5F5F5] dark:bg-darkSecondary resize-none rounded h-36 md:h-52 py-2 px-4 outline-none"
+            className="bg-[#F5F5F5] dark:bg-darkSecondary resize-none rounded h-36 md:h-52 max-w-[730px] py-2 px-4 outline-none"
             name="message"
             id="message"
             placeholder="Your Message"

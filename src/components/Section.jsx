@@ -7,7 +7,7 @@ const Section = ({ title, headline, children, isMultiHeadline = false }) => {
       {isMultiHeadline ? (
         headline
       ) : (
-        <h3 className="text-4xl font-semibold my-4">{headline}</h3>
+        <h3 className="text-4xl font-semibold my-4 pb-8 sm:pb-0">{headline}</h3>
       )}
       <h3></h3>
 

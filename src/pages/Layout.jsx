@@ -11,6 +11,8 @@ import Footer from '../sections/Footer.jsx';
 const Layout = () => {
   const [lang, setLang] = useState('en');
   const [products, setProducts] = useState(productsData);
+  const [favorite, setFavorite] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   return (
     <AppContext.Provider
@@ -19,6 +21,10 @@ const Layout = () => {
         setLang,
         products,
         setProducts,
+        favorite,
+        setFavorite,
+        setCartItems,
+        cartItems,
       }}
     >
       <TopHeader />

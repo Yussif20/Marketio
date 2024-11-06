@@ -2,12 +2,17 @@ import { Link, NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
 import { useState } from 'react';
+import { AppContext } from '../AppContext';
+import { useContext } from 'react';
 
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const { favorite, cartItems } = useContext(AppContext);
 
   let linkStyles = `hover:font-semibold hover:underline transition-all duration-300`;
+  const favoriteCount = favorite.length;
+  const cartItemsCount = cartItems.length;
 
   const toggleSearchBar = () => {
     setShowSearchBar(!showSearchBar);
@@ -88,12 +93,24 @@ const Header = () => {
           <div className="hidden sm:block">
             <SearchBar />
           </div>
-          <div className="flex items-center gap-2">
-            <Link to="/favorite">
+          <div className="flex items-center gap-4">
+            <Link to="/favorite" className="relative">
               <i className="fa-regular fa-heart hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
+
+              {favoriteCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                  {favoriteCount}
+                </span>
+              )}
             </Link>
-            <Link to="/cart">
+            <Link to="/cart" className="relative">
               <i className="fa-solid fa-cart-shopping hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
+
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                  {cartItemsCount}
+                </span>
+              )}
             </Link>
             <button>
               <i className="fa-regular fa-user hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
