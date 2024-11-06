@@ -33,8 +33,7 @@ const Header = () => {
             ></i>
           </button>
         </div>
-
-        <nav className="hidden w-full xl:w-10/12 lg:flex justify-evenly items-center text-base list-none ">
+        <nav className="hidden w-full lg:w-6/12 lg:flex justify-evenly items-center text-base list-none ">
           <li className={linkStyles}>
             <NavLink
               className={({ isActive }) =>
@@ -77,7 +76,7 @@ const Header = () => {
           </li>
         </nav>
 
-        <button className="block sm:hidden" onClick={toggleSearchBar}>
+        <button className="block sm:hidden mt-2" onClick={toggleSearchBar}>
           <i
             className={`fa-solid fa-magnifying-glass text-xl sm:text-2xl  hover:text-basicRed ${
               showSearchBar ? 'text-basicRed' : ''
@@ -85,7 +84,7 @@ const Header = () => {
           ></i>
         </button>
 
-        <div className="flex items-center justify-evenly gap-6">
+        <div className="flex items-center justify-evenly gap-6 mt-2">
           <div className="hidden sm:block">
             <SearchBar />
           </div>
