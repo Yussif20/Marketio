@@ -16,7 +16,7 @@ const SaleCount = () => {
         src={headphoneImage}
         alt="sale Image"
       />
-      <div className="z-10 absolute top-20 left-20 md:top-40 md:left-56 flex flex-col items-start ">
+      <div className="z-10 absolute top-10 left-10 sm:top-20 sm:left-20 md:top-40 md:left-56 flex flex-col items-start ">
         <h4 className="text-basicGreen font-poppins font-semibold order">
           categories
         </h4>

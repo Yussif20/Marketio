@@ -33,7 +33,7 @@
   - [] Wishlist
   - [] cart
 - [] Project's functionality
-  - [] Responsiveness
+  - [x] Responsiveness
   - [] Authentication
   - [] Add items to favorites
   - [] Add Cart and Checkout
