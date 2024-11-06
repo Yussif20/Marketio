@@ -71,7 +71,7 @@ const ExploreSlider = ({ products }) => {
       >
         {chunkedProducts.map((productChunk, index) => (
           <SwiperSlide key={index}>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {productChunk.map((product) => (
                 <ProductCard
                   key={product.id}
@@ -83,7 +83,7 @@ const ExploreSlider = ({ products }) => {
                   oldPrice={product.oldPrice}
                   rating={product.rating}
                   ratingCount={product.ratingCount}
-                ></ProductCard>
+                />
               ))}
             </div>
           </SwiperSlide>
@@ -94,3 +94,4 @@ const ExploreSlider = ({ products }) => {
 };
 
 export default ExploreSlider;
+``;
