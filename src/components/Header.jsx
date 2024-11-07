@@ -2,13 +2,12 @@ import { Link, NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
 import { useState } from 'react';
-import { AppContext } from '../AppContext';
-import { useContext } from 'react';
+import { useProductContext } from '../ProductContext';
 
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const { favorite, cartItems } = useContext(AppContext);
+  const { favorite, cartItems } = useProductContext();
 
   let linkStyles = `hover:font-semibold hover:underline transition-all duration-300`;
   const favoriteCount = favorite.length;
@@ -94,7 +93,7 @@ const Header = () => {
             <SearchBar />
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/favorite" className="relative">
+            <Link to="/wishlist" className="relative">
               <i className="fa-regular fa-heart hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
 
               {favoriteCount > 0 && (

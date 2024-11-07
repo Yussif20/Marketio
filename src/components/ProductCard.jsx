@@ -1,6 +1,5 @@
-import { useContext } from 'react';
 import StarRating from './StarRating';
-import { AppContext } from '../AppContext';
+import { useProductContext } from '../ProductContext';
 
 const ProductCard = ({
   discount,
@@ -10,15 +9,9 @@ const ProductCard = ({
   oldPrice,
   rating,
   ratingCount,
-  id,
+  product,
 }) => {
-  const { setFavorite, setCartItems } = useContext(AppContext);
-  const addToFavoriteHandler = () => {
-    setFavorite((prev) => [...prev, id]);
-  };
-  const addToCartHandler = () => {
-    setCartItems((prev) => [...prev, id]);
-  };
+  const { addToFavorite, addToCart } = useProductContext();
 
   return (
     <div className="font-poppins relative group rounded pb-2 shadow-lg dark:bg-darkSecondary border dark:border-none">
@@ -35,7 +28,7 @@ const ProductCard = ({
         />
         <div className="absolute top-4 right-2 flex flex-col gap-2">
           <button
-            onClick={addToFavoriteHandler}
+            onClick={() => addToFavorite(product)}
             className="rounded-full p-2 bg-white"
           >
             <i className="fa-solid fa-heart fa-beat text-gray-400 hover:text-basicRed text-2xl transition-all duration-300"></i>
@@ -45,7 +38,7 @@ const ProductCard = ({
           </button>
         </div>
         <button
-          onClick={addToCartHandler}
+          onClick={() => addToCart(product)}
           className="absolute bottom-[-4px] w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2"
         >
           Add to Cart

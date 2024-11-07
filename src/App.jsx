@@ -8,6 +8,8 @@ import About from './pages/About';
 import Sign from './pages/Sign';
 import SignUp from './sections/SignUp';
 import SignIn from './sections/SignIn';
+import Cart from './pages/Cart';
+import Wishlist from './pages/Wishlist';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,8 @@ const router = createBrowserRouter([
           { path: 'in', element: <SignIn /> },
         ],
       },
+      { path: '/cart', element: <Cart /> },
+      { path: '/wishlist', element: <Wishlist /> },
     ],
   },
 ]);

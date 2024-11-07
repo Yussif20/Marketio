@@ -62,6 +62,7 @@ const ProductSlider = ({ products, spaceBetween }) => {
               oldPrice={product.oldPrice}
               rating={product.rating}
               ratingCount={product.ratingCount}
+              product={product}
             >
               {/* Content for each slide */}
               <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">

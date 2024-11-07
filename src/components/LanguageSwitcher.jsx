@@ -1,6 +1,6 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import Select from 'react-select';
-import { AppContext } from '../AppContext';
+// import { AppContext } from '../AppContext';
 
 const options = [
   { value: 'en', label: 'English' },
@@ -9,16 +9,16 @@ const options = [
 ];
 
 const LanguageSwitcher = () => {
-  const { setLang, lang } = useContext(AppContext);
+  // const { setLang, lang } = useContext(AppContext);
 
-  const languageChangeHandler = (e) => {
-    setLang(e.value);
-    console.log(lang);
-  };
+  // const languageChangeHandler = (e) => {
+  //   setLang(e.value);
+  //   console.log(lang);
+  // };
   return (
     <Select
       defaultValue={options[0]}
-      onChange={languageChangeHandler}
+      // onChange={languageChangeHandler}
       classNames={{
         indicatorSeparator: () => 'hidden',
         input: () => 'dark:text-gray-100',
