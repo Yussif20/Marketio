@@ -1,33 +1,25 @@
-import { useProductContext } from '../ProductContext';
-import JustForYou from '../sections/justForYou';
-import Button from '../components/Button';
 import StarRating from '../components/StarRating';
+import { productsData } from '../data';
+import { Link } from 'react-router-dom';
+import Button from '../components/Button';
+import { useProductContext } from '../ProductContext';
 
-const Wishlist = () => {
-  const {
-    favorite,
-    addToCart,
-    clearFavorites,
-    clearCart,
-    removeFromFavorite,
-    addToBag,
-  } = useProductContext();
-
+const JustForYou = () => {
+  const { addToCart } = useProductContext();
   return (
-    <section className="py-6 px-2 sm:px-12">
-      <div className="flex flex-col sm:flex-row items-center justify-between my-6">
-        <h2 className="font-poppins text-xl mb-4">
-          Wishlist({favorite.length})
-        </h2>
-        <Button onClick={addToBag} variant="secondary">
-          Move All To Bag
+    <>
+      <div className="flex flex-col sm:flex-row gap-6 items-center justify-between my-6">
+        <h3 className="relative ml-6 font-poppins text-xl after:content-[' '] after:w-5 after:h-10 after:bg-red-500 after:absolute after:left-[-24px] after:top-[-8px] ">
+          Just for you
+        </h3>
+        <Button variant="secondary">
+          <Link to="../">See All</Link>
         </Button>
       </div>
-      {favorite.length === 0 ? (
-        <p className="text-gray-400">No items in your favorite list.</p>
-      ) : (
-        <ul className="flex items-center flex-wrap gap-2 justify-evenly">
-          {favorite.map((product) => (
+      <div className="flex items-center flex-wrap gap-2 justify-evenly">
+        {productsData.map((product, index) => {
+          if (index >= 4) return;
+          return (
             <div
               key={product.id}
               className="font-poppins relative group rounded pb-2 my-4 shadow-lg dark:bg-darkSecondary border dark:border-none"
@@ -44,11 +36,8 @@ const Wishlist = () => {
                   className="max-h-[200px] max-w-[200px] rounded-lg"
                 />
                 <div className="absolute top-4 right-2 flex flex-col gap-2">
-                  <button
-                    onClick={() => removeFromFavorite(product.id)}
-                    className="rounded-full p-2 bg-white"
-                  >
-                    <i className="fa-solid fa-trash fa-bounce text-black hover:text-basicRed text-2xl transition-all duration-300"></i>
+                  <button className="rounded-full p-2 bg-white">
+                    <i className="fa-regular fa-eye fa-bounce text-gray-400 hover:text-teal-500 text-2xl transition-all duration-300"></i>
                   </button>
                 </div>
                 <button
@@ -76,16 +65,11 @@ const Wishlist = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </ul>
-      )}
-      <JustForYou />
-      <div className="flex flex-col sm:flex-row gap-6 w-full items-center justify-between py-6">
-        <Button onClick={() => clearFavorites()}>Clear Favorite</Button>
-        <Button onClick={() => clearCart()}>Clear Cart</Button>
+          );
+        })}
       </div>
-    </section>
+    </>
   );
 };
 
-export default Wishlist;
+export default JustForYou;

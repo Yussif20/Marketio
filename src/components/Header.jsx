@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
 import { useState } from 'react';
@@ -93,7 +93,12 @@ const Header = () => {
             <SearchBar />
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/wishlist" className="relative">
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? ' text-basicRed underline relative' : 'relative'
+              }
+              to="/wishlist"
+            >
               <i className="fa-regular fa-heart hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
 
               {favoriteCount > 0 && (
@@ -101,8 +106,13 @@ const Header = () => {
                   {favoriteCount}
                 </span>
               )}
-            </Link>
-            <Link to="/cart" className="relative">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? ' text-basicRed underline relative' : 'relative'
+              }
+              to="/cart"
+            >
               <i className="fa-solid fa-cart-shopping hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
 
               {cartItemsCount > 0 && (
@@ -110,7 +120,7 @@ const Header = () => {
                   {cartItemsCount}
                 </span>
               )}
-            </Link>
+            </NavLink>
             <button>
               <i className="fa-regular fa-user hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
             </button>

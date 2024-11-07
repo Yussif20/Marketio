@@ -3,10 +3,12 @@ import { productsData } from './data.js';
 
 const ProductContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
+
   const clearFavorites = () => setFavorite([]);
   const clearCart = () => setCartItems([]);
 
@@ -36,6 +38,10 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
+  const removeFromFavorite = (productId) => {
+    setFavorite((prev) => prev.filter((item) => item.id !== productId));
+  };
+
   const addToCart = (product, quantity = 1) => {
     setCartItems((prev) => {
       const cartItem = prev.find((item) => item.id === product.id);
@@ -50,8 +56,22 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
-  const removeFromFavorite = (productId) => {
-    setFavorite((prev) => prev.filter((item) => item.id !== productId));
+  // Function to add all favorite items to cart
+  const addToBag = () => {
+    setCartItems((prev) => {
+      const newCartItems = [...prev];
+      favorite.forEach((favItem) => {
+        const cartItem = newCartItems.find((item) => item.id === favItem.id);
+        if (cartItem) {
+          // If item is already in the cart, increment quantity by 1 (or more if desired)
+          cartItem.quantity += 1;
+        } else {
+          // If item is not in the cart, add it with a default quantity of 1
+          newCartItems.push({ ...favItem, quantity: 1 });
+        }
+      });
+      return newCartItems;
+    });
   };
 
   return (
@@ -61,10 +81,11 @@ export const ProductProvider = ({ children }) => {
         favorite,
         cartItems,
         addToFavorite,
+        removeFromFavorite,
         addToCart,
+        addToBag,
         clearFavorites,
         clearCart,
-        removeFromFavorite,
       }}
     >
       {children}

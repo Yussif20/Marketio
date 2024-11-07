@@ -3,7 +3,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
-import StarRating from './StarRating';
 import ProductCard from './ProductCard';
 
 const ProductSlider = ({ products, spaceBetween }) => {
@@ -63,40 +62,7 @@ const ProductSlider = ({ products, spaceBetween }) => {
               rating={product.rating}
               ratingCount={product.ratingCount}
               product={product}
-            >
-              {/* Content for each slide */}
-              <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
-                {product.discount}
-              </div>
-              <div className="relative">
-                <img
-                  src={product.imgSrc}
-                  alt="product"
-                  className="h-[250px] object-cover rounded-lg"
-                />
-                <div className="absolute top-4 right-2 flex flex-col gap-2">
-                  {/* Buttons */}
-                </div>
-                <button className="absolute bottom-0 w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2">
-                  Add to Cart
-                </button>
-              </div>
-              <h4 className="text-base">{product.title}</h4>
-              <div className="flex items-center gap-4 mt-2">
-                <span className="text-basicRed">{product.price}</span>
-                <span className="text-gray-500 line-through">
-                  {product.oldPrice}
-                </span>
-              </div>
-              <div className="mt-2 flex items-center gap-2">
-                <div className="flex gap-2 text-yellow-500">
-                  <StarRating rating={product.rating} />
-                </div>
-                <span className="text-gray-500 text-sm">
-                  ({product.ratingCount})
-                </span>
-              </div>
-            </ProductCard>
+            />
           </SwiperSlide>
         ))}
       </Swiper>
