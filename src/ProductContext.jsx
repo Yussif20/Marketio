@@ -1,18 +1,33 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState, useContext, useEffect } from 'react';
 import { productsData } from './data.js';
 
-// Create the context
 const ProductContext = createContext();
 
-// Custom hook for easier usage
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
-  const [favorite, setFavorite] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const clearFavorites = () => setFavorite([]);
+  const clearCart = () => setCartItems([]);
 
-  // Add to Favorites
+  const [favorite, setFavorite] = useState(() => {
+    const savedFavorites = localStorage.getItem('favorite');
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
+
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem('cartItems');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('favorite', JSON.stringify(favorite));
+  }, [favorite]);
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
   const addToFavorite = (product) => {
     setFavorite((prev) => {
       const isFavorite = prev.some((item) => item.id === product.id);
@@ -21,7 +36,6 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
-  // Add to Cart with Quantity
   const addToCart = (product, quantity = 1) => {
     setCartItems((prev) => {
       const cartItem = prev.find((item) => item.id === product.id);
@@ -36,9 +50,22 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
+  const removeFromFavorite = (productId) => {
+    setFavorite((prev) => prev.filter((item) => item.id !== productId));
+  };
+
   return (
     <ProductContext.Provider
-      value={{ products, favorite, cartItems, addToFavorite, addToCart }}
+      value={{
+        products,
+        favorite,
+        cartItems,
+        addToFavorite,
+        addToCart,
+        clearFavorites,
+        clearCart,
+        removeFromFavorite,
+      }}
     >
       {children}
     </ProductContext.Provider>

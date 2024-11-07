@@ -55,6 +55,7 @@ const ExploreSlider = ({ products }) => {
                   oldPrice={product.oldPrice}
                   rating={product.rating}
                   ratingCount={product.ratingCount}
+                  product={product}
                 />
               ))}
             </div>
