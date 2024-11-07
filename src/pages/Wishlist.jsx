@@ -16,9 +16,7 @@ const Wishlist = () => {
   return (
     <section className="py-6 px-2 sm:px-12">
       <div className="flex flex-col sm:flex-row items-center justify-between my-6">
-        <h2 className="font-poppins text-xl mb-4">
-          Wishlist({favorite.length})
-        </h2>
+        <h2 className="font-poppins text-xl">Wishlist({favorite.length})</h2>
         <Button onClick={addToBag} variant="secondary">
           Move All To Bag
         </Button>

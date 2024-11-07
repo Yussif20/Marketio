@@ -30,13 +30,17 @@
   - [x] About page
   - [x] Sign up page
   - [x] Sign page
-  - [] Wishlist
-  - [] cart
+  - [x] Wishlist
+  - [x] cart
+  - [x] The account Page
 - [] Project's functionality
   - [x] Responsiveness
+  - [x] Add items to favorites
+  - [x] Add items to Cart
+  - [] make the cart list responsive
+  - [] make the account dropdown menu
   - [] Authentication
-  - [] Add items to favorites
-  - [] Add Cart and Checkout
+  - [] Checkout and payment
   - [] Search for products
   - [] Enable Rating
 - Bonus

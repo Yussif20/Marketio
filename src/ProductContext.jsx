@@ -56,17 +56,20 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
-  // Function to add all favorite items to cart
+  const removeFromCart = (productId) => {
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.id !== productId)
+    );
+  };
+
   const addToBag = () => {
     setCartItems((prev) => {
       const newCartItems = [...prev];
       favorite.forEach((favItem) => {
         const cartItem = newCartItems.find((item) => item.id === favItem.id);
         if (cartItem) {
-          // If item is already in the cart, increment quantity by 1 (or more if desired)
           cartItem.quantity += 1;
         } else {
-          // If item is not in the cart, add it with a default quantity of 1
           newCartItems.push({ ...favItem, quantity: 1 });
         }
       });
@@ -74,18 +77,31 @@ export const ProductProvider = ({ children }) => {
     });
   };
 
+  const updateCartItemQuantity = (productId, newQuantity) => {
+    setCartItems((prev) =>
+      prev.map((item) =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
   return (
     <ProductContext.Provider
       value={{
         products,
+        setProducts,
         favorite,
+        setFavorite,
         cartItems,
+        setCartItems,
         addToFavorite,
         removeFromFavorite,
         addToCart,
         addToBag,
         clearFavorites,
         clearCart,
+        updateCartItemQuantity,
+        removeFromCart,
       }}
     >
       {children}
