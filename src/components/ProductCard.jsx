@@ -1,5 +1,6 @@
 import StarRating from './StarRating';
 import { useProductContext } from '../ProductContext';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({
   discount,
@@ -33,9 +34,9 @@ const ProductCard = ({
           >
             <i className="fa-solid fa-heart fa-beat text-gray-400 hover:text-basicRed text-2xl transition-all duration-300"></i>
           </button>
-          <button className="rounded-full p-2 bg-white">
+          <Link to={`/${product.id}`} className="rounded-full p-2 bg-white">
             <i className="fa-regular fa-eye fa-bounce text-gray-400 hover:text-teal-500 text-2xl transition-all duration-300"></i>
-          </button>
+          </Link>
         </div>
         <button
           onClick={() => addToCart(product)}

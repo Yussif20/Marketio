@@ -10,6 +10,7 @@ import SignUp from './sections/SignUp';
 import SignIn from './sections/SignIn';
 import Cart from './pages/Cart';
 import Wishlist from './pages/Wishlist';
+import ProductDetails from './pages/ProductDetails';
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       },
       { path: '/cart', element: <Cart /> },
       { path: '/wishlist', element: <Wishlist /> },
+      { path: '/:id', element: <ProductDetails /> },
     ],
   },
 ]);

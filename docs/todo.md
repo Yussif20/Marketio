@@ -32,12 +32,13 @@
   - [x] Sign page
   - [x] Wishlist
   - [x] cart
-  - [x] The account Page
+  - [] The Product Details Page
+  - [] The account Page
 - [] Project's functionality
   - [x] Responsiveness
   - [x] Add items to favorites
   - [x] Add items to Cart
-  - [] make the cart list responsive
+  - [x] make the cart list responsive
   - [] make the account dropdown menu
   - [] Authentication
   - [] Checkout and payment
