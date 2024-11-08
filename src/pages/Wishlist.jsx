@@ -1,5 +1,5 @@
 import { useProductContext } from '../ProductContext';
-import JustForYou from '@sections/justForYou';
+import JustForYou from '@sections/JustForYou';
 import Button from '@components/Button';
 import StarRating from '@components/StarRating';
 
