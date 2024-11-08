@@ -1,8 +1,8 @@
-import Section from '../components/Section';
-import Button from '../components/Button';
+import Section from '@components/Section';
+import Button from '@components/Button';
+import ProductCard from '@components/ProductCard';
 
 import { productsData } from '../data';
-import ProductCard from '../components/ProductCard';
 
 const BestSelling = () => {
   return (

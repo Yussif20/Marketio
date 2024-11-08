@@ -1,6 +1,6 @@
-import qrImg from '../assets/footer/qrcode.svg';
-import googlePlayImg from '../assets/footer/google-play.svg';
-import playStoreImg from '../assets/footer/download-appstore.svg';
+import qrImg from '@assets/footer/qrcode.svg';
+import googlePlayImg from '@assets/footer/google-play.svg';
+import playStoreImg from '@assets/footer/download-appstore.svg';
 
 const Footer = () => {
   return (

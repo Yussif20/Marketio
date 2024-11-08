@@ -1,5 +1,5 @@
-import Aside from '../components/Aside.jsx';
-import HeroSlider from '../components/HeroSlider.jsx';
+import Aside from '@components/Aside.jsx';
+import HeroSlider from '@components/HeroSlider.jsx';
 
 const Hero = () => {
   return (

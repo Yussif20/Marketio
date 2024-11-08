@@ -1,7 +1,7 @@
-import StarRating from '../components/StarRating';
+import StarRating from '@components/StarRating';
 import { productsData } from '../data';
 import { Link } from 'react-router-dom';
-import Button from '../components/Button';
+import Button from '@components/Button';
 import { useProductContext } from '../ProductContext';
 
 const JustForYou = ({ headline }) => {

@@ -1,6 +1,6 @@
-import Section from '../components/Section';
+import Section from '@components/Section';
+import CategorySlider from '@components/CategorySlider';
 import { categories } from '../data';
-import CategorySlider from '../components/CategorySlider';
 
 const Categories = () => {
   return (

@@ -1,7 +1,7 @@
 import { useProductContext } from '../ProductContext';
-import JustForYou from '../sections/justForYou';
-import Button from '../components/Button';
-import StarRating from '../components/StarRating';
+import JustForYou from '@sections/justForYou';
+import Button from '@components/Button';
+import StarRating from '@components/StarRating';
 
 const Wishlist = () => {
   const {

@@ -1,7 +1,7 @@
-import Button from '../components/Button';
+import Button from '@components/Button';
 
-import ExploreSlider from '../components/ExploreSlider';
-import Section from '../components/Section';
+import ExploreSlider from '@components/ExploreSlider';
+import Section from '@components/Section';
 import { productsData } from '../data';
 
 const Explore = () => {

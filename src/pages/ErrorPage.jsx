@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-// import TopHeader from '../components/TopHeader';
-import Footer from '../sections/Footer';
-import Button from '../components/Button';
+import Header from '@components/Header';
+import Footer from '@sections/Footer';
+import Button from '@components/Button';
 
 const ErrorPage = () => {
   return (

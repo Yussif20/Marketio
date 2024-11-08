@@ -1,8 +1,8 @@
 // Cart.jsx
 import { Link } from 'react-router-dom';
 import { useProductContext } from '../ProductContext';
-import CartItem from '../components/CartItem';
-import Button from '../components/Button';
+import CartItem from '@components/CartItem';
+import Button from '@components/Button';
 
 const Cart = () => {
   const { cartItems } = useProductContext();

@@ -1,7 +1,7 @@
-import Button from '../components/Button';
-import Countdown from '../components/Countdown';
+import Button from '@components/Button';
+import Countdown from '@components/Countdown';
 
-import headphoneImage from '../assets/sale-count/headphones-lg.jpg';
+import headphoneImage from '@assets/sale-count/headphones-lg.jpg';
 
 const SaleCount = () => {
   let colClasses =

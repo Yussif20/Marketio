@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useProductContext } from '../ProductContext';
-import JustForYou from '../sections/justForYou';
-import StarRating from '../components/StarRating';
-import Button from '../components/Button';
-import QuantitySelector from '../components/QuantitySelector';
+import JustForYou from '@sections/justForYou';
+import StarRating from '@components/StarRating';
+import Button from '@components/Button';
+import QuantitySelector from '@components/QuantitySelector';
 
 const ProductDetails = () => {
   const { id } = useParams();

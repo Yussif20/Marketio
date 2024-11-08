@@ -1,7 +1,7 @@
 import Header from '@components/Header';
 import { Outlet } from 'react-router-dom';
 import TopHeader from '@components/TopHeader';
-import Footer from '../sections/Footer.jsx';
+import Footer from '@sections/Footer.jsx';
 
 import { ProductProvider } from '../ProductContext.jsx';
 

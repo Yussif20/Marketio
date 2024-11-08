@@ -1,7 +1,7 @@
-import Button from '../components/Button';
-import Countdown from '../components/Countdown';
-import ProductSlider from '../components/ProductSlider';
-import Section from '../components/Section';
+import Button from '@components/Button';
+import Countdown from '@components/Countdown';
+import ProductSlider from '@components/ProductSlider';
+import Section from '@components/Section';
 import { productsData } from '../data';
 
 const FlashSales = () => {

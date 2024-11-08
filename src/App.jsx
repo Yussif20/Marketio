@@ -2,15 +2,15 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Layout from '@pages/Layout';
 import Home from '@pages/Home';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import ErrorPage from './pages/ErrorPage';
-import Contact from './pages/Contact';
-import About from './pages/About';
-import Sign from './pages/Sign';
-import SignUp from './sections/SignUp';
-import SignIn from './sections/SignIn';
-import Cart from './pages/Cart';
-import Wishlist from './pages/Wishlist';
-import ProductDetails from './pages/ProductDetails';
+import ErrorPage from '@pages/ErrorPage';
+import Contact from '@pages/Contact';
+import About from '@pages/About';
+import Sign from '@pages/Sign';
+import SignUp from '@sections/SignUp';
+import SignIn from '@sections/SignIn';
+import Cart from '@pages/Cart';
+import Wishlist from '@pages/Wishlist';
+import ProductDetails from '@pages/ProductDetails';
 
 const router = createBrowserRouter([
   {
