@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Statics from '@components/statics';
+import Statics from '@components/Statics';
 
 import aboutImg from '../assets/about/about.jpeg';
 import Founders from '../components/Founders';
