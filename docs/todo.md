@@ -39,7 +39,7 @@
   - [x] Add items to favorites
   - [x] Add items to Cart
   - [x] make the cart list responsive
-  - [] make the account dropdown menu
+  - [x] make the account dropdown menu
   - [] Authentication
   - [] Checkout and payment
   - [] Search for products

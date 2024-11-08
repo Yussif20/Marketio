@@ -3,6 +3,7 @@ import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
 import { useState } from 'react';
 import { useProductContext } from '../ProductContext';
+import AccountMenu from './AccountMenu';
 
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -123,9 +124,7 @@ const Header = () => {
                 </span>
               )}
             </NavLink>
-            <button>
-              <i className="fa-regular fa-user hover:text-basicRed text-xl sm:text-2xl transition-all duration-300"></i>
-            </button>
+            <AccountMenu />
           </div>
           <ThemeSwitcher />
         </div>
