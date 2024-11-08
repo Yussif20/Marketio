@@ -17,9 +17,11 @@ const Wishlist = () => {
     <section className="py-6 px-2 sm:px-12">
       <div className="flex flex-col sm:flex-row items-center justify-between my-6">
         <h2 className="font-poppins text-xl">Wishlist({favorite.length})</h2>
-        <Button onClick={addToBag} variant="secondary">
-          Move All To Bag
-        </Button>
+        {favorite.length > 0 && (
+          <Button onClick={addToBag} variant="secondary">
+            Move All To Bag
+          </Button>
+        )}
       </div>
       {favorite.length === 0 ? (
         <p className="text-gray-400">No items in your favorite list.</p>

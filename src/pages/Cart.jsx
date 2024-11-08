@@ -19,7 +19,7 @@ const Cart = () => {
   const total = subtotal + shippingFee;
 
   return (
-    <section className="mx-12">
+    <section className="mx-2 sm:mx-6 md:mx-10 lg:mx-12">
       <h5 className="py-10">
         <Link className="text-gray-400" to="/">
           Home /

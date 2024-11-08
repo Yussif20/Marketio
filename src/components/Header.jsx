@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import ThemeSwitcher from './ThemeSwitcher';
 import { useState } from 'react';
@@ -25,7 +25,9 @@ const Header = () => {
     <header className="w-full border-b border-gray-300 py-4 dark:bg-darkSecondary dark:text-white">
       <div className="flex items-center justify-evenly mx-2 sm:mx-4 md:mx-12">
         <h1 className="text-xl sm:text-2xl font-bold">
-          MAR<span className="text-basicRed">KET</span>IO
+          <Link to="/">
+            MAR<span className="text-basicRed">KET</span>IO
+          </Link>
         </h1>
 
         <div className="lg:hidden">

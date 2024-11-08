@@ -20,13 +20,13 @@ const CartItem = ({ product }) => {
   };
 
   return (
-    <li className="group grid grid-cols-4 items-center justify-between p-4 mb-4 shadow dark:bg-darkSecondary rounded">
-      <div className="flex items-center space-x-4">
-        <div className="relative">
+    <li className="group grid  grid-cols-4 items-center justify-between p-4 mb-4 shadow dark:bg-darkSecondary rounded relative">
+      <div className="flex items-center sm:space-x-4">
+        <div className="md:relative">
           <img
             src={product.imgSrc}
             alt={product.title}
-            className="w-16 h-16 rounded"
+            className="hidden md:block w-16 h-16 rounded"
           />
           <button
             onClick={handleRemove}
@@ -36,9 +36,9 @@ const CartItem = ({ product }) => {
           </button>
         </div>
 
-        <h3 className="text-lg font-semibold">{product.title}</h3>
+        <h3 className="text-sm sm:text-lg font-semibold">{product.title}</h3>
       </div>
-      <p className="text-gray-500 dark:text-gray-300 text-center">
+      <p className="text-gray-500 dark:text-gray-300 text-center text-sm sm:text-base">
         {product.price}
       </p>
       <div className="flex justify-center">
@@ -48,7 +48,7 @@ const CartItem = ({ product }) => {
           onDecrease={handleDecrease}
         />
       </div>
-      <p className="text-gray-500 dark:text-gray-300 text-center">
+      <p className="text-gray-500 dark:text-gray-300 text-center text-sm sm:text-base">
         $
         {(Number(product.price.replace('$', '')) * product.quantity).toFixed(2)}
       </p>
