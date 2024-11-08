@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import { useProductContext } from '../ProductContext';
 
-const JustForYou = () => {
+const JustForYou = ({ headline }) => {
   const { addToCart } = useProductContext();
   return (
     <>
       <div className="flex flex-col sm:flex-row gap-6 items-center justify-between my-6">
         <h3 className="relative ml-6 font-poppins text-xl after:content-[' '] after:w-5 after:h-10 after:bg-red-500 after:absolute after:left-[-24px] after:top-[-8px] ">
-          Just for you
+          {headline}
         </h3>
-        <Button variant="secondary">
-          <Link to="../">See All</Link>
-        </Button>
+        <Link to="../">
+          <Button variant="secondary">See All</Button>
+        </Link>
       </div>
       <div className="flex items-center flex-wrap gap-2 justify-evenly">
         {productsData.map((product, index) => {

@@ -79,7 +79,7 @@ const Wishlist = () => {
           ))}
         </ul>
       )}
-      <JustForYou />
+      <JustForYou headline="Just For You" />
       <div className="flex flex-col sm:flex-row gap-6 w-full items-center justify-between py-6">
         <Button onClick={() => clearFavorites()}>Clear Favorite</Button>
         <Button onClick={() => clearCart()}>Clear Cart</Button>

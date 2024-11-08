@@ -32,7 +32,7 @@
   - [x] Sign page
   - [x] Wishlist
   - [x] cart
-  - [] The Product Details Page
+  - [x] The Product Details Page
   - [] The account Page
 - [] Project's functionality
   - [x] Responsiveness

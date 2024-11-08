@@ -3,8 +3,7 @@ const QuantitySelector = ({ quantity, onIncrease, onDecrease }) => {
     <div className="flex items-center justify-center sm:space-x-2">
       <button
         onClick={onDecrease}
-        disabled={quantity <= 1}
-        className="px-1 sm:px-2 py-1 bg-gray-200 text-gray-600 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+        className="px-1 sm:px-2 py-1 bg-gray-200 text-gray-600 rounded"
       >
         &ndash;
       </button>
@@ -12,7 +11,7 @@ const QuantitySelector = ({ quantity, onIncrease, onDecrease }) => {
         type="number"
         value={quantity}
         readOnly
-        className=" w-6 sm:w-12 text-center text-sm sm:text-base border border-gray-300 rounded text-gray-700"
+        className="w-6 sm:w-12 text-center text-sm sm:text-base border border-gray-300 rounded text-gray-700"
       />
       <button
         onClick={onIncrease}

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import StarRating from './StarRating';
 import { useProductContext } from '../ProductContext';
 import { Link } from 'react-router-dom';
@@ -12,7 +13,24 @@ const ProductCard = ({
   ratingCount,
   product,
 }) => {
-  const { addToFavorite, addToCart } = useProductContext();
+  const { addToFavorite, removeFromFavorite, favorite, addToCart } =
+    useProductContext();
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  useEffect(() => {
+    // Check if product is in the favorite list
+    const isFav = favorite.some((item) => item.id === product.id);
+    setIsFavorite(isFav);
+  }, [favorite, product.id]);
+
+  const toggleFavorite = () => {
+    if (isFavorite) {
+      removeFromFavorite(product.id);
+    } else {
+      addToFavorite(product);
+    }
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <div className="font-poppins relative group rounded pb-2 shadow-lg dark:bg-darkSecondary border dark:border-none">
@@ -21,7 +39,7 @@ const ProductCard = ({
           {discount}
         </div>
       )}
-      <div className=" relative h-[284px] w-full min-w-[300px] rounded bg-white flex items-center justify-center">
+      <div className="relative h-[284px] w-full min-w-[300px] rounded bg-white flex items-center justify-center">
         <img
           src={imgSrc}
           alt="product"
@@ -29,10 +47,16 @@ const ProductCard = ({
         />
         <div className="absolute top-4 right-2 flex flex-col gap-2">
           <button
-            onClick={() => addToFavorite(product)}
+            onClick={toggleFavorite}
             className="rounded-full p-2 bg-white"
           >
-            <i className="fa-solid fa-heart fa-beat text-gray-400 hover:text-basicRed text-2xl transition-all duration-300"></i>
+            <i
+              className={`fa-heart text-2xl fa-beat ${
+                isFavorite
+                  ? 'fa-solid text-basicRed'
+                  : 'fa-regular text-gray-400'
+              }`}
+            ></i>
           </button>
           <Link to={`/${product.id}`} className="rounded-full p-2 bg-white">
             <i className="fa-regular fa-eye fa-bounce text-gray-400 hover:text-teal-500 text-2xl transition-all duration-300"></i>

@@ -3,17 +3,8 @@ import { useProductContext } from '../ProductContext';
 import QuantitySelector from './QuantitySelector';
 
 const CartItem = ({ product }) => {
-  const { updateCartItemQuantity, removeFromCart } = useProductContext();
-
-  const handleIncrease = () => {
-    updateCartItemQuantity(product.id, product.quantity + 1);
-  };
-
-  const handleDecrease = () => {
-    if (product.quantity > 1) {
-      updateCartItemQuantity(product.id, product.quantity - 1);
-    }
-  };
+  const { handleIncrease, handleDecrease, removeFromCart } =
+    useProductContext();
 
   const handleRemove = () => {
     removeFromCart(product.id);
@@ -44,8 +35,8 @@ const CartItem = ({ product }) => {
       <div className="flex justify-center">
         <QuantitySelector
           quantity={product.quantity}
-          onIncrease={handleIncrease}
-          onDecrease={handleDecrease}
+          onIncrease={() => handleIncrease(product)}
+          onDecrease={() => handleDecrease(product)}
         />
       </div>
       <p className="text-gray-500 dark:text-gray-300 text-center text-sm sm:text-base">
