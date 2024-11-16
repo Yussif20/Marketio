@@ -40,9 +40,9 @@
   - [x] Add items to Cart
   - [x] make the cart list responsive
   - [x] make the account dropdown menu
+  - [x] Search for products
   - [] Authentication
   - [] Checkout and payment
-  - [] Search for products
   - [] Enable Rating
 - Bonus
   - [] Using Firebase or Supabase

@@ -9,6 +9,15 @@ export const useProductContext = () => useContext(ProductContext);
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
 
+  const [searchQuery, setSearchQuery] = useState(() => {
+    const savedSearch = localStorage.getItem('searchQuery');
+    return savedSearch ? JSON.parse(savedSearch) : '';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('searchQuery', JSON.stringify(searchQuery));
+  }, [searchQuery]);
+
   const clearFavorites = () => setFavorite([]);
   const clearCart = () => setCartItems([]);
 
@@ -132,6 +141,8 @@ export const ProductProvider = ({ children }) => {
         removeFromCart,
         handleIncrease,
         handleDecrease,
+        searchQuery,
+        setSearchQuery,
       }}
     >
       {children}

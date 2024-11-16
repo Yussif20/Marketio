@@ -6,6 +6,7 @@ import ErrorPage from '@pages/ErrorPage';
 import Contact from '@pages/Contact';
 import About from '@pages/About';
 import Sign from '@pages/Sign';
+import SearchResult from '@pages/SearchResult';
 import SignUp from '@sections/SignUp';
 import SignIn from '@sections/SignIn';
 import Cart from '@pages/Cart';
@@ -29,6 +30,7 @@ const router = createBrowserRouter([
           { path: 'in', element: <SignIn /> },
         ],
       },
+      { path: '/search', element: <SearchResult /> },
       { path: '/cart', element: <Cart /> },
       { path: '/wishlist', element: <Wishlist /> },
       { path: '/:id', element: <ProductDetails /> },

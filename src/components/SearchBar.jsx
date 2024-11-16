@@ -1,8 +1,24 @@
+import { useProductContext } from '../ProductContext';
+
+import { useNavigate } from 'react-router-dom';
+
 const SearchBar = () => {
+  const { setSearchQuery } = useProductContext();
+  const navigate = useNavigate();
+
+  const searchHandler = (e) => {
+    e.preventDefault();
+    if (!e.target.search.value) return;
+    setSearchQuery(e.target.search.value);
+    navigate(`/search`);
+  };
   return (
-    <form className="flex items-center justify-center max-w-sm bg-[#F4F4F5] rounded-md py-2 px-4 shadow">
+    <form
+      onSubmit={searchHandler}
+      className="flex items-center justify-center max-w-sm bg-[#F4F4F5] rounded-md py-2 px-4 shadow"
+    >
       <input
-        className=" outline-none bg-transparent"
+        className=" outline-none bg-transparent text-black"
         type="text"
         name="search"
         placeholder="What are you looking for?"
