@@ -1,6 +1,14 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { productsData } from './data.js';
+import { auth } from './firebase'; // Import Firebase auth
+import {
+  onAuthStateChanged,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from 'firebase/auth';
 
+// Create a global AppContext
 const ProductContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -9,6 +17,11 @@ export const useProductContext = () => useContext(ProductContext);
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
 
+  // User Authentication States
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true); // To handle loading state
+
+  // Search and LocalStorage States
   const [searchQuery, setSearchQuery] = useState(() => {
     const savedSearch = localStorage.getItem('searchQuery');
     return savedSearch ? JSON.parse(savedSearch) : '';
@@ -18,9 +31,56 @@ export const ProductProvider = ({ children }) => {
     localStorage.setItem('searchQuery', JSON.stringify(searchQuery));
   }, [searchQuery]);
 
-  const clearFavorites = () => setFavorite([]);
-  const clearCart = () => setCartItems([]);
+  useEffect(() => {
+    // Listen for auth state changes
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      setLoading(false); // Stop loading when auth state is known
+    });
 
+    // Cleanup listener when component unmounts
+    return unsubscribe;
+  }, []);
+
+  // Firebase Authentication Functions
+  const signUp = async (email, password) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      return userCredential.user;
+    } catch (error) {
+      console.error('Error signing up:', error);
+      throw error;
+    }
+  };
+
+  const logIn = async (email, password) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      return userCredential.user;
+    } catch (error) {
+      console.error('Error logging in:', error);
+      throw error;
+    }
+  };
+
+  const logOut = async () => {
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error('Error logging out:', error);
+      throw error;
+    }
+  };
+
+  // Handle Product, Favorite, and Cart State (existing functionality)
   const [favorite, setFavorite] = useState(() => {
     const savedFavorites = localStorage.getItem('favorite');
     return savedFavorites ? JSON.parse(savedFavorites) : [];
@@ -38,6 +98,9 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
+
+  const clearFavorites = () => setFavorite([]);
+  const clearCart = () => setCartItems([]);
 
   const addToFavorite = (product) => {
     setFavorite((prev) => {
@@ -93,32 +156,30 @@ export const ProductProvider = ({ children }) => {
       )
     );
   };
+
   const handleIncrease = (product) => {
     setCartItems((prev) => {
       const existingItem = prev.find((item) => item.id === product.id);
       if (existingItem) {
-        // Increase quantity if item is already in the cart
         return prev.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       }
-      // Add to cart with quantity 1 if not already in the cart
       return [...prev, { ...product, quantity: 1 }];
     });
   };
 
   const handleDecrease = (product) => {
-    setCartItems(
-      (prev) =>
-        prev
-          .map((item) =>
-            item.id === product.id
-              ? { ...item, quantity: item.quantity - 1 }
-              : item
-          )
-          .filter((item) => item.quantity > 0) // Remove items with zero quantity
+    setCartItems((prev) =>
+      prev
+        .map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
     );
   };
 
@@ -143,6 +204,12 @@ export const ProductProvider = ({ children }) => {
         handleDecrease,
         searchQuery,
         setSearchQuery,
+        // Firebase Auth functions and state
+        currentUser,
+        loading,
+        signUp,
+        logIn,
+        logOut,
       }}
     >
       {children}

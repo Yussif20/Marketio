@@ -41,9 +41,9 @@
   - [x] make the cart list responsive
   - [x] make the account dropdown menu
   - [x] Search for products
-  - [] Authentication
+  - [x] Authentication
   - [] Checkout and payment
   - [] Enable Rating
 - Bonus
-  - [] Using Firebase or Supabase
+  - [x] Using Firebase or Supabase
   - [] Support more than two languages using any library
