@@ -27,6 +27,6 @@ dist-ssr
 .env
  
 # Docs
-docs
+docs/*
 todo
  

@@ -1,13 +1,13 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { productsData } from './data.js';
-import { auth } from './firebase'; // Import Firebase auth
-
+import { auth, db } from './firebase'; // Import Firestore
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
+import { doc, setDoc, onSnapshot } from 'firebase/firestore'; // Firestore functions
 
 // Create a global AppContext
 const ProductContext = createContext();
@@ -20,38 +20,57 @@ export const ProductProvider = ({ children }) => {
 
   // User Authentication States
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true); // To handle loading state
+  const [loading, setLoading] = useState(true);
+
+  // User-specific Data States
+  const [userData, setUserData] = useState(null);
 
   // Search and LocalStorage States
   const [searchQuery, setSearchQuery] = useState(() => {
     const savedSearch = localStorage.getItem('searchQuery');
     return savedSearch ? JSON.parse(savedSearch) : '';
   });
-
   useEffect(() => {
     localStorage.setItem('searchQuery', JSON.stringify(searchQuery));
   }, [searchQuery]);
 
+  // Listen for auth state changes and fetch Firestore data
   useEffect(() => {
-    // Listen for auth state changes
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
-      setLoading(false); // Stop loading when auth state is known
+      setLoading(false);
+
+      if (user) {
+        // Fetch user data from Firestore
+        const userDocRef = doc(db, 'users', user.uid);
+        const unsubscribeUserData = onSnapshot(userDocRef, (snapshot) => {
+          setUserData(snapshot.exists() ? snapshot.data() : null);
+        });
+
+        return () => unsubscribeUserData();
+      } else {
+        setUserData(null);
+      }
     });
 
-    // Cleanup listener when component unmounts
     return unsubscribe;
   }, []);
 
   // Firebase Authentication Functions
-  const signUp = async (email, password) => {
+  const signUp = async (email, password, additionalData) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       );
-      return userCredential.user;
+      const user = userCredential.user;
+
+      // Save additional user data to Firestore
+      const userDocRef = doc(db, 'users', user.uid);
+      await setDoc(userDocRef, { email: user.email, ...additionalData });
+
+      return user;
     } catch (error) {
       console.error('Error signing up:', error);
       throw error;
@@ -189,6 +208,16 @@ export const ProductProvider = ({ children }) => {
       value={{
         products,
         setProducts,
+        // User Authentication
+        currentUser,
+        loading,
+        signUp,
+        logIn,
+        logOut,
+        // User Data
+        userData,
+        setUserData,
+        // Product, Favorite, and Cart Functions (existing functionality)
         favorite,
         setFavorite,
         cartItems,
@@ -203,14 +232,9 @@ export const ProductProvider = ({ children }) => {
         removeFromCart,
         handleIncrease,
         handleDecrease,
+        // Search Query
         searchQuery,
         setSearchQuery,
-        // Firebase Auth functions and state
-        currentUser,
-        loading,
-        signUp,
-        logIn,
-        logOut,
       }}
     >
       {children}

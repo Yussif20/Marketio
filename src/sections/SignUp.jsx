@@ -15,7 +15,7 @@ const SignUp = () => {
   const handleSignUp = async () => {
     try {
       await signUp(email, password);
-      alert('Sign up successful!');
+      alert('Signed up successfully!');
       navigate('/');
     } catch (error) {
       alert('Error signing up');

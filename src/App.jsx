@@ -7,6 +7,7 @@ import Contact from '@pages/Contact';
 import About from '@pages/About';
 import Sign from '@pages/Sign';
 import SearchResult from '@pages/SearchResult';
+import Account from '@pages/Account';
 import SignUp from '@sections/SignUp';
 import SignIn from '@sections/SignIn';
 import Cart from '@pages/Cart';
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: '/search', element: <SearchResult /> },
+      { path: '/account', element: <Account /> },
       { path: '/cart', element: <Cart /> },
       { path: '/wishlist', element: <Wishlist /> },
       { path: '/:id', element: <ProductDetails /> },

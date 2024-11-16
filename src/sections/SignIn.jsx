@@ -14,7 +14,7 @@ const SignIn = () => {
   const handleLogIn = async () => {
     try {
       await logIn(email, password);
-      alert('Log in successfully!');
+      alert('Logged in successfully!');
       navigate('/');
     } catch (error) {
       alert('Error logging in');
