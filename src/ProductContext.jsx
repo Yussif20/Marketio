@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { productsData } from './data.js';
 import { auth } from './firebase'; // Import Firebase auth
+
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
