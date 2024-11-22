@@ -1,7 +1,9 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 import signImage from '@assets/sign/sign.png';
 import { useProductContext } from '../ProductContext';
+
+import Button from '@components/Button';
 
 const Sign = () => {
   const { currentUser } = useProductContext();
@@ -15,7 +17,7 @@ const Sign = () => {
       />
 
       {currentUser ? (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4 text-center">
           <h3 className=" text-4xl">
             Welcome,{' '}
             <span className="text-basicRed">
@@ -23,6 +25,9 @@ const Sign = () => {
             </span>
           </h3>
           <p className="text-2xl">You are already signed in!</p>
+          <Link to="/">
+            <Button>Continue Shopping</Button>
+          </Link>
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center md:pr-6">

@@ -60,7 +60,7 @@ const AccountMenu = () => {
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600  ">
                   <Link
-                    to="/account"
+                    to="/account/profile"
                     className="flex gap-2 items-center cursor-pointer"
                   >
                     <i className="fa-regular fa-user"></i>

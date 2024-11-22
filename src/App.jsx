@@ -13,6 +13,7 @@ import SignIn from '@sections/SignIn';
 import Cart from '@pages/Cart';
 import Wishlist from '@pages/Wishlist';
 import ProductDetails from '@pages/ProductDetails';
+import ProfileInfo from './components/ProfileInfo';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,19 @@ const router = createBrowserRouter([
         ],
       },
       { path: '/search', element: <SearchResult /> },
-      { path: '/account', element: <Account /> },
+      {
+        path: '/account',
+        element: <Account />,
+        children: [
+          { path: 'profile', element: <ProfileInfo /> },
+          // { path: 'orders', element: <AccountOrders /> },
+          // { path: 'address', element: <AccountAddress /> },
+          // { path: 'payment', element: <AccountPayment /> },
+          // { path: 'settings', element: <AccountSettings /> },
+          // { path: 'logout', element: <AccountLogout /> },
+          { path: '*', element: <ErrorPage /> },
+        ],
+      },
       { path: '/cart', element: <Cart /> },
       { path: '/wishlist', element: <Wishlist /> },
       { path: '/:id', element: <ProductDetails /> },

@@ -1,29 +1,24 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import { productsData } from './data.js';
-import { auth, db } from './firebase'; // Import Firestore
+import { auth, db } from './firebase';
 import {
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { doc, setDoc, onSnapshot } from 'firebase/firestore'; // Firestore functions
+import { doc, setDoc, onSnapshot, updateDoc } from 'firebase/firestore';
 
-// Create a global AppContext
+import { productsData } from './data.js';
+
 const ProductContext = createContext();
-
 // eslint-disable-next-line react-refresh/only-export-components
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
-
-  // User Authentication States
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // User-specific Data States
   const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // Search and LocalStorage States
   const [searchQuery, setSearchQuery] = useState(() => {
@@ -66,9 +61,13 @@ export const ProductProvider = ({ children }) => {
       );
       const user = userCredential.user;
 
-      // Save additional user data to Firestore
+      // Create a user document in Firestore
       const userDocRef = doc(db, 'users', user.uid);
-      await setDoc(userDocRef, { email: user.email, ...additionalData });
+      await setDoc(userDocRef, {
+        email: user.email,
+        name: additionalData.name || '',
+        address: additionalData.address || '',
+      });
 
       return user;
     } catch (error) {
@@ -98,6 +97,34 @@ export const ProductProvider = ({ children }) => {
       console.error('Error logging out:', error);
       throw error;
     }
+  };
+
+  // Fetch user data from Firestore on auth state change
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setCurrentUser(user);
+      setLoading(false);
+
+      if (user) {
+        const userDocRef = doc(db, 'users', user.uid);
+        const unsubscribeUserData = onSnapshot(userDocRef, (snapshot) => {
+          setUserData(snapshot.exists() ? snapshot.data() : null);
+        });
+
+        return () => unsubscribeUserData();
+      } else {
+        setUserData(null);
+      }
+    });
+
+    return unsubscribe;
+  }, []);
+
+  // Save user information to Firestore
+  const saveUserData = async (data) => {
+    if (!currentUser) return;
+    const userDocRef = doc(db, 'users', currentUser.uid);
+    await updateDoc(userDocRef, data);
   };
 
   // Handle Product, Favorite, and Cart State (existing functionality)
@@ -210,13 +237,14 @@ export const ProductProvider = ({ children }) => {
         setProducts,
         // User Authentication
         currentUser,
+        userData,
+        setUserData,
+        saveUserData,
         loading,
         signUp,
         logIn,
         logOut,
-        // User Data
-        userData,
-        setUserData,
+
         // Product, Favorite, and Cart Functions (existing functionality)
         favorite,
         setFavorite,
