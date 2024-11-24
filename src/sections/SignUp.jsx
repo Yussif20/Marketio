@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GoogleSignInButton from '../components/GoogleSignInButton';
 
-const SignUp = () => {
+export const SignUp = () => {
   const { signUp } = useProductContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -64,5 +64,3 @@ const SignUp = () => {
     </div>
   );
 };
-
-export default SignUp;

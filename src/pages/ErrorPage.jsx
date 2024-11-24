@@ -3,7 +3,7 @@ import Header from '@components/Header';
 import Footer from '@sections/Footer';
 import Button from '@components/Button';
 
-const ErrorPage = () => {
+export const ErrorPage = () => {
   return (
     <div className="flex flex-col justify-between dark:bg-darkPrimary dark:text-white">
       <Header />
@@ -28,5 +28,3 @@ const ErrorPage = () => {
     </div>
   );
 };
-
-export default ErrorPage;

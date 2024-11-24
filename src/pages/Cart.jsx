@@ -3,20 +3,10 @@ import { Link } from 'react-router-dom';
 import { useProductContext } from '../ProductContext';
 import CartItem from '@components/CartItem';
 import Button from '@components/Button';
+import CartTotal from '../components/CartTotal';
 
-const Cart = () => {
+export const Cart = () => {
   const { cartItems } = useProductContext();
-
-  const calculateSubtotal = () => {
-    return cartItems.reduce((acc, item) => {
-      const itemPrice = Number(item.price.replace('$', '').trim());
-      return acc + itemPrice * item.quantity;
-    }, 0);
-  };
-
-  const shippingFee = 20;
-  const subtotal = calculateSubtotal();
-  const total = subtotal + shippingFee;
 
   return (
     <section className="mx-2 sm:mx-6 md:mx-10 lg:mx-12">
@@ -52,18 +42,13 @@ const Cart = () => {
             </div>
             <div className=" p-6 border-[1.5px] border-black w-11/12 sm:w-[400px] rounded dark:bg-darkSecondary">
               <h4 className="text-xl font-medium mb-4">Cart Total</h4>
-              <p className="flex items-center justify-between pb-3 mb-4 border-b border-black dark:border-white">
-                Subtotal: <span>${subtotal.toFixed(2)}</span>
-              </p>
-              <p className="flex items-center justify-between pb-3 mb-4 border-b border-black dark:border-white">
-                Shipping: <span>${shippingFee.toFixed(2)}</span>
-              </p>
-              <p className="flex items-center justify-between">
-                Total: <span>${total.toFixed(2)}</span>
-              </p>
-              <div className="flex items-center justify-center my-5">
+              <CartTotal />
+              <Link
+                to="/checkout"
+                className="flex items-center justify-center my-5"
+              >
                 <Button>Proceed to Checkout</Button>
-              </div>
+              </Link>
             </div>
           </div>
         </>
@@ -82,5 +67,3 @@ const Cart = () => {
     </section>
   );
 };
-
-export default Cart;

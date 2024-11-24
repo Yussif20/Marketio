@@ -3,15 +3,9 @@ import JustForYou from '@sections/JustForYou';
 import Button from '@components/Button';
 import StarRating from '@components/StarRating';
 
-const Wishlist = () => {
-  const {
-    favorite,
-    addToCart,
-    clearFavorites,
-    clearCart,
-    removeFromFavorite,
-    addToBag,
-  } = useProductContext();
+export const Wishlist = () => {
+  const { favorite, addToCart, removeFromFavorite, addToBag } =
+    useProductContext();
 
   return (
     <section className="py-6 px-2 sm:px-12">
@@ -80,12 +74,6 @@ const Wishlist = () => {
         </ul>
       )}
       <JustForYou headline="Just For You" />
-      <div className="flex flex-col sm:flex-row gap-6 w-full items-center justify-between py-6">
-        <Button onClick={() => clearFavorites()}>Clear Favorite</Button>
-        <Button onClick={() => clearCart()}>Clear Cart</Button>
-      </div>
     </section>
   );
 };
-
-export default Wishlist;

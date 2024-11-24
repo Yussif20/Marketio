@@ -1,12 +1,10 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import { auth, db } from './firebase';
+import { auth } from './firebase';
 import {
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
-import { doc, setDoc, onSnapshot, updateDoc } from 'firebase/firestore';
 
 import { productsData } from './data.js';
 
@@ -17,42 +15,24 @@ export const useProductContext = () => useContext(ProductContext);
 export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState(productsData);
   const [currentUser, setCurrentUser] = useState(null);
-  const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   // Search and LocalStorage States
   const [searchQuery, setSearchQuery] = useState(() => {
-    const savedSearch = localStorage.getItem('searchQuery');
-    return savedSearch ? JSON.parse(savedSearch) : '';
+    try {
+      const savedSearch = localStorage.getItem('searchQuery');
+      return savedSearch ? JSON.parse(savedSearch) : '';
+    } catch {
+      return '';
+    }
   });
+
   useEffect(() => {
     localStorage.setItem('searchQuery', JSON.stringify(searchQuery));
   }, [searchQuery]);
 
-  // Listen for auth state changes and fetch Firestore data
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setCurrentUser(user);
-      setLoading(false);
-
-      if (user) {
-        // Fetch user data from Firestore
-        const userDocRef = doc(db, 'users', user.uid);
-        const unsubscribeUserData = onSnapshot(userDocRef, (snapshot) => {
-          setUserData(snapshot.exists() ? snapshot.data() : null);
-        });
-
-        return () => unsubscribeUserData();
-      } else {
-        setUserData(null);
-      }
-    });
-
-    return unsubscribe;
-  }, []);
-
   // Firebase Authentication Functions
-  const signUp = async (email, password, additionalData) => {
+  const signUp = async (email, password) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -60,18 +40,9 @@ export const ProductProvider = ({ children }) => {
         password
       );
       const user = userCredential.user;
-
-      // Create a user document in Firestore
-      const userDocRef = doc(db, 'users', user.uid);
-      await setDoc(userDocRef, {
-        email: user.email,
-        name: additionalData.name || '',
-        address: additionalData.address || '',
-      });
-
       return user;
     } catch (error) {
-      console.error('Error signing up:', error);
+      console.error('Error:', error.code, error.message);
       throw error;
     }
   };
@@ -85,7 +56,7 @@ export const ProductProvider = ({ children }) => {
       );
       return userCredential.user;
     } catch (error) {
-      console.error('Error logging in:', error);
+      console.error('Error:', error.code, error.message);
       throw error;
     }
   };
@@ -94,38 +65,17 @@ export const ProductProvider = ({ children }) => {
     try {
       await signOut(auth);
     } catch (error) {
-      console.error('Error logging out:', error);
+      console.error('Error:', error.code, error.message);
       throw error;
     }
   };
-
-  // Fetch user data from Firestore on auth state change
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
       setLoading(false);
-
-      if (user) {
-        const userDocRef = doc(db, 'users', user.uid);
-        const unsubscribeUserData = onSnapshot(userDocRef, (snapshot) => {
-          setUserData(snapshot.exists() ? snapshot.data() : null);
-        });
-
-        return () => unsubscribeUserData();
-      } else {
-        setUserData(null);
-      }
     });
-
     return unsubscribe;
   }, []);
-
-  // Save user information to Firestore
-  const saveUserData = async (data) => {
-    if (!currentUser) return;
-    const userDocRef = doc(db, 'users', currentUser.uid);
-    await updateDoc(userDocRef, data);
-  };
 
   // Handle Product, Favorite, and Cart State (existing functionality)
   const [favorite, setFavorite] = useState(() => {
@@ -146,8 +96,31 @@ export const ProductProvider = ({ children }) => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const clearFavorites = () => setFavorite([]);
-  const clearCart = () => setCartItems([]);
+  const modifyCartItemQuantity = (product, delta) => {
+    setCartItems((prev) => {
+      const existingItem = prev.find((item) => item.id === product.id);
+      if (existingItem) {
+        return prev
+          .map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + delta }
+              : item
+          )
+          .filter((item) => item.quantity > 0);
+      }
+      if (delta > 0) {
+        return [...prev, { ...product, quantity: delta }];
+      }
+      return prev;
+    });
+  };
+
+  const addToCart = (product, quantity = 1) =>
+    modifyCartItemQuantity(product, quantity);
+
+  const handleIncrease = (product) => modifyCartItemQuantity(product, 1);
+
+  const handleDecrease = (product) => modifyCartItemQuantity(product, -1);
 
   const addToFavorite = (product) => {
     setFavorite((prev) => {
@@ -159,20 +132,6 @@ export const ProductProvider = ({ children }) => {
 
   const removeFromFavorite = (productId) => {
     setFavorite((prev) => prev.filter((item) => item.id !== productId));
-  };
-
-  const addToCart = (product, quantity = 1) => {
-    setCartItems((prev) => {
-      const cartItem = prev.find((item) => item.id === product.id);
-      if (cartItem) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        );
-      }
-      return [...prev, { ...product, quantity }];
-    });
   };
 
   const removeFromCart = (productId) => {
@@ -204,32 +163,6 @@ export const ProductProvider = ({ children }) => {
     );
   };
 
-  const handleIncrease = (product) => {
-    setCartItems((prev) => {
-      const existingItem = prev.find((item) => item.id === product.id);
-      if (existingItem) {
-        return prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      }
-      return [...prev, { ...product, quantity: 1 }];
-    });
-  };
-
-  const handleDecrease = (product) => {
-    setCartItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity - 1 }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
-
   return (
     <ProductContext.Provider
       value={{
@@ -237,10 +170,9 @@ export const ProductProvider = ({ children }) => {
         setProducts,
         // User Authentication
         currentUser,
-        userData,
-        setUserData,
-        saveUserData,
+        setCurrentUser,
         loading,
+        setLoading,
         signUp,
         logIn,
         logOut,
@@ -254,8 +186,6 @@ export const ProductProvider = ({ children }) => {
         removeFromFavorite,
         addToCart,
         addToBag,
-        clearFavorites,
-        clearCart,
         updateCartItemQuantity,
         removeFromCart,
         handleIncrease,

@@ -5,7 +5,7 @@ import { useProductContext } from '../ProductContext';
 
 import Button from '@components/Button';
 
-const Sign = () => {
+export const Sign = () => {
   const { currentUser } = useProductContext();
 
   return (
@@ -37,5 +37,3 @@ const Sign = () => {
     </section>
   );
 };
-
-export default Sign;

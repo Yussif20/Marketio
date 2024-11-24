@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '@components/Button';
 
-const Contact = () => {
+export const Contact = () => {
   const inputStyles =
     'bg-[#F5F5F5] dark:bg-darkSecondary outline-none py-2 px-4 rounded w-full md:w-[300px] lg:w-fit';
   return (
@@ -95,5 +95,3 @@ const Contact = () => {
     </section>
   );
 };
-
-export default Contact;

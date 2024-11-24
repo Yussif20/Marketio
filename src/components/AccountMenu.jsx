@@ -58,27 +58,6 @@ const AccountMenu = () => {
                       currentUser.email.split('@')[0].slice(1)}
                   </span>
                 </li>
-                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600  ">
-                  <Link
-                    to="/account/profile"
-                    className="flex gap-2 items-center cursor-pointer"
-                  >
-                    <i className="fa-regular fa-user"></i>
-                    <span>Manage my account</span>
-                  </Link>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex gap-2 items-center">
-                  <i className="fa-solid fa-bag-shopping"></i>
-                  <span> My orders</span>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex gap-2 items-center">
-                  <i className="fa-regular fa-circle-xmark"></i>
-                  <span>My cancellations</span>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex gap-2 items-center">
-                  <i className="fa-regular fa-star"></i>
-                  <span> My reviews</span>
-                </li>
                 <li
                   onClick={handleLogOut}
                   className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex gap-2 items-center text-red-600"

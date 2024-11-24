@@ -6,7 +6,7 @@ import FlashSales from '@sections/FlashSales';
 import Hero from '@sections/Hero';
 import SaleCount from '@sections/SaleCount';
 
-const Home = () => {
+export const Home = () => {
   return (
     <>
       <Hero />
@@ -19,5 +19,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;

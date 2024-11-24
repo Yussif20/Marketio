@@ -1,11 +1,11 @@
 import Header from '@components/Header';
-import { Outlet } from 'react-router-dom';
 import TopHeader from '@components/TopHeader';
 import Footer from '@sections/Footer.jsx';
+import { Outlet } from 'react-router-dom';
 
 import { ProductProvider } from '../ProductContext.jsx';
 
-const Layout = () => {
+export const Layout = () => {
   return (
     <ProductProvider>
       <TopHeader />
@@ -17,5 +17,3 @@ const Layout = () => {
     </ProductProvider>
   );
 };
-
-export default Layout;

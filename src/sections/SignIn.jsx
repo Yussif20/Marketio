@@ -4,7 +4,7 @@ import { useProductContext } from '../ProductContext';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const SignIn = () => {
+export const SignIn = () => {
   const { logIn } = useProductContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,5 +62,3 @@ const SignIn = () => {
     </div>
   );
 };
-
-export default SignIn;

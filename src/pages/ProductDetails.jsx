@@ -6,7 +6,7 @@ import StarRating from '@components/StarRating';
 import Button from '@components/Button';
 import QuantitySelector from '@components/QuantitySelector';
 
-const ProductDetails = () => {
+export const ProductDetails = () => {
   const { id } = useParams();
   const {
     products,
@@ -134,5 +134,3 @@ const ProductDetails = () => {
     </section>
   );
 };
-
-export default ProductDetails;
