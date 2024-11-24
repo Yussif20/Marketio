@@ -139,6 +139,9 @@ export const ProductProvider = ({ children }) => {
       prevItems.filter((item) => item.id !== productId)
     );
   };
+  const clearCart = () => {
+    setCartItems([]);
+  };
 
   const addToBag = () => {
     setCartItems((prev) => {
@@ -188,6 +191,7 @@ export const ProductProvider = ({ children }) => {
         addToBag,
         updateCartItemQuantity,
         removeFromCart,
+        clearCart,
         handleIncrease,
         handleDecrease,
         // Search Query

@@ -42,7 +42,7 @@
   - [x] make the account dropdown menu
   - [x] Search for products
   - [x] Authentication
-  - [] Checkout and payment
+  - [x] Checkout and payment
   - [] Enable Rating
 - Bonus
   - [x] Using Firebase or Supabase

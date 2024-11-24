@@ -1,7 +1,29 @@
 import { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
+import CartTotal from '@components/CartTotal';
+import { useProductContext } from './../ProductContext';
+import { Link } from 'react-router-dom';
+import Button from './../components/Button';
+
+import { useNavigate } from 'react-router-dom';
+
 export const CheckoutPage = () => {
+  const { cartItems, clearCart } = useProductContext();
+
+  const navigate = useNavigate();
+
+  const calculateSubtotal = () => {
+    return cartItems.reduce((acc, item) => {
+      const itemPrice = Number(item.price.replace('$', '').trim());
+      return acc + itemPrice * item.quantity;
+    }, 0);
+  };
+
+  const shippingFee = 20;
+  const subtotal = calculateSubtotal();
+  const total = subtotal + shippingFee;
+
   const [paymentMethod, setPaymentMethod] = useState('cash'); // 'cash' or 'bank'
   const [formData, setFormData] = useState({
     name: '',
@@ -11,12 +33,6 @@ export const CheckoutPage = () => {
   });
   const stripe = useStripe();
   const elements = useElements();
-
-  const cartItems = [
-    { id: 1, name: 'Product 1', price: 500 },
-    { id: 2, name: 'Product 2', price: 300 },
-  ];
-  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,7 +52,6 @@ export const CheckoutPage = () => {
         return;
       }
 
-      // Process payment with backend API
       const response = await fetch(
         'http://localhost:3001/create-payment-intent',
         {
@@ -46,7 +61,7 @@ export const CheckoutPage = () => {
           },
           body: JSON.stringify({
             paymentMethodId: stripePaymentMethod.id,
-            amount: totalPrice, // Ensure this is in the smallest currency unit (e.g., cents for USD)
+            amount: total,
           }),
         }
       );
@@ -57,109 +72,141 @@ export const CheckoutPage = () => {
         alert(`Payment failed: ${paymentResult.error}`);
       } else {
         alert('Payment successful!');
-        console.log('Payment Result:', paymentResult);
+        clearCart();
+        navigate('/');
       }
     } else {
-      console.log('Order placed with cash on delivery');
+      alert('Order placed successfully with cash on delivery');
+      clearCart();
+      navigate('/');
     }
   };
 
   return (
-    <div className="container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-      {/* Left Section */}
-      <div className="col-span-1 md:col-span-2 space-y-4">
-        <h2 className="text-xl font-semibold">Billing Details</h2>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-        <input
-          type="text"
-          name="address"
-          placeholder="Address"
-          value={formData.address}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
-      </div>
-
-      {/* Right Section */}
-      <div className="col-span-1 space-y-4">
-        <h2 className="text-xl font-semibold">Order Summary</h2>
-        <div className="space-y-2">
-          {cartItems.map((item) => (
-            <div key={item.id} className="flex justify-between border-b pb-2">
-              <span>{item.name}</span>
-              <span>${item.price / 100}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-between font-bold border-t pt-2">
-          <span>Total</span>
-          <span>${totalPrice / 100}</span>
-        </div>
-
-        {/* Payment Method */}
-        <h2 className="text-xl font-semibold mt-4">Payment Method</h2>
-        <div className="space-y-2">
-          <label className="flex items-center space-x-2">
+    <section className="mx-12 dark:bg-darkPrimary dark:text-white">
+      <h5 className="py-10 font-poppins">
+        <Link className="text-gray-400" to="/">
+          Home /{' '}
+        </Link>
+        <Link className="text-gray-400" to="/cart">
+          Cart /{' '}
+        </Link>
+        <span> Checkout</span>
+      </h5>
+      <div className="container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="col-span-1 md:col-span-2 space-y-4">
+          <h2 className="text-xl font-semibold">Billing Details</h2>
+          <div className="flex flex-col">
+            <label className="font-poppins text-gray-500" htmlFor="name">
+              First Name
+            </label>
             <input
-              type="radio"
-              name="paymentMethod"
-              value="cash"
-              checked={paymentMethod === 'cash'}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-              className="form-radio"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
             />
-            <span>Cash on Delivery</span>
-          </label>
-          <label className="flex items-center space-x-2">
-            <input
-              type="radio"
-              name="paymentMethod"
-              value="bank"
-              checked={paymentMethod === 'bank'}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-              className="form-radio"
-            />
-            <span>Bank</span>
-          </label>
-        </div>
-
-        {paymentMethod === 'bank' && (
-          <div className="border p-4 rounded">
-            <h3 className="text-lg font-semibold">Enter Card Details</h3>
-            <CardElement className="p-2 border rounded" />
           </div>
-        )}
+          <div className="flex flex-col">
+            <label className="font-poppins text-gray-500" htmlFor="name">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="font-poppins text-gray-500" htmlFor="name">
+              Address
+            </label>
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="font-poppins text-gray-500" htmlFor="name">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
+            />
+          </div>
+        </div>
+        <div className="col-span-1 space-y-4 px-8">
+          <div className="space-y-2">
+            {cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="flex items-center justify-between pb-2"
+              >
+                <div className="flex items-center justify justify-between w-6/12">
+                  <span>{item.title}</span>
+                  <img
+                    className="max-w-20"
+                    src={item.imgSrc}
+                    alt={item.title}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold">{item.quantity} x</span>
+                  <span>${item.price}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-col justify-between font-bold pt-2">
+            <CartTotal />
+          </div>
 
-        <button
-          onClick={handlePlaceOrder}
-          className="w-full bg-blue-600 text-white p-2 rounded mt-4 hover:bg-blue-700"
-        >
-          Place Order
-        </button>
+          <h2 className="text-xl font-semibold mt-4">Payment Method</h2>
+          <div className="space-y-2">
+            <label className="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="cash"
+                checked={paymentMethod === 'cash'}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                className="form-radio"
+              />
+              <span>Cash on Delivery</span>
+            </label>
+            <label className="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="paymentMethod"
+                value="bank"
+                checked={paymentMethod === 'bank'}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                className="form-radio"
+              />
+              <span>Bank</span>
+            </label>
+          </div>
+
+          {paymentMethod === 'bank' && (
+            <div className="border p-4 rounded">
+              <h3 className="text-lg font-semibold">Enter Card Details</h3>
+              <CardElement className="p-2 border rounded bg-white" />
+            </div>
+          )}
+
+          <Button onClick={handlePlaceOrder}>Place Order</Button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
