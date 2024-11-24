@@ -123,8 +123,8 @@ export const ProductDetails = () => {
             <div className="border-b p-2 flex items-center">
               <i className="fa-solid fa-repeat fa-spin p-4 text-4xl"></i>
               <div>
-                <h3 className="font-medium mb-1">Free Delivery</h3>
-                <p>Enter your postal code for Delivery Availability</p>
+                <h3 className="font-medium mb-1">Return Delivery</h3>
+                <p>Free 30 Days Delivery Returns. Details</p>
               </div>
             </div>
           </div>

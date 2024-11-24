@@ -33,7 +33,7 @@
   - [x] Wishlist
   - [x] cart
   - [x] The Product Details Page
-  - [] add more than one color
+  - [x] add more than one color
 - [] Project's functionality
   - [x] Responsiveness
   - [x] Add items to favorites

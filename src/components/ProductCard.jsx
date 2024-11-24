@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 const ProductCard = ({
   discount,
   imgSrc,
+  secondImg,
+  firstColor,
+  secondColor,
   title,
   price,
   oldPrice,
@@ -16,6 +19,8 @@ const ProductCard = ({
   const { addToFavorite, removeFromFavorite, favorite, addToCart } =
     useProductContext();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [img, setImg] = useState(imgSrc);
+  const [selectedColor, setSelectedColor] = useState('first');
 
   useEffect(() => {
     // Check if product is in the favorite list
@@ -41,7 +46,7 @@ const ProductCard = ({
       )}
       <div className="relative h-[284px] w-full min-w-[300px] rounded bg-white flex items-center justify-center">
         <img
-          src={imgSrc}
+          src={img}
           alt="product"
           className="max-h-[200px] max-w-[200px] rounded-lg"
         />
@@ -70,10 +75,60 @@ const ProductCard = ({
         </button>
       </div>
       <div className="px-2 pt-2">
-        <h4 className="text-base">{title}</h4>
+        <div className="flex items-center gap-6">
+          <h4 className="text-base">{title}</h4>
+          {secondColor && (
+            <div className="flex gap-2">
+              {/* First Color Button */}
+              <button
+                className={`rounded-full border-2 text-sm ${
+                  firstColor === 'black'
+                    ? `text-black ${
+                        selectedColor === 'first'
+                          ? 'border-black'
+                          : 'border-transparent'
+                      }`
+                    : `text-${firstColor}-300 ${
+                        selectedColor === 'first'
+                          ? `border-${firstColor}-300`
+                          : 'border-transparent'
+                      }`
+                }`}
+                onClick={() => {
+                  setSelectedColor('first');
+                  setImg(imgSrc);
+                }}
+              >
+                <i className="fa-solid fa-circle p-1"></i>
+              </button>
+              <button
+                className={`rounded-full border-2 text-sm ${
+                  secondColor === 'black'
+                    ? `text-black ${
+                        selectedColor === 'second'
+                          ? 'border-black'
+                          : 'border-transparent'
+                      }`
+                    : `text-${secondColor}-300 ${
+                        selectedColor === 'second'
+                          ? `border-${secondColor}-300`
+                          : 'border-transparent'
+                      }`
+                }`}
+                onClick={() => {
+                  setSelectedColor('second');
+                  setImg(secondImg);
+                }}
+              >
+                <i className="fa-solid fa-circle p-1"></i>
+              </button>
+            </div>
+          )}
+        </div>
+
         <div className="flex items-center gap-4 mt-2">
-          <span className="text-basicRed">{price}</span>
-          <span className="text-gray-500 line-through">{oldPrice}</span>
+          <span className="text-basicRed">${price}</span>
+          <span className="text-gray-500 line-through">${oldPrice}</span>
         </div>
         <div className="mt-2 flex items-center gap-2">
           <div className="flex gap-2 text-yellow-500">

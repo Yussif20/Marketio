@@ -66,35 +66,72 @@ import joystickImage from "./assets/products/controller.png";
 import monitorImage from "./assets/products/monitor.png"
 import keyboardImage from "./assets/products/keyboard.png"
 import chairImage from "./assets/products/chair.png"
-import ploverBlackPaigeImage from "./assets/products/plover-black-paige.jpg";
-import ploverBlackRoseImage from "./assets/products/plover-black-rose.jpg"
+
+import glassesBlackImage from "./assets/products/glasses-black.jpg"
+import glassesRoseImage from "./assets/products/glasses-rose.jpg"
+
+import jacketGrayImage from "./assets/products/jacket-gray.jpg"
+import jacketBlackImage from "./assets/products/jacket-black.jpg"
+
+import laptopBlueImage from "./assets/products/laptop-blue.jpg"
+import laptopGrayImage from "./assets/products/laptop-grey.jpg"
+
+import phoneBlackImage from "./assets/products/phone-black.jpg"
+import phoneGoldImage from "./assets/products/phone-gold.jpg"
+
 import ploverBlueImage from "./assets/products/plover-blue.jpg"
 import ploverGreenImage from "./assets/products/plover-green.jpg"
-import ploverBrownImage from "./assets/products/plover-brown.jpg"
-import carRedImage from "./assets/products/car-red.jpg"
-import carYellowImage from "./assets/products/car-yellow.jpg"
-import earRingsImage from "./assets/products/ear-ring-2.jpg"
-// import carBlackImage from "./assets/products/car-black.jpg"
-// import jacketBlackImage from "./assets/products/jacket-black.jpg"
-// import earRingImage from "./assets/products/ear-ring.jpg"
-// import laptopBlueImage from "./assets/products/laptop-blue.jpg"
-import jacketGrayImage from "./assets/products/jacket-gray.jpg"
-import jacketWhiteImage from "./assets/products/jacket-white.jpg"
-import laptopCayanImage from "./assets/products/laptop-cayan.jpg"
-import laptopPurpleImage from "./assets/products/laptop-purple.jpg"
-import phoneBlackImage from "./assets/products/phone-black.jpg"
-import phoneWhiteImage from "./assets/products/phone-white.jpg"
-import phoneRoseImage from "./assets/products/phone-rose.jpg"
+
 import watchBlackImage from "./assets/products/watch-black.jpg"
 import watchGoldImage from "./assets/products/watch-gold.jpg"
-import watchGrayImage from "./assets/products/watch-gray.jpg"
-import glassesBlackImage from "./assets/products/glasses-black.jpg"
+
 
 export const productsData = [
+    {
+    id: 8,
+    imgSrc: laptopBlueImage,
+    secondImg: laptopGrayImage,
+    firstColor:"black",
+    secondColor:"gray",
+    title: 'Laptop',
+    description: 'Modern and full of feature laptop suitable for work and gaming.',
+    price: '375',
+    oldPrice: '450',
+    discount: '-25%',
+    rating: 1.4,
+    ratingCount: 254,
+  },
+  {
+    id: 9,
+    imgSrc: phoneBlackImage,
+    secondImg: phoneGoldImage,
+    firstColor:"black",
+    secondColor:"yellow",
+    title: 'IPhone',
+    description: 'Modern Iphone to keep you up with recent features',
+    price: '120',
+    oldPrice: '200',
+    discount: '-40%',
+    rating: 4.5,
+    ratingCount: 459,
+  },
+  {
+    id: 10,
+    imgSrc: ploverBlueImage,
+    secondImg: ploverGreenImage,
+    firstColor:"blue",
+    secondColor:"green",
+    title: 'Plover',
+    description: 'Warm, Casual plover to keep you warm.',
+    price: '960',
+    oldPrice: '1050',
+    discount: '-35%',
+    rating: 4.7,
+    ratingCount: 780,
+  },
   {
     id: 1,
     imgSrc: joystickImage,
-    secondImg: joystickImage,
     title: 'Sony Joystick Controller',
     description: 'A versatile joystick controller compatible with multiple gaming systems, designed for precision and comfort.',
     price: '120',
@@ -106,9 +143,8 @@ export const productsData = [
   {
     id: 2,
     imgSrc: monitorImage,
-    secondImg: monitorImage,
-    title: 'Dragon Headphones',
-    description: 'High-quality headphones offering exceptional sound clarity and deep bass, perfect for immersive experiences.',
+    title: 'Dragon Screen',
+    description: 'High-quality Screen offering exceptional sound clarity and clear Vision, perfect for immersive experiences.',
     price: '960',
     oldPrice: '1050',
     discount: '-35%',
@@ -118,9 +154,8 @@ export const productsData = [
   {
     id: 3,
     imgSrc: keyboardImage,
-    secondImg: keyboardImage,
-    title: 'Rolex Water-Resist Watch',
-    description: 'A stylish, water-resistant watch crafted with precision for the modern, active lifestyle.',
+    title: 'Gaming Keyboard',
+    description: 'A stylish, mechanical Keyboard crafted with precision for the modern, active lifestyle.',
     price: '370',
     oldPrice: '450',
     discount: '-30%',
@@ -130,9 +165,8 @@ export const productsData = [
   {
     id: 4,
     imgSrc: chairImage,
-    secondImg: chairImage,
-    title: 'Canon Digital Camera',
-    description: 'Capture your moments with this digital camera featuring high resolution and easy-to-use settings.',
+    title: 'Ikea Chair',
+    description: 'A very comfortable chair to help you relax after tiring long days.',
     price: '375',
     oldPrice: '430',
     discount: '-25%',
@@ -141,10 +175,12 @@ export const productsData = [
   },
   {
     id: 5,
-    imgSrc: phoneBlackImage,
-    secondImg: phoneBlackImage,
-    title: 'Sony Joystick Controller',
-    description: 'A sleek, ergonomic joystick for smooth gaming sessions across various platforms.',
+    imgSrc: glassesBlackImage,
+    secondImg: glassesRoseImage,
+    firstColor:"black",
+    secondColor:"rose",
+    title: 'Modern Sun glasses',
+    description: 'A sleek, ergonomic sun glasses to protect your eyes in sunny days.',
     price: '120',
     oldPrice: '150',
     discount: '-40%',
@@ -154,9 +190,11 @@ export const productsData = [
   {
     id: 6,
     imgSrc: watchBlackImage,
-    secondImg: watchBlackImage,
-    title: 'Dragon Headphones',
-    description: 'Noise-canceling headphones designed for audiophiles and gamers alike, with long-lasting battery life.',
+    secondImg: watchGoldImage,
+    firstColor:"black",
+    secondColor:"yellow",
+    title: 'Rolex Watch',
+    description: 'Modern, Stylish watch to keep you elegant.',
     price: '960',
     oldPrice: '1150',
     discount: '-35%',
@@ -165,195 +203,18 @@ export const productsData = [
   },
   {
     id: 7,
-    imgSrc: ploverBlackPaigeImage,
-    secondImg: ploverBlackPaigeImage,
-    title: 'Rolex Water-Resist Watch',
-    description: 'An elegant and durable watch that withstands water and keeps time precisely in any condition.',
+    imgSrc: jacketBlackImage,
+    secondImg: jacketGrayImage,
+    firstColor:"black",
+    secondColor:"gray",
+    title: 'Waterproof Jacket',
+    description: 'Casual Jacket to protect you from Rain.',
     price: '370',
     oldPrice: '440',
     discount: '-30%',
     rating: 3,
     ratingCount: 104,
   },
-  {
-    id: 8,
-    imgSrc: carRedImage,
-    secondImg: carRedImage,
-    title: 'Canon Digital Camera',
-    description: 'Compact and powerful, this camera is perfect for capturing beautiful photos and videos on the go.',
-    price: '375',
-    oldPrice: '450',
-    discount: '-25%',
-    rating: 1.4,
-    ratingCount: 254,
-  },
-  {
-    id: 9,
-    imgSrc: jacketGrayImage,
-    secondImg: jacketGrayImage,
-    title: 'Sony Joystick Controller',
-    description: 'A reliable joystick controller built for a seamless gaming experience.',
-    price: '120',
-    oldPrice: '200',
-    discount: '-40%',
-    rating: 4.5,
-    ratingCount: 459,
-  },
-  {
-    id: 10,
-    imgSrc: earRingsImage,
-    secondImg: earRingsImage,
-    title: 'Dragon Headphones',
-    description: 'High-fidelity headphones with a balanced sound profile, ideal for all music lovers.',
-    price: '960',
-    oldPrice: '1050',
-    discount: '-35%',
-    rating: 4.7,
-    ratingCount: 780,
-  },
-  {
-    id: 11,
-    imgSrc: ploverBlackRoseImage,
-    secondImg: ploverBlackRoseImage,
-    title: 'Rolex Water-Resist Watch',
-    description: 'A premium watch combining elegant design with water resistance for all-day wear.',
-    price: '370',
-    oldPrice: '450',
-    discount: '-30%',
-    rating: 3,
-    ratingCount: 68,
-  },
-  {
-    id: 12,
-    imgSrc: laptopCayanImage,
-    secondImg: laptopCayanImage,
-    title: 'Canon Digital Camera',
-    description: 'Capture clear and crisp images with this user-friendly digital camera.',
-    price: '375',
-    oldPrice: '430',
-    discount: '-25%',
-    rating: 4.9,
-    ratingCount: 695,
-  },
-  {
-    id: 13,
-    imgSrc: watchGoldImage,
-    title: 'Sony Joystick Controller',
-    price: '120',
-    oldPrice:"150",
-    discount: '-40%',
-    rating: 2.2,
-    ratingCount: 120,
-  },
-  {
-    id: 14,
-    imgSrc: phoneWhiteImage,
-    title: 'Dragon Headphones',
-    price: '960',
-    oldPrice:"1150",
-    discount: '-35%',
-    rating: 4,
-    ratingCount: 534,
-  },
-  {
-    id: 15,
-    imgSrc: ploverGreenImage,
-    title: 'Rolex Water-Resist Watch',
-    price: '370',
-    oldPrice:"440",
-    discount: '-30%',
-    rating: 3,
-    ratingCount: 104,
-  },
-  {
-    id: 16,
-    imgSrc: glassesBlackImage,
-    title: 'Canon Digital Camera',
-    price: '375',
-    oldPrice:"450",
-    discount: '-25%',
-    rating: 1.4,
-    ratingCount: 254,
-  },
-    {
-    id: 17,
-    imgSrc: carYellowImage,
-    title: 'Sony Joystick Controller',
-    price: '120',
-    oldPrice:"200",
-    discount: '-40%',
-    rating:4.5,
-    ratingCount: 459,
-  },
-  {
-    id: 18,
-    imgSrc: jacketWhiteImage,
-    title: 'Dragon Headphones',
-    price: '960',
-    oldPrice:"1050",
-    discount: '-35%',
-    rating: 4.7,
-    ratingCount: 780,
-  },
-  {
-    id: 19,
-    imgSrc: laptopPurpleImage,
-    title: 'Rolex Water-Resist Watch',
-    price: '370',
-    oldPrice:"450",
-    discount: '-30%',
-    rating: 3,
-    ratingCount: 68,
-  },
-  {
-    id: 20,
-    imgSrc: watchGrayImage,
-    title: 'Canon Digital Camera',
-    price: '375',
-    oldPrice:"430",
-    discount: '-25%',
-    rating: 4.9,
-    ratingCount: 695,
-  },
-  {
-    id: 21,
-    imgSrc: ploverBlueImage,
-    title: 'Sony Joystick Controller',
-    price: '120',
-    oldPrice:"150",
-    discount: '-40%',
-    rating: 2.2,
-    ratingCount: 120,
-  },
-  {
-    id: 22,
-    imgSrc: phoneRoseImage,
-    title: 'Dragon Headphones',
-    price: '960',
-    oldPrice:"1150",
-    discount: '-35%',
-    rating: 4,
-    ratingCount: 534,
-  },
-  {
-    id: 23,
-    imgSrc: glassesBlackImage,
-    title: 'Rolex Water-Resist Watch',
-    price: '370',
-    oldPrice:"440",
-    discount: '-30%',
-    rating: 3,
-    ratingCount: 104,
-  },
-  {
-    id: 24,
-    imgSrc: ploverBrownImage,
-    title: 'Canon Digital Camera',
-    price: '375',
-    oldPrice:"450",
-    discount: '-25%',
-    rating: 1.4,
-    ratingCount: 254,
-  },
+  
 ];
 

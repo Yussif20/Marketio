@@ -55,6 +55,9 @@ const ProductSlider = ({ products, spaceBetween }) => {
             <ProductCard
               discount={product.discount}
               imgSrc={product.imgSrc}
+              secondImg={product.secondImg}
+              firstColor={product.firstColor}
+              secondColor={product.secondColor}
               title={product.title}
               icon={product.icon}
               price={product.price}

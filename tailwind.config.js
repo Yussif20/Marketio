@@ -5,6 +5,15 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+    safelist: [
+    'text-red-300',
+    'text-rose-300',
+    'text-blue-300',
+    'text-black',
+    'text-green-300',
+    'text-yellow-300',
+    'text-gray-300',
+  ],
   theme: {
     extend: {
         fontFamily: {
