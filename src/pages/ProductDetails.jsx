@@ -22,6 +22,17 @@ export const ProductDetails = () => {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
 
+  const [img, setImg] = useState(null);
+
+  useEffect(() => {
+    if (product) {
+      setImg(product.imgSrc);
+      setSelectedColor(product.firstColor);
+    }
+  }, [product]);
+
+  const [selectedColor, setSelectedColor] = useState('first');
+
   useEffect(() => {
     const foundProduct = products.find((product) => product.id === Number(id));
     setProduct(foundProduct);
@@ -64,12 +75,60 @@ export const ProductDetails = () => {
         <span> {product.title}</span>
       </h5>
       <div className="flex flex-col md:flex-row items-center gap-6 justify-center">
-        <div className="flex-1 md:h-[550px] md:w-[500px] rounded bg-white flex items-center justify-center shadow border">
-          <img src={product.imgSrc} alt={product.title} />
+        <div className="flex-1  rounded bg-white flex items-center justify-center shadow border">
+          <img
+            className="md:h-[550px] md:max-w-[500px]"
+            src={img}
+            alt={product.title}
+          />
         </div>
         <div className="flex items-center text-center flex-col gap-4 flex-1 font-poppins">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             <h2 className="text-2xl font-semibold">{product.title}</h2>
+            {product.secondColor && (
+              <div className="flex gap-2">
+                <button
+                  className={`rounded-full border-2 text-sm ${
+                    selectedColor === 'first'
+                      ? 'border-black'
+                      : 'border-transparent'
+                  }`}
+                  style={{
+                    color: product.firstColor,
+                    borderColor:
+                      selectedColor === 'first'
+                        ? product.firstColor
+                        : 'transparent',
+                  }}
+                  onClick={() => {
+                    setSelectedColor('first');
+                    setImg(product.imgSrc);
+                  }}
+                >
+                  <i className="fa-solid fa-circle p-1"></i>
+                </button>
+                <button
+                  className={`rounded-full border-2 text-sm ${
+                    selectedColor === 'second'
+                      ? 'border-black'
+                      : 'border-transparent'
+                  }`}
+                  style={{
+                    color: product.secondColor,
+                    borderColor:
+                      selectedColor === 'second'
+                        ? product.secondColor
+                        : 'transparent',
+                  }}
+                  onClick={() => {
+                    setSelectedColor('second');
+                    setImg(product.secondImg);
+                  }}
+                >
+                  <i className="fa-solid fa-circle p-1"></i>
+                </button>
+              </div>
+            )}
           </div>
           <div className="mt-2 flex items-center gap-2">
             <div className="flex gap-2 text-yellow-500">

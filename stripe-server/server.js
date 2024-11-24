@@ -3,7 +3,8 @@ const Stripe = require('stripe');
 const cors = require('cors');
 
 const app = express();
-const stripe = Stripe(import.meta.env.VITE_STRIPE_SECRET_KEY);
+const stripe = Stripe('sk_test_51QOTVfHaR89c2xSJmOtSMQZbht80hsrP8tkG9zzXsd6P1hHopxnX9SL37nXs5N9YhOVbH35AGM1YFipJ30EVN0PZ00xwjwBEd5');
+
 
 // Middleware
 app.use(cors()); // Allows cross-origin requests

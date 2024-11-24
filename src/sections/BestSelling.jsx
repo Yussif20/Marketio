@@ -23,6 +23,9 @@ const BestSelling = () => {
             <ProductCard
               key={product.id}
               imgSrc={product.imgSrc}
+              secondImg={product.secondImg}
+              firstColor={product.firstColor}
+              secondColor={product.secondColor}
               title={product.title}
               price={product.price}
               oldPrice={product.oldPrice}

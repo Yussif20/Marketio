@@ -82,18 +82,15 @@ const ProductCard = ({
               {/* First Color Button */}
               <button
                 className={`rounded-full border-2 text-sm ${
-                  firstColor === 'black'
-                    ? `text-black ${
-                        selectedColor === 'first'
-                          ? 'border-black'
-                          : 'border-transparent'
-                      }`
-                    : `text-${firstColor}-300 ${
-                        selectedColor === 'first'
-                          ? `border-${firstColor}-300`
-                          : 'border-transparent'
-                      }`
+                  selectedColor === 'first'
+                    ? 'border-black'
+                    : 'border-transparent'
                 }`}
+                style={{
+                  color: firstColor,
+                  borderColor:
+                    selectedColor === 'first' ? firstColor : 'transparent',
+                }}
                 onClick={() => {
                   setSelectedColor('first');
                   setImg(imgSrc);
@@ -103,18 +100,15 @@ const ProductCard = ({
               </button>
               <button
                 className={`rounded-full border-2 text-sm ${
-                  secondColor === 'black'
-                    ? `text-black ${
-                        selectedColor === 'second'
-                          ? 'border-black'
-                          : 'border-transparent'
-                      }`
-                    : `text-${secondColor}-300 ${
-                        selectedColor === 'second'
-                          ? `border-${secondColor}-300`
-                          : 'border-transparent'
-                      }`
+                  selectedColor === 'second'
+                    ? 'border-black'
+                    : 'border-transparent'
                 }`}
+                style={{
+                  color: secondColor,
+                  borderColor:
+                    selectedColor === 'second' ? secondColor : 'transparent',
+                }}
                 onClick={() => {
                   setSelectedColor('second');
                   setImg(secondImg);
