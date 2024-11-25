@@ -4,11 +4,14 @@ import ThemeSwitcher from './ThemeSwitcher';
 import { useState } from 'react';
 import { useProductContext } from '../ProductContext';
 import AccountMenu from './AccountMenu';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const { favorite, cartItems } = useProductContext();
+
+  const { t } = useTranslation();
 
   let linkStyles = `hover:font-semibold hover:underline transition-all duration-300`;
   const favoriteCount = favorite.length;
@@ -48,7 +51,7 @@ const Header = () => {
               }
               to="/"
             >
-              Home
+              {t('header.home')}
             </NavLink>
           </li>
           <li className={linkStyles}>
@@ -58,7 +61,7 @@ const Header = () => {
               }
               to="/contact"
             >
-              Contact
+              {t('header.contact')}
             </NavLink>
           </li>
           <li className={linkStyles}>
@@ -68,7 +71,7 @@ const Header = () => {
               }
               to="/about"
             >
-              About
+              {t('header.about')}
             </NavLink>
           </li>
           <li className={linkStyles}>
@@ -78,7 +81,7 @@ const Header = () => {
               }
               to="/sign"
             >
-              Sign Up
+              {t('header.signup')}
             </NavLink>
           </li>
         </nav>

@@ -27,7 +27,7 @@ export const ProductDetails = () => {
   useEffect(() => {
     if (product) {
       setImg(product.imgSrc);
-      setSelectedColor(product.firstColor);
+      setSelectedColor('first');
     }
   }, [product]);
 

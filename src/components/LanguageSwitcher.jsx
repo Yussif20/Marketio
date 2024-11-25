@@ -1,6 +1,5 @@
-// import { useContext } from 'react';
 import Select from 'react-select';
-// import { AppContext } from '../AppContext';
+import { useTranslation } from 'react-i18next';
 
 const options = [
   { value: 'en', label: 'English' },
@@ -9,16 +8,18 @@ const options = [
 ];
 
 const LanguageSwitcher = () => {
-  // const { setLang, lang } = useContext(AppContext);
+  const { i18n } = useTranslation();
 
-  // const languageChangeHandler = (e) => {
-  //   setLang(e.value);
-  //   console.log(lang);
-  // };
+  const handleChange = (selectedOption) => {
+    i18n.changeLanguage(selectedOption.value);
+  };
+
   return (
     <Select
-      defaultValue={options[0]}
-      // onChange={languageChangeHandler}
+      defaultValue={
+        options.find((option) => option.value === i18n.language) || options[0]
+      }
+      onChange={handleChange}
       classNames={{
         indicatorSeparator: () => 'hidden',
         input: () => 'dark:text-gray-100',
