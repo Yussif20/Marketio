@@ -1,19 +1,27 @@
 import qrImg from '@assets/footer/qrcode.svg';
 import googlePlayImg from '@assets/footer/google-play.svg';
 import playStoreImg from '@assets/footer/download-appstore.svg';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
+  const accountLinks = t('footer.account.links', { returnObjects: true });
+  const quickLinks = t('footer.quickLinks.links', { returnObjects: true });
+
   return (
     <footer className="font-poppins flex flex-wrap items-start justify-center gap-8 p-8 md:gap-16 md:p-16 bg-black text-[#FAFAFA] dark:bg-darkSecondary">
       <div className="flex flex-col gap-4 w-full md:w-auto md:flex-1 text-center md:text-left">
-        <h4 className="text-2xl leading-6 font-inter font-bold">Exclusive</h4>
-        <p className="text-xl font-medium">Subscribe</p>
-        <p>Get 10% off your first order</p>
+        <h4 className="text-2xl leading-6 font-inter font-bold">
+          {t('footer.subscribe.headline')}
+        </h4>
+        <p className="text-xl font-medium"> {t('footer.subscribe.title')}</p>
+        <p> {t('footer.subscribe.text')}</p>
         <form className="relative mt-2">
           <input
             className="py-2 px-4 bg-transparent w-full outline-none rounded border border-white text-sm"
             type="text"
-            placeholder="Enter Your Email"
+            placeholder={t('footer.subscribe.placeholder')}
           />
           <button>
             <svg
@@ -37,36 +45,37 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col gap-4 w-full md:w-auto md:flex-1 text-center md:text-left">
-        <h4 className="text-xl font-medium">Support</h4>
+        <h4 className="text-xl font-medium"> {t('footer.support.headline')}</h4>
         <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
         <p>exclusive@gmail.com</p>
         <p>+88015-88888-9999</p>
       </div>
 
       <div className="flex flex-col gap-4 w-full md:w-auto md:flex-1 text-center md:text-left">
-        <h4 className="text-xl font-medium">Account</h4>
+        <h4 className="text-xl font-medium"> {t('footer.account.headline')}</h4>
         <ul className="flex flex-col gap-2">
-          <li>My Account</li>
-          <li>Login / Register</li>
-          <li>Cart</li>
-          <li>Wishlist</li>
-          <li>Shop</li>
+          {accountLinks.map((link) => (
+            <li key={link}>{link}</li>
+          ))}
         </ul>
       </div>
 
       <div className="flex flex-col gap-4 w-full md:w-auto md:flex-1 text-center md:text-left">
-        <h4 className="text-xl font-medium">Quick Link</h4>
+        <h4 className="text-xl font-medium">
+          {t('footer.quickLinks.headline')}
+        </h4>
         <ul className="flex flex-col gap-2">
-          <li>Privacy Policy</li>
-          <li>Terms Of Use</li>
-          <li>FAQ</li>
-          <li>Contact</li>
+          {quickLinks.map((link) => (
+            <li key={link}>{link}</li>
+          ))}
         </ul>
       </div>
 
       <div className="flex flex-col gap-4 w-full md:w-auto md:flex-1 text-center md:text-left">
-        <h4 className="text-xl font-medium">Download App</h4>
-        <p className="text-sm">Save $3 with App New User Only</p>
+        <h4 className="text-xl font-medium">
+          {t('footer.downloadApp.headline')}
+        </h4>
+        <p className="text-sm"> {t('footer.downloadApp.text')}</p>
         <div className="flex items-center justify-center md:justify-start gap-2">
           <img src={qrImg} alt="qr code" />
           <div className="flex flex-col gap-1">

@@ -34,6 +34,7 @@
   - [x] cart
   - [x] The Product Details Page
   - [x] add more than one color
+  - [] payment success page
 - [] Project's functionality
   - [x] Responsiveness
   - [x] Add items to favorites
@@ -46,4 +47,4 @@
   - [] Enable Rating
 - Bonus
   - [x] Using Firebase or Supabase
-  - [] Support more than two languages using any library
+  - [x] Support more than two languages using any library

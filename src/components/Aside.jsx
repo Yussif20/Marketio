@@ -1,18 +1,19 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-
-const categories = [
-  'Electronics',
-  'Home & Lifestyle',
-  'Medicine',
-  'Sports & Outdoor',
-  'Baby’s & Toys',
-  'Groceries & Pets',
-  'Health & Beauty',
-];
 
 const Aside = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { t } = useTranslation();
+
+  const categories = [
+    t('aside.womenFashion'),
+    t('aside.electronics'),
+    t('aside.homeAppliances'),
+    t('aside.beautyAndPersonalCare'),
+    t('aside.sportsOutdoors'),
+  ];
 
   return (
     <>
@@ -33,14 +34,14 @@ const Aside = () => {
       >
         <ul className="flex flex-col">
           <li className="relative group w-full py-2 px-12 dark:hover:bg-darkSecondary hover:bg-gray-200 cursor-pointer flex items-center justify-between">
-            Men’s Fashion
+            {t('aside.menFashion')}
             <i className="fa-solid fa-chevron-right"></i>
             <ul className="absolute left-full top-0 hidden group-hover:flex flex-col  bg-white dark:bg-darkPrimary shadow-lg border border-gray-200 dark:border-darkSecondary border-l-0">
               <li className="py-2 px-4 dark:hover:bg-darkSecondary hover:bg-gray-200 border-b border-gray-200 dark:border-darkSecondary">
-                <Link to="shirts">Shirts</Link>
+                <Link to="shirts">{t('aside.shirts')}</Link>
               </li>
               <li className="py-3 px-6 dark:hover:bg-darkSecondary hover:bg-gray-200">
-                <Link to="jeans">Jeans</Link>
+                <Link to="jeans">{t('aside.jeans')}</Link>
               </li>
             </ul>
           </li>

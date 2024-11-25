@@ -30,7 +30,9 @@ const Header = () => {
       <div className="flex items-center justify-evenly mx-2 sm:mx-4 md:mx-12">
         <h1 className="text-xl sm:text-2xl font-bold">
           <Link to="/">
-            MAR<span className="text-basicRed">KET</span>IO
+            {t('header.logoFirst')}
+            <span className="text-basicRed">{t('header.logoColored')}</span>
+            {t('header.logoSecond')}
           </Link>
         </h1>
 

@@ -2,13 +2,16 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 
-import { heroSliderData } from '../data';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useTranslation } from 'react-i18next';
 
 const HeroSlider = () => {
+  const { t } = useTranslation();
+
+  const heroData = t('hero.data', { returnObjects: true });
+
   return (
     <div className="flex justify-center items-center my-12 max-w-[320px] sm:max-w-[550px] lg:max-w-[900px]">
       <Swiper
@@ -20,7 +23,7 @@ const HeroSlider = () => {
         allowTouchMove={true}
         className="w-full max-w-3xl"
       >
-        {heroSliderData.map((product, index) => (
+        {heroData.map((product, index) => (
           <SwiperSlide key={index}>
             <div className="relative">
               <img
@@ -31,12 +34,12 @@ const HeroSlider = () => {
               <div className="absolute z-10 text-white top-20 left-8 sm:top-16 ">
                 <h3>{product.title}</h3>
                 <p className="text-2xl sm:text-5xl font-semibold md:my-4">
-                  Up to 10%
+                  {t('hero.title')}
                   <br />
-                  off Voucher
+                  {t('hero.titleSecondLine')}
                 </p>
                 <button className="font-semibold underline hover:no-underline transition-all duration-[300ms] ease-in-out">
-                  ShopNow
+                  {t('hero.button')}
                 </button>
               </div>
             </div>

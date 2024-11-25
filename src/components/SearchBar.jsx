@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useProductContext } from '../ProductContext';
 
 import { useNavigate } from 'react-router-dom';
@@ -5,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 const SearchBar = () => {
   const { setSearchQuery } = useProductContext();
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const searchHandler = (e) => {
     e.preventDefault();
@@ -21,7 +24,7 @@ const SearchBar = () => {
         className=" outline-none bg-transparent text-black"
         type="text"
         name="search"
-        placeholder="What are you looking for?"
+        placeholder={t('header.searchPlaceHolder')}
       />
       <svg
         width="18"

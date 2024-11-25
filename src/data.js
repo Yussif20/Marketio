@@ -5,32 +5,28 @@ import controllerImage from './assets/hero/controller.jpg'
 import purseImage from './assets/hero/purse.jpg'
 import watchImage from './assets/hero/watch.jpg'
 
-export const heroSliderData = [
-  {
-    id: 1,
-    title: 'Robusta Headphones',
-     image: headphoneImage,
-  },
-  {
-    id: 2,
-    title: 'Canon Lens',
-       image: lensImage,
-  },
-    {
-    id: 3,
-    title: 'Sony Joystick',
-    image: controllerImage,
-  },
-  {
-    id: 4,
-    title: 'Gucci Purse',
-    image: purseImage,
-  },
-  {
-    id: 5,
-    title: 'Rolex Watch',
-       image: watchImage,
-  },
+export const heroSliderDataEn = [
+  { id: 1, title: 'Robusta Headphones', image: headphoneImage },
+  { id: 2, title: 'Canon Lens', image: lensImage },
+  { id: 3, title: 'Sony Joystick', image: controllerImage },
+  { id: 4, title: 'Gucci Purse', image: purseImage },
+  { id: 5, title: 'Rolex Watch', image: watchImage },
+];
+
+export const heroSliderDataAr = [
+  { id: 1, title: 'سماعات روبوستا', image: headphoneImage },
+  { id: 2, title: 'عدسة كانون', image: lensImage },
+  { id: 3, title: 'عصا تحكم سوني', image: controllerImage },
+  { id: 4, title: 'حقيبة غوتشي', image: purseImage },
+  { id: 5, title: 'ساعة رولكس', image: watchImage },
+];
+
+export const heroSliderDataEs = [
+  { id: 1, title: 'Auriculares Robusta', image: headphoneImage },
+  { id: 2, title: 'Lente Canon', image: lensImage },
+  { id: 3, title: 'Joystick Sony', image: controllerImage },
+  { id: 4, title: 'Bolso Gucci', image: purseImage },
+  { id: 5, title: 'Reloj Rolex', image: watchImage },
 ];
 
 // Categories
