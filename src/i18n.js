@@ -3,6 +3,23 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { heroSliderDataEn,heroSliderDataAr,heroSliderDataEs } from "./data";
 
+const optionsEn = [
+  { value: 'en', label: 'English' },
+  { value: 'ar', label: 'Arabic' },
+  { value: 'es', label: 'Spanish' },
+];
+const optionsAr = [
+  { value: 'en', label: "الانجليزية" },
+  { value: 'ar', label: "العربية" },
+  { value: 'es', label: 'الاسبانية' },
+];
+const optionsEs = [
+  { value: 'en', label: 'Inglés' }, 
+  { value: 'ar', label: 'Árabe' },  
+  { value: 'es', label: 'Español' } 
+];
+
+
 i18next
   .use(initReactI18next)
   .use(LanguageDetector)
@@ -11,6 +28,7 @@ i18next
  resources: {
   en: {
     translation: {
+      languageOptions:optionsEn,
       topHeader: {
         text: "Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!",
         button: "Shop Now",
@@ -91,10 +109,40 @@ i18next
           customerService: "24/7 Customer Service",
           moneyBack: "Money Back Guarantee",
         },
+        pages:{
+         contact: {
+          title: "Contact",
+          breadcrumbs: {
+            home: "Home",
+            contact: "Contact",
+          },
+          callToUs: {
+            phone: {
+              title: "Call To Us",
+              description: "We are available 24/7, 7 days a week.",
+              phoneNumber: "Phone: +8801611122222",
+            },
+            email: {
+              title: "Email Us",
+              description: "We are available 24/7, 7 days a week.",
+              email: "email: marketio@gmail.com",
+            },
+          },
+          form: {
+            namePlaceholder: "Your Name",
+            emailPlaceholder: "Your Email",
+            phonePlaceholder: "Your Phone",
+            messagePlaceholder: "Your Message",
+            submitButton: "Send Message",
+          },
+        },
+        }
     },
+    meta: { dir: "ltr" },
   },
   ar: {
     translation: {
+       languageOptions:optionsAr,
       topHeader: {
         text: "!50% تخفيضات الصيف على جميع ملابس السباحة وتوصيل سريع مجاني - خصم",
         button: "تسوق الآن",
@@ -176,11 +224,40 @@ i18next
           customerService: "خدمة عملاء 24/7",
           moneyBack: "ضمان استرداد الأموال",
         },
-
+        pages:{
+            contact: {
+          title: "اتصل",
+          breadcrumbs: {
+            home: "الصفحة الرئيسية",
+            contact: "اتصل بنا",
+          },
+          callToUs: {
+            phone: {
+              title: "اتصل بنا",
+              description: "نحن متاحون على مدار 24 ساعة طوال أيام الأسبوع.",
+              phoneNumber: "الهاتف: +8801611122222",
+            },
+            email: {
+              title: "راسلنا عبر البريد الإلكتروني",
+              description: "نحن متاحون على مدار 24 ساعة طوال أيام الأسبوع.",
+              email: "الايميل: Marketio@gmail.com",
+            },
+          },
+          form: {
+            namePlaceholder: "اسمك",
+            emailPlaceholder: "بريدك الإلكتروني",
+            phonePlaceholder: "رقم هاتفك",
+            messagePlaceholder: "رسالتك",
+            submitButton: "إرسال رسالة",
+          },
+        },
+        }
     },
+    meta: { dir: "rtl" },
   },
   es: {
     translation: {
+       languageOptions:optionsEs,
       topHeader: {
         text: "¡Venta de verano para todos los trajes de baño y entrega exprés gratuita - 50% de descuento!",
         button: "Comprar ahora",
@@ -262,7 +339,36 @@ i18next
           customerService: "Servicio al cliente 24/7",
           moneyBack: "Garantía de devolución de dinero",
         },
+        pages:{
+           contact: {
+          title: "Contacto",
+          breadcrumbs: {
+            home: "Inicio",
+            contact: "Contacto",
+          },
+          callToUs: {
+            phone: {
+              title: "Llámanos",
+              description: "Estamos disponibles 24/7, los 7 días de la semana.",
+              phoneNumber: "Teléfono: +8801611122222",
+            },
+            email: {
+              title: "Envíanos un correo",
+              description: "Estamos disponibles 24/7, los 7 días de la semana.",
+              email: "email: Marketio@gmail.com",
+            },
+          },
+          form: {
+            namePlaceholder: "Tu Nombre",
+            emailPlaceholder: "Tu Correo Electrónico",
+            phonePlaceholder: "Tu Teléfono",
+            messagePlaceholder: "Tu Mensaje",
+            submitButton: "Enviar Mensaje",
+          },
+        },
+        }
     },
+    meta: { dir: "ltr" },
   },
 },
 

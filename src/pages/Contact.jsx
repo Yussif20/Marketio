@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import Button from '@components/Button';
+import { useTranslation } from 'react-i18next';
 
 export const Contact = () => {
+  const { t } = useTranslation();
   const inputStyles =
     'bg-[#F5F5F5] dark:bg-darkSecondary outline-none py-2 px-4 rounded w-full md:w-[300px] lg:w-fit';
   return (
     <section className="mx-12 dark:bg-darkPrimary dark:text-white font-poppins">
       <h5 className="py-10">
         <Link className="text-gray-400" to="/">
-          Home /
+          {t('pages.contact.breadcrumbs.home')} /
         </Link>
-        <span> Contact</span>
+        <span> {t('pages.contact.breadcrumbs.contact')}</span>
       </h5>
       <div className="flex flex-col sm:flex-row py-6 md:py-0 items-center md:justify-evenly gap-8">
         <div className="order-2 sm:order-1 w-[340px]  shadow-md flex flex-col items-center justify-center ">
@@ -32,10 +34,15 @@ export const Contact = () => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <h3>Call To Us</h3>
+              <h3> {t('pages.contact.callToUs.phone.title')}</h3>
             </div>
-            <p className="text-sm">We are available 24/7, 7 days a week.</p>
-            <p className="text-sm">Phone: +8801611112222</p>
+            <p className="text-sm">
+              {t('pages.contact.callToUs.phone.description')}
+            </p>
+            <p className="text-sm">
+              {' '}
+              {t('pages.contact.callToUs.phone.phoneNumber')}
+            </p>
           </div>
           <div className="flex flex-col items-center sm:items-start gap-4 py-10 w-10/12 mx-12">
             <div className="flex items-center gap-4 ">
@@ -56,10 +63,15 @@ export const Contact = () => {
                 />
               </svg>
 
-              <h3>Call To Us</h3>
+              <h3> {t('pages.contact.callToUs.email.title')}</h3>
             </div>
-            <p className="text-sm">We are available 24/7, 7 days a week.</p>
-            <p className="text-sm">Phone: +8801611112222</p>
+            <p className="text-sm">
+              {t('pages.contact.callToUs.email.description')}
+            </p>
+            <p className="text-sm">
+              {' '}
+              {t('pages.contact.callToUs.email.email')}
+            </p>
           </div>
         </div>
         <div className="order-1 sm:order-2 flex flex-col lg:flex-1 gap-6">
@@ -67,19 +79,19 @@ export const Contact = () => {
             <input
               type="text"
               name="name"
-              placeholder="Your Name"
+              placeholder={t('pages.contact.form.namePlaceholder')}
               className={inputStyles}
             />
             <input
               type="mail"
               name="mail"
-              placeholder="Your Email"
+              placeholder={t('pages.contact.form.emailPlaceholder')}
               className={inputStyles}
             />
             <input
               type="tel"
               name="phone"
-              placeholder="Your Phone"
+              placeholder={t('pages.contact.form.phonePlaceholder')}
               className={inputStyles}
             />
           </div>
@@ -87,9 +99,11 @@ export const Contact = () => {
             className="bg-[#F5F5F5] dark:bg-darkSecondary resize-none rounded h-36 md:h-52 max-w-[730px] py-2 px-4 outline-none"
             name="message"
             id="message"
-            placeholder="Your Message"
+            placeholder={t('pages.contact.form.messagePlaceholder')}
           ></textarea>
-          <Button className="lg:ml-auto">Send Massage</Button>
+          <Button className="lg:ml-auto">
+            {t('pages.contact.form.submitButton')}
+          </Button>
         </div>
       </div>
     </section>

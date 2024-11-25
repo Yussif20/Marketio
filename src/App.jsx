@@ -1,4 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import i18n from './i18n'; // Your i18n setup file
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  document.documentElement.lang = i18n.language; // Sets the lang attribute
+  document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr'; // Adjusts text direction
+
+  document.documentElement.dir = i18n.t('meta.dir');
   return (
     <Elements stripe={stripePromise}>
       <RouterProvider router={router} />
