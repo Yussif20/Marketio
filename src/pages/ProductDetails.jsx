@@ -75,9 +75,9 @@ export const ProductDetails = () => {
         <span> {product.title}</span>
       </h5>
       <div className="flex flex-col md:flex-row items-center gap-6 justify-center">
-        <div className="flex-1  rounded bg-white flex items-center justify-center shadow border">
+        <div className="flex-1  rounded bg-[#F5F5F5] flex items-center justify-center shadow border">
           <img
-            className="md:h-[550px] md:max-w-[500px]"
+            className="md:h-[520px] md:max-w-[500px]"
             src={img}
             alt={product.title}
           />

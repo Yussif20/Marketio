@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 const Services = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex items-center justify-evenly text-center flex-wrap gap-20 font-poppins pb-20">
       <div className="flex flex-col items-center">
@@ -74,9 +77,9 @@ const Services = () => {
           </svg>
         </div>
         <h3 className="font-semibold text-xl mt-6 mb-3">
-          FREE AND FAST DELIVERY
+          {t('services.freeDelivery.title')}
         </h3>
-        <p className="text-sm">Free delivery for all orders over $140</p>
+        <p className="text-sm"> {t('services.freeDelivery.description')}</p>
       </div>
 
       <div className="flex flex-col items-center">
@@ -126,9 +129,9 @@ const Services = () => {
           </svg>
         </div>
         <h3 className="font-semibold text-xl mt-6 mb-3">
-          24/7 CUSTOMER SERVICE
+          {t('services.customerService.title')}
         </h3>
-        <p className="text-sm">Friendly 24/7 customer support</p>
+        <p className="text-sm"> {t('services.customerService.description')}</p>
       </div>
 
       <div className="flex flex-col items-center ">
@@ -153,9 +156,9 @@ const Services = () => {
           </svg>
         </div>
         <h3 className="font-semibold text-xl mt-6 mb-3">
-          MONEY BACK GUARANTEE
+          {t('services.moneyBack.title')}
         </h3>
-        <p className="text-sm">We reurn money within 30 days</p>
+        <p className="text-sm"> {t('services.moneyBack.description')}</p>
       </div>
     </div>
   );

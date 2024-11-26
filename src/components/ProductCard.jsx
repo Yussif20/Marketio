@@ -44,7 +44,7 @@ const ProductCard = ({
           {discount}
         </div>
       )}
-      <div className="relative h-[284px] w-full min-w-[300px] rounded bg-white flex items-center justify-center">
+      <div className="relative h-[284px] w-full min-w-[300px] rounded bg-[#F5F5F5] flex items-center justify-center">
         <img
           src={img}
           alt="product"

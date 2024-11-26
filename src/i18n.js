@@ -1,7 +1,7 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { heroSliderDataEn,heroSliderDataAr,heroSliderDataEs } from "./data";
+import { heroSliderDataEn,heroSliderDataAr,heroSliderDataEs,categoriesEn,categoriesAr,categoriesEs } from "./data";
 
 const optionsEn = [
   { value: 'en', label: 'English' },
@@ -67,6 +67,7 @@ i18next
         categories: {
           headline: "Categories",
           title: "Browse By Category",
+          data:categoriesEn,
         },
         bestSelling: {
           headline: "This Month",
@@ -79,9 +80,35 @@ i18next
         featured: {
           headline: "Featured",
           title: "New Arrival",
+          playstation:{
+            title: "PlayStation 5",
+            description: "Experience the ultimate gaming experience with our PlayStation 5.",
+          },
+          womenCollection:{
+            title: "Women's Collection",
+            description: "Featured woman collections that give you another vibe.",
+          },
+          speakers:{
+            title: "Speakers",
+            description: "Experience the ultimate sound quality with our speakers.",
+          },
+          perfume:{
+            title: "Perfume",
+            description: "Experience the ultimate essence with our perfume.",
+          }
+        },
+        saleCount: {
+          title: "categories",
+          text: "Enhance Your",
+          textSecondLine: "Music Experience",
         },
       },
-       footer: {
+      buttons:{
+        viewAll: "View All",
+        buyNow: "Buy Now!",
+        shopNow:"Shop Now"
+      },
+      footer: {
           subscribe: {
             title:"Subscribe",
             headline: "Exclusive",
@@ -104,12 +131,27 @@ i18next
             text: "Save $3 with App New User Only",
           },
         },
-        guarantees: {
-          freeDelivery: "Free and Fast Delivery",
-          customerService: "24/7 Customer Service",
-          moneyBack: "Money Back Guarantee",
+      services: {
+          freeDelivery:{
+            title: "Free and Fast Delivery",
+            description: "Free delivery for all orders over $140.",
+          },
+          customerService: {
+            title: "Customer Service",
+            description: "Friendly 24/7 customer support.",
+          },
+          moneyBack:{
+            title: "Money Back Guarantee",
+            description: "We reurn money within 30 days.",
+          },
         },
-        pages:{
+      countdown:{
+        days:"days",
+        hours:"hours",
+        minutes:"minutes",
+        seconds:"seconds",
+      },
+      pages:{
          contact: {
           title: "Contact",
           breadcrumbs: {
@@ -142,7 +184,7 @@ i18next
   },
   ar: {
     translation: {
-       languageOptions:optionsAr,
+      languageOptions:optionsAr,
       topHeader: {
         text: "!50% تخفيضات الصيف على جميع ملابس السباحة وتوصيل سريع مجاني - خصم",
         button: "تسوق الآن",
@@ -181,6 +223,7 @@ i18next
         categories: {
           headline: "الفئات",
           title: "تصفح حسب الفئة",
+          data:categoriesAr,
         },
         bestSelling: {
           headline: "هذا الشهر",
@@ -192,10 +235,37 @@ i18next
         },
         featured: {
           headline: "المميز",
-          title: "وصل حديثاً",
+          title: "وصول جديد",
+          playstation: {
+            title: "بلايستيشن 5",
+            description: "اختبر تجربة اللعب النهائية مع بلايستيشن 5 الخاص بنا.",
+          },
+          womenCollection: {
+            title: "مجموعة النساء",
+            description: "مجموعات نسائية مميزة تمنحك أجواء مختلفة.",
+          },
+          speakers: {
+            title: "مكبرات الصوت",
+            description: "اختبر جودة الصوت المثلى مع مكبرات الصوت الخاصة بنا.",
+          },
+          perfume: {
+            title: "عطور",
+            description: "استمتع بأروع الروائح مع عطورنا المميزة.",
+          },
         },
+
+        saleCount: {
+            title: "الفئات",
+            text: "عزز",
+            textSecondLine: "تجربة الموسيقى الخاصة بك",
+},
       },
-         footer: {
+      buttons:{
+        viewAll: "أظهر كل المنتجات",
+        buyNow:"!اشترى الان",
+        shopNow: "تسوق الآن"
+      },
+      footer: {
           subscribe: {
             title:"اشترك",
             headline: "حصري",
@@ -218,13 +288,28 @@ i18next
             headline: "حمل التطبيق",
             text: "وفر 3 دولارات مع التطبيق فقط للمستخدمين الجدد",
           },
+      },
+      services: {
+        freeDelivery: {
+    title: "توصيل مجاني وسريع",
+    description: "توصيل مجاني لجميع الطلبات التي تزيد عن 140 دولارًا",
         },
-        guarantees: {
-          freeDelivery: "توصيل مجاني وسريع",
-          customerService: "خدمة عملاء 24/7",
-          moneyBack: "ضمان استرداد الأموال",
+        customerService: {
+          title: "خدمة العملاء",
+          description: ".دعم عملاء ودود على مدار الساعة",
         },
-        pages:{
+        moneyBack: {
+          title: "ضمان استرداد الأموال",
+          description: ".نسترد الأموال خلال 30 يومًا",
+        },
+      },
+      countdown: {
+        days: "أيام",
+        hours: "ساعات",
+        minutes: "دقائق",
+        seconds: "ثوانٍ",
+      },
+      pages:{
             contact: {
           title: "اتصل",
           breadcrumbs: {
@@ -251,13 +336,13 @@ i18next
             submitButton: "إرسال رسالة",
           },
         },
-        }
+      }
     },
     meta: { dir: "rtl" },
   },
   es: {
     translation: {
-       languageOptions:optionsEs,
+      languageOptions:optionsEs,
       topHeader: {
         text: "¡Venta de verano para todos los trajes de baño y entrega exprés gratuita - 50% de descuento!",
         button: "Comprar ahora",
@@ -296,6 +381,7 @@ i18next
         categories: {
           headline: "Categorías",
           title: "Explorar por categoría",
+          data:categoriesEs,
         },
         bestSelling: {
           headline: "Este mes",
@@ -307,10 +393,36 @@ i18next
         },
         featured: {
           headline: "Destacado",
-          title: "Nuevas llegadas",
+          title: "Nueva llegada",
+          playstation: {
+            title: "PlayStation 5",
+            description: "Vive la experiencia de juego definitiva con nuestra PlayStation 5.",
+          },
+          womenCollection: {
+            title: "Colección para mujeres",
+            description: "Colecciones destacadas para mujeres que te dan otra vibra.",
+          },
+          speakers: {
+            title: "Altavoces",
+            description: "Experimenta la mejor calidad de sonido con nuestros altavoces.",
+          },
+          perfume: {
+            title: "Perfume",
+            description: "Experimenta la esencia definitiva con nuestro perfume.",
+          },
+        },
+        saleCount: {
+          title: "categorías",
+          text: "Mejora tu",
+          textSecondLine: "experiencia musical",
         },
       },
-        footer: {
+      buttons:{
+        viewAll:"Ver todo",
+        buyNow: "Comprar ahora!",
+        shopNow: "Comprar ahora",
+      },
+      footer: {
           subscribe: {
             title:"Suscribirse",
             headline: "Exclusivo",
@@ -333,13 +445,28 @@ i18next
             headline: "Descargar App",
             text: "Ahorra $3 solo con la nueva aplicación para usuarios",
           },
+      },
+      services: {
+        freeDelivery: {
+          title: "Entrega rápida y gratuita",
+          description: "Entrega gratuita para todos los pedidos superiores a $140.",
         },
-        guarantees: {
-          freeDelivery: "Entrega gratuita y rápida",
-          customerService: "Servicio al cliente 24/7",
-          moneyBack: "Garantía de devolución de dinero",
+        customerService: {
+          title: "Atención al cliente",
+          description: "Soporte al cliente amigable las 24/7.",
         },
-        pages:{
+        moneyBack: {
+          title: "Garantía de devolución de dinero",
+          description: "Devolvemos el dinero dentro de los 30 días.",
+        },
+      },
+      countdown: {
+        days: "días",
+        hours: "horas",
+        minutes: "minutos",
+        seconds: "segundos",
+      },
+      pages:{
            contact: {
           title: "Contacto",
           breadcrumbs: {

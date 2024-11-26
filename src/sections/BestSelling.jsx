@@ -3,16 +3,20 @@ import Button from '@components/Button';
 import ProductCard from '@components/ProductCard';
 
 import { productsData } from '../data';
+import { useTranslation } from 'react-i18next';
 
 const BestSelling = () => {
+  const { t } = useTranslation();
   return (
     <Section
-      title="This Month"
+      title={t('sections.bestSelling.headline')}
       isMultiHeadline={true}
       headline={
         <div className="flex items-center justify-between my-4">
-          <h3 className="text-4xl font-semibold mt-4">Best Selling Products</h3>
-          <Button>View All</Button>
+          <h3 className="text-4xl font-semibold mt-4">
+            {t('sections.bestSelling.title')}
+          </h3>
+          <Button>{t('buttons.viewAll')}</Button>
         </div>
       }
     >

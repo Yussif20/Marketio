@@ -30,7 +30,7 @@ export const heroSliderDataEs = [
 ];
 
 // Categories
-export const categories = [
+export const categoriesEn = [
   { id: 1, title: "Camera", icon:"fas fa-camera" },
   { id: 2, title: "Phones", icon:"fas fa-mobile-alt"},
   { id: 3, title: "Computers", icon:"fas fa-laptop" },
@@ -40,6 +40,28 @@ export const categories = [
   { id: 7, title: "Cloth", icon:"fas fa-tshirt" },
   { id: 8, title: "Cups", icon:"fas fa-mug-hot" },
 ];
+export const categoriesAr = [ 
+  { id: 1, title: "كاميرا", icon: "fas fa-camera" },
+  { id: 2, title: "هواتف", icon: "fas fa-mobile-alt" },
+  { id: 3, title: "أجهزة كمبيوتر", icon: "fas fa-laptop" },
+  { id: 4, title: "ملابس رسمية", icon: "fa-solid fa-user-tie" },
+  { id: 5, title: "سماعات", icon: "fas fa-headphones" },
+  { id: 6, title: "ألعاب", icon: "fas fa-gamepad" },
+  { id: 7, title: "ملابس", icon: "fas fa-tshirt" },
+  { id: 8, title: "أكواب", icon: "fas fa-mug-hot" },
+];
+export const categoriesEs = [ 
+  { id: 1, title: "Cámara", icon: "fas fa-camera" },
+  { id: 2, title: "Teléfonos", icon: "fas fa-mobile-alt" },
+  { id: 3, title: "Computadoras", icon: "fas fa-laptop" },
+  { id: 4, title: "Ropa formal", icon: "fa-solid fa-user-tie" },
+  { id: 5, title: "Auriculares", icon: "fas fa-headphones" },
+  { id: 6, title: "Juegos", icon: "fas fa-gamepad" },
+  { id: 7, title: "Ropa", icon: "fas fa-tshirt" },
+  { id: 8, title: "Tazas", icon: "fas fa-mug-hot" },
+];
+
+
 
 
 //Founders
@@ -63,23 +85,23 @@ import monitorImage from "./assets/products/monitor.png"
 import keyboardImage from "./assets/products/keyboard.png"
 import chairImage from "./assets/products/chair.png"
 
-import glassesBlackImage from "./assets/products/glasses-black.jpg"
-import glassesRoseImage from "./assets/products/glasses-rose.jpg"
+import glassesBlackImage from "./assets/products/glasses-black.png"
+import glassesRoseImage from "./assets/products/glasses-rose.png"
 
-import jacketGrayImage from "./assets/products/jacket-gray.jpg"
-import jacketBlackImage from "./assets/products/jacket-black.jpg"
+import jacketGrayImage from "./assets/products/jacket-gray.png"
+import jacketBlackImage from "./assets/products/jacket-black.png"
 
-import laptopBlueImage from "./assets/products/laptop-blue.jpg"
-import laptopGrayImage from "./assets/products/laptop-grey.jpg"
+import laptopBlueImage from "./assets/products/laptop-blue.png"
+import laptopGrayImage from "./assets/products/laptop-grey.png"
 
-import phoneBlackImage from "./assets/products/phone-black.jpg"
-import phoneGoldImage from "./assets/products/phone-gold.jpg"
+import phoneBlackImage from "./assets/products/phone-black.png"
+import phoneGoldImage from "./assets/products/phone-gold.png"
 
-import ploverBlueImage from "./assets/products/plover-blue.jpg"
-import ploverGreenImage from "./assets/products/plover-green.jpg"
+import ploverBlueImage from "./assets/products/plover-blue.png"
+import ploverGreenImage from "./assets/products/plover-green.png"
 
-import watchBlackImage from "./assets/products/watch-black.jpg"
-import watchGoldImage from "./assets/products/watch-gold.jpg"
+import watchBlackImage from "./assets/products/watch-black.png"
+import watchGoldImage from "./assets/products/watch-gold.png"
 
 
 export const productsData = [

@@ -3,19 +3,24 @@ import Countdown from '@components/Countdown';
 import ProductSlider from '@components/ProductSlider';
 import Section from '@components/Section';
 import { productsData } from '../data';
+import { useTranslation } from 'react-i18next';
 
 const FlashSales = () => {
   let colClasses = 'flex flex-col items-center';
   let dateIdentifierClasses = 'text-xs font-poppins font-medium';
   let dateCountClasses = 'font-bold text-[32px] leading-[30px]';
 
+  const { t } = useTranslation();
+
   return (
     <Section
-      title="Today's"
+      title={t('sections.flashSales.headline')}
       isMultiHeadline={true}
       headline={
         <div className="flex flex-col gap-6 sm:flex-row items-center sm:gap-32 my-4">
-          <h3 className="text-4xl font-semibold mt-4">Flash Sales</h3>
+          <h3 className="text-4xl font-semibold mt-4">
+            {t('sections.flashSales.title')}
+          </h3>
           <Countdown
             colClasses={colClasses}
             dateIdentifierClasses={dateIdentifierClasses}
@@ -34,7 +39,7 @@ const FlashSales = () => {
       </div>
       <div className="flex items-center justify-center">
         <Button variant="primary" size="md">
-          View All Products
+          {t('buttons.viewAll')}
         </Button>
       </div>
     </Section>

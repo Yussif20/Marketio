@@ -1,10 +1,15 @@
 import Section from '@components/Section';
 import CategorySlider from '@components/CategorySlider';
-import { categories } from '../data';
+import { useTranslation } from 'react-i18next';
 
 const Categories = () => {
+  const { t } = useTranslation();
+  const categories = t('sections.categories.data', { returnObjects: true });
   return (
-    <Section title="Categories" headline="Browse By Category">
+    <Section
+      title={t('sections.categories.headline')}
+      headline={t('sections.categories.title')}
+    >
       <CategorySlider
         products={categories}
         spaceBetween={10}

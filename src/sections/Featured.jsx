@@ -4,10 +4,16 @@ import Services from '@components/Services';
 import playstationImg from '@assets/featured/playstation.png';
 import speakersImg from '@assets/featured/speakers.png';
 import perfumeImg from '@assets/featured/perfume.png';
+import glassesImg from '@assets/featured/glasses.png';
+import { useTranslation } from 'react-i18next';
 
 const Featured = () => {
+  const { t } = useTranslation();
   return (
-    <Section title="Featured" headline="New Arrival">
+    <Section
+      title={t('sections.featured.headline')}
+      headline={t('sections.featured.title')}
+    >
       <div className="flex items-center justify-evenly gap-4 my-12 flex-wrap">
         <div className="relative h-[600px] w-[350px] sm:w-[570px] rounded bg-black flex items-center justify-center ">
           <img
@@ -16,24 +22,34 @@ const Featured = () => {
             alt="playstation"
           />
           <div className="absolute bottom-20 left-8 flex flex-col items-start gap-4 text-white ">
-            <h3 className="text-2xl">Playstation 5</h3>
+            <h3 className="text-2xl">
+              {t('sections.featured.playstation.title')}
+            </h3>
             <p className="text-sm font-poppins">
-              Black and White version of the PS5 <br /> coming out on sale.
+              {t('sections.featured.playstation.description')}
             </p>
             <button className="font-semibold underline hover:no-underline transition-all duration-[300ms] ease-in-out">
-              ShopNow
+              {t('buttons.shopNow')}
             </button>
           </div>
         </div>
         <div className="flex flex-col gap-4">
-          <div className="relative h-[284px] w-[300px] sm:w-[570px] rounded bg-black max-w-full">
+          <div className="flex items-center justify-center relative h-[284px] w-[300px] sm:w-[570px] rounded bg-black max-w-full">
+            <img
+              className="hover:scale-105 transition-transform max-w-[300px]"
+              src={glassesImg}
+              alt="speakers"
+            />
             <div className="absolute bottom-12 left-8 flex flex-col items-start gap-4 text-white ">
-              <h3 className="text-2xl">Women’s Collections</h3>
+              <h3 className="text-2xl">
+                {' '}
+                {t('sections.featured.womenCollection.title')}
+              </h3>
               <p className="text-sm font-poppins">
-                Featured woman collections that <br /> give you another vibe.
+                {t('sections.featured.womenCollection.description')}
               </p>
               <button className="font-semibold underline hover:no-underline transition-all duration-[300ms] ease-in-out">
-                ShopNow
+                {t('buttons.shopNow')}
               </button>
             </div>
           </div>
@@ -45,10 +61,14 @@ const Featured = () => {
                 alt="speakers"
               />
               <div className="absolute bottom-12 left-8 flex flex-col items-start gap-3 text-white ">
-                <h3 className="text-2xl">Speakers</h3>
-                <p className="text-sm font-poppins">Amazon wireless speakers</p>
+                <h3 className="text-2xl">
+                  {t('sections.featured.speakers.title')}
+                </h3>
+                <p className="text-sm font-poppins">
+                  {t('sections.featured.speakers.description')}
+                </p>
                 <button className="font-semibold underline hover:no-underline transition-all duration-[300ms] ease-in-out">
-                  ShopNow
+                  {t('buttons.shopNow')}
                 </button>
               </div>
             </div>
@@ -60,10 +80,14 @@ const Featured = () => {
               />
 
               <div className="absolute bottom-12 left-8 flex flex-col items-start gap-3 text-white ">
-                <h3 className="text-2xl">Perfume</h3>
-                <p className="text-sm font-poppins">GUCCI INTENSE OUD EDP</p>
+                <h3 className="text-2xl">
+                  {t('sections.featured.perfume.title')}
+                </h3>
+                <p className="text-sm font-poppins">
+                  {t('sections.featured.perfume.description')}
+                </p>
                 <button className="font-semibold underline hover:no-underline transition-all duration-[300ms] ease-in-out">
-                  Shop now
+                  {t('buttons.shopNow')}
                 </button>
               </div>
             </div>
