@@ -1,5 +1,4 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import i18n from './i18n'; // Your i18n setup file
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
@@ -19,6 +18,8 @@ import { SignUp, SignIn } from '@sections';
 
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { useEffect } from 'react';
+import i18next from './i18n';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
@@ -49,10 +50,20 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  document.documentElement.lang = i18n.language; // Sets the lang attribute
-  document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr'; // Adjusts text direction
+  useEffect(() => {
+    const handleDirection = () => {
+      const currentLang = i18next.language;
+      const direction = currentLang === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.dir = direction;
+    };
 
-  document.documentElement.dir = i18n.t('meta.dir');
+    handleDirection();
+    i18next.on('languageChanged', handleDirection);
+
+    return () => {
+      i18next.off('languageChanged', handleDirection);
+    };
+  }, []);
   return (
     <Elements stripe={stripePromise}>
       <RouterProvider router={router} />

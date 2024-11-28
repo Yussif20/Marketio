@@ -8,6 +8,8 @@ import {
 
 import { productsData } from './data.js';
 
+import i18next from './i18n';
+
 const ProductContext = createContext();
 // eslint-disable-next-line react-refresh/only-export-components
 export const useProductContext = () => useContext(ProductContext);
@@ -166,6 +168,23 @@ export const ProductProvider = ({ children }) => {
     );
   };
 
+  const [direction, setDirection] = useState('ltr');
+
+  useEffect(() => {
+    const updateDirection = () => {
+      const currentLang = i18next.language;
+      setDirection(currentLang === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    };
+
+    updateDirection(); // Set direction initially
+    i18next.on('languageChanged', updateDirection); // Update direction on language change
+
+    return () => {
+      i18next.off('languageChanged', updateDirection); // Cleanup
+    };
+  }, []);
+
   return (
     <ProductContext.Provider
       value={{
@@ -197,6 +216,9 @@ export const ProductProvider = ({ children }) => {
         // Search Query
         searchQuery,
         setSearchQuery,
+        // Translation
+        direction,
+        setDirection,
       }}
     >
       {children}

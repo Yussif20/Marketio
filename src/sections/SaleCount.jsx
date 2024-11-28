@@ -3,6 +3,7 @@ import Countdown from '@components/Countdown';
 
 import headphoneImage from '@assets/sale-count/headphones-lg.jpg';
 import { useTranslation } from 'react-i18next';
+import { useProductContext } from '../ProductContext';
 
 const SaleCount = () => {
   let colClasses =
@@ -12,6 +13,8 @@ const SaleCount = () => {
 
   const { t } = useTranslation();
 
+  const { direction } = useProductContext();
+
   return (
     <section className="flex items-center justify-center py-8 md:py-16 relative">
       <img
@@ -19,7 +22,13 @@ const SaleCount = () => {
         src={headphoneImage}
         alt="sale Image"
       />
-      <div className="z-10 absolute top-10 left-10 sm:top-20 sm:left-20 md:top-40 md:left-56 flex flex-col items-start ">
+      <div
+        className={`z-10 absolute ${
+          direction === 'ltr'
+            ? 'left-10 sm:left-20 md:left-56'
+            : 'right-10 sm:right-20 md:right-56'
+        } top-10 sm:top-20  md:top-40 flex flex-col items-start`}
+      >
         <h4 className="text-basicGreen font-poppins font-semibold order">
           {t('sections.saleCount.title')}
         </h4>

@@ -17,8 +17,8 @@ const FlashSales = () => {
       title={t('sections.flashSales.headline')}
       isMultiHeadline={true}
       headline={
-        <div className="flex flex-col gap-6 sm:flex-row items-center sm:gap-32 my-4">
-          <h3 className="text-4xl font-semibold mt-4">
+        <div className="flex flex-col gap-6 sm:flex-row items-center sm:gap-32">
+          <h3 className="text-4xl font-semibold">
             {t('sections.flashSales.title')}
           </h3>
           <Countdown
@@ -30,7 +30,7 @@ const FlashSales = () => {
         </div>
       }
     >
-      <div className="mt-20">
+      <div>
         <ProductSlider
           products={productsData}
           spaceBetween={20}

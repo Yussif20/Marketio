@@ -6,9 +6,12 @@ import speakersImg from '@assets/featured/speakers.png';
 import perfumeImg from '@assets/featured/perfume.png';
 import glassesImg from '@assets/featured/glasses.png';
 import { useTranslation } from 'react-i18next';
+import { useProductContext } from '../ProductContext';
 
 const Featured = () => {
   const { t } = useTranslation();
+
+  const { direction } = useProductContext();
   return (
     <Section
       title={t('sections.featured.headline')}
@@ -21,7 +24,11 @@ const Featured = () => {
             src={playstationImg}
             alt="playstation"
           />
-          <div className="absolute bottom-20 left-8 flex flex-col items-start gap-4 text-white ">
+          <div
+            className={`absolute bottom-20 ${
+              direction === 'ltr' ? 'left-8' : 'right-8'
+            } flex flex-col items-start gap-4 text-white`}
+          >
             <h3 className="text-2xl">
               {t('sections.featured.playstation.title')}
             </h3>
@@ -40,7 +47,11 @@ const Featured = () => {
               src={glassesImg}
               alt="speakers"
             />
-            <div className="absolute bottom-12 left-8 flex flex-col items-start gap-4 text-white ">
+            <div
+              className={`absolute bottom-12 ${
+                direction === 'ltr' ? 'left-8' : 'right-8'
+              } flex flex-col items-start gap-4 text-white`}
+            >
               <h3 className="text-2xl">
                 {' '}
                 {t('sections.featured.womenCollection.title')}
@@ -60,7 +71,11 @@ const Featured = () => {
                 src={speakersImg}
                 alt="speakers"
               />
-              <div className="absolute bottom-12 left-8 flex flex-col items-start gap-3 text-white ">
+              <div
+                className={`absolute bottom-12 ${
+                  direction === 'ltr' ? 'left-8' : 'right-8'
+                } flex flex-col items-start gap-3 text-white`}
+              >
                 <h3 className="text-2xl">
                   {t('sections.featured.speakers.title')}
                 </h3>
@@ -79,7 +94,11 @@ const Featured = () => {
                 alt="perfume"
               />
 
-              <div className="absolute bottom-12 left-8 flex flex-col items-start gap-3 text-white ">
+              <div
+                className={`absolute bottom-12 ${
+                  direction === 'ltr' ? 'left-8' : 'right-8'
+                } flex flex-col items-start gap-3 text-white`}
+              >
                 <h3 className="text-2xl">
                   {t('sections.featured.perfume.title')}
                 </h3>

@@ -482,7 +482,7 @@ i18next
             email: {
               title: "Envíanos un correo",
               description: "Estamos disponibles 24/7, los 7 días de la semana.",
-              email: "email: Marketio@gmail.com",
+              email: "correo electrónico: Marketio@gmail.com",
             },
           },
           form: {

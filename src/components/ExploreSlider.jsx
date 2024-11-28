@@ -4,10 +4,13 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
 import ProductCard from './ProductCard';
+import { useProductContext } from '../ProductContext';
 
 const ExploreSlider = ({ products }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+  const { direction } = useProductContext();
 
   const chunkedProducts = [];
   for (let i = 0; i < products.length; i += 8) {
@@ -16,18 +19,30 @@ const ExploreSlider = ({ products }) => {
 
   return (
     <div className="relative w-full my-8">
-      <div className="flex gap-2 absolute right-8 top-[-48px]">
+      <div
+        className={`flex gap-2 absolute ${
+          direction === 'ltr' ? 'right-8' : 'left-8'
+        } top-[-48px]`}
+      >
         <button
           ref={prevRef}
-          className="text-darkPrimary dark:text-white bg-gray-200 dark:bg-gray-700 rounded-full py-2 px-3 hover:bg-gray-100  dark:hover:bg-gray-600"
+          className="text-darkPrimary dark:text-white bg-gray-200 dark:bg-gray-700 rounded-full py-2 px-3 hover:bg-gray-100 dark:hover:bg-gray-600"
         >
-          <i className="fa-solid fa-arrow-left"></i>
+          <i
+            className={`fa-solid ${
+              direction === 'ltr' ? 'fa-arrow-left' : 'fa-arrow-right'
+            }`}
+          ></i>
         </button>
         <button
           ref={nextRef}
-          className="text-darkPrimary dark:text-white bg-gray-200 dark:bg-gray-700 rounded-full py-2 px-3 hover:bg-gray-100  dark:hover:bg-gray-600"
+          className="text-darkPrimary dark:text-white bg-gray-200 dark:bg-gray-700 rounded-full py-2 px-3 hover:bg-gray-100 dark:hover:bg-gray-600"
         >
-          <i className="fa-solid fa-arrow-right"></i>
+          <i
+            className={`fa-solid ${
+              direction === 'ltr' ? 'fa-arrow-right' : 'fa-arrow-left'
+            }`}
+          ></i>
         </button>
       </div>
       <Swiper
