@@ -1,7 +1,7 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { heroSliderDataEn,heroSliderDataAr,heroSliderDataEs,categoriesEn,categoriesAr,categoriesEs } from "./data";
+import { heroSliderDataEn,heroSliderDataAr,heroSliderDataEs,categoriesEn,categoriesAr,categoriesEs,foundersDataEn,foundersDataAr,foundersDataEs } from "./data";
 
 const optionsEn = [
   { value: 'en', label: 'English' },
@@ -178,6 +178,40 @@ i18next
             submitButton: "Send Message",
           },
         },
+         about:{
+          title:"About Us",
+          breadcrumbs: {
+            home: "Home",
+            about: "About",
+          },
+          textFirst:`Launced in 2015, Exclusive is South Asia’s premier online shopping
+            makterplace with an active presense in Bangladesh. Supported by wide
+            range of tailored marketing, data and service solutions, Exclusive
+            has 10,500 sallers and 300 brands and serves 3 millioons customers
+            across the region.`,
+          textSecond:`Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging from consumer.`
+          ,statics:{
+            support:{
+              number:"10.5k",
+              text:"Friendly 24/7 customer support"
+            },
+            sales:{
+              number:"33k",
+              text:"Monthly Product Sale"
+            },  
+            customers:{
+              number:"45.5k",
+              text:"Customer active in our site"
+            },   
+            gross:{
+              number:"25k",
+              text:"Annual Gross"
+            },
+          },
+          founders:{
+            data:foundersDataEn,
+          }
+        },
         }
     },
     meta: { dir: "ltr" },
@@ -310,7 +344,7 @@ i18next
         seconds: "ثوانٍ",
       },
       pages:{
-            contact: {
+          contact: {
           title: "اتصل",
           breadcrumbs: {
             home: "الصفحة الرئيسية",
@@ -334,6 +368,36 @@ i18next
             phonePlaceholder: "رقم هاتفك",
             messagePlaceholder: "رسالتك",
             submitButton: "إرسال رسالة",
+          },
+        },
+          about: {
+          title: "من نحن",
+          breadcrumbs: {
+            home: "الرئيسية",
+            about: "من نحن",
+          },
+          textFirst: `تم إطلاق Exclusive في عام 2015، وهي السوق الإلكترونية الرائدة في جنوب آسيا بحضور نشط في بنغلاديش. بدعم من مجموعة واسعة من الحلول التسويقية والبيانية والخدمية المخصصة، تمتلك Exclusive 10,500 بائع و300 علامة تجارية وتخدم 3 ملايين عميل في جميع أنحاء المنطقة.`,
+          textSecond: `تقدم Exclusive أكثر من مليون منتج، وتنمو بمعدل سريع. تقدم Exclusive مجموعة متنوعة من الفئات التي تتراوح بين المنتجات الاستهلاكية.`,
+          statics: {
+            support: {
+              number: "10.5k",
+              text: "دعم عملاء ودود على مدار الساعة"
+            },
+            sales: {
+              number: "33k",
+              text: "مبيعات شهرية للمنتجات"
+            },
+            customers: {
+              number: "45.5k",
+              text: "عملاء نشطون على موقعنا"
+            },
+            gross: {
+              number: "25k",
+              text: "الإجمالي السنوي"
+            },
+          },
+          founders: {
+            data: foundersDataAr,
           },
         },
       }
@@ -467,7 +531,7 @@ i18next
         seconds: "segundos",
       },
       pages:{
-           contact: {
+          contact: {
           title: "Contacto",
           breadcrumbs: {
             home: "Inicio",
@@ -493,7 +557,38 @@ i18next
             submitButton: "Enviar Mensaje",
           },
         },
+       about: {
+          title: "Sobre Nosotros",
+          breadcrumbs: {
+            home: "Inicio",
+            about: "Sobre Nosotros",
+          },
+          textFirst: `Lanzado en 2015, Exclusive es el principal mercado de compras en línea del sur de Asia con una presencia activa en Bangladesh. Con el apoyo de una amplia gama de soluciones de marketing, datos y servicios personalizados, Exclusive cuenta con 10,500 vendedores y 300 marcas y atiende a 3 millones de clientes en toda la región.`,
+          textSecond: `Exclusive ofrece más de 1 millón de productos y está creciendo a un ritmo muy rápido. Exclusive ofrece una variedad diversa en categorías que van desde productos de consumo.`,
+          statics: {
+            support: {
+              number: "10.5k",
+              text: "Atención al cliente amigable 24/7"
+            },
+            sales: {
+              number: "33k",
+              text: "Ventas mensuales de productos"
+            },
+            customers: {
+              number: "45.5k",
+              text: "Clientes activos en nuestro sitio"
+            },
+            gross: {
+              number: "25k",
+              text: "Ingresos anuales brutos"
+            },
+          },
+          founders: {
+            data: foundersDataEs,
+          },
         }
+
+      }
     },
     meta: { dir: "ltr" },
   },

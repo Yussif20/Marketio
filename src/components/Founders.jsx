@@ -2,13 +2,14 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 
-import { foundersData } from '../data';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useTranslation } from 'react-i18next';
 
 const Founders = () => {
+  const { t } = useTranslation();
+  const foundersData = t('pages.about.founders.data', { returnObjects: true });
   return (
     <div className="flex justify-center items-center mt-16">
       <Swiper

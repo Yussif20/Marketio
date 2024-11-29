@@ -68,7 +68,7 @@ export const categoriesEs = [
 import TomImage from './assets/about/tom.png'
 import WillImage from './assets/about/will.png'
 
-export const foundersData = [
+export const foundersDataEn = [
   { id: 1, name: "Ahmed Fathy",job:"Founder & Chairman", img:TomImage },
   { id: 2, name: "Muhamed Abusrea",job:"Founder & Chairman", img:WillImage },
   { id: 3, name: "Mohamed Ali",job:"Founder & Chairman", img:TomImage },
@@ -77,6 +77,26 @@ export const foundersData = [
   { id: 6, name: "Mostafa Zeit",job:"Founder & Chairman", img:WillImage },
   { id: 7, name: "Yousef Ayman",job:"Founder & Chairman", img:TomImage },
 ];
+export const foundersDataAr = [
+  { id: 1, name: "أحمد فتحي", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
+  { id: 2, name: "محمد أبو سرية", job: "مؤسس ورئيس مجلس الإدارة", img: WillImage },
+  { id: 3, name: "محمد علي", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
+  { id: 4, name: "إبراهيم زكريا", job: "مؤسس ورئيس مجلس الإدارة", img: WillImage },
+  { id: 5, name: "عبد الرحمن عمارة", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
+  { id: 6, name: "مصطفى زيت", job: "مؤسس ورئيس مجلس الإدارة", img: WillImage },
+  { id: 7, name: "يوسف أيمن", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
+];
+export const foundersDataEs = [
+  { id: 1, name: "Ahmed Fathy", job: "Fundador y Presidente", img: TomImage },
+  { id: 2, name: "Muhamed Abusrea", job: "Fundador y Presidente", img: WillImage },
+  { id: 3, name: "Mohamed Ali", job: "Fundador y Presidente", img: TomImage },
+  { id: 4, name: "Ibrahim Zakaria", job: "Fundador y Presidente", img: WillImage },
+  { id: 5, name: "Abdelrahman Emara", job: "Fundador y Presidente", img: TomImage },
+  { id: 6, name: "Mostafa Zeit", job: "Fundador y Presidente", img: WillImage },
+  { id: 7, name: "Yousef Ayman", job: "Fundador y Presidente", img: TomImage },
+];
+
+
 
 // Products 
 

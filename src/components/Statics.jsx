@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 const Statics = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex items-center justify-evenly flex-wrap gap-8 py-20">
       <div className="flex flex-col items-center text-center border size-[270px] rounded p-4">
@@ -43,8 +46,10 @@ const Statics = () => {
             />
           </svg>
         </div>
-        <h3 className="font-bold text-[32px] mt-6 mb-3">10.5k</h3>
-        <p className="font-poppins">Friendly 24/7 customer support</p>
+        <h3 className="font-bold text-[32px] mt-6 mb-3">
+          {t('pages.about.statics.support.number')}
+        </h3>
+        <p className="font-poppins">{t('pages.about.statics.support.text')}</p>
       </div>
       <div className="flex flex-col bg-basicRed text-white items-center text-center border size-[270px] rounded p-4">
         <div className="bg-white p-4 rounded-full border-[20px] border-gray-300">
@@ -78,8 +83,10 @@ const Statics = () => {
             />
           </svg>
         </div>
-        <h3 className="font-bold text-[32px] mt-6 mb-3">33k</h3>
-        <p className="font-poppins">Monthly Product Sale</p>
+        <h3 className="font-bold text-[32px] mt-6 mb-3">
+          {t('pages.about.statics.sales.number')}
+        </h3>
+        <p className="font-poppins">{t('pages.about.statics.sales.text')}</p>
       </div>
       <div className="flex flex-col items-center text-center border size-[270px] rounded p-4">
         <div className="bg-black p-4 rounded-full border-[20px] border-gray-400">
@@ -96,8 +103,12 @@ const Statics = () => {
             />
           </svg>
         </div>
-        <h3 className="font-bold text-[32px] mt-6 mb-3">45.5k</h3>
-        <p className="font-poppins">Customer active in our site</p>
+        <h3 className="font-bold text-[32px] mt-6 mb-3">
+          {t('pages.about.statics.customers.number')}
+        </h3>
+        <p className="font-poppins">
+          {t('pages.about.statics.customers.text')}
+        </p>
       </div>
       <div className="flex flex-col items-center text-center border size-[270px] rounded p-4">
         <div className="bg-black p-4 rounded-full border-[20px] border-gray-400">
@@ -120,8 +131,10 @@ const Statics = () => {
             />
           </svg>
         </div>
-        <h3 className="font-bold text-[32px] mt-6 mb-3">25k</h3>
-        <p className="font-poppins">Anual gross sale in our site</p>
+        <h3 className="font-bold text-[32px] mt-6 mb-3">
+          {t('pages.about.statics.gross.number')}
+        </h3>
+        <p className="font-poppins">{t('pages.about.statics.gross.text')}</p>
       </div>
     </div>
   );
