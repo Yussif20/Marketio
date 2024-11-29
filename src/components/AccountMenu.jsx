@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { useProductContext } from '../ProductContext';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const AccountMenu = () => {
   const { logOut, currentUser } = useProductContext();
+
+  const { t } = useTranslation();
 
   const handleLogOut = async () => {
     try {
@@ -52,7 +55,7 @@ const AccountMenu = () => {
             {currentUser ? (
               <>
                 <li className="px-4 py-2 hover:bg-gray-10">
-                  Welcome,{' '}
+                  {t('header.accountMenu.welcome')},{' '}
                   <span className="text-basicRed font-semibold">
                     {currentUser.email.charAt(0).toUpperCase() +
                       currentUser.email.split('@')[0].slice(1)}
@@ -63,7 +66,7 @@ const AccountMenu = () => {
                   className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex gap-2 items-center text-red-600"
                 >
                   <i className="fa-solid fa-right-from-bracket"></i>
-                  <span> Log out</span>
+                  <span>{t('header.accountMenu.logOut')}</span>
                 </li>
               </>
             ) : (
@@ -75,7 +78,7 @@ const AccountMenu = () => {
                     to="sign"
                   >
                     <i className="fa-regular fa-user"></i>
-                    <span>Join Us</span>
+                    <span>{t('header.accountMenu.join')}</span>
                   </Link>
                 </li>
               </>

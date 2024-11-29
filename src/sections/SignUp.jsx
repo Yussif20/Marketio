@@ -4,11 +4,14 @@ import { useProductContext } from '../ProductContext';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import GoogleSignInButton from '../components/GoogleSignInButton';
+import { useTranslation } from 'react-i18next';
 
 export const SignUp = () => {
   const { signUp } = useProductContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -25,40 +28,35 @@ export const SignUp = () => {
 
   return (
     <div className="flex flex-col gap-6">
-      <h3 className="font-inter font-medium text-4xl">Create an account</h3>
-      <p>Enter your details below</p>
-      {/* <input
-        className="outline-none p-2 border-b dark:bg-darkPrimary"
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Name"
-      /> */}
+      <h3 className="font-inter font-medium text-4xl">
+        {t('pages.sign.signUp.title')}
+      </h3>
+      <p>{t('pages.sign.signUp.text')}</p>
       <input
         className="outline-none p-2 border-b dark:bg-darkPrimary"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
+        placeholder={t('pages.sign.inputPlaceholder.email')}
       />
       <input
         className="outline-none p-2 border-b dark:bg-darkPrimary"
         type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
+        placeholder={t('pages.sign.inputPlaceholder.password')}
       />
       <Button onClick={handleSignUp} className="mt-6" size="lg">
-        Create Account
+        {t('buttons.createAccount')}
       </Button>
       <GoogleSignInButton />
       <p className="flex items-center justify-center gap-4">
-        Already have an account?{' '}
+        {t('pages.sign.signUp.haveAccount')}{' '}
         <Link
           to="in"
           className="font-medium underline hover:no-underline transition-all duration-[300ms] ease-in-out"
         >
-          Log in
+          {t('pages.sign.signUp.logIn')}
         </Link>
       </p>
     </div>

@@ -41,7 +41,12 @@ i18next
         about: "About",
         contact: "Contact",
         signup: "Sign Up",
-        searchPlaceHolder:"What are you looking for"
+        searchPlaceHolder:"What are you looking for",
+        accountMenu:{
+          join: "Join Us",
+          welcome: "Welcome",
+          logOut:"Log out",
+        },
       },
       aside: {
         menFashion: "Men's Fashion",
@@ -106,12 +111,17 @@ i18next
       buttons:{
         viewAll: "View All",
         buyNow: "Buy Now!",
-        shopNow:"Shop Now"
+        shopNow:"Shop Now",
+        continue:"Continue Shopping",
+        createAccount: "Create Account",
+        googleSign:" Sign up with Google",
+        logIn: "Log In",
+        forgetPassword: "Forget Password",
       },
       footer: {
           subscribe: {
             title:"Subscribe",
-            headline: "Exclusive",
+            headline: "Marketio",
             text: "Get 10% off your first order",
             placeholder: "Enter Your Email",
           },
@@ -184,12 +194,12 @@ i18next
             home: "Home",
             about: "About",
           },
-          textFirst:`Launced in 2015, Exclusive is South Asia’s premier online shopping
+          textFirst:`Launced in 2015, Marketio is South Asia’s  premier online shopping
             makterplace with an active presense in Bangladesh. Supported by wide
-            range of tailored marketing, data and service solutions, Exclusive
+            range of tailored marketing, data and service solutions, Marketio
             has 10,500 sallers and 300 brands and serves 3 millioons customers
             across the region.`,
-          textSecond:`Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging from consumer.`
+          textSecond:`Marketio has more than 1 Million products to offer, growing at a very fast. Marketio offers a diverse assotment in categories ranging from consumer.`
           ,statics:{
             support:{
               number:"10.5k",
@@ -212,6 +222,28 @@ i18next
             data:foundersDataEn,
           }
         },
+        sign:{
+          signedIn:{
+            welcome:"Welcome",
+            text:"You are already signed in!"
+          },
+          signUp:{  
+            title:"Create an account",
+            text:"Enter your details below",
+            haveAccount:"Already have an account?",
+            logIn:"Log in",
+          },
+          login:{
+            title:"Log in to",
+            text:"Enter your details below",
+            haveAccount:"Don't have an account?",
+            signUp:"Sign up",
+          },
+          inputPlaceholder:{
+            email:"Email",
+            password:"Password",
+          },
+        }
         }
     },
     meta: { dir: "ltr" },
@@ -232,6 +264,11 @@ i18next
         contact: "اتصل بنا",
         signup: "تسجيل الدخول",
         searchPlaceHolder:"ماذا تبحث عن؟",
+        accountMenu: {
+          join: "انضم إلينا",
+          welcome: "مرحبًا",
+          logOut: "تسجيل الخروج",
+        },
       },
       aside: {
         menFashion: "أزياء الرجال",
@@ -297,7 +334,12 @@ i18next
       buttons:{
         viewAll: "أظهر كل المنتجات",
         buyNow:"!اشترى الان",
-        shopNow: "تسوق الآن"
+        shopNow: "تسوق الآن",
+        continue: "متابعة التسوق",
+        createAccount: "إنشاء حساب",
+        googleSign: "سجل باستخدام جوجل",
+        logIn: "تسجيل الدخول",
+        forgetPassword: "نسيت كلمة المرور",
       },
       footer: {
           subscribe: {
@@ -376,8 +418,8 @@ i18next
             home: "الرئيسية",
             about: "من نحن",
           },
-          textFirst: `تم إطلاق Exclusive في عام 2015، وهي السوق الإلكترونية الرائدة في جنوب آسيا بحضور نشط في بنغلاديش. بدعم من مجموعة واسعة من الحلول التسويقية والبيانية والخدمية المخصصة، تمتلك Exclusive 10,500 بائع و300 علامة تجارية وتخدم 3 ملايين عميل في جميع أنحاء المنطقة.`,
-          textSecond: `تقدم Exclusive أكثر من مليون منتج، وتنمو بمعدل سريع. تقدم Exclusive مجموعة متنوعة من الفئات التي تتراوح بين المنتجات الاستهلاكية.`,
+          textFirst: `تم إطلاق ماركيتيو في عام 2015، وهي السوق الإلكترونية الرائدة في جنوب آسيا بحضور نشط في بنغلاديش. بدعم من مجموعة واسعة من الحلول التسويقية والبيانية والخدمية المخصصة، تمتلك ماركيتيو 10,500 بائع و300 علامة تجارية وتخدم 3 ملايين عميل في جميع أنحاء المنطقة.`,
+          textSecond: `تقدم ماركيتيو أكثر من مليون منتج، وتنمو بمعدل سريع. تقدم ماركيتيو مجموعة متنوعة من الفئات التي تتراوح بين المنتجات الاستهلاكية.`,
           statics: {
             support: {
               number: "10.5k",
@@ -400,6 +442,28 @@ i18next
             data: foundersDataAr,
           },
         },
+          sign: {
+              signedIn: {
+                welcome: "مرحبًا",
+                text: "لقد قمت بتسجيل الدخول بالفعل!",
+              },
+              signUp: {  
+                title: "إنشاء حساب",
+                text: "أدخل بياناتك أدناه",
+                haveAccount: "هل لديك حساب بالفعل؟",
+                logIn: "تسجيل الدخول",
+              },
+              login: {
+                title: "تسجيل الدخول إلى",
+                text: "أدخل بياناتك أدناه",
+                haveAccount: "لا تملك حسابًا؟",
+                signUp: "إنشاء حساب",
+              },
+              inputPlaceholder: {
+                email: "البريد الإلكتروني",
+                password: "كلمة المرور",
+              },
+            }
       }
     },
     meta: { dir: "rtl" },
@@ -419,7 +483,12 @@ i18next
         about: "Acerca de",
         contact: "Contacto",
         signup: "Regístrate",
-        searchPlaceHolder:"¿Qué estás buscando?"
+        searchPlaceHolder:"¿Qué estás buscando?",
+        accountMenu: {
+        join: "Únete a nosotros",
+        welcome: "Bienvenido",
+        logOut: "Cerrar sesión",
+      },
       },
       aside: {
         menFashion: "Moda para hombres",
@@ -485,6 +554,11 @@ i18next
         viewAll:"Ver todo",
         buyNow: "Comprar ahora!",
         shopNow: "Comprar ahora",
+        continue: "Seguir Comprando",
+        createAccount: "Crear Cuenta",
+        googleSign: "Regístrate con Google",
+        logIn: "Iniciar Sesión",
+        forgetPassword: "Olvidé mi Contraseña",
       },
       footer: {
           subscribe: {
@@ -563,8 +637,8 @@ i18next
             home: "Inicio",
             about: "Sobre Nosotros",
           },
-          textFirst: `Lanzado en 2015, Exclusive es el principal mercado de compras en línea del sur de Asia con una presencia activa en Bangladesh. Con el apoyo de una amplia gama de soluciones de marketing, datos y servicios personalizados, Exclusive cuenta con 10,500 vendedores y 300 marcas y atiende a 3 millones de clientes en toda la región.`,
-          textSecond: `Exclusive ofrece más de 1 millón de productos y está creciendo a un ritmo muy rápido. Exclusive ofrece una variedad diversa en categorías que van desde productos de consumo.`,
+          textFirst: `Lanzado en 2015, Marketio es el principal mercado de compras en línea del sur de Asia con una presencia activa en Bangladesh. Con el apoyo de una amplia gama de soluciones de marketing, datos y servicios personalizados, Marketio cuenta con 10,500 vendedores y 300 marcas y atiende a 3 millones de clientes en toda la región.`,
+          textSecond: `Marketio ofrece más de 1 millón de productos y está creciendo a un ritmo muy rápido. Marketio ofrece una variedad diversa en categorías que van desde productos de consumo.`,
           statics: {
             support: {
               number: "10.5k",
@@ -586,8 +660,29 @@ i18next
           founders: {
             data: foundersDataEs,
           },
-        }
-
+        },
+        sign: {
+          signedIn: {
+            welcome: "Bienvenido",
+            text: "¡Ya has iniciado sesión!",
+          },
+          signUp: {  
+            title: "Crear una cuenta",
+            text: "Ingresa tus datos a continuación",
+            haveAccount: "¿Ya tienes una cuenta?",
+            logIn: "Iniciar sesión",
+          },
+          login: {
+            title: "Inicia sesión en",
+            text: "Ingresa tus datos a continuación",
+            haveAccount: "¿No tienes una cuenta?",
+            signUp: "Regístrate",
+          },
+          inputPlaceholder: {
+            email: "Correo electrónico",
+            password: "Contraseña",
+          },
+        },
       }
     },
     meta: { dir: "ltr" },
