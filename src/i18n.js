@@ -117,6 +117,11 @@ i18next
         googleSign:" Sign up with Google",
         logIn: "Log In",
         forgetPassword: "Forget Password",
+        moveAllToBag: "Move All to Bag",
+        seeAll: "See All",
+        applyCoupon: "Apply Coupon",
+        proceedToCheckout:"Proceed To Checkout",
+        placeOrder:"Place Order",
       },
       footer: {
           subscribe: {
@@ -243,7 +248,48 @@ i18next
             email:"Email",
             password:"Password",
           },
-        }
+        },
+        cart:{
+          emptyText:"There are no Items in your cart!",
+          breadcrumbs: {
+            home: "Home",
+            cart: "Cart",
+          },
+          tags:{
+            product: "Product",
+            price: "Price",
+            quantity:"Quantity",
+            total:"Total",
+          },
+          cartTotal:{
+            title:"Cart Total",
+            subTotal:"SubTotal",
+            shipping:"Shipping",
+            total:"Total",
+          },
+          couponCode:"Coupon Code",
+        },
+        checkout:{
+          breadcrumbs: {
+            home: "Home",
+            cart: "Cart",
+            checkout: "Checkout",
+          },
+          billingDetails:{
+            title:"Billing Details",
+            name:"First Name",
+            phone:"Phone Number",
+            address:"Address",
+            email:"Email",
+          },
+          paymentMethod:{
+            title:"Payment Method",
+            cashOnDelivery :"Cash On Delivery",
+            bank :"Bank",
+            cardText:"Enter Card Details"
+          }
+
+        },
         }
     },
     meta: { dir: "ltr" },
@@ -340,6 +386,11 @@ i18next
         googleSign: "سجل باستخدام جوجل",
         logIn: "تسجيل الدخول",
         forgetPassword: "نسيت كلمة المرور",
+        moveAllToBag: "نقل الكل إلى الحقيبة",
+        seeAll: "عرض الكل",
+        applyCoupon: "تطبيق القسيمة",
+        proceedToCheckout: "المتابعة إلى الدفع",
+        placeOrder: "تقديم الطلب",
       },
       footer: {
           subscribe: {
@@ -463,7 +514,48 @@ i18next
                 email: "البريد الإلكتروني",
                 password: "كلمة المرور",
               },
-            }
+        },
+          cart: {
+          emptyText: "لا توجد عناصر في سلة التسوق!",
+          breadcrumbs: {
+            home: "الرئيسية",
+            cart: "السلة",
+          },
+          tags: {
+            product: "المنتج",
+            price: "السعر",
+            quantity: "الكمية",
+            total: "الإجمالي",
+          },
+          cartTotal: {
+            title: "إجمالي السلة",
+            subTotal: "الإجمالي الفرعي",
+            shipping: "الشحن",
+            total: "الإجمالي",
+          },
+          couponCode: "رمز القسيمة",
+        },
+        checkout: {
+          breadcrumbs: {
+            home: "الرئيسية",
+            cart: "السلة",
+            checkout: "الدفع",
+          },
+          billingDetails: {
+            title: "تفاصيل الفاتورة",
+            name: "الاسم الأول",
+            phone: "رقم الهاتف",
+            address: "العنوان",
+            email: "البريد الإلكتروني",
+          },
+          paymentMethod: {
+            title: "طريقة الدفع",
+            cashOnDelivery: "الدفع عند الاستلام",
+            bank: "البنك",
+            cardText: "أدخل تفاصيل البطاقة",
+          },
+        },
+
       }
     },
     meta: { dir: "rtl" },
@@ -559,6 +651,12 @@ i18next
         googleSign: "Regístrate con Google",
         logIn: "Iniciar Sesión",
         forgetPassword: "Olvidé mi Contraseña",
+        moveAllToBag: "Mover todo a la bolsa",
+        seeAll: "Ver todo",
+        applyCoupon: "Aplicar cupón",
+        proceedToCheckout: "Proceder al pago",
+        placeOrder: "Realizar pedido",
+
       },
       footer: {
           subscribe: {
@@ -681,6 +779,46 @@ i18next
           inputPlaceholder: {
             email: "Correo electrónico",
             password: "Contraseña",
+          },
+        },
+        cart: {
+          emptyText: "¡No hay artículos en tu carrito!",
+          breadcrumbs: {
+            home: "Inicio",
+            cart: "Carrito",
+          },
+          tags: {
+            product: "Producto",
+            price: "Precio",
+            quantity: "Cantidad",
+            total: "Total",
+          },
+          cartTotal: {
+            title: "Total del carrito",
+            subTotal: "Subtotal",
+            shipping: "Envío",
+            total: "Total",
+          },
+          couponCode: "Código de cupón",
+        },
+        checkout: {
+          breadcrumbs: {
+            home: "Inicio",
+            cart: "Carrito",
+            checkout: "Pagar",
+          },
+          billingDetails: {
+            title: "Detalles de Facturación",
+            name: "Nombre",
+            phone: "Número de Teléfono",
+            address: "Dirección",
+            email: "Correo Electrónico",
+          },
+          paymentMethod: {
+            title: "Método de Pago",
+            cashOnDelivery: "Pago Contra Entrega",
+            bank: "Banco",
+            cardText: "Ingrese los Detalles de la Tarjeta",
           },
         },
       }

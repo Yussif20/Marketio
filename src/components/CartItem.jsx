@@ -12,12 +12,12 @@ const CartItem = ({ product }) => {
 
   return (
     <li className="group grid  grid-cols-4 items-center justify-between p-4 mb-4 shadow dark:bg-darkSecondary rounded relative">
-      <div className="flex items-center sm:space-x-4">
-        <div className="md:relative">
+      <div className="flex items-center justify-center">
+        <div className="md:relative flex items-center justify-center flex-1">
           <img
             src={product.imgSrc}
             alt={product.title}
-            className="hidden md:block w-16 h-16 rounded"
+            className="hidden md:block w-16 h-16 rounded "
           />
           <button
             onClick={handleRemove}
@@ -27,10 +27,12 @@ const CartItem = ({ product }) => {
           </button>
         </div>
 
-        <h3 className="text-sm sm:text-lg font-semibold">{product.title}</h3>
+        <h3 className="text-sm sm:text-lg font-semibold text-center flex-1">
+          {product.title}
+        </h3>
       </div>
       <p className="text-gray-500 dark:text-gray-300 text-center text-sm sm:text-base">
-        {product.price}
+        ${product.price}
       </p>
       <div className="flex justify-center">
         <QuantitySelector

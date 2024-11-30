@@ -1,7 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { useProductContext } from '../ProductContext';
 
 const CartTotal = () => {
   const { cartItems } = useProductContext();
+
+  const { t } = useTranslation();
 
   const calculateSubtotal = () => {
     return cartItems.reduce((acc, item) => {
@@ -18,13 +21,15 @@ const CartTotal = () => {
     <>
       {' '}
       <p className="flex items-center justify-between pb-3 mb-4 border-b border-black dark:border-white">
-        Subtotal: <span>${subtotal.toFixed(2)}</span>
+        {t('pages.cart.cartTotal.subTotal')}:{' '}
+        <span>${subtotal.toFixed(2)}</span>
       </p>
       <p className="flex items-center justify-between pb-3 mb-4 border-b border-black dark:border-white">
-        Shipping: <span>${shippingFee.toFixed(2)}</span>
+        {t('pages.cart.cartTotal.shipping')}:{' '}
+        <span>${shippingFee.toFixed(2)}</span>
       </p>
       <p className="flex items-center justify-between">
-        Total: <span>${total.toFixed(2)}</span>
+        {t('pages.cart.cartTotal.total')}: <span>${total.toFixed(2)}</span>
       </p>
     </>
   );

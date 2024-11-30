@@ -7,9 +7,12 @@ import { Link } from 'react-router-dom';
 import Button from './../components/Button';
 
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const CheckoutPage = () => {
   const { cartItems, clearCart } = useProductContext();
+
+  const { t } = useTranslation();
 
   const navigate = useNavigate();
 
@@ -83,128 +86,144 @@ export const CheckoutPage = () => {
   };
 
   return (
-    <section className="mx-12 dark:bg-darkPrimary dark:text-white">
+    <section className="px-12 py-6 dark:bg-darkPrimary dark:text-white">
       <h5 className="py-10 font-poppins">
         <Link className="text-gray-400" to="/">
-          Home /{' '}
+          {t('pages.checkout.breadcrumbs.home')} /{' '}
         </Link>
         <Link className="text-gray-400" to="/cart">
-          Cart /{' '}
+          {t('pages.checkout.breadcrumbs.cart')} /{' '}
         </Link>
-        <span> Checkout</span>
+        <span> {t('pages.checkout.breadcrumbs.checkout')}</span>
       </h5>
-      <div className="container mx-auto p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="col-span-1 md:col-span-2 space-y-4">
-          <h2 className="text-xl font-semibold">Billing Details</h2>
-          <div className="flex flex-col">
-            <label className="font-poppins text-gray-500" htmlFor="name">
-              First Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="font-poppins text-gray-500" htmlFor="name">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="font-poppins text-gray-500" htmlFor="name">
-              Address
-            </label>
-            <input
-              type="text"
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label className="font-poppins text-gray-500" htmlFor="name">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
-            />
+      <div className="container mx-auto p-4 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-4">
+        <div className="w-full sm:flex-1 text-center flex flex-col items-center lg:items-start lg:self-start ">
+          <h2 className="text-xl font-semibold mb-4">
+            {t('pages.checkout.billingDetails.title')}
+          </h2>
+          <div className="flex flex-col w-full items-center lg:items-start gap-3">
+            <div className="flex flex-col w-full items-center lg:items-start gap-1">
+              <label className="font-poppins text-gray-500" htmlFor="name">
+                {t('pages.checkout.billingDetails.name')}
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
+              />
+            </div>
+            <div className="flex flex-col w-full  items-center lg:items-start gap-1">
+              <label className="font-poppins text-gray-500" htmlFor="name">
+                {t('pages.checkout.billingDetails.phone')}
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
+              />
+            </div>
+            <div className="flex flex-col w-full  items-center lg:items-start gap-1">
+              <label className="font-poppins text-gray-500" htmlFor="name">
+                {t('pages.checkout.billingDetails.address')}
+              </label>
+              <input
+                type="text"
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
+              />
+            </div>
+            <div className="flex flex-col w-full  items-center lg:items-start gap-1">
+              <label className="font-poppins text-gray-500" htmlFor="name">
+                {t('pages.checkout.billingDetails.email')}
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
+              />
+            </div>
           </div>
         </div>
-        <div className="col-span-1 space-y-4 px-8">
-          <div className="space-y-2">
-            {cartItems.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center justify-between pb-2"
-              >
-                <div className="flex items-center justify justify-between w-6/12">
-                  <span>{item.title}</span>
-                  <img
-                    className="max-w-20"
-                    src={item.imgSrc}
-                    alt={item.title}
-                  />
+        <div className="flex-1 flex flex-col items-center">
+          <div className="sm:w-[400px]">
+            <div className="space-y-2">
+              {cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex items-center justify-between pb-2"
+                >
+                  <div className="flex items-center justify-between w-6/12">
+                    <span className="flex-1">{item.title}</span>
+                    <div className="flex-1 flex items-center justify-center">
+                      <img
+                        className="max-w-14 max-h-14 sm:max-w-20 sm:max-h-20"
+                        src={item.imgSrc}
+                        alt={item.title}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold flex-1">
+                      {item.quantity} x
+                    </span>
+                    <span className="flex-1">${item.price}</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold">{item.quantity} x</span>
-                  <span>${item.price}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex flex-col justify-between font-bold pt-2">
-            <CartTotal />
-          </div>
-
-          <h2 className="text-xl font-semibold mt-4">Payment Method</h2>
-          <div className="space-y-2">
-            <label className="flex items-center space-x-2">
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="cash"
-                checked={paymentMethod === 'cash'}
-                onChange={(e) => setPaymentMethod(e.target.value)}
-                className="form-radio"
-              />
-              <span>Cash on Delivery</span>
-            </label>
-            <label className="flex items-center space-x-2">
-              <input
-                type="radio"
-                name="paymentMethod"
-                value="bank"
-                checked={paymentMethod === 'bank'}
-                onChange={(e) => setPaymentMethod(e.target.value)}
-                className="form-radio"
-              />
-              <span>Bank</span>
-            </label>
-          </div>
-
-          {paymentMethod === 'bank' && (
-            <div className="border p-4 rounded">
-              <h3 className="text-lg font-semibold">Enter Card Details</h3>
-              <CardElement className="p-2 border rounded bg-white" />
+              ))}
             </div>
-          )}
+            <div className="flex flex-col justify-between font-bold py-4">
+              <CartTotal />
+            </div>
 
-          <Button onClick={handlePlaceOrder}>Place Order</Button>
+            <h2 className="text-xl font-semibold mt-4 mb-2">
+              {t('pages.checkout.paymentMethod.title')}
+            </h2>
+            <div className="mb-4 flex flex-col gap-1">
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="cash"
+                  checked={paymentMethod === 'cash'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="form-radio"
+                />
+                <span>{t('pages.checkout.paymentMethod.cashOnDelivery')}</span>
+              </label>
+              <label className="flex items-center space-x-2">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="bank"
+                  checked={paymentMethod === 'bank'}
+                  onChange={(e) => setPaymentMethod(e.target.value)}
+                  className="form-radio"
+                />
+                <span>{t('pages.checkout.paymentMethod.bank')}</span>
+              </label>
+            </div>
+
+            {paymentMethod === 'bank' && (
+              <div className="border p-3 rounded">
+                <h3 className="text-lg font-semibold mb-2">
+                  {t('pages.checkout.paymentMethod.cardText')}
+                </h3>
+                <CardElement className="p-2 border rounded bg-white" />
+              </div>
+            )}
+
+            <Button className="mt-4" onClick={handlePlaceOrder}>
+              {t('buttons.placeOrder')}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

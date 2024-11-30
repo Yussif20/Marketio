@@ -79,7 +79,7 @@ export const foundersDataEn = [
 ];
 export const foundersDataAr = [
   { id: 1, name: "أحمد فتحي", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
-  { id: 2, name: "محمد أبو سرية", job: "مؤسس ورئيس مجلس الإدارة", img: WillImage },
+  { id: 2, name: "محمد أبو سريع", job: "مؤسس ورئيس مجلس الإدارة", img: WillImage },
   { id: 3, name: "محمد علي", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
   { id: 4, name: "إبراهيم زكريا", job: "مؤسس ورئيس مجلس الإدارة", img: WillImage },
   { id: 5, name: "عبد الرحمن عمارة", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
