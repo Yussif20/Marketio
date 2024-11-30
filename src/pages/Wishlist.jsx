@@ -2,23 +2,28 @@ import { useProductContext } from '../ProductContext';
 import JustForYou from '@sections/JustForYou';
 import Button from '@components/Button';
 import StarRating from '@components/StarRating';
+import { useTranslation } from 'react-i18next';
 
 export const Wishlist = () => {
   const { favorite, addToCart, removeFromFavorite, addToBag } =
     useProductContext();
 
+  const { t } = useTranslation();
+
   return (
     <section className="py-6 px-2 sm:px-12">
       <div className="flex flex-col sm:flex-row items-center justify-between my-6">
-        <h2 className="font-poppins text-xl">Wishlist({favorite.length})</h2>
+        <h2 className="font-poppins text-xl">
+          {t('pages.wishlist.title')}({favorite.length})
+        </h2>
         {favorite.length > 0 && (
           <Button onClick={addToBag} variant="secondary">
-            Move All To Bag
+            {t('buttons.moveAllToBag')}
           </Button>
         )}
       </div>
       {favorite.length === 0 ? (
-        <p className="text-gray-400">No items in your favorite list.</p>
+        <p className="text-gray-400">{t('pages.wishlist.emptyText')}</p>
       ) : (
         <ul className="flex items-center flex-wrap gap-2 justify-evenly">
           {favorite.map((product) => (
@@ -49,7 +54,7 @@ export const Wishlist = () => {
                   onClick={() => addToCart(product)}
                   className="absolute bottom-[-4px] w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2"
                 >
-                  Add to Cart
+                  {t('buttons.addToCart')}
                 </button>
               </div>
               <div className="px-2 pt-2">
@@ -73,7 +78,7 @@ export const Wishlist = () => {
           ))}
         </ul>
       )}
-      <JustForYou headline="Just For You" />
+      <JustForYou headline={t('pages.wishlist.justForYou')} />
     </section>
   );
 };

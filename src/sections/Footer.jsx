@@ -2,9 +2,12 @@ import qrImg from '@assets/footer/qrcode.svg';
 import googlePlayImg from '@assets/footer/google-play.svg';
 import playStoreImg from '@assets/footer/download-appstore.svg';
 import { useTranslation } from 'react-i18next';
+import { useProductContext } from './../ProductContext';
 
 const Footer = () => {
   const { t } = useTranslation();
+
+  const direction = useProductContext();
 
   const accountLinks = t('footer.account.links', { returnObjects: true });
   const quickLinks = t('footer.quickLinks.links', { returnObjects: true });
@@ -17,9 +20,13 @@ const Footer = () => {
         </h4>
         <p className="text-xl font-medium"> {t('footer.subscribe.title')}</p>
         <p> {t('footer.subscribe.text')}</p>
-        <form className="relative mt-2">
+        <form
+          className={`relative mt-2 ${direction === 'rtl' ? 'rtl-class' : ''}`}
+        >
           <input
-            className="py-2 px-4 bg-transparent w-full outline-none rounded border border-white text-sm"
+            className={`py-2 px-4 bg-transparent w-full outline-none rounded border border-white text-sm ${
+              direction === 'rtl' ? 'text-right' : 'text-left'
+            }`}
             type="text"
             placeholder={t('footer.subscribe.placeholder')}
           />
@@ -30,7 +37,9 @@ const Footer = () => {
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute right-2 top-2"
+              className={`absolute top-2 ${
+                direction === 'rtl' ? 'left-2' : 'right-2'
+              }`}
             >
               <path
                 d="M9.91199 11.9998H3.99999L2.02299 4.1348C2.01033 4.0891 2.00262 4.04216 1.99999 3.9948C1.97799 3.2738 2.77199 2.7738 3.45999 3.1038L22 11.9998L3.45999 20.8958C2.77999 21.2228 1.99599 20.7368 1.99999 20.0288C2.00201 19.9655 2.01313 19.9029 2.03299 19.8428L3.49999 14.9998"

@@ -122,6 +122,7 @@ i18next
         applyCoupon: "Apply Coupon",
         proceedToCheckout:"Proceed To Checkout",
         placeOrder:"Place Order",
+        addToCart:"Add To Cart",
       },
       footer: {
           subscribe: {
@@ -290,6 +291,10 @@ i18next
           }
 
         },
+        wishlist:{
+          title:"Wishlist",
+          emptyText:"No items in your favorite list.",justForYou:"Just for you"
+        },
         }
     },
     meta: { dir: "ltr" },
@@ -386,11 +391,12 @@ i18next
         googleSign: "سجل باستخدام جوجل",
         logIn: "تسجيل الدخول",
         forgetPassword: "نسيت كلمة المرور",
-        moveAllToBag: "نقل الكل إلى الحقيبة",
+        moveAllToBag: "نقل الكل إلى السلة",
         seeAll: "عرض الكل",
         applyCoupon: "تطبيق القسيمة",
         proceedToCheckout: "المتابعة إلى الدفع",
         placeOrder: "تقديم الطلب",
+        addToCart: "أضف إلى السلة",
       },
       footer: {
           subscribe: {
@@ -555,7 +561,11 @@ i18next
             cardText: "أدخل تفاصيل البطاقة",
           },
         },
-
+        wishlist: {
+          title: "المفضلة",
+          emptyText: "لا توجد عناصر في قائمة المفضلات.",
+          justForYou: "مختارة لك",
+        },
       }
     },
     meta: { dir: "rtl" },
@@ -656,7 +666,7 @@ i18next
         applyCoupon: "Aplicar cupón",
         proceedToCheckout: "Proceder al pago",
         placeOrder: "Realizar pedido",
-
+        addToCart: "Añadir al carrito",
       },
       footer: {
           subscribe: {
@@ -821,6 +831,12 @@ i18next
             cardText: "Ingrese los Detalles de la Tarjeta",
           },
         },
+        wishlist: {
+          title: "Lista de deseos",
+          emptyText: "No hay artículos en tu lista de favoritos.",
+          justForYou: "Solo para ti",
+        },
+
       }
     },
     meta: { dir: "ltr" },

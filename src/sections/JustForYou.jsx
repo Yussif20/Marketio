@@ -3,9 +3,12 @@ import { productsData } from '../data';
 import { Link } from 'react-router-dom';
 import Button from '@components/Button';
 import { useProductContext } from '../ProductContext';
+import { useTranslation } from 'react-i18next';
 
 const JustForYou = ({ headline }) => {
   const { addToCart } = useProductContext();
+
+  const { t } = useTranslation();
   return (
     <>
       <div className="flex flex-col sm:flex-row gap-6 items-center justify-between my-6">
@@ -13,7 +16,7 @@ const JustForYou = ({ headline }) => {
           {headline}
         </h3>
         <Link to="../">
-          <Button variant="secondary">See All</Button>
+          <Button variant="secondary">{t('buttons.seeAll')}</Button>
         </Link>
       </div>
       <div className="flex items-center flex-wrap gap-2 justify-evenly">
@@ -47,7 +50,7 @@ const JustForYou = ({ headline }) => {
                   onClick={() => addToCart(product)}
                   className="absolute bottom-[-4px] w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2"
                 >
-                  Add to Cart
+                  {t('buttons.addToCart')}
                 </button>
               </div>
               <div className="px-2 pt-2">
