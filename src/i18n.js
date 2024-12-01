@@ -207,6 +207,7 @@ i18next
         proceedToCheckout:"Proceed To Checkout",
         placeOrder:"Place Order",
         addToCart:"Add To Cart",
+        goToHomePage:"Go to Homepage"
       },
       footer: {
           subscribe: {
@@ -401,6 +402,10 @@ i18next
           headline:"You are now browsing the",
           emptyText:"Sadly There are no items available in this category"
         },
+        successPage:{
+            title:"Thank You for Your Purchase!",
+            text:"Your order has been successfully placed."
+        },
         }
     },
     meta: { dir: "ltr" },
@@ -494,6 +499,7 @@ i18next
         proceedToCheckout: "المتابعة إلى الدفع",
         placeOrder: "تقديم الطلب",
         addToCart: "أضف إلى السلة",
+        goToHomePage: "العودة إلى الصفحة الرئيسية"
       },
       footer: {
           subscribe: {
@@ -685,6 +691,10 @@ i18next
           headline: "أنت الآن تتصفح",
           emptyText: "للأسف، لا توجد عناصر متاحة في هذه الفئة",
         },
+        successPage: {
+          title: "شكرًا لك على شرائك!",
+          text: "تم تقديم طلبك بنجاح.",
+        },
       }
     },
     meta: { dir: "rtl" },
@@ -777,6 +787,7 @@ i18next
         proceedToCheckout: "Proceder al pago",
         placeOrder: "Realizar pedido",
         addToCart: "Añadir al carrito",
+        goToHomePage: "Ir a la página principal"
       },
       footer: {
           subscribe: {
@@ -967,6 +978,10 @@ i18next
           title: "Categorías",
           headline: "Ahora estás navegando por",
           emptyText: "Lamentablemente, no hay artículos disponibles en esta categoría",
+        },
+        successPage: {
+          title: "¡Gracias por tu compra!",
+          text: "Tu pedido se ha realizado con éxito.",
         },
 
       }

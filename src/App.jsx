@@ -21,6 +21,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useEffect } from 'react';
 import i18next from './i18n';
 import Categories from './pages/Categories';
+import SuccessPage from './pages/SuccessPage';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
@@ -45,6 +46,7 @@ const router = createBrowserRouter([
       { path: '/categories', element: <Categories /> },
       { path: '/cart', element: <Cart /> },
       { path: '/checkout', element: <CheckoutPage /> },
+      { path: '/success', element: <SuccessPage /> },
       { path: '/wishlist', element: <Wishlist /> },
       { path: '/:id', element: <ProductDetails /> },
     ],

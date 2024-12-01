@@ -80,12 +80,12 @@ export const CheckoutPage = () => {
       } else {
         alert('Payment successful!');
         clearCart();
-        navigate('/');
+        navigate('/success');
       }
     } else {
       alert('Order placed successfully with cash on delivery');
       clearCart();
-      navigate('/');
+      navigate('/success');
     }
   };
 
