@@ -35,7 +35,7 @@
   - [x] The Product Details Page
   - [x] add more than one color
   - [x] Categories page
-  - [] payment success page
+  - [x] payment success page
 - [] Project's functionality
   - [x] Responsiveness
   - [x] Add items to favorites

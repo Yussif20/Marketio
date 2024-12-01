@@ -17,7 +17,43 @@ const ProductContext = createContext();
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState(productsData.products);
+  const [products, setProducts] = useState(
+    JSON.parse(localStorage.getItem('products')) || productsData.products
+  );
+
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(products));
+  }, [products]);
+
+  const updateRating = (productId, userRating) => {
+    setProducts((prevProducts) =>
+      prevProducts.map((product) => {
+        if (product.id === productId) {
+          const newCount = product.rating.count + 1;
+          const newAverage =
+            (product.rating.average * product.rating.count + userRating) /
+            newCount;
+          const breakdownKey = `${userRating}Star`;
+
+          return {
+            ...product,
+            rating: {
+              ...product.rating,
+              count: newCount,
+              average: parseFloat(newAverage.toFixed(1)),
+              breakdown: {
+                ...product.rating.breakdown,
+                [breakdownKey]:
+                  (product.rating.breakdown[breakdownKey] || 0) + 1,
+              },
+            },
+          };
+        }
+        return product;
+      })
+    );
+  };
+
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -221,6 +257,7 @@ export const ProductProvider = ({ children }) => {
         addToCart,
         addToBag,
         updateCartItemQuantity,
+        updateRating,
         removeFromCart,
         clearCart,
         handleIncrease,

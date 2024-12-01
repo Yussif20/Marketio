@@ -207,7 +207,8 @@ i18next
         proceedToCheckout:"Proceed To Checkout",
         placeOrder:"Place Order",
         addToCart:"Add To Cart",
-        goToHomePage:"Go to Homepage"
+        goToHomePage:"Go to Homepage",
+        saveRating:"Save Rating",
       },
       footer: {
           subscribe: {
@@ -499,7 +500,8 @@ i18next
         proceedToCheckout: "المتابعة إلى الدفع",
         placeOrder: "تقديم الطلب",
         addToCart: "أضف إلى السلة",
-        goToHomePage: "العودة إلى الصفحة الرئيسية"
+        goToHomePage: "العودة إلى الصفحة الرئيسية",
+        saveRating: "حفظ التقييم",
       },
       footer: {
           subscribe: {
@@ -787,7 +789,8 @@ i18next
         proceedToCheckout: "Proceder al pago",
         placeOrder: "Realizar pedido",
         addToCart: "Añadir al carrito",
-        goToHomePage: "Ir a la página principal"
+        goToHomePage: "Ir a la página principal",
+        saveRating: "Guardar calificación",
       },
       footer: {
           subscribe: {

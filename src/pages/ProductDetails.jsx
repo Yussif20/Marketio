@@ -18,12 +18,16 @@ export const ProductDetails = () => {
     favorite,
     addToFavorite,
     removeFromFavorite,
+    updateRating,
+    direction,
   } = useProductContext();
-  const [product, setProduct] = useState(null);
+
   const [cartQuantity, setCartQuantity] = useState(0);
   const [isFavorite, setIsFavorite] = useState(false);
-
   const [img, setImg] = useState(null);
+  const [selectedColor, setSelectedColor] = useState('first');
+  const [selectedRating, setSelectedRating] = useState(0);
+  const product = products.find((product) => product.id === Number(id));
 
   const { t, i18n } = useTranslation();
 
@@ -36,21 +40,16 @@ export const ProductDetails = () => {
     }
   }, [product]);
 
-  const [selectedColor, setSelectedColor] = useState('first');
-
   useEffect(() => {
-    const foundProduct = products.find((product) => product.id === Number(id));
-    setProduct(foundProduct);
-
-    if (foundProduct) {
-      const cartItem = cartItems.find((item) => item.id === foundProduct.id);
+    if (product) {
+      setImg(product.images.primary);
+      const cartItem = cartItems.find((item) => item.id === product.id);
       setCartQuantity(cartItem ? cartItem.quantity : 0);
 
-      // Check if product is in favorites
-      const isFav = favorite.some((item) => item.id === foundProduct.id);
+      const isFav = favorite.some((item) => item.id === product.id);
       setIsFavorite(isFav);
     }
-  }, [id, products, cartItems, favorite]);
+  }, [id, cartItems, favorite, product]);
 
   const handleAddToCart = () => {
     if (cartQuantity === 0) {
@@ -65,6 +64,16 @@ export const ProductDetails = () => {
       addToFavorite(product);
     }
     setIsFavorite(!isFavorite);
+  };
+
+  const handleSaveRating = () => {
+    if (selectedRating > 0) {
+      updateRating(product.id, selectedRating);
+      alert('Thank you for your rating!');
+      setSelectedRating(0); // Reset the rating selection
+    } else {
+      alert('Please select a rating before saving.');
+    }
   };
 
   if (!product) {
@@ -141,6 +150,7 @@ export const ProductDetails = () => {
               </div>
             )}
           </div>
+          {/* Product Rating  */}
           <div className="mt-2 flex items-center gap-2">
             <div className="flex gap-2 text-yellow-500">
               <StarRating rating={product.rating.average} />
@@ -149,6 +159,34 @@ export const ProductDetails = () => {
               ({product.rating.count})
             </span>
           </div>
+          {/* User Rating */}
+          <div
+            className={`flex items-center gap-6 my-4 ${
+              direction === 'rtl' ? 'flex-row-reverse' : 'flex-row'
+            }`}
+          >
+            {/* Star Rating */}
+            <div className="flex gap-2">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <button
+                  key={star}
+                  className={`text-2xl ${
+                    selectedRating >= star ? 'text-yellow-500' : 'text-gray-300'
+                  }`}
+                  onClick={() => setSelectedRating(star)}
+                >
+                  <i className="fa-solid fa-star"></i>
+                </button>
+              ))}
+            </div>
+
+            {/* Save Button */}
+            <Button className="text-sm" size="sm" onClick={handleSaveRating}>
+              {t('buttons.saveRating')}
+            </Button>
+          </div>
+
+          {/* Product Details  */}
           <h2 className="text-2xl">${product.price.current}</h2>
           <p className="text-lg mb-4 w-10/12 border-b pb-4">
             {product.descriptions[currentLanguage]}
