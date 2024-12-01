@@ -22,11 +22,11 @@ export const SearchResult = () => {
       headline={
         SearchedProducts.length > 0
           ? `${t('pages.searchResult.headline')} "${searchQuery}"`
-          : `The searched products aren't Found`
+          : `${t('pages.searchResult.emptyText')}`
       }
     >
       {SearchedProducts.length > 0 ? (
-        <div className="flex items-center flex-wrap gap-2 justify-evenly py-4">
+        <div className="flex items-center flex-wrap gap-2 gap-y-8 justify-evenly py-4">
           {SearchedProducts.map((product) => {
             return (
               <ProductCard
@@ -49,7 +49,7 @@ export const SearchResult = () => {
       ) : (
         <div className="flex items-center justify-center pt-6">
           <Link to="/">
-            <Button>Continue Shopping</Button>
+            <Button>{t('buttons.continue')}</Button>
           </Link>
         </div>
       )}

@@ -6,19 +6,11 @@ import { useProductContext } from '../ProductContext';
 const Aside = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { direction } = useProductContext();
+  const { direction, setSelectedCategory } = useProductContext();
 
   const { t } = useTranslation();
 
-  const categories = [
-    t('aside.camera'),
-    t('aside.phones'),
-    t('aside.laptops'),
-    t('aside.clothing'),
-    t('aside.monitors'),
-    t('aside.toys'),
-    t('aside.accessories'),
-  ];
+  const categories = t('aside', { returnObjects: true });
 
   return (
     <>
@@ -43,11 +35,15 @@ const Aside = () => {
         <ul className="flex flex-col w-full">
           {categories.map((category) => (
             <li
-              key={category}
+              key={category.value}
               className="w-full py-2 text-l font-medium dark:hover:bg-darkSecondary hover:bg-gray-200"
+              onClick={() => {
+                setSelectedCategory(category.value);
+                setIsOpen(false);
+              }}
             >
-              <Link className="block w-full px-12" to={category}>
-                {category}
+              <Link className="block w-full px-12" to="categories">
+                {category.title}
               </Link>
             </li>
           ))}

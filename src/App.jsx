@@ -20,6 +20,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useEffect } from 'react';
 import i18next from './i18n';
+import Categories from './pages/Categories';
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
@@ -41,6 +42,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: '/search', element: <SearchResult /> },
+      { path: '/categories', element: <Categories /> },
       { path: '/cart', element: <Cart /> },
       { path: '/checkout', element: <CheckoutPage /> },
       { path: '/wishlist', element: <Wishlist /> },

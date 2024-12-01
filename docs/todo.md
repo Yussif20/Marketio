@@ -34,6 +34,7 @@
   - [x] cart
   - [x] The Product Details Page
   - [x] add more than one color
+  - [x] Categories page
   - [] payment success page
 - [] Project's functionality
   - [x] Responsiveness

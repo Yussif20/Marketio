@@ -21,6 +21,14 @@ export const ProductProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    return localStorage.getItem('selectedCategory') || '';
+  });
+
+  useEffect(() => {
+    localStorage.setItem('selectedCategory', selectedCategory);
+  }, [selectedCategory]);
+
   // Search and LocalStorage States
   const [searchQuery, setSearchQuery] = useState(() => {
     try {
@@ -201,7 +209,9 @@ export const ProductProvider = ({ children }) => {
         logIn,
         logOut,
 
-        // Product, Favorite, and Cart Functions (existing functionality)
+        // Product,category, Favorite, and Cart Functions (existing functionality)
+        selectedCategory,
+        setSelectedCategory,
         favorite,
         setFavorite,
         cartItems,

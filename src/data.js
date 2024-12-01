@@ -31,34 +31,34 @@ export const heroSliderDataEs = [
 
 // Categories
 export const categoriesEn = [
-  { id: 1, title: "Camera", icon:"fas fa-camera" },
-  { id: 2, title: "Phones", icon:"fas fa-mobile-alt"},
-  { id: 3, title: "Laptops", icon:"fas fa-laptop" },
-  { id: 4, title: "Clothing", icon:"fa-solid fa-user-tie" },
-  { id: 5, title: "Monitors", icon:"fa-solid fa-tv" },
-  { id: 6, title: "Toys", icon:"fa-solid fa-volleyball" },
-  { id: 7, title: "Accessories", icon:"fa-solid fa-stopwatch" },
+  { id: 1, title: "Cameras", value: "cameras", icon: "fas fa-camera" },
+  { id: 2, title: "Phones", value: "phones", icon: "fas fa-mobile-alt" },
+  { id: 3, title: "Laptops", value: "laptops", icon: "fas fa-laptop" },
+  { id: 4, title: "Clothing", value: "clothing", icon: "fa-solid fa-user-tie" },
+  { id: 5, title: "Monitors", value: "monitors", icon: "fa-solid fa-tv" },
+  { id: 6, title: "Toys", value: "toys", icon: "fa-solid fa-volleyball" },
+  { id: 7, title: "Accessories", value: "accessories", icon: "fa-solid fa-stopwatch" },
 ];
+
 export const categoriesAr = [
-  { id: 1, title: "كاميرا", icon: "fas fa-camera" },
-  { id: 2, title: "هواتف", icon: "fas fa-mobile-alt" },
-  { id: 3, title: "لابتوبات", icon: "fas fa-laptop" },
-  { id: 4, title: "ملابس", icon: "fa-solid fa-user-tie" },
-  { id: 5, title: "شاشات", icon: "fa-solid fa-tv" },
-  { id: 6, title: "ألعاب", icon: "fa-solid fa-volleyball" },
-  { id: 7, title: "إكسسوارات", icon: "fa-solid fa-stopwatch" },
+  { id: 1, title: "كاميرات", value: "cameras", icon: "fas fa-camera" },
+  { id: 2, title: "هواتف", value: "phones", icon: "fas fa-mobile-alt" },
+  { id: 3, title: "لابتوبات", value: "laptops", icon: "fas fa-laptop" },
+  { id: 4, title: "ملابس", value: "clothing", icon: "fa-solid fa-user-tie" },
+  { id: 5, title: "شاشات", value: "monitors", icon: "fa-solid fa-tv" },
+  { id: 6, title: "ألعاب", value: "toys", icon: "fa-solid fa-volleyball" },
+  { id: 7, title: "إكسسوارات", value: "accessories", icon: "fa-solid fa-stopwatch" },
 ];
 
 export const categoriesEs = [
-  { id: 1, title: "Cámara", icon: "fas fa-camera" },
-  { id: 2, title: "Teléfonos", icon: "fas fa-mobile-alt" },
-  { id: 3, title: "Portátiles", icon: "fas fa-laptop" },
-  { id: 4, title: "Ropa", icon: "fa-solid fa-user-tie" },
-  { id: 5, title: "Monitores", icon: "fa-solid fa-tv" },
-  { id: 6, title: "Juguetes", icon: "fa-solid fa-volleyball" },
-  { id: 7, title: "Accesorios", icon: "fa-solid fa-stopwatch" },
+  { id: 1, title: "Cámaras", value: "cameras", icon: "fas fa-camera" },
+  { id: 2, title: "Teléfonos", value: "phones", icon: "fas fa-mobile-alt" },
+  { id: 3, title: "Portátiles", value: "laptops", icon: "fas fa-laptop" },
+  { id: 4, title: "Ropa", value: "clothing", icon: "fa-solid fa-user-tie" },
+  { id: 5, title: "Monitores", value: "monitors", icon: "fa-solid fa-tv" },
+  { id: 6, title: "Juguetes", value: "toys", icon: "fa-solid fa-volleyball" },
+  { id: 7, title: "Accesorios", value: "accessories", icon: "fa-solid fa-stopwatch" },
 ];
-
 
 
 

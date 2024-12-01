@@ -5,12 +5,21 @@ import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
 import CategoryCard from './CategoryCard';
 import { useProductContext } from '../ProductContext';
+import { useTranslation } from 'react-i18next';
 
-const CategorySlider = ({ products }) => {
+const CategorySlider = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   const { direction } = useProductContext();
+
+  const { setSelectedCategory } = useProductContext(); // Assuming it's part of your context
+
+  const { t } = useTranslation();
+
+  const categories = t('sections.categories.data', {
+    returnObjects: true,
+  });
 
   return (
     <div className="relative w-full my-8">
@@ -54,17 +63,24 @@ const CategorySlider = ({ products }) => {
           1536: { slidesPerView: 6 },
         }}
         onInit={(swiper) => {
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-          swiper.navigation.init();
-          swiper.navigation.update();
+          if (prevRef.current && nextRef.current) {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }
         }}
         dir={!direction ? 'rtl' : 'ltr'}
         key={direction}
       >
-        {products.map((product) => (
-          <SwiperSlide className="pt-6" key={product.id}>
-            <CategoryCard title={product.title} icon={product.icon} />
+        {categories.map((category) => (
+          <SwiperSlide className="pt-6" key={category.id}>
+            <CategoryCard
+              value={category.value}
+              title={category.title}
+              icon={category.icon}
+              setSelectedCategory={setSelectedCategory} // Add this line
+            />
           </SwiperSlide>
         ))}
       </Swiper>

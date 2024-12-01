@@ -19,6 +19,99 @@ const optionsEs = [
   { value: 'es', label: 'Español' } 
 ];
 
+const asideEn = [
+        {
+         title: "Cameras",
+          value: "cameras",
+        },
+         {
+          title: "Phones",
+          value: "phones",
+        },
+         {
+          title: "Laptops",
+          value: "laptops",
+        },
+         {
+          title: "Clothing",
+          value: "clothing",
+        },
+         {
+          title: "Monitors",
+          value: "monitors",
+        },
+         {
+          title: "Toys",
+          value: "toys",
+        },
+         {
+          title: "Accessories",
+          value: "accessories",
+        },
+]
+const asideAr = [
+    {
+        title: "كاميرات",
+        value: "cameras",
+    },
+    {
+        title: "هواتف",
+        value: "phones",
+    },
+    {
+        title: "أجهزة لابتوب",
+        value: "laptops",
+    },
+    {
+        title: "ملابس",
+        value: "clothing",
+    },
+    {
+        title: "شاشات",
+        value: "monitors",
+    },
+    {
+        title: "ألعاب",
+        value: "toys",
+    },
+    {
+        title: "إكسسوارات",
+        value: "accessories",
+    },
+];
+const asideEs = [
+    {
+        title: "Cámara",
+        value: "cameras",
+    },
+    {
+        title: "Teléfonos",
+        value: "phones",
+    },
+    {
+        title: "Portátiles",
+        value: "laptops",
+    },
+    {
+        title: "Ropa",
+        value: "clothing",
+    },
+    {
+        title: "Monitores",
+        value: "monitors",
+    },
+    {
+        title: "Juguetes",
+        value: "toys",
+    },
+    {
+        title: "Accesorios",
+        value: "accessories",
+    },
+];
+
+
+
 
 i18next
   .use(initReactI18next)
@@ -48,16 +141,7 @@ i18next
           logOut:"Log out",
         },
       },
-      aside: {
-        camera: "Camera",
-        phones: "Phones",
-        laptops: "Laptops",
-        clothing: "Clothing",
-        monitors: "Monitors",
-        toys: "Toys",
-        accessories: "Accessories",
-      },
-
+      aside: asideEn,
       hero:{
         title:"Up to 10%",
         titleSecondLine:" off Voucher",
@@ -311,7 +395,12 @@ i18next
           title:"Search Result",
           headline:"The result of",
           emptyText:"The searched products aren't Found",
-        }
+        },
+        categoriesPage:{
+          title:"Categories",
+          headline:"You are now browsing the",
+          emptyText:"Sadly There are no items available in this category"
+        },
         }
     },
     meta: { dir: "ltr" },
@@ -338,16 +427,7 @@ i18next
           logOut: "تسجيل الخروج",
         },
       },
-        aside: {
-          camera: "كاميرا",
-          phones: "هواتف",
-          laptops: "لابتوبات",
-          clothing: "ملابس",
-          monitors: "شاشات",
-          toys: "ألعاب",
-          accessories: "إكسسوارات",
-        },
-
+      aside: asideAr,
       hero: {
         title:"تخفيضات على القسم الفرعي",
         titleSecondLine:"10% حتى",
@@ -600,6 +680,11 @@ i18next
           headline: "نتيجة البحث عن",
           emptyText: "لم يتم العثور على المنتجات المطلوبة",
         },
+        categoriesPage: {
+          title: "الفئات",
+          headline: "أنت الآن تتصفح",
+          emptyText: "للأسف، لا توجد عناصر متاحة في هذه الفئة",
+        },
       }
     },
     meta: { dir: "rtl" },
@@ -626,16 +711,7 @@ i18next
         logOut: "Cerrar sesión",
       },
       },
-      aside: {
-        camera: "Cámara",
-        phones: "Teléfonos",
-        laptops: "Portátiles",
-        clothing: "Ropa",
-        monitors: "Monitores",
-        toys: "Juguetes",
-        accessories: "Accesorios",
-      },
-
+      aside: asideEs,
       hero:{
         title:"Hasta 50% de descuento!",
         titleSecondLine:"en la oferta especial",
@@ -887,6 +963,12 @@ i18next
           headline: "El resultado de",
           emptyText: "No se encontraron los productos buscados",
         },
+        categoriesPage: {
+          title: "Categorías",
+          headline: "Ahora estás navegando por",
+          emptyText: "Lamentablemente, no hay artículos disponibles en esta categoría",
+        },
+
       }
     },
     meta: { dir: "ltr" },
