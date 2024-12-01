@@ -2,11 +2,28 @@ import Section from '@components/Section';
 import Button from '@components/Button';
 import ProductCard from '@components/ProductCard';
 
-import { productsData } from '../data';
+import products from '../products.json';
+
 import { useTranslation } from 'react-i18next';
 
 const BestSelling = () => {
   const { t } = useTranslation();
+  const productsData = products.products;
+
+  const getTopRatedProducts = (productsData) => {
+    // Sort products by the average rating in descending order
+    const sortedProducts = productsData.sort(
+      (a, b) => b.rating.average - a.rating.average
+    );
+    // Get the top 4 products
+    return sortedProducts.slice(0, 4);
+  };
+
+  const { i18n } = useTranslation();
+
+  // Get current language
+  const currentLanguage = i18n.language;
+
   return (
     <Section
       title={t('sections.bestSelling.headline')}
@@ -21,20 +38,21 @@ const BestSelling = () => {
       }
     >
       <div className="flex items-center flex-wrap gap-2 justify-evenly">
-        {productsData.map((product, index) => {
+        {getTopRatedProducts(productsData).map((product, index) => {
           if (index >= 4) return;
           return (
             <ProductCard
               key={product.id}
-              imgSrc={product.imgSrc}
-              secondImg={product.secondImg}
-              firstColor={product.firstColor}
-              secondColor={product.secondColor}
-              title={product.title}
-              price={product.price}
-              oldPrice={product.oldPrice}
-              rating={product.rating}
-              ratingCount={product.ratingCount}
+              discount={product.price.discount}
+              imgSrc={product.images.primary}
+              secondImg={product.images.secondary}
+              firstColor={product.colors.first}
+              secondColor={product.colors.second}
+              title={product.titles[currentLanguage]}
+              price={product.price.current}
+              oldPrice={product.price.old}
+              rating={product.rating.average}
+              ratingCount={product.rating.count}
               product={product}
             />
           );

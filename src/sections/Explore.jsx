@@ -2,7 +2,6 @@ import Button from '@components/Button';
 
 import ExploreSlider from '@components/ExploreSlider';
 import Section from '@components/Section';
-import { productsData } from '../data';
 import { useTranslation } from 'react-i18next';
 
 const Explore = () => {
@@ -12,7 +11,7 @@ const Explore = () => {
       title={t('sections.explore.headline')}
       headline={t('sections.explore.title')}
     >
-      <ExploreSlider products={productsData} />
+      <ExploreSlider />
       <div className="flex items-center justify-center">
         <Button>{t('buttons.viewAll')}</Button>
       </div>

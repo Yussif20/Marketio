@@ -14,11 +14,15 @@ export const CheckoutPage = () => {
 
   const { t } = useTranslation();
 
+  const { i18n } = useTranslation();
+
+  const currentLanguage = i18n.language;
+
   const navigate = useNavigate();
 
   const calculateSubtotal = () => {
     return cartItems.reduce((acc, item) => {
-      const itemPrice = Number(item.price.replace('$', '').trim());
+      const itemPrice = Number(item.price.current);
       return acc + itemPrice * item.quantity;
     }, 0);
   };
@@ -161,12 +165,14 @@ export const CheckoutPage = () => {
                   className="flex items-center justify-between pb-2"
                 >
                   <div className="flex items-center justify-between w-6/12">
-                    <span className="flex-1">{item.title}</span>
+                    <span className="flex-1">
+                      {item.titles[currentLanguage]}
+                    </span>
                     <div className="flex-1 flex items-center justify-center">
                       <img
                         className="max-w-14 max-h-14 sm:max-w-20 sm:max-h-20"
-                        src={item.imgSrc}
-                        alt={item.title}
+                        src={item.images.primary}
+                        alt={item.titles[currentLanguage]}
                       />
                     </div>
                   </div>
@@ -174,7 +180,7 @@ export const CheckoutPage = () => {
                     <span className="font-semibold flex-1">
                       {item.quantity} x
                     </span>
-                    <span className="flex-1">${item.price}</span>
+                    <span className="flex-1">${item.price.current}</span>
                   </div>
                 </div>
               ))}

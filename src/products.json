@@ -1,0 +1,692 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "images": {
+        "primary": "/assets/products/hp-laptop-blue.png",
+        "secondary": "/assets/products/hp-laptop-grey.png"
+      },
+      "colors": {
+        "first": "rebeccapurple",
+        "second": "lightgrey"
+      },
+      "titles": {
+        "en": "hp Laptop",
+        "ar": "حاسوب محمول اتش بي",
+        "es": "hp Portátil"
+      },
+      "descriptions": {
+        "en": "Modern and full of feature laptop suitable for work and gaming.",
+        "ar": "حاسوب محمول حديث مليء بالمميزات مناسب للعمل والألعاب.",
+        "es": "Portátil moderno y lleno de características adecuado para trabajo y juegos."
+      },
+      "price": {
+        "current": 375,
+        "old": 450,
+        "currency": "USD",
+        "discount": "-25%"
+      },
+      "rating": {
+        "average": 1.4,
+        "count": 254,
+        "breakdown": {
+          "fiveStar": 10,
+          "fourStar": 5,
+          "threeStar": 20,
+          "twoStar": 50,
+          "oneStar": 169
+        }
+      },
+      "category": "laptops"
+    },
+    {
+      "id": 2,
+      "images": {
+        "primary": "/assets/products/hoodie-black.png",
+        "secondary": "/assets/products/hoodie-blue.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "blue"
+      },
+      "titles": {
+        "en": "Hoodie",
+        "ar": "هودي",
+        "es": "Sudadera"
+      },
+      "descriptions": {
+        "en": "Comfortable and stylish hoodie for everyday use.",
+        "ar": "هودي مريح وأنيق للاستخدام اليومي.",
+        "es": "Sudadera cómoda y elegante para el uso diario."
+      },
+      "price": {
+        "current": 50,
+        "old": 60,
+        "currency": "USD",
+        "discount": "-16%"
+      },
+      "rating": {
+        "average": 4.2,
+        "count": 120,
+        "breakdown": {
+          "fiveStar": 80,
+          "fourStar": 20,
+          "threeStar": 10,
+          "twoStar": 5,
+          "oneStar": 5
+        }
+      },
+      "category": "clothing"
+    },
+    {
+      "id": 3,
+      "images": {
+        "primary": "/assets/products/phone-black.png",
+        "secondary": "/assets/products/phone-gold.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "gold"
+      },
+      "titles": {
+        "en": "Iphone",
+        "ar": "ايفون ",
+        "es": "Teléfono Iphone"
+      },
+      "descriptions": {
+        "en": "A high-end smartphone with cutting-edge features.",
+        "ar": "هاتف ذكي عالي الجودة مع ميزات متطورة.",
+        "es": "Un teléfono inteligente de gama alta con características avanzadas."
+      },
+      "price": {
+        "current": 699,
+        "old": 799,
+        "currency": "USD",
+        "discount": "-12%"
+      },
+      "rating": {
+        "average": 4.5,
+        "count": 320,
+        "breakdown": {
+          "fiveStar": 200,
+          "fourStar": 80,
+          "threeStar": 25,
+          "twoStar": 10,
+          "oneStar": 5
+        }
+      },
+      "category": "phones"
+    },
+    {
+      "id": 4,
+      "images": {
+        "primary": "/assets/products/cargo-black.png",
+        "secondary": "/assets/products/cargo-brown.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "brown"
+      },
+      "titles": {
+        "en": "Cargo Pants",
+        "ar": "سراويل كارجو",
+        "es": "Pantalones cargo"
+      },
+      "descriptions": {
+        "en": "Durable and comfortable cargo pants with multiple pockets.",
+        "ar": "سراويل كارجو متينة ومريحة مع جيوب متعددة.",
+        "es": "Pantalones cargo duraderos y cómodos con múltiples bolsillos."
+      },
+      "price": {
+        "current": 40,
+        "old": 50,
+        "currency": "USD",
+        "discount": "-20%"
+      },
+      "rating": {
+        "average": 4.0,
+        "count": 200,
+        "breakdown": {
+          "fiveStar": 100,
+          "fourStar": 60,
+          "threeStar": 20,
+          "twoStar": 10,
+          "oneStar": 10
+        }
+      },
+      "category": "clothing"
+    },
+    {
+      "id": 5,
+      "images": {
+        "primary": "/assets/products/msi-monitor.png"
+      },
+      "colors": {
+        "first": "black"
+      },
+      "titles": {
+        "en": "Msi Monitor",
+        "ar": " شاشة ام اس اي",
+        "es": "Msi Monitor"
+      },
+      "descriptions": {
+        "en": "High-quality monitors with vibrant displays for gaming and work.",
+        "ar": "شاشات عالية الجودة مع عروض حيوية للألعاب والعمل.",
+        "es": "Monitores de alta calidad con pantallas vibrantes para juegos y trabajo."
+      },
+      "price": {
+        "current": 199,
+        "old": 249,
+        "currency": "USD",
+        "discount": "-20%"
+      },
+      "rating": {
+        "average": 4.7,
+        "count": 150,
+        "breakdown": {
+          "fiveStar": 120,
+          "fourStar": 20,
+          "threeStar": 5,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "monitors"
+    },
+    {
+      "id": 6,
+      "images": {
+        "primary": "/assets/products/dc-toy.png"
+      },
+      "colors": {
+        "first": "black"
+      },
+      "titles": {
+        "en": "DC Toys",
+        "ar": " ألعاب دى سى",
+        "es": "DC Juguetes"
+      },
+      "descriptions": {
+        "en": "Exciting and fun toys for kids of all ages.",
+        "ar": "ألعاب مثيرة وممتعة للأطفال من جميع الأعمار.",
+        "es": "Juguetes emocionantes y divertidos para niños de todas las edades."
+      },
+      "price": {
+        "current": 25,
+        "old": 30,
+        "currency": "USD",
+        "discount": "-16%"
+      },
+      "rating": {
+        "average": 4.3,
+        "count": 110,
+        "breakdown": {
+          "fiveStar": 70,
+          "fourStar": 25,
+          "threeStar": 10,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "toys"
+    },
+    {
+      "id": 7,
+      "images": {
+        "primary": "/assets/products/glasses-black.png",
+        "secondary": "/assets/products/glasses-rose.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "darksalmon"
+      },
+      "titles": {
+        "en": "Sunglasses",
+        "ar": "نظارات شمسية",
+        "es": "Gafas de sol"
+      },
+      "descriptions": {
+        "en": "Stylish sunglasses with UV protection.",
+        "ar": "نظارات شمسية أنيقة مع حماية من الأشعة فوق البنفسجية.",
+        "es": "Gafas de sol elegantes con protección UV."
+      },
+      "price": {
+        "current": 15,
+        "old": 20,
+        "currency": "USD",
+        "discount": "-25%"
+      },
+      "rating": {
+        "average": 4.8,
+        "count": 90,
+        "breakdown": {
+          "fiveStar": 75,
+          "fourStar": 10,
+          "threeStar": 3,
+          "twoStar": 1,
+          "oneStar": 1
+        }
+      },
+      "category": "accessories"
+    },
+    {
+      "id": 8,
+      "images": {
+        "primary": "/assets/products/jacket-black.png",
+        "secondary": "/assets/products/jacket-gray.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "lightgrey"
+      },
+      "titles": {
+        "en": "Jacket",
+        "ar": "سترة",
+        "es": "Chaqueta"
+      },
+      "descriptions": {
+        "en": "Warm and durable jacket for cold weather.",
+        "ar": "سترة دافئة ومتينة للطقس البارد.",
+        "es": "Chaqueta cálida y duradera para climas fríos."
+      },
+      "price": {
+        "current": 80,
+        "old": 100,
+        "currency": "USD",
+        "discount": "-20%"
+      },
+      "rating": {
+        "average": 4.6,
+        "count": 150,
+        "breakdown": {
+          "fiveStar": 100,
+          "fourStar": 35,
+          "threeStar": 10,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "clothing"
+    },
+    {
+      "id": 9,
+      "images": {
+        "primary": "/assets/products/plover-blue.png",
+        "secondary": "/assets/products/plover-green.png"
+      },
+      "colors": {
+        "first": "blue",
+        "second": "green"
+      },
+      "titles": {
+        "en": "Plover",
+        "ar": "بلوفر",
+        "es": "Plover"
+      },
+      "descriptions": {
+        "en": "Stylish and comfortable plover for daily wear.",
+        "ar": "بلوفر أنيقة ومريحة للاستخدام اليومي.",
+        "es": "Plover elegantes y cómodos para uso diario."
+      },
+      "price": {
+        "current": 60,
+        "old": 75,
+        "currency": "USD",
+        "discount": "-20%"
+      },
+      "rating": {
+        "average": 4.2,
+        "count": 140,
+        "breakdown": {
+          "fiveStar": 90,
+          "fourStar": 30,
+          "threeStar": 10,
+          "twoStar": 7,
+          "oneStar": 3
+        }
+      },
+      "category": "clothing"
+    },
+    {
+      "id": 10,
+      "images": {
+        "primary": "/assets/products/watch-black.png",
+        "secondary": "/assets/products/watch-gold.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "gold"
+      },
+      "titles": {
+        "en": "Wrist Watch",
+        "ar": "ساعة يد",
+        "es": "Reloj de pulsera"
+      },
+      "descriptions": {
+        "en": "Elegant wrist watches for formal and casual occasions.",
+        "ar": "ساعات يد أنيقة للمناسبات الرسمية وغير الرسمية.",
+        "es": "Relojes elegantes para ocasiones formales e informales."
+      },
+      "price": {
+        "current": 120,
+        "old": 150,
+        "currency": "USD",
+        "discount": "-20%"
+      },
+      "rating": {
+        "average": 4.9,
+        "count": 200,
+        "breakdown": {
+          "fiveStar": 180,
+          "fourStar": 15,
+          "threeStar": 3,
+          "twoStar": 1,
+          "oneStar": 1
+        }
+      },
+      "category": "accessories"
+    },
+    {
+      "id": 11,
+      "images": {
+        "primary": "/assets/products/adidas-pants-black.png",
+        "secondary": "/assets/products/adidas-pants-white.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "white"
+      },
+      "titles": {
+        "en": "Adidas Pants",
+        "ar": "بنطال أديداس",
+        "es": "Pantalones Adidas"
+      },
+      "descriptions": {
+        "en": "Comfortable Adidas pants for casual wear and sports.",
+        "ar": "بنطال أديداس مريح للاستخدام اليومي والرياضة.",
+        "es": "Pantalones Adidas cómodos para uso casual y deportes."
+      },
+      "price": {
+        "current": 50,
+        "old": 65,
+        "currency": "USD",
+        "discount": "-23%"
+      },
+      "rating": {
+        "average": 4.4,
+        "count": 120,
+        "breakdown": {
+          "fiveStar": 70,
+          "fourStar": 30,
+          "threeStar": 15,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "clothing"
+    },
+    {
+      "id": 12,
+      "images": {
+        "primary": "/assets/products/camera-4k.png"
+      },
+      "colors": {
+        "first": "black"
+      },
+      "titles": {
+        "en": "4K-Cameras",
+        "ar": "4K كاميرات",
+        "es": "4k_Cámaras"
+      },
+      "descriptions": {
+        "en": "4K camera for professionals and colorful cameras.",
+        "ar": "كاميرا 4K للمحترفين وكاميرات ملونة.",
+        "es": "Cámara 4K para profesionales y cámaras coloridas."
+      },
+      "price": {
+        "current": 180,
+        "old": 200,
+        "currency": "USD",
+        "discount": "-10%"
+      },
+      "rating": {
+        "average": 4.6,
+        "count": 90,
+        "breakdown": {
+          "fiveStar": 60,
+          "fourStar": 20,
+          "threeStar": 5,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "cameras"
+    },
+    {
+      "id": 13,
+      "images": {
+        "primary": "/assets/products/microsoft-laptop-black.png",
+        "secondary": "/assets/products/microsoft-laptop-dune.png"
+      },
+      "colors": {
+        "first": "black",
+        "second": "darksalmon"
+      },
+      "titles": {
+        "en": "Microsoft Laptop",
+        "ar": "حاسوب مايكروسوفت",
+        "es": "Portátil Microsoft"
+      },
+      "descriptions": {
+        "en": "Powerful Microsoft laptops with sleek designs.",
+        "ar": "أجهزة لابتوب مايكروسوفت قوية ذات تصميمات أنيقة.",
+        "es": "Portátiles potentes de Microsoft con diseños elegantes."
+      },
+      "price": {
+        "current": 800,
+        "old": 1000,
+        "currency": "USD",
+        "discount": "-20%"
+      },
+      "rating": {
+        "average": 4.8,
+        "count": 300,
+        "breakdown": {
+          "fiveStar": 240,
+          "fourStar": 40,
+          "threeStar": 10,
+          "twoStar": 5,
+          "oneStar": 5
+        }
+      },
+      "category": "laptops"
+    },
+    {
+      "id": 14,
+      "images": {
+        "primary": "/assets/products/shirt-army.png",
+        "secondary": "/assets/products/shirt-grey.png"
+      },
+      "colors": {
+        "first": "olive",
+        "second": "grey"
+      },
+      "titles": {
+        "en": "Shirts",
+        "ar": "قمصان",
+        "es": "Camisas"
+      },
+      "descriptions": {
+        "en": "Trendy shirts for men and women in various styles.",
+        "ar": "قمصان عصرية للرجال والنساء بأنماط متنوعة.",
+        "es": "Camisas modernas para hombres y mujeres en varios estilos."
+      },
+      "price": {
+        "current": 25,
+        "old": 30,
+        "currency": "USD",
+        "discount": "-17%"
+      },
+      "rating": {
+        "average": 4.3,
+        "count": 75,
+        "breakdown": {
+          "fiveStar": 50,
+          "fourStar": 15,
+          "threeStar": 7,
+          "twoStar": 2,
+          "oneStar": 1
+        }
+      },
+      "category": "clothing"
+    },
+    {
+      "id": 15,
+      "images": {
+        "primary": "/assets/products/spectre-monitor.png"
+      },
+      "colors": {
+        "first": "black"
+      },
+      "titles": {
+        "en": "Spectre Monitor",
+        "ar": "شاشات سبيكتر",
+        "es": "Spectre Monitores"
+      },
+      "descriptions": {
+        "en": "High-definition monitors for gaming and professional work.",
+        "ar": "شاشات عالية الوضوح للألعاب والعمل الاحترافي.",
+        "es": "Monitores de alta definición para juegos y trabajos profesionales."
+      },
+      "price": {
+        "current": 300,
+        "old": 350,
+        "currency": "USD",
+        "discount": "-14%"
+      },
+      "rating": {
+        "average": 4.7,
+        "count": 220,
+        "breakdown": {
+          "fiveStar": 180,
+          "fourStar": 30,
+          "threeStar": 7,
+          "twoStar": 2,
+          "oneStar": 1
+        }
+      },
+      "category": "monitors"
+    },
+    {
+      "id": 16,
+      "images": {
+        "primary": "/assets/products/phillips-monitor.png"
+      },
+      "colors": {
+        "first": "black"
+      },
+      "titles": {
+        "en": "Phillips Monitor",
+        "ar": " شاشة فيليبس",
+        "es": "Phillips Monitor"
+      },
+      "descriptions": {
+        "en": "High-quality monitors with vibrant displays for gaming and work.",
+        "ar": "شاشات عالية الجودة مع عروض حيوية للألعاب والعمل.",
+        "es": "Monitores de alta calidad con pantallas vibrantes para juegos y trabajo."
+      },
+      "price": {
+        "current": 199,
+        "old": 249,
+        "currency": "USD",
+        "discount": "-20%"
+      },
+      "rating": {
+        "average": 4.7,
+        "count": 150,
+        "breakdown": {
+          "fiveStar": 120,
+          "fourStar": 20,
+          "threeStar": 5,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "monitors"
+    },
+    {
+      "id": 17,
+      "images": {
+        "primary": "/assets/products/kids-camera.png"
+      },
+      "colors": {
+        "first": "cyan"
+      },
+      "titles": {
+        "en": "Kids Cameras",
+        "ar": " كاميرات أطفال",
+        "es": "niños Cámaras"
+      },
+      "descriptions": {
+        "en": "4K camera for professionals and colorful cameras for kids.",
+        "ar": "كاميرا 4K للمحترفين وكاميرات ملونة للأطفال.",
+        "es": "Cámara 4K para profesionales y cámaras coloridas para niños."
+      },
+      "price": {
+        "current": 180,
+        "old": 200,
+        "currency": "USD",
+        "discount": "-10%"
+      },
+      "rating": {
+        "average": 4.6,
+        "count": 90,
+        "breakdown": {
+          "fiveStar": 60,
+          "fourStar": 20,
+          "threeStar": 5,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "cameras"
+    },
+    {
+      "id": 18,
+      "images": {
+        "primary": "/assets/products/robot-toy.png"
+      },
+      "colors": {
+        "first": "greenyellow"
+      },
+      "titles": {
+        "en": "Robot Toy",
+        "ar": "لعبة روبوت",
+        "es": "Roboto Juguete"
+      },
+      "descriptions": {
+        "en": "Exciting and fun toys for kids of all ages.",
+        "ar": "ألعاب مثيرة وممتعة للأطفال من جميع الأعمار.",
+        "es": "Juguetes emocionantes y divertidos para niños de todas las edades."
+      },
+      "price": {
+        "current": 25,
+        "old": 30,
+        "currency": "USD",
+        "discount": "-16%"
+      },
+      "rating": {
+        "average": 4.3,
+        "count": 110,
+        "breakdown": {
+          "fiveStar": 70,
+          "fourStar": 25,
+          "threeStar": 10,
+          "twoStar": 3,
+          "oneStar": 2
+        }
+      },
+      "category": "toys"
+    }
+  ]
+}

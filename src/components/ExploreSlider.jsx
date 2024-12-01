@@ -5,16 +5,25 @@ import { Navigation } from 'swiper/modules';
 import { useRef } from 'react';
 import ProductCard from './ProductCard';
 import { useProductContext } from '../ProductContext';
+import { useTranslation } from 'react-i18next';
 
-const ExploreSlider = ({ products }) => {
+import products from '../products.json';
+
+const ExploreSlider = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   const { direction } = useProductContext();
 
+  const productsData = products.products;
+
+  const { i18n } = useTranslation();
+
+  const currentLanguage = i18n.language;
+
   const chunkedProducts = [];
-  for (let i = 0; i < products.length; i += 8) {
-    chunkedProducts.push(products.slice(i, i + 8));
+  for (let i = 0; i < productsData.length; i += 8) {
+    chunkedProducts.push(productsData.slice(i, i + 8));
   }
 
   return (
@@ -55,6 +64,8 @@ const ExploreSlider = ({ products }) => {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
+        dir={!direction ? 'rtl' : 'ltr'}
+        key={direction}
       >
         {chunkedProducts.map((productChunk, index) => (
           <SwiperSlide key={index}>
@@ -62,17 +73,16 @@ const ExploreSlider = ({ products }) => {
               {productChunk.map((product) => (
                 <ProductCard
                   key={product.id}
-                  discount={product.discount}
-                  imgSrc={product.imgSrc}
-                  secondImg={product.secondImg}
-                  firstColor={product.firstColor}
-                  secondColor={product.secondColor}
-                  title={product.title}
-                  icon={product.icon}
-                  price={product.price}
-                  oldPrice={product.oldPrice}
-                  rating={product.rating}
-                  ratingCount={product.ratingCount}
+                  discount={product.price.discount}
+                  imgSrc={product.images.primary}
+                  secondImg={product.images.secondary}
+                  firstColor={product.colors.first}
+                  secondColor={product.colors.second}
+                  title={product.titles[currentLanguage]}
+                  price={product.price.current}
+                  oldPrice={product.price.old}
+                  rating={product.rating.average}
+                  ratingCount={product.rating.count}
                   product={product}
                 />
               ))}

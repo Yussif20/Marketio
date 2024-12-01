@@ -33,32 +33,30 @@ export const heroSliderDataEs = [
 export const categoriesEn = [
   { id: 1, title: "Camera", icon:"fas fa-camera" },
   { id: 2, title: "Phones", icon:"fas fa-mobile-alt"},
-  { id: 3, title: "Computers", icon:"fas fa-laptop" },
-  { id: 4, title: "Formal Cloth", icon:"fa-solid fa-user-tie" },
-  { id: 5, title: "Headphones", icon:"fas fa-headphones" },
-  { id: 6, title: "Gaming", icon:"fas fa-gamepad" },
-  { id: 7, title: "Cloth", icon:"fas fa-tshirt" },
-  { id: 8, title: "Cups", icon:"fas fa-mug-hot" },
+  { id: 3, title: "Laptops", icon:"fas fa-laptop" },
+  { id: 4, title: "Clothing", icon:"fa-solid fa-user-tie" },
+  { id: 5, title: "Monitors", icon:"fa-solid fa-tv" },
+  { id: 6, title: "Toys", icon:"fa-solid fa-volleyball" },
+  { id: 7, title: "Accessories", icon:"fa-solid fa-stopwatch" },
 ];
-export const categoriesAr = [ 
+export const categoriesAr = [
   { id: 1, title: "كاميرا", icon: "fas fa-camera" },
   { id: 2, title: "هواتف", icon: "fas fa-mobile-alt" },
-  { id: 3, title: "أجهزة كمبيوتر", icon: "fas fa-laptop" },
-  { id: 4, title: "ملابس رسمية", icon: "fa-solid fa-user-tie" },
-  { id: 5, title: "سماعات", icon: "fas fa-headphones" },
-  { id: 6, title: "ألعاب", icon: "fas fa-gamepad" },
-  { id: 7, title: "ملابس", icon: "fas fa-tshirt" },
-  { id: 8, title: "أكواب", icon: "fas fa-mug-hot" },
+  { id: 3, title: "لابتوبات", icon: "fas fa-laptop" },
+  { id: 4, title: "ملابس", icon: "fa-solid fa-user-tie" },
+  { id: 5, title: "شاشات", icon: "fa-solid fa-tv" },
+  { id: 6, title: "ألعاب", icon: "fa-solid fa-volleyball" },
+  { id: 7, title: "إكسسوارات", icon: "fa-solid fa-stopwatch" },
 ];
-export const categoriesEs = [ 
+
+export const categoriesEs = [
   { id: 1, title: "Cámara", icon: "fas fa-camera" },
   { id: 2, title: "Teléfonos", icon: "fas fa-mobile-alt" },
-  { id: 3, title: "Computadoras", icon: "fas fa-laptop" },
-  { id: 4, title: "Ropa formal", icon: "fa-solid fa-user-tie" },
-  { id: 5, title: "Auriculares", icon: "fas fa-headphones" },
-  { id: 6, title: "Juegos", icon: "fas fa-gamepad" },
-  { id: 7, title: "Ropa", icon: "fas fa-tshirt" },
-  { id: 8, title: "Tazas", icon: "fas fa-mug-hot" },
+  { id: 3, title: "Portátiles", icon: "fas fa-laptop" },
+  { id: 4, title: "Ropa", icon: "fa-solid fa-user-tie" },
+  { id: 5, title: "Monitores", icon: "fa-solid fa-tv" },
+  { id: 6, title: "Juguetes", icon: "fa-solid fa-volleyball" },
+  { id: 7, title: "Accesorios", icon: "fa-solid fa-stopwatch" },
 ];
 
 

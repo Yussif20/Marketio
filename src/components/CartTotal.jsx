@@ -8,7 +8,7 @@ const CartTotal = () => {
 
   const calculateSubtotal = () => {
     return cartItems.reduce((acc, item) => {
-      const itemPrice = Number(item.price.replace('$', '').trim());
+      const itemPrice = Number(item.price.current);
       return acc + itemPrice * item.quantity;
     }, 0);
   };

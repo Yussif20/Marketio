@@ -11,11 +11,13 @@ const Aside = () => {
   const { t } = useTranslation();
 
   const categories = [
-    t('aside.womenFashion'),
-    t('aside.electronics'),
-    t('aside.homeAppliances'),
-    t('aside.beautyAndPersonalCare'),
-    t('aside.sportsOutdoors'),
+    t('aside.camera'),
+    t('aside.phones'),
+    t('aside.laptops'),
+    t('aside.clothing'),
+    t('aside.monitors'),
+    t('aside.toys'),
+    t('aside.accessories'),
   ];
 
   return (
@@ -39,24 +41,6 @@ const Aside = () => {
         } md:translate-x-0 md:relative md:flex md:w-[250px] dark:bg-darkPrimary`}
       >
         <ul className="flex flex-col">
-          <li className="relative group w-full py-2 px-12 dark:hover:bg-darkSecondary hover:bg-gray-200 cursor-pointer flex items-center justify-between">
-            {t('aside.menFashion')}
-            <i className="fa-solid fa-chevron-right"></i>
-            <ul
-              className={`absolute top-0 ${
-                direction === 'ltr'
-                  ? 'left-full border-l-0'
-                  : 'right-full border-r-0'
-              } hidden group-hover:flex flex-col bg-white dark:bg-darkPrimary shadow-lg border border-gray-200 dark:border-darkSecondary`}
-            >
-              <li className="py-2 px-4 dark:hover:bg-darkSecondary hover:bg-gray-200 border-b border-gray-200 dark:border-darkSecondary">
-                <Link to="shirts">{t('aside.shirts')}</Link>
-              </li>
-              <li className="py-3 px-6 dark:hover:bg-darkSecondary hover:bg-gray-200">
-                <Link to="jeans">{t('aside.jeans')}</Link>
-              </li>
-            </ul>
-          </li>
           {categories.map((category) => (
             <li
               key={category}

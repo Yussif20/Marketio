@@ -59,6 +59,8 @@ const CategorySlider = ({ products }) => {
           swiper.navigation.init();
           swiper.navigation.update();
         }}
+        dir={!direction ? 'rtl' : 'ltr'}
+        key={direction}
       >
         {products.map((product) => (
           <SwiperSlide className="pt-6" key={product.id}>

@@ -1,4 +1,5 @@
 // CartItem.jsx
+import { useTranslation } from 'react-i18next';
 import { useProductContext } from '../ProductContext';
 import QuantitySelector from './QuantitySelector';
 
@@ -10,13 +11,17 @@ const CartItem = ({ product }) => {
     removeFromCart(product.id);
   };
 
+  const { i18n } = useTranslation();
+
+  const currentLanguage = i18n.language;
+
   return (
     <li className="group grid  grid-cols-4 items-center justify-between p-4 mb-4 shadow dark:bg-darkSecondary rounded relative">
       <div className="flex items-center justify-center">
         <div className="md:relative flex items-center justify-center flex-1">
           <img
-            src={product.imgSrc}
-            alt={product.title}
+            src={product.images.primary}
+            alt={product.titles[currentLanguage]}
             className="hidden md:block w-16 h-16 rounded "
           />
           <button
@@ -28,11 +33,11 @@ const CartItem = ({ product }) => {
         </div>
 
         <h3 className="text-sm sm:text-lg font-semibold text-center flex-1">
-          {product.title}
+          {product.titles[currentLanguage]}
         </h3>
       </div>
       <p className="text-gray-500 dark:text-gray-300 text-center text-sm sm:text-base">
-        ${product.price}
+        ${product.price.current}
       </p>
       <div className="flex justify-center">
         <QuantitySelector
@@ -42,8 +47,7 @@ const CartItem = ({ product }) => {
         />
       </div>
       <p className="text-gray-500 dark:text-gray-300 text-center text-sm sm:text-base">
-        $
-        {(Number(product.price.replace('$', '')) * product.quantity).toFixed(2)}
+        ${(Number(product.price.current) * product.quantity).toFixed(2)}
       </p>
     </li>
   );

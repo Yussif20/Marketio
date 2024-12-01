@@ -2,7 +2,6 @@ import Button from '@components/Button';
 import Countdown from '@components/Countdown';
 import ProductSlider from '@components/ProductSlider';
 import Section from '@components/Section';
-import { productsData } from '../data';
 import { useTranslation } from 'react-i18next';
 
 const FlashSales = () => {
@@ -31,11 +30,7 @@ const FlashSales = () => {
       }
     >
       <div>
-        <ProductSlider
-          products={productsData}
-          spaceBetween={20}
-          slidesPerView={4}
-        />
+        <ProductSlider spaceBetween={20} slidesPerView={4} />
       </div>
       <div className="flex items-center justify-center">
         <Button variant="primary" size="md">

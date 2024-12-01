@@ -10,6 +10,10 @@ export const Wishlist = () => {
 
   const { t } = useTranslation();
 
+  const { i18n } = useTranslation();
+
+  const currentLanguage = i18n.language;
+
   return (
     <section className="py-6 px-2 sm:px-12">
       <div className="flex flex-col sm:flex-row items-center justify-between my-6">
@@ -31,14 +35,14 @@ export const Wishlist = () => {
               key={product.id}
               className="font-poppins relative group rounded pb-2 my-4 shadow-lg dark:bg-darkSecondary border dark:border-none"
             >
-              {product.discount && (
+              {product.price.discount && (
                 <div className="absolute z-10 top-2 left-2 bg-basicRed text-white py-1 px-3 rounded-[4px] text-xs">
-                  {product.discount}
+                  {product.price.discount}
                 </div>
               )}
               <div className=" relative h-[284px] w-full min-w-[300px] rounded bg-white flex items-center justify-center">
                 <img
-                  src={product.imgSrc}
+                  src={product.images.primary}
                   alt="product"
                   className="max-h-[200px] max-w-[200px] rounded-lg"
                 />
@@ -58,19 +62,19 @@ export const Wishlist = () => {
                 </button>
               </div>
               <div className="px-2 pt-2">
-                <h4 className="text-base">{product.title}</h4>
+                <h4 className="text-base">{product.titles[currentLanguage]}</h4>
                 <div className="flex items-center gap-4 mt-2">
-                  <span className="text-basicRed">{product.price}</span>
+                  <span className="text-basicRed">{product.price.current}</span>
                   <span className="text-gray-500 line-through">
-                    {product.oldPrice}
+                    {product.price.old}
                   </span>
                 </div>
                 <div className="mt-2 flex items-center gap-2">
                   <div className="flex gap-2 text-yellow-500">
-                    <StarRating rating={product.rating} />
+                    <StarRating rating={product.rating.average} />
                   </div>
                   <span className="text-gray-500 text-sm">
-                    ({product.ratingCount})
+                    ({product.rating.count})
                   </span>
                 </div>
               </div>

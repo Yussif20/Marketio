@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import StarRating from './StarRating';
 import { useProductContext } from '../ProductContext';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ProductCard = ({
   discount,
@@ -37,6 +38,8 @@ const ProductCard = ({
     setIsFavorite(!isFavorite);
   };
 
+  const { t } = useTranslation();
+
   return (
     <div className="font-poppins relative group rounded pb-2 shadow-lg dark:bg-darkSecondary border dark:border-none">
       {discount && (
@@ -71,7 +74,7 @@ const ProductCard = ({
           onClick={() => addToCart(product)}
           className="absolute bottom-[-4px] w-full rounded-br rounded-bl bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity py-2"
         >
-          Add to Cart
+          {t('buttons.addToCart')}
         </button>
       </div>
       <div className="px-2 pt-2">
