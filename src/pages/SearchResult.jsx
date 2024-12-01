@@ -3,18 +3,25 @@ import ProductCard from '@components/ProductCard';
 import Button from '@components/Button';
 import Section from '@components/Section';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const SearchResult = () => {
   const { products, searchQuery } = useProductContext();
+
+  const { t, i18n } = useTranslation();
+
+  const currentLanguage = i18n.language || 'en';
   const SearchedProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    product.titles[currentLanguage]
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase())
   );
   return (
     <Section
-      title="Search Result"
+      title={t('pages.searchResult.title')}
       headline={
         SearchedProducts.length > 0
-          ? `The result of "${searchQuery}"`
+          ? `${t('pages.searchResult.headline')} "${searchQuery}"`
           : `The searched products aren't Found`
       }
     >
@@ -24,12 +31,16 @@ export const SearchResult = () => {
             return (
               <ProductCard
                 key={product.id}
-                imgSrc={product.imgSrc}
-                title={product.title}
-                price={product.price}
-                oldPrice={product.oldPrice}
-                rating={product.rating}
-                ratingCount={product.ratingCount}
+                discount={product.price.discount}
+                imgSrc={product.images.primary}
+                secondImg={product.images.secondary}
+                firstColor={product.colors.first}
+                secondColor={product.colors.second}
+                title={product.titles[currentLanguage]}
+                price={product.price.current}
+                oldPrice={product.price.old}
+                rating={product.rating.average}
+                ratingCount={product.rating.count}
                 product={product}
               />
             );

@@ -295,6 +295,23 @@ i18next
           title:"Wishlist",
           emptyText:"No items in your favorite list.",justForYou:"Just for you"
         },
+        productDetails:{
+          loading:"Loading...",
+          home:"Home",
+          freeDelivery:{
+            title:"Free Delivery",
+            text:" Enter your postal code for Delivery Availability"
+          },
+          return:{
+            title:"Return Delivery",
+            text:"Free 30 Days Delivery Returns. Details"
+          }
+        },
+        searchResult:{
+          title:"Search Result",
+          headline:"The result of",
+          emptyText:"The searched products aren't Found",
+        }
         }
     },
     meta: { dir: "ltr" },
@@ -384,7 +401,7 @@ i18next
       },
       buttons:{
         viewAll: "أظهر كل المنتجات",
-        buyNow:"!اشترى الان",
+        buyNow:"اشترى الان !",
         shopNow: "تسوق الآن",
         continue: "متابعة التسوق",
         createAccount: "إنشاء حساب",
@@ -565,6 +582,23 @@ i18next
           title: "المفضلة",
           emptyText: "لا توجد عناصر في قائمة المفضلات.",
           justForYou: "مختارة لك",
+        },
+        productDetails: {
+          loading: "جارٍ التحميل...",
+          home: "الرئيسية",
+          freeDelivery: {
+            title: "توصيل مجاني",
+            text: "أدخل الرمز البريدي للتحقق من توفر التوصيل",
+          },
+          return: {
+            title: "إرجاع مجاني",
+            text: "إرجاع مجاني خلال 30 يومًا. التفاصيل",
+          },
+        },
+        searchResult: {
+          title: "نتائج البحث",
+          headline: "نتيجة البحث عن",
+          emptyText: "لم يتم العثور على المنتجات المطلوبة",
         },
       }
     },
@@ -836,7 +870,23 @@ i18next
           emptyText: "No hay artículos en tu lista de favoritos.",
           justForYou: "Solo para ti",
         },
-
+        productDetails: {
+          loading: "Cargando...",
+          home: "Inicio",
+          freeDelivery: {
+            title: "Entrega gratuita",
+            text: "Introduce tu código postal para verificar la disponibilidad de la entrega",
+          },
+          return: {
+            title: "Devolución gratuita",
+            text: "Devoluciones gratuitas durante 30 días. Detalles",
+          },
+        },
+        searchResult: {
+          title: "Resultado de la búsqueda",
+          headline: "El resultado de",
+          emptyText: "No se encontraron los productos buscados",
+        },
       }
     },
     meta: { dir: "ltr" },

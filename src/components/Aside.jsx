@@ -36,21 +36,24 @@ const Aside = () => {
         className={`fixed top-0 ${
           direction === 'ltr' ? 'border-r' : 'border-l'
         } 
-        left-0 h-full bg-white pt-8 w-[250px] z-40 transition-transform transform ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:translate-x-0 md:relative md:flex md:w-[250px] dark:bg-darkPrimary`}
+  left-0 h-full bg-white pt-8 w-[250px] z-40 transition-transform transform ${
+    isOpen ? 'translate-x-0' : '-translate-x-full'
+  } md:translate-x-0 md:relative md:flex md:w-[250px] dark:bg-darkPrimary`}
       >
-        <ul className="flex flex-col">
+        <ul className="flex flex-col w-full">
           {categories.map((category) => (
             <li
               key={category}
-              className="w-full py-2 px-12 dark:hover:bg-darkSecondary hover:bg-gray-200"
+              className="w-full py-2 text-l font-medium dark:hover:bg-darkSecondary hover:bg-gray-200"
             >
-              <Link to={category}>{category}</Link>
+              <Link className="block w-full px-12" to={category}>
+                {category}
+              </Link>
             </li>
           ))}
         </ul>
       </aside>
+
       {isOpen && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-30 md:hidden"

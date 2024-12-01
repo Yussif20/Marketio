@@ -6,7 +6,9 @@ import {
   signOut,
 } from 'firebase/auth';
 
-import { productsData } from './data.js';
+// import { productsData } from './data.js';
+
+import productsData from './products.json';
 
 import i18next from './i18n';
 
@@ -15,7 +17,7 @@ const ProductContext = createContext();
 export const useProductContext = () => useContext(ProductContext);
 
 export const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState(productsData);
+  const [products, setProducts] = useState(productsData.products);
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 

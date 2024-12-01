@@ -7,20 +7,15 @@ import ProductCard from './ProductCard';
 import { useProductContext } from '../ProductContext';
 import { useTranslation } from 'react-i18next';
 
-import products from '../products.json';
-
 const ProductSlider = ({ spaceBetween }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const { direction } = useProductContext();
-
-  const productsData = products.products;
+  const { direction, products } = useProductContext();
 
   const { i18n } = useTranslation();
 
-  const currentLanguage = i18n.language;
-
+  const currentLanguage = i18n.language || 'en';
   return (
     <div className="relative w-full my-8">
       <div
@@ -76,7 +71,7 @@ const ProductSlider = ({ spaceBetween }) => {
         dir={!direction ? 'rtl' : 'ltr'}
         key={direction}
       >
-        {productsData.map((product) => (
+        {products.map((product) => (
           <SwiperSlide className="pt-6 md:pt-0" key={product.id}>
             <ProductCard
               discount={product.price.discount}

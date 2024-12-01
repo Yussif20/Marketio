@@ -5,6 +5,7 @@ import JustForYou from '@sections/JustForYou';
 import StarRating from '@components/StarRating';
 import Button from '@components/Button';
 import QuantitySelector from '@components/QuantitySelector';
+import { useTranslation } from 'react-i18next';
 
 export const ProductDetails = () => {
   const { id } = useParams();
@@ -24,9 +25,13 @@ export const ProductDetails = () => {
 
   const [img, setImg] = useState(null);
 
+  const { t, i18n } = useTranslation();
+
+  const currentLanguage = i18n.language || 'en';
+
   useEffect(() => {
     if (product) {
-      setImg(product.imgSrc);
+      setImg(product.images.primary);
       setSelectedColor('first');
     }
   }, [product]);
@@ -63,29 +68,35 @@ export const ProductDetails = () => {
   };
 
   if (!product) {
-    return <div className="text-center text-gray-500">Loading...</div>;
+    return (
+      <div className="text-center text-gray-500">
+        {t('pages.productDetails.loading')}
+      </div>
+    );
   }
 
   return (
     <section className="mx-auto px-4 py-4 sm:py-0 sm:pb-4 sm:px-12 shadow-lg rounded-lg">
       <h5 className="py-10">
         <Link className="text-gray-400" to="/">
-          Home /
+          {t('pages.productDetails.home')} /
         </Link>
-        <span> {product.title}</span>
+        <span> {product.titles[currentLanguage]}</span>
       </h5>
-      <div className="flex flex-col md:flex-row items-center gap-6 justify-center">
-        <div className="flex-1  rounded bg-[#F5F5F5] flex items-center justify-center shadow border">
+      <div className="flex flex-col md:flex-row items-center gap-4 justify-center">
+        <div className="flex-1 rounded bg-[#F5F5F5] flex items-center justify-center shadow border">
           <img
             className="md:h-[520px] md:max-w-[500px]"
             src={img}
-            alt={product.title}
+            alt={product.titles[currentLanguage]}
           />
         </div>
         <div className="flex items-center text-center flex-col gap-4 flex-1 font-poppins">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-semibold">{product.title}</h2>
-            {product.secondColor && (
+            <h2 className="text-2xl font-semibold">
+              {product.titles[currentLanguage]}
+            </h2>
+            {product.colors.second && (
               <div className="flex gap-2">
                 <button
                   className={`rounded-full border-2 text-sm ${
@@ -94,15 +105,15 @@ export const ProductDetails = () => {
                       : 'border-transparent'
                   }`}
                   style={{
-                    color: product.firstColor,
+                    color: product.colors.first,
                     borderColor:
                       selectedColor === 'first'
-                        ? product.firstColor
+                        ? product.colors.first
                         : 'transparent',
                   }}
                   onClick={() => {
                     setSelectedColor('first');
-                    setImg(product.imgSrc);
+                    setImg(product.images.primary);
                   }}
                 >
                   <i className="fa-solid fa-circle p-1"></i>
@@ -114,15 +125,15 @@ export const ProductDetails = () => {
                       : 'border-transparent'
                   }`}
                   style={{
-                    color: product.secondColor,
+                    color: product.colors.second,
                     borderColor:
                       selectedColor === 'second'
-                        ? product.secondColor
+                        ? product.colors.second
                         : 'transparent',
                   }}
                   onClick={() => {
                     setSelectedColor('second');
-                    setImg(product.secondImg);
+                    setImg(product.images.secondary);
                   }}
                 >
                   <i className="fa-solid fa-circle p-1"></i>
@@ -132,19 +143,19 @@ export const ProductDetails = () => {
           </div>
           <div className="mt-2 flex items-center gap-2">
             <div className="flex gap-2 text-yellow-500">
-              <StarRating rating={product.rating} />
+              <StarRating rating={product.rating.average} />
             </div>
             <span className="text-gray-500 text-sm">
-              ({product.ratingCount})
+              ({product.rating.count})
             </span>
           </div>
-          <h2 className="text-2xl">${product.price}</h2>
+          <h2 className="text-2xl">${product.price.current}</h2>
           <p className="text-lg mb-4 w-10/12 border-b pb-4">
-            {product.description}
+            {product.descriptions[currentLanguage]}
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-6">
             <Button className="order-2 sm:order-1" onClick={handleAddToCart}>
-              Buy Now
+              {t('buttons.buyNow')}
             </Button>
             <div className="flex items-center gap-6 order-1 sm:order-2">
               {' '}
@@ -173,17 +184,22 @@ export const ProductDetails = () => {
             <div className="border-b p-2 flex items-center">
               <i className="fa-solid fa-truck-fast fa-bounce p-4 text-4xl"></i>
               <div>
-                <h3 className="font-medium mb-1">Free Delivery</h3>
+                <h3 className="font-medium mb-1">
+                  {' '}
+                  {t('pages.productDetails.freeDelivery.title')}
+                </h3>
                 <p className="underline">
-                  Enter your postal code for Delivery Availability
+                  {t('pages.productDetails.freeDelivery.text')}
                 </p>
               </div>
             </div>
             <div className="border-b p-2 flex items-center">
               <i className="fa-solid fa-repeat fa-spin p-4 text-4xl"></i>
               <div>
-                <h3 className="font-medium mb-1">Return Delivery</h3>
-                <p>Free 30 Days Delivery Returns. Details</p>
+                <h3 className="font-medium mb-1">
+                  {t('pages.productDetails.return.title')}
+                </h3>
+                <p>{t('pages.productDetails.return.text')}</p>
               </div>
             </div>
           </div>

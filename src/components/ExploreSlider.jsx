@@ -7,23 +7,18 @@ import ProductCard from './ProductCard';
 import { useProductContext } from '../ProductContext';
 import { useTranslation } from 'react-i18next';
 
-import products from '../products.json';
-
 const ExploreSlider = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const { direction } = useProductContext();
-
-  const productsData = products.products;
+  const { direction, products } = useProductContext();
 
   const { i18n } = useTranslation();
 
-  const currentLanguage = i18n.language;
-
+  const currentLanguage = i18n.language || 'en';
   const chunkedProducts = [];
-  for (let i = 0; i < productsData.length; i += 8) {
-    chunkedProducts.push(productsData.slice(i, i + 8));
+  for (let i = 0; i < products.length; i += 8) {
+    chunkedProducts.push(products.slice(i, i + 8));
   }
 
   return (

@@ -2,13 +2,12 @@ import Section from '@components/Section';
 import Button from '@components/Button';
 import ProductCard from '@components/ProductCard';
 
-import products from '../products.json';
-
 import { useTranslation } from 'react-i18next';
+import { useProductContext } from '../ProductContext';
 
 const BestSelling = () => {
   const { t } = useTranslation();
-  const productsData = products.products;
+  const { products } = useProductContext();
 
   const getTopRatedProducts = (productsData) => {
     // Sort products by the average rating in descending order
@@ -22,7 +21,7 @@ const BestSelling = () => {
   const { i18n } = useTranslation();
 
   // Get current language
-  const currentLanguage = i18n.language;
+  const currentLanguage = i18n.language || 'en';
 
   return (
     <Section
@@ -38,7 +37,7 @@ const BestSelling = () => {
       }
     >
       <div className="flex items-center flex-wrap gap-2 justify-evenly">
-        {getTopRatedProducts(productsData).map((product, index) => {
+        {getTopRatedProducts(products).map((product, index) => {
           if (index >= 4) return;
           return (
             <ProductCard
