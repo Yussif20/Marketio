@@ -7,6 +7,7 @@ const Countdown = ({
   dateIdentifierClasses,
   dateCountClasses,
   isSeparated = true,
+  ...props
 }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -40,7 +41,7 @@ const Countdown = ({
 
   const { t } = useTranslation();
   return (
-    <div className="flex items-center justify-center gap-3">
+    <div {...props} className="flex items-center justify-center gap-3">
       <p className={colClasses}>
         <span className={dateIdentifierClasses}>{t('countdown.days')}</span>
         <span className={dateCountClasses}>{timeLeft.days}</span>

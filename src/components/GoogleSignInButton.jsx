@@ -23,7 +23,7 @@ const GoogleSignInButton = () => {
       onClick={handleGoogleSignIn}
       className="flex items-center justify-center gap-4 hover:bg-slate-100"
       variant="secondary"
-      size="lg"
+      size="md"
     >
       <svg
         width="24"

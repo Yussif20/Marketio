@@ -17,11 +17,11 @@ const ProductSlider = ({ spaceBetween }) => {
 
   const currentLanguage = i18n.language || 'en';
   return (
-    <div className="relative w-full my-8">
+    <div className="relative w-full my-12">
       <div
-        className={`flex gap-2 absolute ${
+        className={`flex gap-2 absolute py-4 ${
           direction === 'ltr' ? 'right-8' : 'left-8'
-        } top-[-60px]`}
+        } top-[-40px] sm:top-[-70px]`}
       >
         <button
           ref={prevRef}

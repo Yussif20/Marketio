@@ -27,7 +27,7 @@ export const SignUp = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 items-center justify-center sm:items-start sm:justify-start">
       <h3 className="font-inter font-medium text-4xl">
         {t('pages.sign.signUp.title')}
       </h3>
@@ -46,7 +46,7 @@ export const SignUp = () => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder={t('pages.sign.inputPlaceholder.password')}
       />
-      <Button onClick={handleSignUp} className="mt-6" size="lg">
+      <Button onClick={handleSignUp} className="mt-6" size="md">
         {t('buttons.createAccount')}
       </Button>
       <GoogleSignInButton />

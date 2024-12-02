@@ -26,7 +26,7 @@ export const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 items-center justify-center sm:items-start sm:justify-start">
       <h3 className="font-inter font-medium text-4xl">
         {t('pages.sign.login.title')}{' '}
         <span className="font-semibold">
@@ -50,7 +50,7 @@ export const SignIn = () => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder={t('pages.sign.inputPlaceholder.password')}
       />
-      <div className="flex items-center justify-between mt-6">
+      <div className="flex items-center justify-between gap-4 mt-6">
         <Button onClick={handleLogIn} size="sm">
           {t('buttons.logIn')}
         </Button>
