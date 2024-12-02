@@ -49,6 +49,8 @@ const router = createBrowserRouter([
       { path: '/success', element: <SuccessPage /> },
       { path: '/wishlist', element: <Wishlist /> },
       { path: '/:id', element: <ProductDetails /> },
+      { path: '/error', element: <ErrorPage /> }, // Add this route
+      { path: '*', element: <ErrorPage /> }, // Catch-all route
     ],
   },
 ]);

@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import Header from '@components/Header';
 import Footer from '@sections/Footer';
 import Button from '@components/Button';
 
 export const ErrorPage = () => {
   return (
     <div className="flex flex-col justify-between dark:bg-darkPrimary dark:text-white">
-      <Header />
       <div className="mx-12 h-[500px] ">
         <div>
           <h5 className="py-10 font-poppins">

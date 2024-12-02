@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Navigate } from 'react-router-dom';
 import { useProductContext } from '../ProductContext';
 import JustForYou from '@sections/JustForYou';
 import StarRating from '@components/StarRating';
@@ -76,12 +76,9 @@ export const ProductDetails = () => {
     }
   };
 
+  // Redirect to the error page if the product does not exist
   if (!product) {
-    return (
-      <div className="text-center text-gray-500">
-        {t('pages.productDetails.loading')}
-      </div>
-    );
+    return <Navigate to="/error" replace />;
   }
 
   return (

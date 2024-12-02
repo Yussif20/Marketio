@@ -45,7 +45,7 @@
   - [x] Search for products
   - [x] Authentication
   - [x] Checkout and payment
-  - [] Enable Rating
+  - [x] Enable Rating
 - Bonus
   - [x] Using Firebase or Supabase
   - [x] Support more than two languages using any library
