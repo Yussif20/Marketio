@@ -57,6 +57,18 @@ const router = createBrowserRouter([
 
 function App() {
   useEffect(() => {
+    const handleScrollToTop = () => {
+      window.scrollTo(0, 0);
+    };
+    const unsubscribe = router.subscribe(() => {
+      handleScrollToTop();
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  useEffect(() => {
     const handleDirection = () => {
       const currentLang = i18next.language;
       const direction = currentLang === 'ar' ? 'rtl' : 'ltr';
