@@ -166,13 +166,13 @@ export const CheckoutPage = () => {
                 >
                   <div className="flex items-center justify-between w-6/12">
                     <span className="flex-1">
-                      {item.titles[currentLanguage]}
+                      {item.titles[currentLanguage] || item.titles['en']}
                     </span>
                     <div className="flex-1 flex items-center justify-center">
                       <img
                         className="max-w-14 max-h-14 sm:max-w-20 sm:max-h-20"
                         src={item.images.primary}
-                        alt={item.titles[currentLanguage]}
+                        alt={item.titles[currentLanguage] || item.titles['en']}
                       />
                     </div>
                   </div>

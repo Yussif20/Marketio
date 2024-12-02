@@ -94,13 +94,13 @@ export const ProductDetails = () => {
           <img
             className="md:h-[520px] md:max-w-[500px]"
             src={img}
-            alt={product.titles[currentLanguage]}
+            alt={product.titles[currentLanguage] || product.titles['en']}
           />
         </div>
         <div className="flex items-center text-center flex-col gap-4 flex-1 font-poppins">
           <div className="flex items-center justify-between gap-4">
             <h2 className="text-2xl font-semibold">
-              {product.titles[currentLanguage]}
+              {product.titles[currentLanguage] || product.titles['en']}
             </h2>
             {product.colors.second && (
               <div className="flex gap-2">

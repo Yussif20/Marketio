@@ -62,7 +62,9 @@ export const Wishlist = () => {
                 </button>
               </div>
               <div className="px-2 pt-2">
-                <h4 className="text-base">{product.titles[currentLanguage]}</h4>
+                <h4 className="text-base">
+                  {product.titles[currentLanguage] || product.titles['en']}
+                </h4>
                 <div className="flex items-center gap-4 mt-2">
                   <span className="text-basicRed">{product.price.current}</span>
                   <span className="text-gray-500 line-through">

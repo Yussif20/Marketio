@@ -21,7 +21,7 @@ const CartItem = ({ product }) => {
         <div className="md:relative flex items-center justify-center flex-1">
           <img
             src={product.images.primary}
-            alt={product.titles[currentLanguage]}
+            alt={product.titles[currentLanguage] || product.titles['en']}
             className="hidden md:block w-16 h-16 rounded "
           />
           <button
@@ -33,7 +33,7 @@ const CartItem = ({ product }) => {
         </div>
 
         <h3 className="text-sm sm:text-lg font-semibold text-center flex-1">
-          {product.titles[currentLanguage]}
+          {product.titles[currentLanguage] || product.titles['en']}
         </h3>
       </div>
       <p className="text-gray-500 dark:text-gray-300 text-center text-sm sm:text-base">

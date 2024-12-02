@@ -13,8 +13,6 @@ const CategorySlider = () => {
 
   const { direction } = useProductContext();
 
-  const { setSelectedCategory } = useProductContext(); // Assuming it's part of your context
-
   const { t } = useTranslation();
 
   const categories = t('sections.categories.data', {
@@ -79,7 +77,6 @@ const CategorySlider = () => {
               value={category.value}
               title={category.title}
               icon={category.icon}
-              setSelectedCategory={setSelectedCategory} // Add this line
             />
           </SwiperSlide>
         ))}

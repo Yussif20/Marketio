@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import { useProductContext } from '../ProductContext';
 
 const CategoryCard = ({ title, value, icon, ...props }) => {
-  const { setSelectedCategory } = props;
+  const { setSelectedCategory } = useProductContext();
+
   return (
     <Link
       {...props}

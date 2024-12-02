@@ -8,7 +8,7 @@ const Founders = () => {
     <div className="flex justify-center items-center gap-4 flex-wrap mt-16">
       {foundersData.map((founder, index) => (
         <div
-          className="flex flex-col items-center gap-4 w-[200px] md:w-[370px] mb-12 dark:bg-darkSecondary shadow-md px-2 py-4 rounded"
+          className="flex flex-col items-center gap-4 w-[250px] md:w-[370px] mb-12 dark:bg-darkSecondary shadow-md px-2 py-4 rounded"
           key={index}
         >
           <img className="w-full" src={founder.img} alt={founder.name} />

@@ -11,10 +11,10 @@ export const SearchResult = () => {
   const { t, i18n } = useTranslation();
 
   const currentLanguage = i18n.language || 'en';
-  const SearchedProducts = products.filter((product) =>
-    product.titles[currentLanguage]
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase())
+  const SearchedProducts = products.filter(
+    (product) =>
+      product.titles[currentLanguage] ||
+      product.titles['en'].toLowerCase().includes(searchQuery.toLowerCase())
   );
   return (
     <Section
@@ -36,7 +36,7 @@ export const SearchResult = () => {
                 secondImg={product.images.secondary}
                 firstColor={product.colors.first}
                 secondColor={product.colors.second}
-                title={product.titles[currentLanguage]}
+                title={product.titles[currentLanguage] || product.titles['en']}
                 price={product.price.current}
                 oldPrice={product.price.old}
                 rating={product.rating.average}

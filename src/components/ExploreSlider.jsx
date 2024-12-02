@@ -73,7 +73,9 @@ const ExploreSlider = () => {
                   secondImg={product.images.secondary}
                   firstColor={product.colors.first}
                   secondColor={product.colors.second}
-                  title={product.titles[currentLanguage]}
+                  title={
+                    product.titles[currentLanguage] || product.titles['en']
+                  }
                   price={product.price.current}
                   oldPrice={product.price.old}
                   rating={product.rating.average}
