@@ -4,7 +4,7 @@ import { useProductContext } from '../ProductContext';
 import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
-  const { setSearchQuery } = useProductContext();
+  const { setSearchQuery, searchQuery } = useProductContext();
   const navigate = useNavigate();
 
   const { t } = useTranslation();
@@ -14,6 +14,7 @@ const SearchBar = () => {
     if (!e.target.search.value) return;
     setSearchQuery(e.target.search.value);
     navigate(`/search`);
+    console.log(searchQuery);
   };
   return (
     <form

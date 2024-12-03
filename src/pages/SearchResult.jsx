@@ -11,11 +11,17 @@ export const SearchResult = () => {
   const { t, i18n } = useTranslation();
 
   const currentLanguage = i18n.language || 'en';
+
   const SearchedProducts = products.filter(
     (product) =>
-      product.titles[currentLanguage] ||
-      product.titles['en'].toLowerCase().includes(searchQuery.toLowerCase())
+      (product.titles[currentLanguage] &&
+        product.titles[currentLanguage]
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())) ||
+      (product.titles['en'] &&
+        product.titles['en'].toLowerCase().includes(searchQuery.toLowerCase()))
   );
+
   return (
     <Section
       title={t('pages.searchResult.title')}
