@@ -40,7 +40,7 @@ const SaleCount = () => {
           colClasses={colClasses}
           dateIdentifierClasses={dateIdentifierClasses}
           dateCountClasses={dateCountClasses}
-          targetDate="2025-02-10T23:59:59"
+          targetDate="2025-08-10T23:59:59"
           isSeparated={false}
         />
         <Button className="font-medium mt-7" variant="green">

@@ -6,3 +6,27 @@ body {
   font-family: 'inter';
   overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 5px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #171515;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #db4444;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #db4444;
+}
