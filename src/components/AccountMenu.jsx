@@ -71,16 +71,16 @@ const AccountMenu = () => {
               </>
             ) : (
               <>
-                <li className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 cursor-pointer flex gap-2 items-center">
-                  <Link
-                    className="flex items-center gap-2"
-                    onClick={() => setIsOpen(false)}
-                    to="sign"
-                  >
+                <Link
+                  className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600"
+                  onClick={() => setIsOpen(false)}
+                  to="sign"
+                >
+                  <li className="flex gap-2 items-center">
                     <i className="fa-regular fa-user"></i>
                     <span>{t('header.accountMenu.join')}</span>
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               </>
             )}
           </ul>

@@ -3,11 +3,21 @@ import googlePlayImg from '@assets/footer/google-play.svg';
 import playStoreImg from '@assets/footer/download-appstore.svg';
 import { useTranslation } from 'react-i18next';
 import { useProductContext } from './../ProductContext';
+import { useState } from 'react';
 
 const Footer = () => {
   const { t } = useTranslation();
 
   const direction = useProductContext();
+
+  const [mail, setMail] = useState('');
+
+  const subscribeHandler = () => {
+    if (mail !== '') {
+      window.alert('Welcome to our family! :)');
+      setMail('');
+    }
+  };
 
   const accountLinks = t('footer.account.links', { returnObjects: true });
   const quickLinks = t('footer.quickLinks.links', { returnObjects: true });
@@ -28,9 +38,21 @@ const Footer = () => {
               direction === 'rtl' ? 'text-right' : 'text-left'
             }`}
             type="text"
+            value={mail}
+            onChange={(e) => {
+              setMail(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              e.key === 'Enter' && subscribeHandler();
+            }}
             placeholder={t('footer.subscribe.placeholder')}
           />
-          <button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              subscribeHandler();
+            }}
+          >
             <svg
               width="24"
               height="24"

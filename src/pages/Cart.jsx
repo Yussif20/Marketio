@@ -5,11 +5,22 @@ import CartItem from '@components/CartItem';
 import Button from '@components/Button';
 import CartTotal from '../components/CartTotal';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 export const Cart = () => {
   const { cartItems } = useProductContext();
 
   const { t } = useTranslation();
+
+  const [coupon, setCoupon] = useState();
+  const couponHandler = () => {
+    if (coupon !== '') {
+      window.alert("Sorry, this coupon isn't valid :(");
+      setCoupon('');
+    } else {
+      window.alert('Nice try, but where is the coupon? :)');
+    }
+  };
 
   return (
     <section className="mx-2 sm:mx-6 md:mx-10 lg:mx-12">
@@ -38,10 +49,18 @@ export const Cart = () => {
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <input
                 className="max-w-sm bg-gray-100 dark:bg-darkSecondary border outline-none rounded p-3"
+                value={coupon}
+                onChange={(e) => setCoupon(e.target.value)}
                 type="text"
                 placeholder={t('pages.cart.couponCode')}
+                onKeyDown={(e) => {
+                  console.log(e.key);
+                  e.key === 'Enter' && couponHandler();
+                }}
               />
-              <Button>{t('buttons.applyCoupon')}</Button>
+              <Button onClick={() => couponHandler()}>
+                {t('buttons.applyCoupon')}
+              </Button>
             </div>
             <div className=" p-6 border-[1.5px] border-black w-11/12 sm:w-[400px] rounded dark:bg-darkSecondary">
               <h4 className="text-xl font-medium mb-4">

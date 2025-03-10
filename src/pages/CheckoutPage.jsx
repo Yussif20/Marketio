@@ -124,6 +124,10 @@ export const CheckoutPage = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  console.log(e.key);
+                  e.key === 'Enter' && handlePlaceOrder();
+                }}
                 className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
               />
             </div>
@@ -136,6 +140,10 @@ export const CheckoutPage = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  console.log(e.key);
+                  e.key === 'Enter' && handlePlaceOrder();
+                }}
                 className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
               />
             </div>
@@ -148,6 +156,10 @@ export const CheckoutPage = () => {
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  console.log(e.key);
+                  e.key === 'Enter' && handlePlaceOrder();
+                }}
                 className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
               />
             </div>
@@ -160,6 +172,10 @@ export const CheckoutPage = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                onKeyDown={(e) => {
+                  console.log(e.key);
+                  e.key === 'Enter' && handlePlaceOrder();
+                }}
                 className="w-8/12 p-2 rounded outline-none bg-[#f5f5f5] dark:bg-darkSecondary"
               />
             </div>

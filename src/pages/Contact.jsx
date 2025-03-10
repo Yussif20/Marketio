@@ -99,6 +99,10 @@ export const Contact = () => {
               onChange={(e) => {
                 setName(e.target.value);
               }}
+              onKeyDown={(e) => {
+                console.log(e.key);
+                e.key === 'Enter' && formSubmitHandler();
+              }}
               type="text"
               name="name"
               placeholder={t('pages.contact.form.namePlaceholder')}
@@ -109,6 +113,10 @@ export const Contact = () => {
               onChange={(e) => {
                 setMail(e.target.value);
               }}
+              onKeyDown={(e) => {
+                console.log(e.key);
+                e.key === 'Enter' && formSubmitHandler();
+              }}
               type="mail"
               name="mail"
               placeholder={t('pages.contact.form.emailPlaceholder')}
@@ -118,6 +126,10 @@ export const Contact = () => {
               value={tel}
               onChange={(e) => {
                 setTel(e.target.value);
+              }}
+              onKeyDown={(e) => {
+                console.log(e.key);
+                e.key === 'Enter' && formSubmitHandler();
               }}
               type="tel"
               name="phone"
@@ -130,6 +142,10 @@ export const Contact = () => {
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              console.log(e.key);
+              e.key === 'Enter' && formSubmitHandler();
             }}
             name="message"
             id="message"

@@ -152,7 +152,7 @@ const Header = () => {
                 to="/"
                 onClick={toggleMenu}
               >
-                Home
+                {t('header.home')}
               </NavLink>
             </li>
             <li>
@@ -163,7 +163,7 @@ const Header = () => {
                 to="/contact"
                 onClick={toggleMenu}
               >
-                Contact
+                {t('header.contact')}
               </NavLink>
             </li>
             <li>
@@ -174,7 +174,7 @@ const Header = () => {
                 to="/about"
                 onClick={toggleMenu}
               >
-                About
+                {t('header.about')}
               </NavLink>
             </li>
             <li>
@@ -185,7 +185,7 @@ const Header = () => {
                 to="/sign"
                 onClick={toggleMenu}
               >
-                Sign Up
+                {t('header.signup')}
               </NavLink>
             </li>
           </ul>
