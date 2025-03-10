@@ -46,46 +46,55 @@ export const CheckoutPage = () => {
   };
 
   const handlePlaceOrder = async () => {
-    if (paymentMethod === 'bank') {
-      const card = elements.getElement(CardElement);
-      const { error, paymentMethod: stripePaymentMethod } =
-        await stripe.createPaymentMethod({
-          type: 'card',
-          card,
-        });
+    if (
+      formData.name !== '' &&
+      formData.phone !== '' &&
+      formData.address !== '' &&
+      formData.email !== ''
+    ) {
+      if (paymentMethod === 'bank') {
+        const card = elements.getElement(CardElement);
+        const { error, paymentMethod: stripePaymentMethod } =
+          await stripe.createPaymentMethod({
+            type: 'card',
+            card,
+          });
 
-      if (error) {
-        alert(error.message);
-        return;
-      }
-
-      const response = await fetch(
-        'http://localhost:3001/create-payment-intent',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            paymentMethodId: stripePaymentMethod.id,
-            amount: total,
-          }),
+        if (error) {
+          alert(error.message);
+          return;
         }
-      );
 
-      const paymentResult = await response.json();
+        const response = await fetch(
+          'http://localhost:3001/create-payment-intent',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              paymentMethodId: stripePaymentMethod.id,
+              amount: total,
+            }),
+          }
+        );
 
-      if (paymentResult.error) {
-        alert(`Payment failed: ${paymentResult.error}`);
+        const paymentResult = await response.json();
+
+        if (paymentResult.error) {
+          alert(`Payment failed: ${paymentResult.error}`);
+        } else {
+          alert('Payment successful!');
+          clearCart();
+          navigate('/success');
+        }
       } else {
-        alert('Payment successful!');
+        alert('Order placed successfully with cash on delivery');
         clearCart();
         navigate('/success');
       }
     } else {
-      alert('Order placed successfully with cash on delivery');
-      clearCart();
-      navigate('/success');
+      window.alert('Please fill all the fields!');
     }
   };
 
