@@ -1,9 +1,27 @@
 import { Link } from 'react-router-dom';
 import Button from '@components/Button';
 import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 
 export const Contact = () => {
   const { t } = useTranslation();
+  const [name, setName] = useState('');
+  const [mail, setMail] = useState('');
+  const [tel, setTel] = useState('');
+  const [message, setMessage] = useState('');
+
+  const formSubmitHandler = () => {
+    if (name !== '' && mail !== '' && tel !== '' && message !== '') {
+      window.alert('Thanks! We will be in touch :)');
+      setName('');
+      setMail('');
+      setTel('');
+      setMessage('');
+    } else {
+      window.alert('Please fill all the fields!');
+    }
+  };
+
   const inputStyles =
     'bg-[#F5F5F5] dark:bg-darkSecondary outline-none py-2 px-4 rounded w-full md:w-[300px] lg:w-fit';
   return (
@@ -77,18 +95,30 @@ export const Contact = () => {
         <div className="order-1 sm:order-2 flex flex-col lg:flex-1 gap-6">
           <div className=" flex flex-col lg:flex-row items-center gap-4">
             <input
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
               type="text"
               name="name"
               placeholder={t('pages.contact.form.namePlaceholder')}
               className={inputStyles}
             />
             <input
+              value={mail}
+              onChange={(e) => {
+                setMail(e.target.value);
+              }}
               type="mail"
               name="mail"
               placeholder={t('pages.contact.form.emailPlaceholder')}
               className={inputStyles}
             />
             <input
+              value={tel}
+              onChange={(e) => {
+                setTel(e.target.value);
+              }}
               type="tel"
               name="phone"
               placeholder={t('pages.contact.form.phonePlaceholder')}
@@ -97,11 +127,15 @@ export const Contact = () => {
           </div>
           <textarea
             className="bg-[#F5F5F5] dark:bg-darkSecondary resize-none rounded h-36 md:h-52 max-w-[730px] py-2 px-4 outline-none"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
             name="message"
             id="message"
             placeholder={t('pages.contact.form.messagePlaceholder')}
           ></textarea>
-          <Button className="lg:ml-auto">
+          <Button onClick={() => formSubmitHandler()} className="lg:ml-auto">
             {t('pages.contact.form.submitButton')}
           </Button>
         </div>
