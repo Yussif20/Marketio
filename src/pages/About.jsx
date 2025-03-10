@@ -2,9 +2,7 @@ import { Link } from 'react-router-dom';
 
 import Statics from '@components/Statics';
 
-import aboutImg from '@assets/about/about.jpeg';
-import Founders from '@components/Founders';
-import Services from '@components/Services';
+import aboutImg from '@assets/about/about.svg';
 import { useTranslation } from 'react-i18next';
 import { useProductContext } from './../ProductContext';
 
@@ -50,8 +48,6 @@ export const About = () => {
       </div>
       <div className="flex flex-col items-center justify-center gap-16">
         <Statics />
-        <Founders />
-        <Services />
       </div>
     </section>
   );

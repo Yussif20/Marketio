@@ -62,27 +62,4 @@ export const categoriesEs = [
 
 
 
-//Founders
-import TomImage from './assets/about/tom.png'
-import WillImage from './assets/about/will.png'
-
-export const foundersDataEn = [
-  { id: 1, name: "Ahmed Fathy",job:"Founder & Chairman", img:TomImage },
-  { id: 2, name: "Muhamed Abusrea",job:"Founder & Chairman", img:WillImage },
-  { id: 3, name: "Mohamed Ali",job:"Founder & Chairman", img:TomImage },
-
-];
-export const foundersDataAr = [
-  { id: 1, name: "أحمد فتحي", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
-  { id: 2, name: "محمد أبو سريع", job: "مؤسس ورئيس مجلس الإدارة", img: WillImage },
-  { id: 3, name: "أحمد علي", job: "مؤسس ورئيس مجلس الإدارة", img: TomImage },
-];
-export const foundersDataEs = [
-  { id: 1, name: "Ahmed Fathy", job: "Fundador y Presidente", img: TomImage },
-  { id: 2, name: "Muhamed Abusrea", job: "Fundador y Presidente", img: WillImage },
-  { id: 3, name: "Ahmed Ali", job: "Fundador y Presidente", img: TomImage },
-];
-
-
-
 

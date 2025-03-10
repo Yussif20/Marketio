@@ -2,7 +2,7 @@
 
 Marketio is a fully responsive e-commerce application built with **React.js** and **Tailwind CSS**. It offers a seamless shopping experience with various functionalities like product search, multi-language support, user authentication, payment integration, and more.
 
-![Screenshot](src/assets/screenshot.png) <!-- Update the path to the screenshot if needed -->
+![Screenshot](src/assets/screenshot.png) 
 
 ## Features
 

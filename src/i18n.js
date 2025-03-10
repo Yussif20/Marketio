@@ -1,7 +1,7 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { heroSliderDataEn,heroSliderDataAr,heroSliderDataEs,categoriesEn,categoriesAr,categoriesEs,foundersDataEn,foundersDataAr,foundersDataEs } from "./data";
+import { heroSliderDataEn,heroSliderDataAr,heroSliderDataEs,categoriesEn,categoriesAr,categoriesEs} from "./data";
 
 const optionsEn = [
   { value: 'en', label: 'English' },
@@ -310,9 +310,7 @@ i18next
               text:"Annual Gross"
             },
           },
-          founders:{
-            data:foundersDataEn,
-          }
+    
         },
         sign:{
           signedIn:{
@@ -600,9 +598,7 @@ i18next
               text: "الإجمالي السنوي"
             },
           },
-          founders: {
-            data: foundersDataAr,
-          },
+  
         },
           sign: {
               signedIn: {
@@ -889,9 +885,7 @@ i18next
               text: "Ingresos anuales brutos"
             },
           },
-          founders: {
-            data: foundersDataEs,
-          },
+   
         },
         sign: {
           signedIn: {
