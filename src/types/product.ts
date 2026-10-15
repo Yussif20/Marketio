@@ -38,6 +38,10 @@ export const BRANDS = [
 
 export type Brand = (typeof BRANDS)[number];
 
+export const COLLECTIONS = ["work-from-home", "travel-light", "gift-ideas"] as const;
+
+export type Collection = (typeof COLLECTIONS)[number];
+
 /** A string translated into every supported locale. */
 export type LocalizedText = Record<Locale, string>;
 
@@ -121,7 +125,7 @@ export interface Product {
   option?: ProductOption;
   featured: boolean;
   /** Curated collections the product appears in on the home page. */
-  collections: Array<"work-from-home" | "travel-light" | "gift-ideas">;
+  collections: Collection[];
   /** ISO 8601 date, used for "newest" sorting. */
   createdAt: string;
 }

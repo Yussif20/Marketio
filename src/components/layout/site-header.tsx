@@ -1,5 +1,5 @@
 import { Search, Truck, User } from "lucide-react";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { getMenuData } from "@/lib/catalog";
@@ -10,12 +10,12 @@ import { Logo } from "./logo";
 import { MegaMenu } from "./mega-menu";
 import { MobileNav } from "./mobile-nav";
 import { navLinks } from "./nav-links";
+import { SearchBox } from "./search-box";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export async function SiteHeader() {
   const t = await getTranslations("header");
   const banner = await getTranslations("topBanner");
-  const locale = await getLocale();
   const menu = await getMenuData();
 
   return (
@@ -48,23 +48,11 @@ export async function SiteHeader() {
           <MobileNav menu={menu} />
           <Logo />
 
-          <form action={`/${locale}/products`} role="search" className="relative mx-auto hidden w-full max-w-2xl md:block">
-            <Search className="pointer-events-none absolute start-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="search"
-              name="q"
-              placeholder={t("searchPlaceholder")}
-              aria-label={t("searchPlaceholder")}
-              className="h-11 w-full rounded-full border border-input bg-muted/60 ps-11 pe-28 text-sm outline-none transition focus:border-ring focus:bg-background focus:ring-3 focus:ring-ring/30"
-            />
-            <Button type="submit" size="sm" className="absolute end-1.5 top-1/2 h-8 -translate-y-1/2 rounded-full px-4">
-              {t("search")}
-            </Button>
-          </form>
+          <SearchBox className="mx-auto hidden max-w-2xl md:block" />
 
           <div className="ms-auto flex items-center gap-1 md:ms-0">
             <Button variant="ghost" size="icon" className="md:hidden" asChild>
-              <Link href="/products" aria-label={t("search")}>
+              <Link href="/search" aria-label={t("search")}>
                 <Search className="size-5" />
               </Link>
             </Button>

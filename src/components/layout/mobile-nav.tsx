@@ -70,7 +70,7 @@ export function MobileNav({ menu }: { menu: MenuData }) {
                       ))}
                       <li>
                         <Link
-                          href={`/products?category=${category}`}
+                          href={`/categories/${category}`}
                           onClick={close}
                           className="block px-3 py-2 text-sm font-semibold text-primary"
                         >

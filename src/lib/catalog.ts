@@ -3,7 +3,7 @@ import { cacheLife, cacheTag } from "next/cache";
 import { products as demoProducts } from "@/data/products";
 import { discountPercent } from "@/lib/product";
 import { PAGE_SIZE, type ProductQuery } from "@/lib/product-query";
-import { CATEGORIES, SUBCATEGORIES, type Category, type Product } from "@/types/product";
+import { BRANDS, CATEGORIES, SUBCATEGORIES, type Brand, type Category, type Product } from "@/types/product";
 
 /**
  * The only place pages read products from. It serves the local demo catalogue
@@ -87,6 +87,7 @@ export async function searchProducts(query: ProductQuery) {
     if (query.categories.length && !query.categories.includes(product.category)) return false;
     if (query.subcategories.length && !query.subcategories.includes(product.subcategory)) return false;
     if (query.brands.length && !query.brands.includes(product.brand)) return false;
+    if (query.collection && !product.collections.includes(query.collection)) return false;
     if (query.minPrice !== undefined && product.priceCents < query.minPrice * 100) return false;
     if (query.maxPrice !== undefined && product.priceCents > query.maxPrice * 100) return false;
     if (query.minRating !== undefined && product.rating.average < query.minRating) return false;
@@ -140,6 +141,34 @@ export async function getMenuData() {
 }
 
 export type MenuData = Awaited<ReturnType<typeof getMenuData>>;
+
+/** Data for a category landing page: sub-category cards and its best sellers. */
+export async function getCategoryPage(category: Category) {
+  const products = (await getAllProducts()).filter((p) => p.category === category);
+  const ranked = [...products].sort((a, b) => b.sold - a.sold);
+  return {
+    count: products.length,
+    subcategories: SUBCATEGORIES[category].map((sub) => {
+      const items = ranked.filter((p) => p.subcategory === sub);
+      return { sub, count: items.length, image: items[0]?.images[0] };
+    }),
+    bestSellers: ranked.slice(0, 8),
+  };
+}
+
+export async function getBrandProducts(brand: Brand) {
+  const products = await getAllProducts();
+  return products.filter((p) => p.brand === brand).sort((a, b) => b.sold - a.sold);
+}
+
+/** Product counts and a cover image per brand, for the brands index. */
+export async function getBrandSummaries() {
+  const products = await getAllProducts();
+  return BRANDS.map((brand) => {
+    const items = products.filter((p) => p.brand === brand).sort((a, b) => b.sold - a.sold);
+    return { brand, count: items.length, image: items[0]?.images[0] };
+  });
+}
 
 /** Cheapest and dearest price in whole dollars, for the price filter placeholders. */
 export async function getPriceBounds() {

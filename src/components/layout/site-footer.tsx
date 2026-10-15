@@ -25,7 +25,7 @@ export async function SiteFooter() {
     {
       title: t("footer.shop"),
       links: CATEGORIES.map((category) => ({
-        href: `/products?category=${category}`,
+        href: `/categories/${category}`,
         label: t(`categories.${category}`),
       })),
     },

@@ -52,7 +52,7 @@ export function MegaMenu({ menu }: { menu: MenuData }) {
                       ))}
                     </ul>
                     <NavigationMenuLink asChild className="mt-3 font-semibold text-primary">
-                      <Link href={`/products?category=${category}`}>
+                      <Link href={`/categories/${category}`}>
                         {t("header.shopAll", { category: t(`categories.${category}`) })}
                         <Forward className="size-4" />
                       </Link>

@@ -94,7 +94,7 @@ async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[sl
   const summary = (
     <div className="space-y-3">
       <Link
-        href={`/products?brand=${product.brand}`}
+        href={`/brands/${product.brand}`}
         className="text-sm font-semibold tracking-wide text-primary uppercase hover:underline"
       >
         {brand?.name}
@@ -152,7 +152,7 @@ async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[sl
             <li><Link href="/products" className="hover:text-foreground">{t("header.products")}</Link></li>
             <li aria-hidden>/</li>
             <li>
-              <Link href={`/products?category=${product.category}`} className="hover:text-foreground">
+              <Link href={`/categories/${product.category}`} className="hover:text-foreground">
                 {t(`categories.${product.category}`)}
               </Link>
             </li>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Heart, House, LayoutGrid, ShoppingCart, User } from "lucide-react";
+import { House, LayoutGrid, Search, ShoppingCart, User } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -9,8 +9,8 @@ import { useStoresHydrated } from "@/stores/hydration";
 
 const tabs = [
   { href: "/", key: "home", icon: House },
+  { href: "/search", key: "search", icon: Search },
   { href: "/products", key: "shop", icon: LayoutGrid },
-  { href: "/wishlist", key: "wishlist", icon: Heart },
   { href: "/cart", key: "cart", icon: ShoppingCart },
   { href: "/account", key: "account", icon: User },
 ] as const;

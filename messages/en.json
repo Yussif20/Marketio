@@ -29,7 +29,13 @@
     "hello": "Hello, sign in",
     "tabBar": "Main navigation",
     "shop": "Shop",
-    "account": "Account"
+    "account": "Account",
+    "searching": "Searching…",
+    "noSuggestions": "No matching products.",
+    "suggestions": "Suggestions",
+    "seeAllResults": "See all {count} results for “{q}”",
+    "brands": "Brands",
+    "journal": "Journal"
   },
   "language": {
     "label": "Language",
@@ -62,7 +68,8 @@
     },
     "bestSelling": {
       "headline": "This month",
-      "title": "Best selling products"
+      "title": "Best selling products",
+      "all": "All"
     },
     "explore": {
       "headline": "Our products",
@@ -72,7 +79,72 @@
       "headline": "Featured",
       "title": "New arrivals"
     },
-    "heroEyebrow": "Deal of the week"
+    "heroEyebrow": "Deal of the week",
+    "hero": {
+      "label": "Featured offers",
+      "slideOf": "Slide {current} of {total}",
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "goTo": "Go to slide {number}",
+      "audio": {
+        "eyebrow": "Aurora audio",
+        "title": "Sound that moves with you",
+        "text": "Noise-cancelling headphones and earbuds, up to 25% off this week.",
+        "cta": "Shop audio"
+      },
+      "fashion": {
+        "eyebrow": "Kora autumn edit",
+        "title": "New season essentials",
+        "text": "Trench coats, knits and everyday sneakers, made to layer.",
+        "cta": "Shop clothing"
+      },
+      "workspace": {
+        "eyebrow": "Work from home",
+        "title": "Upgrade your workspace",
+        "text": "Laptops, monitors and quiet audio for a desk you'll love.",
+        "cta": "Shop the collection"
+      }
+    },
+    "promos": {
+      "label": "Promotions",
+      "wearables": {
+        "eyebrow": "Wearables",
+        "title": "Smartwatches & earbuds",
+        "cta": "From $99"
+      },
+      "kids": {
+        "eyebrow": "For kids",
+        "title": "Toys they'll love",
+        "cta": "Up to 30% off"
+      }
+    },
+    "collections": {
+      "eyebrow": "Curated",
+      "title": "Shop the collections",
+      "shop": "Shop now",
+      "work-from-home": {
+        "title": "Work from home",
+        "text": "Everything for a calm, productive desk."
+      },
+      "travel-light": {
+        "title": "Travel light",
+        "text": "Packable layers and gear for the road."
+      },
+      "gift-ideas": {
+        "title": "Gift ideas",
+        "text": "Thoughtful picks for everyone on your list."
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Reviews",
+      "title": "What our customers say"
+    },
+    "gallery": {
+      "eyebrow": "#MarketioStyle",
+      "title": "Shop the look",
+      "text": "Ideas and inspiration from our latest collections.",
+      "cta": "Read the journal"
+    }
   },
   "product": {
     "addToCart": "Add to cart",
@@ -344,11 +416,37 @@
     "kora": "Everyday clothing and bags",
     "playlab": "Toys that make kids think",
     "aurora": "Sound without the wires",
-    "halden": "Watches and eyewear"
+    "halden": "Watches and eyewear",
+    "intro": "Eight brands we work with, from phones to plush toys."
   },
   "options": {
     "size": "Size",
     "storage": "Storage",
     "memory": "Memory"
+  },
+  "categoryIntro": {
+    "phones": "Smartphones, tablets and the chargers to keep them going.",
+    "laptops": "Ultrabooks, gaming rigs and dependable everyday laptops.",
+    "cameras": "Vlog cameras, mirrorless kits, action cams and lenses.",
+    "monitors": "Office, gaming and colour-accurate creator displays.",
+    "clothing": "Everyday tops, outerwear, trousers and shoes.",
+    "toys": "Building kits, remote-control fun, plush friends and games.",
+    "accessories": "Headphones, watches, bags and eyewear."
+  },
+  "categoryPage": {
+    "shopBy": "Shop by type",
+    "bestIn": "Best sellers in {category}"
+  },
+  "searchPage": {
+    "title": "Search",
+    "popular": "Popular searches",
+    "terms": {
+      "headphones": "headphones",
+      "laptop": "laptop",
+      "hoodie": "hoodie",
+      "watch": "watch",
+      "camera": "camera",
+      "sneakers": "sneakers"
+    }
   }
 }

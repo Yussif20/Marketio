@@ -25,8 +25,7 @@ export function HeaderStoreLinks() {
 
   return (
     <>
-      {/* On phones the bottom tab bar already links to the wishlist. */}
-      <Button variant="ghost" size="icon" className="relative hidden size-10 md:inline-flex" asChild>
+      <Button variant="ghost" size="icon" className="relative size-10" asChild>
         <Link href="/wishlist" aria-label={t("wishlistCount", { count: hydrated ? wishlistCount : 0 })}>
           <Heart className="size-5" />
           {hydrated && <CountBadge count={wishlistCount} />}

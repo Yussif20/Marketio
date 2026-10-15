@@ -1,9 +1,11 @@
 import {
   BRANDS,
   CATEGORIES,
+  COLLECTIONS,
   SUBCATEGORIES,
   type Brand,
   type Category,
+  type Collection,
   type Subcategory,
 } from "@/types/product";
 
@@ -23,6 +25,8 @@ export interface ProductQuery {
   categories: Category[];
   subcategories: Subcategory[];
   brands: Brand[];
+  /** A curated home-page collection, e.g. "travel-light". */
+  collection?: Collection;
   /** Whole dollars, inclusive. */
   minPrice?: number;
   maxPrice?: number;
@@ -66,6 +70,7 @@ export function parseProductQuery(params: RawParams): ProductQuery {
   const categories = list(first(params.category), CATEGORIES);
   const subcategories = list(first(params.sub), ALL_SUBCATEGORIES);
   const brands = list(first(params.brand), BRANDS);
+  const collection = COLLECTIONS.find((c) => c === first(params.collection));
   const sort = first(params.sort);
   const minRating = positiveNumber(first(params.rating));
   const page = Math.floor(positiveNumber(first(params.page)) ?? 1);
@@ -75,6 +80,7 @@ export function parseProductQuery(params: RawParams): ProductQuery {
     categories,
     subcategories,
     brands,
+    collection,
     minPrice: positiveNumber(first(params.min)),
     maxPrice: positiveNumber(first(params.max)),
     minRating: minRating && minRating <= 5 ? minRating : undefined,
@@ -91,6 +97,7 @@ export function toSearchParams(query: ProductQuery) {
   if (query.categories.length) params.set("category", query.categories.join(","));
   if (query.subcategories.length) params.set("sub", query.subcategories.join(","));
   if (query.brands.length) params.set("brand", query.brands.join(","));
+  if (query.collection) params.set("collection", query.collection);
   if (query.minPrice !== undefined) params.set("min", String(query.minPrice));
   if (query.maxPrice !== undefined) params.set("max", String(query.maxPrice));
   if (query.minRating !== undefined) params.set("rating", String(query.minRating));
@@ -111,6 +118,7 @@ export function activeFilterCount(query: ProductQuery) {
     query.categories.length +
     query.subcategories.length +
     query.brands.length +
+    (query.collection ? 1 : 0) +
     (query.minPrice !== undefined || query.maxPrice !== undefined ? 1 : 0) +
     (query.minRating !== undefined ? 1 : 0) +
     (query.inStock ? 1 : 0)
