@@ -79,7 +79,6 @@ export const accessories = [
     sold: 1320,
     reviews: [480, 210, 60, 20, 12],
     colors: [C.orange, C.sky, C.black],
-    extraShots: 0,
     collections: ["travel-light", "gift-ideas"],
     createdAt: "2026-06-20",
   }),
@@ -104,7 +103,6 @@ export const accessories = [
     sold: 260,
     reviews: [120, 60, 15, 4, 2],
     colors: [C.black],
-    extraShots: 1,
     createdAt: "2026-08-02",
   }),
   defineProduct({

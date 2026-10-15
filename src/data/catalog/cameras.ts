@@ -82,7 +82,6 @@ export const cameras = [
     sold: 96,
     reviews: [58, 22, 5, 1, 1],
     colors: [C.black],
-    extraShots: 2,
     createdAt: "2026-07-18",
   }),
   defineProduct({
@@ -110,7 +109,6 @@ export const cameras = [
     sold: 42,
     reviews: [30, 8, 2, 0, 0],
     colors: [C.black],
-    extraShots: 2,
     featured: true,
     createdAt: "2026-09-25",
   }),
@@ -164,7 +162,6 @@ export const cameras = [
     sold: 233,
     reviews: [120, 48, 14, 5, 3],
     colors: [C.black],
-    extraShots: 2,
     createdAt: "2026-03-27",
   }),
   defineProduct({
@@ -192,7 +189,6 @@ export const cameras = [
     sold: 140,
     reviews: [70, 30, 8, 3, 2],
     colors: [C.black],
-    extraShots: 2,
     collections: ["travel-light"],
     createdAt: "2026-08-04",
   }),

@@ -160,7 +160,6 @@ export const toys = [
     sold: 720,
     reviews: [300, 120, 30, 8, 4],
     colors: [C.sand],
-    extraShots: 2,
     collections: ["gift-ideas"],
     createdAt: "2026-06-01",
   }),
@@ -184,7 +183,6 @@ export const toys = [
     sold: 540,
     reviews: [220, 90, 25, 6, 3],
     colors: [C.orange],
-    extraShots: 1,
     createdAt: "2026-02-27",
   }),
 ];

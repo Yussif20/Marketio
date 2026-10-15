@@ -10,7 +10,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "check:rtl": "node scripts/check-logical-classes.mjs",
     "seed": "tsx --env-file=.env.local scripts/seed.ts",
-    "images": "tsx scripts/generate-placeholders.tsx"
+    "images": "tsx scripts/generate-placeholders.tsx",
+    "images:split": "tsx scripts/process-product-images.ts"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

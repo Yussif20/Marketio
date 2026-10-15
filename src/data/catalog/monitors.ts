@@ -83,7 +83,6 @@ export const monitors = [
     sold: 167,
     reviews: [80, 40, 12, 5, 2],
     colors: [C.black],
-    extraShots: 2,
     createdAt: "2026-06-12",
   }),
   defineProduct({
@@ -112,7 +111,6 @@ export const monitors = [
     sold: 230,
     reviews: [130, 50, 12, 4, 2],
     colors: [C.black],
-    extraShots: 2,
     createdAt: "2026-08-27",
   }),
   defineProduct({
@@ -139,7 +137,6 @@ export const monitors = [
     sold: 410,
     reviews: [170, 90, 25, 8, 5],
     colors: [C.graphite],
-    extraShots: 2,
     collections: ["travel-light", "work-from-home"],
     createdAt: "2026-05-15",
   }),
@@ -169,7 +166,6 @@ export const monitors = [
     sold: 288,
     reviews: [150, 60, 15, 4, 3],
     colors: [C.black],
-    extraShots: 2,
     featured: true,
     collections: ["work-from-home"],
     createdAt: "2026-07-07",
@@ -198,7 +194,6 @@ export const monitors = [
     sold: 51,
     reviews: [34, 10, 3, 1, 0],
     colors: [C.silver],
-    extraShots: 2,
     createdAt: "2026-10-09",
   }),
 ];

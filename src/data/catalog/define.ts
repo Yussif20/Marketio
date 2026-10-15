@@ -116,6 +116,12 @@ function sampleReviews(slug: string, category: Category, average: number): Produ
   return reviews.sort((a, b) => b.date.localeCompare(a.date));
 }
 
+/**
+ * Every product has four photos, generated together as one 2×2 grid so they
+ * share lighting: one per colour first, then detail shots.
+ */
+export const IMAGES_PER_PRODUCT = 4;
+
 export interface ProductInput {
   slug: string;
   brand: Brand;
@@ -130,10 +136,9 @@ export interface ProductInput {
   sold: number;
   /** Review counts for 5, 4, 3, 2 and 1 stars. */
   reviews: readonly [number, number, number, number, number];
+  /** Up to four colours; each one gets its own gallery image. */
   colors: ProductColor[];
   option?: ProductOption;
-  /** Detail shots after the per-colour images. */
-  extraShots?: number;
   featured?: boolean;
   collections?: Product["collections"];
   createdAt: string;
@@ -143,7 +148,9 @@ export function defineProduct(input: ProductInput): Product {
   const [five, four, three, two, one] = input.reviews;
   const rating = ratingFromBreakdown({ five, four, three, two, one });
   const category = categoryOf[input.sub];
-  const imageCount = input.colors.length + (input.extraShots ?? 1);
+  if (input.colors.length > IMAGES_PER_PRODUCT) {
+    throw new Error(`${input.slug}: at most ${IMAGES_PER_PRODUCT} colours (one image each)`);
+  }
 
   return {
     id: input.slug,
@@ -162,7 +169,7 @@ export function defineProduct(input: ProductInput): Product {
     sold: input.sold,
     rating,
     reviews: sampleReviews(input.slug, category, rating.average),
-    images: Array.from({ length: imageCount }, (_, i) => `/products/${input.slug}/${i + 1}.webp`),
+    images: Array.from({ length: IMAGES_PER_PRODUCT }, (_, i) => `/products/${input.slug}/${i + 1}.webp`),
     colors: input.colors,
     option: input.option,
     featured: input.featured ?? false,

@@ -87,7 +87,6 @@ export const laptops = [
     sold: 141,
     reviews: [90, 30, 8, 2, 2],
     colors: [C.graphite],
-    extraShots: 2,
     collections: ["work-from-home"],
     createdAt: "2026-06-30",
   }),
@@ -146,7 +145,6 @@ export const laptops = [
     sold: 302,
     reviews: [150, 80, 25, 10, 7],
     colors: [C.black],
-    extraShots: 2,
     createdAt: "2026-05-22",
   }),
   defineProduct({
@@ -174,7 +172,6 @@ export const laptops = [
     sold: 64,
     reviews: [40, 12, 3, 1, 1],
     colors: [C.black],
-    extraShots: 2,
     createdAt: "2026-10-06",
   }),
   defineProduct({

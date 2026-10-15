@@ -45,4 +45,6 @@ Open http://localhost:3000. You'll be sent to `/ar` or `/en` based on your brows
 
 ## Product images
 
-Product images are generated placeholders (`scripts/generate-placeholders.tsx`): a tinted backdrop with a [Lucide](https://lucide.dev) line icon (ISC licence), one image per colour variant. There are no photos, so there is no photo licence to track. Replace the files in `public/products/<slug>/` to use real photography.
+Product photos are AI-generated studio shots (GPT Image 2 on Higgsfield). Each product is one 2×2 grid that `scripts/process-product-images.ts` splits into `public/products/<slug>/1-4.webp`. Image *i* shows colour *i*, and any images after the colours are detail shots. The prompts live in `scripts/image-prompts.ts`. Every product design is invented and has no text, logos or brands.
+
+`npm run images` still generates simple icon placeholders, which are handy if you add products before their photos exist.
