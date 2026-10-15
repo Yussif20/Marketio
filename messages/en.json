@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "title": "Marketio — Online Store",
+    "description": "Shop phones, laptops, cameras, clothing and more with fast delivery and secure checkout."
+  },
+  "topBanner": {
+    "text": "Summer sale on selected items with free express delivery — up to 50% off!",
+    "cta": "Shop now"
+  },
+  "header": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "signIn": "Sign in",
+    "searchPlaceholder": "What are you looking for?",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "menu": "Menu",
+    "skipToContent": "Skip to content"
+  },
+  "language": {
+    "label": "Language",
+    "ar": "العربية",
+    "en": "English"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "categories": {
+    "headline": "Categories",
+    "title": "Browse by category",
+    "cameras": "Cameras",
+    "phones": "Phones",
+    "laptops": "Laptops",
+    "clothing": "Clothing",
+    "monitors": "Monitors",
+    "toys": "Toys",
+    "accessories": "Accessories"
+  },
+  "home": {
+    "heroTitle": "Up to 10% off",
+    "heroSubtitle": "on your first order",
+    "flashSales": { "headline": "Today's", "title": "Flash sales" },
+    "bestSelling": { "headline": "This month", "title": "Best selling products" },
+    "explore": { "headline": "Our products", "title": "Explore our products" },
+    "newArrival": { "headline": "Featured", "title": "New arrivals" }
+  },
+  "product": {
+    "addToCart": "Add to cart",
+    "buyNow": "Buy now",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "reviews": "{count, plural, one {# review} other {# reviews}}",
+    "freeDelivery": {
+      "title": "Free delivery",
+      "text": "Enter your postal code to check delivery availability"
+    },
+    "returns": {
+      "title": "Free returns",
+      "text": "Free 30-day delivery returns"
+    }
+  },
+  "buttons": {
+    "viewAll": "View all",
+    "shopNow": "Shop now",
+    "continueShopping": "Continue shopping",
+    "createAccount": "Create account",
+    "googleSignIn": "Continue with Google",
+    "logIn": "Log in",
+    "logOut": "Log out",
+    "forgotPassword": "Forgot password?",
+    "moveAllToBag": "Move all to cart",
+    "seeAll": "See all",
+    "applyCoupon": "Apply coupon",
+    "proceedToCheckout": "Proceed to checkout",
+    "placeOrder": "Place order",
+    "goHome": "Back to home",
+    "saveRating": "Save rating"
+  },
+  "services": {
+    "freeDelivery": {
+      "title": "Free and fast delivery",
+      "description": "Free delivery on all orders over $140."
+    },
+    "customerService": {
+      "title": "24/7 customer service",
+      "description": "Friendly support around the clock."
+    },
+    "moneyBack": {
+      "title": "Money-back guarantee",
+      "description": "We refund your money within 30 days."
+    }
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty.",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "cartTotal": "Cart total",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "couponCode": "Coupon code"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "billingDetails": "Billing details",
+    "name": "Full name",
+    "phone": "Phone number",
+    "address": "Address",
+    "email": "Email",
+    "paymentMethod": "Payment method",
+    "cashOnDelivery": "Cash on delivery",
+    "card": "Card",
+    "whatsapp": "Order via WhatsApp",
+    "successTitle": "Thank you for your order!",
+    "successText": "Your order has been placed successfully."
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "empty": "Your wishlist is empty.",
+    "justForYou": "Just for you"
+  },
+  "auth": {
+    "signUpTitle": "Create an account",
+    "logInTitle": "Log in to Marketio",
+    "enterDetails": "Enter your details below",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "email": "Email",
+    "password": "Password",
+    "welcome": "Welcome",
+    "alreadySignedIn": "You're already signed in."
+  },
+  "search": {
+    "title": "Search results",
+    "resultsFor": "Results for",
+    "empty": "No products match your search."
+  },
+  "contact": {
+    "title": "Contact",
+    "callUs": "Call us",
+    "emailUs": "Email us",
+    "available": "We're available 24/7.",
+    "name": "Your name",
+    "email": "Your email",
+    "phone": "Your phone",
+    "message": "Your message",
+    "send": "Send message"
+  },
+  "about": {
+    "title": "About us",
+    "body": "Marketio is a demo online store built to show a fast, bilingual shopping experience: real product pages, a cart that remembers you, secure card checkout and ordering over WhatsApp."
+  },
+  "footer": {
+    "tagline": "A bilingual demo store built with Next.js and Firebase.",
+    "subscribe": "Subscribe",
+    "subscribeText": "Get 10% off your first order",
+    "emailPlaceholder": "Enter your email",
+    "support": "Support",
+    "account": "Account",
+    "myAccount": "My account",
+    "quickLinks": "Quick links",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "faq": "FAQ",
+    "demoNotice": "Demo store — products and orders are fictional.",
+    "rights": "© {year} Marketio. All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you're looking for doesn't exist."
+  }
+}
