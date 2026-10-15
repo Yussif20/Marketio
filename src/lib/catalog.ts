@@ -23,6 +23,12 @@ export async function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug) ?? null;
 }
 
+/** Products for the given slugs, in that order; unknown slugs are skipped. */
+export async function getProductsBySlugs(slugs: string[]) {
+  const products = await getAllProducts();
+  return slugs.flatMap((slug) => products.find((p) => p.slug === slug) ?? []);
+}
+
 export async function getProductSlugs() {
   const products = await getAllProducts();
   return products.map((product) => product.slug);

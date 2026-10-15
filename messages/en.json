@@ -291,11 +291,87 @@
     "email": "Your email",
     "phone": "Your phone",
     "message": "Your message",
-    "send": "Send message"
+    "send": "Send message",
+    "intro": "Questions about an order, a product or a return? Send us a message and we'll reply within a day.",
+    "channels": {
+      "whatsapp": {
+        "label": "WhatsApp"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "address": {
+        "label": "Address",
+        "value": "Cairo, Egypt (demo address)"
+      },
+      "hours": {
+        "label": "Opening hours",
+        "value": "Every day, 9:00–22:00"
+      }
+    },
+    "faqPrompt": "Looking for a quick answer?",
+    "faqLink": "Read the FAQ",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "message": "Please write at least 10 characters."
+    },
+    "sentTitle": "Message received",
+    "sentText": "Thanks for getting in touch. In this demo nothing is sent, but a real store would reply within a day.",
+    "sendAnother": "Send another message"
   },
   "about": {
-    "title": "About us",
-    "body": "Marketio is a demo online store built to show a fast, bilingual shopping experience: real product pages, a cart that remembers you, secure card checkout and ordering over WhatsApp."
+    "title": "A store built for both languages",
+    "body": "Every page works right-to-left and left-to-right, prices are clear, and you can pay by card, in cash on delivery or by ordering over WhatsApp, whichever you prefer.",
+    "eyebrow": "Our story",
+    "lead": "Marketio brings everyday tech, clothing and gifts together in one fast store that feels natural in Arabic and English.",
+    "demoNote": "Marketio is a portfolio demo. The products, brands and reviews are invented, and orders are not shipped.",
+    "statsLabel": "Marketio in numbers",
+    "stats": {
+      "products": "Products",
+      "brands": "Brands",
+      "languages": "Languages",
+      "support": "Support"
+    },
+    "howTitle": "How your order reaches you",
+    "steps": {
+      "warehouse": {
+        "title": "Stocked and ready",
+        "text": "Every product sits in one organised warehouse, so we know exactly what's in stock."
+      },
+      "packing": {
+        "title": "Packed with care",
+        "text": "Orders are checked and packed the same day, with protective packaging that's easy to recycle."
+      },
+      "support": {
+        "title": "Real people to help",
+        "text": "Our support team answers by chat, email and WhatsApp, in Arabic or English."
+      },
+      "delivery": {
+        "title": "Delivered to your door",
+        "text": "Couriers deliver in 1–3 days in major cities, and you can track every step."
+      }
+    },
+    "valuesTitle": "What we care about",
+    "values": {
+      "quality": {
+        "title": "Quality you can trust",
+        "text": "Every product is checked before it ships."
+      },
+      "delivery": {
+        "title": "Fast, free delivery",
+        "text": "Free on orders over $140."
+      },
+      "support": {
+        "title": "Support that answers",
+        "text": "Help around the clock."
+      },
+      "bilingual": {
+        "title": "Arabic and English",
+        "text": "The whole store, in your language."
+      }
+    },
+    "cta": "Start shopping"
   },
   "footer": {
     "tagline": "A bilingual demo store built with Next.js and Firebase.",
@@ -448,5 +524,21 @@
       "camera": "camera",
       "sneakers": "sneakers"
     }
+  },
+  "journal": {
+    "title": "Journal",
+    "intro": "Buying guides, styling ideas and practical tips from the Marketio team.",
+    "minutes": "{count, plural, one {# min read} other {# min read}}",
+    "readMore": "Read the article",
+    "shopThePost": "Shop this article"
+  },
+  "faqPage": {
+    "title": "Frequently asked questions",
+    "intro": "Quick answers about orders, delivery, returns and payment.",
+    "stillNeedHelp": "Still need help?",
+    "contactUs": "Contact us"
+  },
+  "policies": {
+    "updated": "Last updated {date}"
   }
 }
