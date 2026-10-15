@@ -4,17 +4,16 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { SectionHeading } from "@/components/home/section-heading";
-import { Price } from "@/components/product/price";
 import { ProductCard, ProductGrid } from "@/components/product/product-card";
 import { ProductShowcase } from "@/components/product/product-showcase";
 import { RatingBreakdown } from "@/components/product/rating-breakdown";
+import { ReviewList } from "@/components/product/review-list";
 import { RatingStars } from "@/components/product/rating-stars";
-import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { brands } from "@/data/categories";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
 import { getProductBySlug, getProductSlugs, getRelatedProducts } from "@/lib/catalog";
-import { discountPercent, formatDiscount } from "@/lib/product";
 import { absoluteUrl } from "@/lib/site";
 import type { Product } from "@/types/product";
 
@@ -89,16 +88,23 @@ async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[sl
   const locale = await getLocale();
   const t = await getTranslations();
   const related = await getRelatedProducts(product);
-  const discount = discountPercent(product);
   const title = product.title[locale];
+  const brand = brands.find((b) => b.slug === product.brand);
 
   const summary = (
     <div className="space-y-3">
-      <h1 className="text-2xl font-bold sm:text-3xl">{title}</h1>
+      <Link
+        href={`/products?brand=${product.brand}`}
+        className="text-sm font-semibold tracking-wide text-primary uppercase hover:underline"
+      >
+        {brand?.name}
+      </Link>
+      <h1 className="text-2xl leading-tight font-bold sm:text-4xl">{title}</h1>
       <p className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
         <RatingStars rating={product.rating.average} label={t("product.ratingLabel", { rating: product.rating.average })} />
+        <span className="font-medium text-foreground">{product.rating.average}</span>
         <a href="#reviews" className="hover:text-foreground hover:underline">
-          {t("product.reviews", { count: product.rating.count })}
+          ({t("product.reviews", { count: product.rating.count })})
         </a>
         <span aria-hidden>·</span>
         {product.stock > 0 ? (
@@ -109,40 +115,30 @@ async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[sl
           <span className="text-destructive">{t("product.outOfStock")}</span>
         )}
       </p>
-      <div className="flex items-center gap-3">
-        <Price priceCents={product.priceCents} oldPriceCents={product.oldPriceCents} size="lg" />
-        {discount > 0 && <Badge>{formatDiscount(discount, locale)}</Badge>}
-      </div>
     </div>
   );
 
   const details = (
-    <div className="space-y-6">
-      <div>
-        <h2 className="mb-2 font-semibold">{t("product.description")}</h2>
-        <p className="leading-relaxed text-muted-foreground">{product.description[locale]}</p>
-      </div>
-      <ul className="divide-y rounded-xl border">
-        <li className="flex gap-4 p-4">
-          <Truck className="size-6 shrink-0" aria-hidden />
-          <div>
-            <p className="font-medium">{t("product.freeDelivery.title")}</p>
-            <p className="text-sm text-muted-foreground">{t("product.freeDelivery.text")}</p>
-          </div>
-        </li>
-        <li className="flex gap-4 p-4">
-          <RotateCcw className="size-6 shrink-0" aria-hidden />
-          <div>
-            <p className="font-medium">{t("product.returns.title")}</p>
-            <p className="text-sm text-muted-foreground">{t("product.returns.text")}</p>
-          </div>
-        </li>
-      </ul>
-    </div>
+    <ul className="divide-y rounded-xl border">
+      <li className="flex gap-4 p-4">
+        <Truck className="size-6 shrink-0" aria-hidden />
+        <div>
+          <p className="font-medium">{t("product.freeDelivery.title")}</p>
+          <p className="text-sm text-muted-foreground">{t("product.freeDelivery.text")}</p>
+        </div>
+      </li>
+      <li className="flex gap-4 p-4">
+        <RotateCcw className="size-6 shrink-0" aria-hidden />
+        <div>
+          <p className="font-medium">{t("product.returns.title")}</p>
+          <p className="text-sm text-muted-foreground">{t("product.returns.text")}</p>
+        </div>
+      </li>
+    </ul>
   );
 
   return (
-    <div className="container mx-auto space-y-16 px-4 py-8 sm:py-10">
+    <div className="container space-y-16 py-8 sm:py-10">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd(product, locale)).replace(/</g, "\\u003c") }}
@@ -161,16 +157,43 @@ async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[sl
               </Link>
             </li>
             <li aria-hidden>/</li>
-            <li aria-current="page" className="text-foreground">{title}</li>
+            <li>
+              <Link href={`/products?sub=${product.subcategory}`} className="hover:text-foreground">
+                {t(`subcategories.${product.subcategory}`)}
+              </Link>
+            </li>
+            <li aria-hidden>/</li>
+            <li aria-current="page" className="line-clamp-1 text-foreground">{title}</li>
           </ol>
         </nav>
 
         <ProductShowcase product={product} summary={summary} details={details} />
       </div>
 
-      <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-28">
+      <section aria-labelledby="details-title" className="grid gap-10 lg:grid-cols-2">
+        <div>
+          <h2 id="details-title" className="mb-4 text-2xl font-bold">{t("product.description")}</h2>
+          <p className="leading-relaxed text-muted-foreground">{product.description[locale]}</p>
+        </div>
+        <div>
+          <h2 className="mb-4 text-2xl font-bold">{t("product.specifications")}</h2>
+          <dl className="divide-y rounded-xl border">
+            {product.specs.map((spec) => (
+              <div key={spec.label.en} className="grid grid-cols-[minmax(7rem,40%)_1fr] gap-4 px-4 py-3 text-sm">
+                <dt className="text-muted-foreground">{spec.label[locale]}</dt>
+                <dd className="font-medium">{spec.value[locale]}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-36">
         <SectionHeading id="reviews-title" eyebrow={t("product.reviewsEyebrow")} title={t("product.ratingsTitle")} />
-        <RatingBreakdown rating={product.rating} />
+        <div className="grid gap-10 lg:grid-cols-[22rem_1fr]">
+          <RatingBreakdown rating={product.rating} />
+          <ReviewList reviews={product.reviews} />
+        </div>
       </section>
 
       {related.length > 0 && (
@@ -189,7 +212,7 @@ async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[sl
 
 function ProductSkeleton() {
   return (
-    <div className="container mx-auto px-4 py-8 sm:py-10" aria-hidden>
+    <div className="container py-8 sm:py-10" aria-hidden>
       <Skeleton className="mb-6 h-4 w-64" />
       <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
         <Skeleton className="aspect-square" />

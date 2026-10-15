@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Badge } from "@/components/ui/badge";
+import { brands } from "@/data/categories";
 import { Link } from "@/i18n/navigation";
 import { discountPercent, formatDiscount } from "@/lib/product";
 import { toSnapshot } from "@/lib/product-snapshot";
@@ -15,6 +16,8 @@ interface ProductCardProps {
   /** Set on the first cards of a page so the LCP image isn't lazy-loaded. */
   priority?: boolean;
 }
+
+const brandName = Object.fromEntries(brands.map((b) => [b.slug, b.name]));
 
 export async function ProductCard({ product, priority = false }: ProductCardProps) {
   const locale = await getLocale();
@@ -42,6 +45,9 @@ export async function ProductCard({ product, priority = false }: ProductCardProp
       </div>
 
       <div className="flex flex-1 flex-col gap-2 p-3 sm:p-4">
+        <p className="text-[11px] font-semibold tracking-wider text-muted-foreground uppercase" dir="ltr">
+          {brandName[product.brand]}
+        </p>
         <h3 className="line-clamp-2 text-sm font-semibold sm:text-base">
           {/* The link covers the whole card; buttons sit above it with z-10. */}
           <Link href={`/products/${product.slug}`} className="after:absolute after:inset-0">

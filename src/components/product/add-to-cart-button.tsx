@@ -11,6 +11,7 @@ import { useCartStore } from "@/stores/cart";
 interface AddToCartButtonProps {
   product: ProductSnapshot;
   colorIndex?: number;
+  optionId?: string;
   quantity?: number;
   size?: "sm" | "lg";
   className?: string;
@@ -19,6 +20,7 @@ interface AddToCartButtonProps {
 export function AddToCartButton({
   product,
   colorIndex = 0,
+  optionId,
   quantity = 1,
   size = "sm",
   className,
@@ -29,7 +31,7 @@ export function AddToCartButton({
   const soldOut = product.stock <= 0;
 
   function onClick() {
-    add(product, colorIndex, quantity);
+    add(product, { colorIndex, optionId, quantity });
     toast.success(t("addedToCart"), {
       action: { label: t("viewCart"), onClick: () => router.push("/cart") },
     });

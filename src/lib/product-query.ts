@@ -1,4 +1,11 @@
-import { CATEGORIES, type Category } from "@/types/product";
+import {
+  BRANDS,
+  CATEGORIES,
+  SUBCATEGORIES,
+  type Brand,
+  type Category,
+  type Subcategory,
+} from "@/types/product";
 
 /**
  * Listing filters as they appear in the /products URL. Shared by the server
@@ -14,6 +21,8 @@ export const PAGE_SIZE = 12;
 export interface ProductQuery {
   q: string;
   categories: Category[];
+  subcategories: Subcategory[];
+  brands: Brand[];
   /** Whole dollars, inclusive. */
   minPrice?: number;
   maxPrice?: number;
@@ -27,6 +36,8 @@ export interface ProductQuery {
 export const DEFAULT_QUERY: ProductQuery = {
   q: "",
   categories: [],
+  subcategories: [],
+  brands: [],
   inStock: false,
   sort: "new",
   page: 1,
@@ -43,10 +54,18 @@ function positiveNumber(value: string | undefined) {
   return Number.isFinite(number) && number >= 0 ? number : undefined;
 }
 
+const ALL_SUBCATEGORIES = Object.values(SUBCATEGORIES).flat() as readonly Subcategory[];
+
+/** Reads a comma-separated list param, keeping only known values in their canonical order. */
+function list<T extends string>(value: string | undefined, allowed: readonly T[]): T[] {
+  const picked = new Set((value ?? "").split(","));
+  return allowed.filter((item) => picked.has(item));
+}
+
 export function parseProductQuery(params: RawParams): ProductQuery {
-  const categories = (first(params.category) ?? "")
-    .split(",")
-    .filter((value): value is Category => (CATEGORIES as readonly string[]).includes(value));
+  const categories = list(first(params.category), CATEGORIES);
+  const subcategories = list(first(params.sub), ALL_SUBCATEGORIES);
+  const brands = list(first(params.brand), BRANDS);
   const sort = first(params.sort);
   const minRating = positiveNumber(first(params.rating));
   const page = Math.floor(positiveNumber(first(params.page)) ?? 1);
@@ -54,6 +73,8 @@ export function parseProductQuery(params: RawParams): ProductQuery {
   return {
     q: (first(params.q) ?? "").trim().slice(0, 100),
     categories,
+    subcategories,
+    brands,
     minPrice: positiveNumber(first(params.min)),
     maxPrice: positiveNumber(first(params.max)),
     minRating: minRating && minRating <= 5 ? minRating : undefined,
@@ -68,6 +89,8 @@ export function toSearchParams(query: ProductQuery) {
   const params = new URLSearchParams();
   if (query.q) params.set("q", query.q);
   if (query.categories.length) params.set("category", query.categories.join(","));
+  if (query.subcategories.length) params.set("sub", query.subcategories.join(","));
+  if (query.brands.length) params.set("brand", query.brands.join(","));
   if (query.minPrice !== undefined) params.set("min", String(query.minPrice));
   if (query.maxPrice !== undefined) params.set("max", String(query.maxPrice));
   if (query.minRating !== undefined) params.set("rating", String(query.minRating));
@@ -86,6 +109,8 @@ export function productsHref(query: ProductQuery) {
 export function activeFilterCount(query: ProductQuery) {
   return (
     query.categories.length +
+    query.subcategories.length +
+    query.brands.length +
     (query.minPrice !== undefined || query.maxPrice !== undefined ? 1 : 0) +
     (query.minRating !== undefined ? 1 : 0) +
     (query.inStock ? 1 : 0)

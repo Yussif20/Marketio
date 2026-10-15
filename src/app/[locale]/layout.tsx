@@ -3,6 +3,7 @@ import { IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { SiteFooter } from "@/components/layout/site-footer";
+import { MobileTabBar } from "@/components/layout/mobile-tab-bar";
 import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DirectionProvider } from "@/components/ui/direction";
@@ -53,7 +54,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
       className={`${inter.variable} ${plexArabic.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col pb-16 md:pb-0">
         <NextIntlClientProvider>
           <ThemeProvider>
             <DirectionProvider dir={dir}>
@@ -62,6 +63,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
                 {children}
               </main>
               <SiteFooter />
+              <MobileTabBar />
               <Toaster dir={dir} position={dir === "rtl" ? "bottom-left" : "bottom-right"} />
               <StoreHydration />
             </DirectionProvider>

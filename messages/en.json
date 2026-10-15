@@ -4,22 +4,32 @@
     "description": "Shop phones, laptops, cameras, clothing and more with fast delivery and secure checkout."
   },
   "topBanner": {
-    "text": "Summer sale on selected items with free express delivery — up to 50% off!",
-    "cta": "Shop now"
+    "text": "Free delivery on orders over $140 · Easy 30-day returns",
+    "cta": "Shop the sale"
   },
   "header": {
     "home": "Home",
     "products": "Products",
     "about": "About",
     "contact": "Contact",
-    "signIn": "Sign in",
+    "signIn": "Account",
     "searchPlaceholder": "What are you looking for?",
     "cart": "Cart",
     "wishlist": "Wishlist",
     "menu": "Menu",
     "skipToContent": "Skip to content",
     "wishlistCount": "Wishlist, {count, plural, =0 {empty} one {# item} other {# items}}",
-    "cartCount": "Cart, {count, plural, =0 {empty} one {# item} other {# items}}"
+    "cartCount": "Cart, {count, plural, =0 {empty} one {# item} other {# items}}",
+    "shopAll": "Shop all {category}",
+    "categories": "Categories",
+    "newArrivals": "New arrivals",
+    "bestSellers": "Best sellers",
+    "deals": "Deals",
+    "search": "Search",
+    "hello": "Hello, sign in",
+    "tabBar": "Main navigation",
+    "shop": "Shop",
+    "account": "Account"
   },
   "language": {
     "label": "Language",
@@ -100,7 +110,10 @@
     "starsCount": "{stars, plural, one {# star} other {# stars}}",
     "starsShare": "{stars, plural, one {# star} other {# stars}}: {percent}% of reviews",
     "relatedEyebrow": "Related",
-    "related": "You may also like"
+    "related": "You may also like",
+    "youSave": "You save {amount}",
+    "specifications": "Specifications",
+    "verifiedPurchase": "Verified purchase"
   },
   "buttons": {
     "viewAll": "View all",
@@ -215,7 +228,7 @@
   "footer": {
     "tagline": "A bilingual demo store built with Next.js and Firebase.",
     "subscribe": "Subscribe",
-    "subscribeText": "Get 10% off your first order",
+    "subscribeText": "New arrivals, deals and 10% off your first order. No spam.",
     "emailPlaceholder": "Enter your email",
     "support": "Support",
     "account": "Account",
@@ -225,7 +238,41 @@
     "terms": "Terms of use",
     "faq": "FAQ",
     "demoNotice": "Demo store — products and orders are fictional.",
-    "rights": "© {year} Marketio. All rights reserved."
+    "rights": "© {year} Marketio. All rights reserved.",
+    "shop": "Shop",
+    "help": "Help",
+    "company": "Company",
+    "shippingReturns": "Shipping & returns",
+    "trackOrder": "Track your order",
+    "journal": "Journal",
+    "newsletterTitle": "Join the Marketio list",
+    "emailInvalid": "Please enter a valid email address.",
+    "subscribed": "You're on the list! Check your inbox for 10% off.",
+    "address": "Cairo, Egypt (demo address)",
+    "paymentMethods": "Payment methods",
+    "payments": {
+      "card": "Card",
+      "cod": "Cash on delivery",
+      "whatsapp": "WhatsApp order"
+    },
+    "perks": {
+      "freeDelivery": {
+        "title": "Free delivery",
+        "text": "On orders over $140"
+      },
+      "returns": {
+        "title": "30-day returns",
+        "text": "Free and easy"
+      },
+      "securePayment": {
+        "title": "Secure payment",
+        "text": "Card, cash or WhatsApp"
+      },
+      "support": {
+        "title": "24/7 support",
+        "text": "We're here to help"
+      }
+    }
   },
   "notFound": {
     "title": "Page not found",
@@ -258,6 +305,50 @@
     "empty": "No products match these filters.",
     "pagination": "Pages",
     "previous": "Previous page",
-    "next": "Next page"
+    "next": "Next page",
+    "brand": "Brand"
+  },
+  "subcategories": {
+    "smartphones": "Smartphones",
+    "tablets": "Tablets",
+    "phone-gear": "Chargers & power",
+    "ultrabooks": "Ultrabooks",
+    "gaming-laptops": "Gaming laptops",
+    "everyday-laptops": "Everyday laptops",
+    "compact-cameras": "Compact cameras",
+    "mirrorless": "Mirrorless & lenses",
+    "action-cameras": "Action cameras",
+    "kids-cameras": "Kids' cameras",
+    "office-monitors": "Office monitors",
+    "gaming-monitors": "Gaming monitors",
+    "creator-monitors": "Creator monitors",
+    "tops": "Tops & shirts",
+    "outerwear": "Jackets & coats",
+    "bottoms": "Trousers & jeans",
+    "footwear": "Shoes",
+    "building": "Building sets",
+    "remote-control": "Remote control",
+    "plush": "Plush toys",
+    "games": "Board games & puzzles",
+    "audio": "Audio",
+    "watches": "Watches",
+    "bags": "Bags",
+    "eyewear": "Eyewear"
+  },
+  "brands": {
+    "title": "Shop by brand",
+    "vela": "Phones and tablets for every day",
+    "atlas": "Laptops that go where you go",
+    "lumen": "Cameras for every story",
+    "clarity": "Screens that are easy on the eyes",
+    "kora": "Everyday clothing and bags",
+    "playlab": "Toys that make kids think",
+    "aurora": "Sound without the wires",
+    "halden": "Watches and eyewear"
+  },
+  "options": {
+    "size": "Size",
+    "storage": "Storage",
+    "memory": "Memory"
   }
 }

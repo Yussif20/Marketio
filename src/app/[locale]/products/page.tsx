@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
 // The page shell is static; only the results read the URL, inside Suspense.
 export default function ProductsPage({ searchParams }: PageProps<"/[locale]/products">) {
   return (
-    <div className="container mx-auto px-4 py-8 sm:py-10">
+    <div className="container py-8 sm:py-10">
       <Suspense fallback={<ResultsSkeleton />}>
         <ProductResults searchParams={searchParams} />
       </Suspense>

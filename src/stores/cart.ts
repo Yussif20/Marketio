@@ -1,18 +1,26 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import type { ProductSnapshot } from "@/lib/product-snapshot";
+import { unitPriceCents, type ProductSnapshot } from "@/lib/product-snapshot";
 
 export interface CartItem {
-  /** `${productId}:${colorIndex}` — the same product in two colours is two lines. */
+  /** `${productId}:${colorIndex}:${optionId}` — each colour and size/storage combination is its own line. */
   key: string;
   product: ProductSnapshot;
   colorIndex: number;
+  /** Chosen value of `product.option` (size, storage…), when the product has one. */
+  optionId?: string;
   quantity: number;
+}
+
+export interface AddToCartInput {
+  colorIndex?: number;
+  optionId?: string;
+  quantity?: number;
 }
 
 interface CartState {
   items: CartItem[];
-  add: (product: ProductSnapshot, colorIndex?: number, quantity?: number) => void;
+  add: (product: ProductSnapshot, input?: AddToCartInput) => void;
   setQuantity: (key: string, quantity: number) => void;
   remove: (key: string) => void;
   clear: () => void;
@@ -25,9 +33,9 @@ export const useCartStore = create<CartState>()(
   persist(
     (set) => ({
       items: [],
-      add: (product, colorIndex = 0, quantity = 1) =>
+      add: (product, { colorIndex = 0, optionId = product.option?.values[0]?.id, quantity = 1 } = {}) =>
         set((state) => {
-          const key = `${product.id}:${colorIndex}`;
+          const key = `${product.id}:${colorIndex}:${optionId ?? ""}`;
           const existing = state.items.find((item) => item.key === key);
           if (existing) {
             return {
@@ -41,7 +49,7 @@ export const useCartStore = create<CartState>()(
           return {
             items: [
               ...state.items,
-              { key, product, colorIndex, quantity: clampQuantity(quantity, product.stock) },
+              { key, product, colorIndex, optionId, quantity: clampQuantity(quantity, product.stock) },
             ],
           };
         }),
@@ -68,4 +76,4 @@ export const selectCartCount = (state: CartState) =>
   state.items.reduce((sum, item) => sum + item.quantity, 0);
 
 export const selectCartSubtotal = (state: CartState) =>
-  state.items.reduce((sum, item) => sum + item.product.priceCents * item.quantity, 0);
+  state.items.reduce((sum, item) => sum + unitPriceCents(item.product, item.optionId) * item.quantity, 0);

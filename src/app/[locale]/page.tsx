@@ -4,7 +4,6 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Countdown } from "@/components/home/countdown";
 import { SectionHeading } from "@/components/home/section-heading";
-import { ServicesStrip } from "@/components/home/services-strip";
 import { Price } from "@/components/product/price";
 import { ProductCard, ProductGrid } from "@/components/product/product-card";
 import { Button } from "@/components/ui/button";
@@ -35,7 +34,7 @@ export default async function HomePage() {
   );
 
   return (
-    <div className="container mx-auto space-y-16 px-4 py-8 sm:py-10">
+    <div className="container space-y-16 py-8 sm:py-10">
       <section className="grid overflow-hidden rounded-2xl bg-neutral-950 text-white md:grid-cols-2">
         <div className="flex flex-col justify-center gap-4 p-8 sm:p-12">
           <p className="text-sm text-white/70">{t("home.heroEyebrow")}</p>
@@ -119,7 +118,6 @@ export default async function HomePage() {
         </ProductGrid>
       </section>
 
-      <ServicesStrip />
     </div>
   );
 }

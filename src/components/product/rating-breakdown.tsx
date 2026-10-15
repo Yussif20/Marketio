@@ -14,8 +14,8 @@ export async function RatingBreakdown({ rating }: { rating: ProductRating }) {
   const t = await getTranslations("product");
 
   return (
-    <div className="grid gap-8 sm:grid-cols-[auto_1fr] sm:items-center">
-      <div className="text-center sm:pe-8">
+    <div className="space-y-6 rounded-xl border p-6">
+      <div className="text-center">
         <p className="text-5xl font-bold">{rating.average}</p>
         <RatingStars rating={rating.average} label={t("ratingLabel", { rating: rating.average })} className="mt-2" />
         <p className="mt-1 text-sm text-muted-foreground">{t("reviews", { count: rating.count })}</p>

@@ -25,15 +25,16 @@ export function HeaderStoreLinks() {
 
   return (
     <>
-      <Button variant="ghost" size="icon" className="relative" asChild>
+      {/* On phones the bottom tab bar already links to the wishlist. */}
+      <Button variant="ghost" size="icon" className="relative hidden size-10 md:inline-flex" asChild>
         <Link href="/wishlist" aria-label={t("wishlistCount", { count: hydrated ? wishlistCount : 0 })}>
-          <Heart />
+          <Heart className="size-5" />
           {hydrated && <CountBadge count={wishlistCount} />}
         </Link>
       </Button>
-      <Button variant="ghost" size="icon" className="relative" asChild>
+      <Button variant="ghost" size="icon" className="relative size-10" asChild>
         <Link href="/cart" aria-label={t("cartCount", { count: hydrated ? cartCount : 0 })}>
-          <ShoppingCart />
+          <ShoppingCart className="size-5" />
           {hydrated && <CountBadge count={cartCount} />}
         </Link>
       </Button>

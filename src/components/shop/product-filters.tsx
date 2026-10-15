@@ -11,7 +11,8 @@ import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { activeFilterCount, DEFAULT_QUERY, RATING_OPTIONS, type ProductQuery } from "@/lib/product-query";
 import { cn } from "@/lib/utils";
-import { CATEGORIES, type Category } from "@/types/product";
+import { brands } from "@/data/categories";
+import { CATEGORIES, SUBCATEGORIES, type Brand, type Category, type Subcategory } from "@/types/product";
 import { useQueryNavigation } from "./use-query-navigation";
 
 interface ProductFiltersProps {
@@ -24,6 +25,7 @@ interface ProductFiltersProps {
 export function ProductFilters({ query, priceBounds, idPrefix }: ProductFiltersProps) {
   const t = useTranslations("listing");
   const categoryLabel = useTranslations("categories");
+  const subLabel = useTranslations("subcategories");
   const { update, pending } = useQueryNavigation(query);
   const id = (name: string) => `${idPrefix}-${name}`;
 
@@ -31,7 +33,21 @@ export function ProductFilters({ query, priceBounds, idPrefix }: ProductFiltersP
     const categories = checked
       ? [...query.categories, category]
       : query.categories.filter((c) => c !== category);
-    update({ categories: CATEGORIES.filter((c) => categories.includes(c)) });
+    // Unticking a category also drops its sub-categories.
+    const subcategories = checked
+      ? query.subcategories
+      : query.subcategories.filter((sub) => !(SUBCATEGORIES[category] as readonly string[]).includes(sub));
+    update({ categories: CATEGORIES.filter((c) => categories.includes(c)), subcategories });
+  }
+
+  function toggleSub(sub: Subcategory, checked: boolean) {
+    update({
+      subcategories: checked ? [...query.subcategories, sub] : query.subcategories.filter((s) => s !== sub),
+    });
+  }
+
+  function toggleBrand(brand: Brand, checked: boolean) {
+    update({ brands: checked ? [...query.brands, brand] : query.brands.filter((b) => b !== brand) });
   }
 
   function applyPrice(form: HTMLFormElement) {
@@ -54,14 +70,53 @@ export function ProductFilters({ query, priceBounds, idPrefix }: ProductFiltersP
         <legend className="mb-3 font-semibold">{t("category")}</legend>
         <div className="space-y-3">
           {CATEGORIES.map((category) => (
-            <div key={category} className="flex items-center gap-2">
+            <div key={category}>
+              <div className="flex items-center gap-2">
+                <Checkbox
+                  id={id(category)}
+                  checked={query.categories.includes(category)}
+                  onCheckedChange={(checked) => toggleCategory(category, checked === true)}
+                />
+                <Label htmlFor={id(category)} className="font-normal">
+                  {categoryLabel(category)}
+                </Label>
+              </div>
+              {(query.categories.includes(category) ||
+                SUBCATEGORIES[category].some((sub) => query.subcategories.includes(sub))) && (
+                <div className="ms-6 mt-2 space-y-2 border-s ps-3">
+                  {SUBCATEGORIES[category].map((sub) => (
+                    <div key={sub} className="flex items-center gap-2">
+                      <Checkbox
+                        id={id(sub)}
+                        checked={query.subcategories.includes(sub)}
+                        onCheckedChange={(checked) => toggleSub(sub, checked === true)}
+                      />
+                      <Label htmlFor={id(sub)} className="text-muted-foreground font-normal">
+                        {subLabel(sub)}
+                      </Label>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </fieldset>
+
+      <Separator />
+
+      <fieldset>
+        <legend className="mb-3 font-semibold">{t("brand")}</legend>
+        <div className="grid grid-cols-2 gap-3">
+          {brands.map((brand) => (
+            <div key={brand.slug} className="flex items-center gap-2">
               <Checkbox
-                id={id(category)}
-                checked={query.categories.includes(category)}
-                onCheckedChange={(checked) => toggleCategory(category, checked === true)}
+                id={id(`brand-${brand.slug}`)}
+                checked={query.brands.includes(brand.slug)}
+                onCheckedChange={(checked) => toggleBrand(brand.slug, checked === true)}
               />
-              <Label htmlFor={id(category)} className="font-normal">
-                {categoryLabel(category)}
+              <Label htmlFor={id(`brand-${brand.slug}`)} className="font-normal" dir="ltr">
+                {brand.name}
               </Label>
             </div>
           ))}

@@ -1,4 +1,4 @@
-import type { LocalizedText, Product, ProductColor } from "@/types/product";
+import type { LocalizedText, Product, ProductColor, ProductOption } from "@/types/product";
 
 /**
  * The slice of a product the cart and wishlist keep in localStorage, so those
@@ -15,6 +15,7 @@ export interface ProductSnapshot {
   images: string[];
   stock: number;
   colors: ProductColor[];
+  option?: ProductOption;
 }
 
 export function toSnapshot(product: Product): ProductSnapshot {
@@ -27,7 +28,14 @@ export function toSnapshot(product: Product): ProductSnapshot {
     images: product.images,
     stock: product.stock,
     colors: product.colors,
+    option: product.option,
   };
+}
+
+/** Price of one unit with the chosen option's surcharge (e.g. 256 GB instead of 128 GB). */
+export function unitPriceCents(product: Pick<ProductSnapshot, "priceCents" | "option">, optionId?: string) {
+  const value = product.option?.values.find((v) => v.id === optionId);
+  return product.priceCents + (value?.priceDeltaCents ?? 0);
 }
 
 /** Shipping is free from this subtotal, matching the copy in the services strip. */

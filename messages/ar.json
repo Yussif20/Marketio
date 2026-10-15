@@ -4,22 +4,32 @@
     "description": "تسوّق الهواتف واللابتوبات والكاميرات والملابس وأكثر مع توصيل سريع ودفع آمن."
   },
   "topBanner": {
-    "text": "تخفيضات الصيف على منتجات مختارة مع توصيل سريع مجاني — خصم حتى 50%!",
-    "cta": "تسوّق الآن"
+    "text": "توصيل مجاني للطلبات فوق 140 دولارًا · إرجاع سهل خلال 30 يومًا",
+    "cta": "تسوّق العروض"
   },
   "header": {
     "home": "الرئيسية",
     "products": "المنتجات",
     "about": "من نحن",
     "contact": "اتصل بنا",
-    "signIn": "تسجيل الدخول",
+    "signIn": "حسابي",
     "searchPlaceholder": "عمّ تبحث؟",
     "cart": "السلة",
     "wishlist": "المفضلة",
     "menu": "القائمة",
     "skipToContent": "تخطَّ إلى المحتوى",
     "wishlistCount": "المفضلة، {count, plural, =0 {فارغة} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}}",
-    "cartCount": "السلة، {count, plural, =0 {فارغة} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}}"
+    "cartCount": "السلة، {count, plural, =0 {فارغة} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}}",
+    "shopAll": "تسوّق كل {category}",
+    "categories": "الفئات",
+    "newArrivals": "وصل حديثًا",
+    "bestSellers": "الأكثر مبيعًا",
+    "deals": "العروض",
+    "search": "بحث",
+    "hello": "مرحبًا، سجّل الدخول",
+    "tabBar": "التنقل الرئيسي",
+    "shop": "تسوّق",
+    "account": "حسابي"
   },
   "language": {
     "label": "اللغة",
@@ -100,7 +110,10 @@
     "starsCount": "{stars, plural, one {نجمة} two {نجمتان} few {# نجوم} other {# نجمة}}",
     "starsShare": "{stars, plural, one {نجمة} two {نجمتان} few {# نجوم} other {# نجمة}}: {percent}% من التقييمات",
     "relatedEyebrow": "منتجات مشابهة",
-    "related": "قد يعجبك أيضًا"
+    "related": "قد يعجبك أيضًا",
+    "youSave": "توفّر {amount}",
+    "specifications": "المواصفات",
+    "verifiedPurchase": "عملية شراء موثّقة"
   },
   "buttons": {
     "viewAll": "عرض كل المنتجات",
@@ -215,7 +228,7 @@
   "footer": {
     "tagline": "متجر تجريبي ثنائي اللغة مبني بـ Next.js و Firebase.",
     "subscribe": "اشترك",
-    "subscribeText": "احصل على خصم 10% على أول طلب",
+    "subscribeText": "وصل حديثًا وعروض وخصم 10% على أول طلب. بلا رسائل مزعجة.",
     "emailPlaceholder": "أدخل بريدك الإلكتروني",
     "support": "الدعم",
     "account": "الحساب",
@@ -225,7 +238,41 @@
     "terms": "شروط الاستخدام",
     "faq": "الأسئلة الشائعة",
     "demoNotice": "متجر تجريبي — المنتجات والطلبات غير حقيقية.",
-    "rights": "© {year} ماركيتيو. جميع الحقوق محفوظة."
+    "rights": "© {year} ماركيتيو. جميع الحقوق محفوظة.",
+    "shop": "تسوّق",
+    "help": "المساعدة",
+    "company": "الشركة",
+    "shippingReturns": "الشحن والإرجاع",
+    "trackOrder": "تتبّع طلبك",
+    "journal": "المدوّنة",
+    "newsletterTitle": "انضم إلى قائمة ماركيتيو",
+    "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح.",
+    "subscribed": "تم اشتراكك! تفقّد بريدك للحصول على خصم 10%.",
+    "address": "القاهرة، مصر (عنوان تجريبي)",
+    "paymentMethods": "طرق الدفع",
+    "payments": {
+      "card": "بطاقة",
+      "cod": "الدفع عند الاستلام",
+      "whatsapp": "الطلب عبر واتساب"
+    },
+    "perks": {
+      "freeDelivery": {
+        "title": "توصيل مجاني",
+        "text": "للطلبات فوق 140 دولارًا"
+      },
+      "returns": {
+        "title": "إرجاع خلال 30 يومًا",
+        "text": "مجاني وسهل"
+      },
+      "securePayment": {
+        "title": "دفع آمن",
+        "text": "بطاقة أو نقدًا أو واتساب"
+      },
+      "support": {
+        "title": "دعم على مدار الساعة",
+        "text": "نحن هنا لمساعدتك"
+      }
+    }
   },
   "notFound": {
     "title": "الصفحة غير موجودة",
@@ -258,6 +305,50 @@
     "empty": "لا توجد منتجات تطابق هذه الفلاتر.",
     "pagination": "الصفحات",
     "previous": "الصفحة السابقة",
-    "next": "الصفحة التالية"
+    "next": "الصفحة التالية",
+    "brand": "العلامة التجارية"
+  },
+  "subcategories": {
+    "smartphones": "الهواتف الذكية",
+    "tablets": "الأجهزة اللوحية",
+    "phone-gear": "الشواحن والطاقة",
+    "ultrabooks": "لابتوبات خفيفة",
+    "gaming-laptops": "لابتوبات الألعاب",
+    "everyday-laptops": "لابتوبات يومية",
+    "compact-cameras": "كاميرات مدمجة",
+    "mirrorless": "كاميرات بدون مرآة وعدسات",
+    "action-cameras": "كاميرات رياضية",
+    "kids-cameras": "كاميرات الأطفال",
+    "office-monitors": "شاشات مكتبية",
+    "gaming-monitors": "شاشات الألعاب",
+    "creator-monitors": "شاشات للمبدعين",
+    "tops": "قمصان وملابس علوية",
+    "outerwear": "جواكت ومعاطف",
+    "bottoms": "بناطيل وجينز",
+    "footwear": "أحذية",
+    "building": "ألعاب البناء",
+    "remote-control": "ألعاب التحكم عن بعد",
+    "plush": "دمى محشوة",
+    "games": "ألعاب لوحية وأحاجٍ",
+    "audio": "صوتيات",
+    "watches": "ساعات",
+    "bags": "حقائب",
+    "eyewear": "نظارات"
+  },
+  "brands": {
+    "title": "تسوّق حسب العلامة",
+    "vela": "هواتف وأجهزة لوحية لكل يوم",
+    "atlas": "لابتوبات ترافقك أينما ذهبت",
+    "lumen": "كاميرات لكل قصة",
+    "clarity": "شاشات مريحة للعين",
+    "kora": "ملابس وحقائب يومية",
+    "playlab": "ألعاب تنمّي تفكير الأطفال",
+    "aurora": "صوت بلا أسلاك",
+    "halden": "ساعات ونظارات"
+  },
+  "options": {
+    "size": "المقاس",
+    "storage": "السعة",
+    "memory": "الذاكرة"
   }
 }

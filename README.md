@@ -37,7 +37,7 @@ Open http://localhost:3000. You'll be sent to `/ar` or `/en` based on your brows
 
 - `src/app/[locale]/` — routes, all under the locale segment
 - `src/i18n/` — locales, routing, request config; translations live in `messages/{ar,en}.json`
-- `src/data/products.ts` — demo catalogue (27 brand-free products in 7 categories)
+- `src/data/products.ts` — demo catalogue: 74 brand-free products, 7 categories, 25 sub-categories, 8 invented brands (`src/data/catalog/`)
 - `src/lib/catalog.ts` — the only module pages read products from (local data now, Firestore later)
 - `src/stores/` — cart and wishlist (Zustand, saved to localStorage)
 - `src/lib/firebase/` — `client.ts` for the browser, `admin.ts` for server code

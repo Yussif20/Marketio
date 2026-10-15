@@ -9,13 +9,14 @@ import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "@/i18n/navigation";
 import { formatPrice } from "@/lib/product";
-import { FREE_SHIPPING_FROM_CENTS, shippingFor } from "@/lib/product-snapshot";
+import { FREE_SHIPPING_FROM_CENTS, shippingFor, unitPriceCents } from "@/lib/product-snapshot";
 import { selectCartSubtotal, useCartStore } from "@/stores/cart";
 import { useStoresHydrated } from "@/stores/hydration";
 
 export function CartView() {
   const t = useTranslations("cart");
   const buttons = useTranslations("buttons");
+  const options = useTranslations("options");
   const locale = useLocale();
   const hydrated = useStoresHydrated();
   const { items, setQuantity, remove, clear } = useCartStore();
@@ -53,6 +54,8 @@ export function CartView() {
           {items.map((item) => {
             const title = item.product.title[locale];
             const color = item.product.colors[item.colorIndex];
+            const option = item.product.option?.values.find((value) => value.id === item.optionId);
+            const unitPrice = unitPriceCents(item.product, item.optionId);
             return (
               <li key={item.key} className="flex gap-4 p-4">
                 <Link
@@ -66,13 +69,20 @@ export function CartView() {
                     <Link href={`/products/${item.product.slug}`} className="font-medium hover:underline">
                       {title}
                     </Link>
-                    {color && (
-                      <p className="mt-1 flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <span className="size-3 rounded-full border" style={{ backgroundColor: color.hex }} aria-hidden />
-                        {color.name[locale]}
-                      </p>
-                    )}
-                    <p className="mt-1 text-sm text-muted-foreground">{price(item.product.priceCents)}</p>
+                    <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground">
+                      {color && (
+                        <span className="flex items-center gap-1.5">
+                          <span className="size-3 rounded-full border" style={{ backgroundColor: color.hex }} aria-hidden />
+                          {color.name[locale]}
+                        </span>
+                      )}
+                      {option && item.product.option && (
+                        <span>
+                          {options(item.product.option.kind)}: <span dir="ltr">{option.label}</span>
+                        </span>
+                      )}
+                    </p>
+                    <p className="mt-1 text-sm text-muted-foreground">{price(unitPrice)}</p>
                   </div>
                   <div className="flex items-center justify-between gap-4">
                     <QuantityInput
@@ -82,7 +92,7 @@ export function CartView() {
                       label={t("quantityFor", { title })}
                     />
                     <p className="min-w-20 text-end font-semibold tabular-nums">
-                      {price(item.product.priceCents * item.quantity)}
+                      {price(unitPrice * item.quantity)}
                     </p>
                     <Button variant="ghost" size="icon" onClick={() => remove(item.key)} aria-label={t("remove", { title })}>
                       <Trash2 />
