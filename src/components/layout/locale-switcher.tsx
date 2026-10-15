@@ -30,7 +30,11 @@ export function LocaleSwitcher() {
       <DropdownMenuContent align="end">
         <DropdownMenuRadioGroup
           value={locale}
-          onValueChange={(next) => router.replace(pathname, { locale: next as Locale })}
+          onValueChange={(next) =>
+            // Keep filters and search: read the query at click time instead of useSearchParams,
+            // which would need a Suspense boundary around the header.
+            router.replace(`${pathname}${window.location.search}`, { locale: next as Locale })
+          }
         >
           {routing.locales.map((option) => (
             <DropdownMenuRadioItem key={option} value={option} lang={option}>

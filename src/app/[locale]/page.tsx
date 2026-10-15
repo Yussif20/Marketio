@@ -1,39 +1,93 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
-import { Badge } from "@/components/ui/badge";
+import { Countdown } from "@/components/home/countdown";
+import { SectionHeading } from "@/components/home/section-heading";
+import { ServicesStrip } from "@/components/home/services-strip";
+import { Price } from "@/components/product/price";
+import { ProductCard, ProductGrid } from "@/components/product/product-card";
 import { Button } from "@/components/ui/button";
 import { categories } from "@/data/categories";
-import { products } from "@/data/products";
 import { Link } from "@/i18n/navigation";
-import { discountPercent, formatDiscount, formatPrice } from "@/lib/product";
+import { localeDirection } from "@/i18n/routing";
+import { getHomeSections } from "@/lib/catalog";
 
-// Foundation placeholder: the full home page (hero slider, flash sale, best sellers) comes in the catalogue session.
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("meta");
+  return { title: { absolute: t("title") } };
+}
+
 export default async function HomePage() {
   const locale = await getLocale();
   const t = await getTranslations();
-  const featured = products.filter((product) => product.featured).slice(0, 4);
+  const { flashSale, bestSellers, newArrivals, featured } = await getHomeSections();
+  const hero = featured.find((p) => p.category === "accessories") ?? featured[0];
+  const Forward = localeDirection[locale] === "rtl" ? ArrowLeft : ArrowRight;
+
+  const viewAll = (href: string) => (
+    <Button variant="outline" asChild>
+      <Link href={href}>
+        {t("buttons.viewAll")}
+        <Forward data-icon="inline-end" />
+      </Link>
+    </Button>
+  );
 
   return (
-    <div className="container mx-auto space-y-16 px-4 py-10">
-      <section className="rounded-2xl bg-foreground px-6 py-12 text-background sm:px-12">
-        <p className="text-sm opacity-80">{t("home.newArrival.headline")}</p>
-        <h1 className="mt-2 text-3xl font-bold sm:text-5xl">{t("home.heroTitle")}</h1>
-        <p className="mt-2 text-lg opacity-90">{t("home.heroSubtitle")}</p>
-        <Button asChild size="lg" className="mt-6">
-          <Link href="/products">{t("buttons.shopNow")}</Link>
-        </Button>
+    <div className="container mx-auto space-y-16 px-4 py-8 sm:py-10">
+      <section className="grid overflow-hidden rounded-2xl bg-neutral-950 text-white md:grid-cols-2">
+        <div className="flex flex-col justify-center gap-4 p-8 sm:p-12">
+          <p className="text-sm text-white/70">{t("home.heroEyebrow")}</p>
+          <h1 className="text-4xl leading-tight font-bold sm:text-5xl">
+            {t("home.heroTitle")}
+            <span className="block text-primary">{t("home.heroSubtitle")}</span>
+          </h1>
+          <p className="max-w-md text-white/80">{hero.title[locale]}</p>
+          <Price priceCents={hero.priceCents} oldPriceCents={hero.oldPriceCents} size="lg" />
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Button size="lg" asChild>
+              <Link href={`/products/${hero.slug}`}>{t("buttons.shopNow")}</Link>
+            </Button>
+            <Button size="lg" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white" asChild>
+              <Link href="/products">{t("buttons.browseAll")}</Link>
+            </Button>
+          </div>
+        </div>
+        <div className="relative aspect-square md:aspect-auto md:min-h-96">
+          <Image
+            src={hero.images[0]}
+            alt={hero.title[locale]}
+            fill
+            priority
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
       </section>
 
-      <section aria-labelledby="categories-title">
-        <p className="mb-1 text-sm font-semibold text-primary">{t("categories.headline")}</p>
-        <h2 id="categories-title" className="mb-6 text-2xl font-bold">
-          {t("categories.title")}
-        </h2>
+      <section aria-labelledby="flash-title">
+        <SectionHeading id="flash-title" eyebrow={t("home.flashSales.headline")} title={t("home.flashSales.title")}>
+          <Countdown />
+        </SectionHeading>
+        <ul className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-4 [scrollbar-width:thin]">
+          {flashSale.map((product) => (
+            <li key={product.id} className="w-56 shrink-0 snap-start sm:w-64">
+              <ProductCard product={product} />
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 flex justify-center">{viewAll("/products?sort=discount")}</div>
+      </section>
+
+      <section aria-labelledby="categories-title" className="border-y py-12">
+        <SectionHeading id="categories-title" eyebrow={t("categories.headline")} title={t("categories.title")} />
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
           {categories.map(({ slug, icon: Icon }) => (
             <li key={slug}>
               <Link
                 href={`/products?category=${slug}`}
-                className="flex flex-col items-center gap-3 rounded-xl border p-5 transition-colors hover:border-primary hover:text-primary"
+                className="flex flex-col items-center gap-3 rounded-xl border p-5 transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 <Icon className="size-8" aria-hidden />
                 <span className="text-sm font-medium">{t(`categories.${slug}`)}</span>
@@ -43,44 +97,29 @@ export default async function HomePage() {
         </ul>
       </section>
 
-      <section aria-labelledby="featured-title">
-        <p className="mb-1 text-sm font-semibold text-primary">{t("home.bestSelling.headline")}</p>
-        <h2 id="featured-title" className="mb-6 text-2xl font-bold">
-          {t("home.bestSelling.title")}
-        </h2>
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {featured.map((product) => {
-            const discount = discountPercent(product);
-            return (
-              <li key={product.id} className="relative rounded-xl border p-5">
-                {discount > 0 && (
-                  <Badge className="absolute end-3 top-3">{formatDiscount(discount, locale)}</Badge>
-                )}
-                <p className="text-xs text-muted-foreground">
-                  {t(`categories.${product.category}`)}
-                </p>
-                <h3 className="mt-1 pe-14 font-semibold">{product.title[locale]}</h3>
-                <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
-                  {product.description[locale]}
-                </p>
-                <p className="mt-3 flex items-baseline gap-2">
-                  <span className="font-bold text-primary">
-                    {formatPrice(product.priceCents, locale)}
-                  </span>
-                  {product.oldPriceCents && (
-                    <span className="text-sm text-muted-foreground line-through">
-                      {formatPrice(product.oldPriceCents, locale)}
-                    </span>
-                  )}
-                </p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  ★ {product.rating.average} · {t("product.reviews", { count: product.rating.count })}
-                </p>
-              </li>
-            );
-          })}
-        </ul>
+      <section aria-labelledby="best-title">
+        <SectionHeading id="best-title" eyebrow={t("home.bestSelling.headline")} title={t("home.bestSelling.title")}>
+          {viewAll("/products?sort=rating")}
+        </SectionHeading>
+        <ProductGrid>
+          {bestSellers.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </ProductGrid>
       </section>
+
+      <section aria-labelledby="new-title">
+        <SectionHeading id="new-title" eyebrow={t("home.newArrival.headline")} title={t("home.newArrival.title")}>
+          {viewAll("/products?sort=new")}
+        </SectionHeading>
+        <ProductGrid>
+          {newArrivals.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </ProductGrid>
+      </section>
+
+      <ServicesStrip />
     </div>
   );
 }

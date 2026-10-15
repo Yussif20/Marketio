@@ -17,7 +17,9 @@
     "cart": "السلة",
     "wishlist": "المفضلة",
     "menu": "القائمة",
-    "skipToContent": "تخطَّ إلى المحتوى"
+    "skipToContent": "تخطَّ إلى المحتوى",
+    "wishlistCount": "المفضلة، {count, plural, =0 {فارغة} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}}",
+    "cartCount": "السلة، {count, plural, =0 {فارغة} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}}"
   },
   "language": {
     "label": "اللغة",
@@ -42,12 +44,25 @@
     "accessories": "إكسسوارات"
   },
   "home": {
-    "heroTitle": "خصم حتى 10%",
-    "heroSubtitle": "على طلبك الأول",
-    "flashSales": { "headline": "اليوم", "title": "عروض سريعة" },
-    "bestSelling": { "headline": "هذا الشهر", "title": "الأكثر مبيعًا" },
-    "explore": { "headline": "منتجاتنا", "title": "استكشف منتجاتنا" },
-    "newArrival": { "headline": "مميز", "title": "وصل حديثًا" }
+    "heroTitle": "تقنية يومية،",
+    "heroSubtitle": "بأسعار أفضل",
+    "flashSales": {
+      "headline": "اليوم",
+      "title": "عروض سريعة"
+    },
+    "bestSelling": {
+      "headline": "هذا الشهر",
+      "title": "الأكثر مبيعًا"
+    },
+    "explore": {
+      "headline": "منتجاتنا",
+      "title": "استكشف منتجاتنا"
+    },
+    "newArrival": {
+      "headline": "مميز",
+      "title": "وصل حديثًا"
+    },
+    "heroEyebrow": "عرض الأسبوع"
   },
   "product": {
     "addToCart": "أضف إلى السلة",
@@ -62,7 +77,30 @@
     "returns": {
       "title": "إرجاع مجاني",
       "text": "إرجاع مجاني خلال 30 يومًا"
-    }
+    },
+    "addedToCart": "أُضيف إلى السلة",
+    "viewCart": "عرض السلة",
+    "addToWishlist": "أضف إلى المفضلة",
+    "removeFromWishlist": "إزالة من المفضلة",
+    "addedToWishlist": "حُفظ في المفضلة",
+    "removedFromWishlist": "أُزيل من المفضلة",
+    "ratingLabel": "التقييم {rating} من 5",
+    "gallery": "صور المنتج",
+    "showImage": "عرض الصورة {number}",
+    "imageAlt": "{title}، الصورة {number}",
+    "color": "اللون",
+    "quantity": "الكمية",
+    "decrease": "تقليل الكمية",
+    "increase": "زيادة الكمية",
+    "onlyLeft": "متبقٍّ {count} فقط",
+    "description": "الوصف",
+    "breadcrumb": "مسار التنقل",
+    "reviewsEyebrow": "التقييمات",
+    "ratingsTitle": "تقييمات العملاء",
+    "starsCount": "{stars, plural, one {نجمة} two {نجمتان} few {# نجوم} other {# نجمة}}",
+    "starsShare": "{stars, plural, one {نجمة} two {نجمتان} few {# نجوم} other {# نجمة}}: {percent}% من التقييمات",
+    "relatedEyebrow": "منتجات مشابهة",
+    "related": "قد يعجبك أيضًا"
   },
   "buttons": {
     "viewAll": "عرض كل المنتجات",
@@ -79,7 +117,8 @@
     "proceedToCheckout": "المتابعة إلى الدفع",
     "placeOrder": "تأكيد الطلب",
     "goHome": "العودة إلى الرئيسية",
-    "saveRating": "حفظ التقييم"
+    "saveRating": "حفظ التقييم",
+    "browseAll": "تصفّح كل المنتجات"
   },
   "services": {
     "freeDelivery": {
@@ -99,7 +138,8 @@
     "days": "أيام",
     "hours": "ساعات",
     "minutes": "دقائق",
-    "seconds": "ثوانٍ"
+    "seconds": "ثوانٍ",
+    "label": "الوقت المتبقي على عروض اليوم"
   },
   "cart": {
     "title": "السلة",
@@ -112,7 +152,11 @@
     "subtotal": "المجموع الفرعي",
     "shipping": "الشحن",
     "free": "مجاني",
-    "couponCode": "رمز القسيمة"
+    "couponCode": "رمز القسيمة",
+    "quantityFor": "كمية {title}",
+    "remove": "إزالة {title}",
+    "clear": "إفراغ السلة",
+    "freeShippingHint": "أضف {amount} أخرى لتحصل على شحن مجاني."
   },
   "checkout": {
     "title": "الدفع",
@@ -131,7 +175,11 @@
   "wishlist": {
     "title": "المفضلة",
     "empty": "قائمة المفضلة فارغة.",
-    "justForYou": "مختارة لك"
+    "justForYou": "مختارة لك",
+    "count": "{count, plural, one {منتج محفوظ} two {منتجان محفوظان} few {# منتجات محفوظة} many {# منتجًا محفوظًا} other {# منتج محفوظ}}",
+    "movedAll": "نُقل {count, plural, one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}} إلى السلة",
+    "moveToCart": "انقل إلى السلة",
+    "remove": "إزالة {title}"
   },
   "auth": {
     "signUpTitle": "إنشاء حساب",
@@ -182,5 +230,34 @@
   "notFound": {
     "title": "الصفحة غير موجودة",
     "text": "الصفحة التي تبحث عنها غير موجودة."
+  },
+  "listing": {
+    "title": "كل المنتجات",
+    "resultsFor": "نتائج البحث عن «{q}»",
+    "count": "{count, plural, =0 {لا توجد منتجات} one {منتج واحد} two {منتجان} few {# منتجات} many {# منتجًا} other {# منتج}}",
+    "filters": "الفلاتر",
+    "category": "الفئة",
+    "price": "السعر ($)",
+    "min": "من",
+    "max": "إلى",
+    "apply": "تطبيق السعر",
+    "rating": "التقييم",
+    "andUp": "{rating} فأكثر",
+    "anyRating": "أي تقييم",
+    "inStockOnly": "المتوفر فقط",
+    "clearFilters": "مسح الفلاتر",
+    "clearAll": "عرض كل المنتجات",
+    "sortBy": "ترتيب حسب",
+    "sort": {
+      "new": "الأحدث",
+      "price-asc": "السعر: من الأقل",
+      "price-desc": "السعر: من الأعلى",
+      "rating": "الأعلى تقييمًا",
+      "discount": "الأكبر خصمًا"
+    },
+    "empty": "لا توجد منتجات تطابق هذه الفلاتر.",
+    "pagination": "الصفحات",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية"
   }
 }

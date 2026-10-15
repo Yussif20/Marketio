@@ -19,8 +19,12 @@ export function discountPercent(product: Pick<Product, "priceCents" | "oldPriceC
 // Latin digits in both locales, matching how most Arabic stores show prices and ratings.
 const numberLocale = (locale: Locale) => (locale === "ar" ? "ar-u-nu-latn" : "en-US");
 
-export function formatPrice(cents: number, locale: Locale, currency = "USD") {
-  return new Intl.NumberFormat(numberLocale(locale), {
+/**
+ * "$35.00" in both locales. Arabic number formatting writes "US$", whose
+ * letters get reordered by the bidi algorithm inside RTL text ("$US 35.00").
+ */
+export function formatPrice(cents: number, currency = "USD") {
+  return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency,
     currencyDisplay: "narrowSymbol",

@@ -519,7 +519,3 @@ export const products: Product[] = [
     createdAt: "2026-08-14",
   }),
 ];
-
-export function getProductBySlug(slug: string) {
-  return products.find((product) => product.slug === slug);
-}

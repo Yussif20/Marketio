@@ -30,6 +30,7 @@ Open http://localhost:3000. You'll be sent to `/ar` or `/en` based on your brows
 | `npm run lint` | ESLint |
 | `npm run typecheck` | Generate route types, then `tsc --noEmit` |
 | `npm run check:rtl` | Fail on physical `left`/`right` Tailwind classes (use `start`/`end`, `ms`/`me`, `ps`/`pe`) |
+| `npm run images` | Regenerate the placeholder product images in `public/products/` |
 | `npm run seed` | Reset the Firestore `products` and `orders` collections to the demo data (needs `.env.local`) |
 
 ## Project layout
@@ -37,5 +38,11 @@ Open http://localhost:3000. You'll be sent to `/ar` or `/en` based on your brows
 - `src/app/[locale]/` — routes, all under the locale segment
 - `src/i18n/` — locales, routing, request config; translations live in `messages/{ar,en}.json`
 - `src/data/products.ts` — demo catalogue (27 brand-free products in 7 categories)
+- `src/lib/catalog.ts` — the only module pages read products from (local data now, Firestore later)
+- `src/stores/` — cart and wishlist (Zustand, saved to localStorage)
 - `src/lib/firebase/` — `client.ts` for the browser, `admin.ts` for server code
 - `scripts/seed.ts` — Firestore seed / reset
+
+## Product images
+
+Product images are generated placeholders (`scripts/generate-placeholders.tsx`): a tinted backdrop with a [Lucide](https://lucide.dev) line icon (ISC licence), one image per colour variant. There are no photos, so there is no photo licence to track. Replace the files in `public/products/<slug>/` to use real photography.

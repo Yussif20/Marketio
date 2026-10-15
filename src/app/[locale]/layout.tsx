@@ -6,7 +6,10 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DirectionProvider } from "@/components/ui/direction";
+import { Toaster } from "@/components/ui/sonner";
 import { localeDirection, routing } from "@/i18n/routing";
+import { siteUrl } from "@/lib/site";
+import { StoreHydration } from "@/stores/hydration";
 import "../globals.css";
 
 const inter = Inter({
@@ -30,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("meta");
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+    metadataBase: new URL(siteUrl),
     title: { default: t("title"), template: "%s | Marketio" },
     description: t("description"),
     alternates: {
@@ -59,6 +62,8 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
                 {children}
               </main>
               <SiteFooter />
+              <Toaster dir={dir} position={dir === "rtl" ? "bottom-left" : "bottom-right"} />
+              <StoreHydration />
             </DirectionProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

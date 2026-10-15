@@ -1,8 +1,9 @@
-import { Heart, Search, ShoppingCart, User } from "lucide-react";
+import { Search, User } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "@/i18n/navigation";
+import { HeaderStoreLinks } from "./header-store-links";
 import { LocaleSwitcher } from "./locale-switcher";
 import { Logo } from "./logo";
 import { MobileNav } from "./mobile-nav";
@@ -66,16 +67,7 @@ export async function SiteHeader() {
         <div className="ms-auto flex items-center gap-1 lg:ms-2">
           <LocaleSwitcher />
           <ThemeSwitcher />
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/wishlist" aria-label={t("wishlist")}>
-              <Heart />
-            </Link>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/cart" aria-label={t("cart")}>
-              <ShoppingCart />
-            </Link>
-          </Button>
+          <HeaderStoreLinks />
           <Button variant="ghost" size="icon" asChild>
             <Link href="/account" aria-label={t("signIn")}>
               <User />
