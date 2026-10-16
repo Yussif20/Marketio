@@ -7,15 +7,16 @@
 import { getFirestore } from "firebase-admin/firestore";
 import { products } from "@/data/products";
 import { getAdminApp } from "@/lib/firebase/admin-app";
+import { shippingFor, unitPriceCents } from "@/lib/product-snapshot";
 import type { Order, OrderItem, OrderStatus, PaymentMethod } from "@/types/order";
 
 // Fictional customers only.
 const customers = [
-  { name: "Layla Hassan", email: "layla@example.com", phone: "+20 100 000 0001", address: "12 Nile St, Cairo" },
-  { name: "Omar Khaled", email: "omar@example.com", phone: "+20 100 000 0002", address: "4 Garden Rd, Giza" },
-  { name: "Sara Mahmoud", email: "sara@example.com", phone: "+20 100 000 0003", address: "8 Sea View, Alexandria" },
-  { name: "Youssef Adel", email: "youssef@example.com", phone: "+20 100 000 0004", address: "21 Palm Ave, Mansoura" },
-  { name: "Nour Ali", email: "nour@example.com", phone: "+20 100 000 0005", address: "3 Market Sq, Tanta" },
+  { name: "Layla Hassan", email: "layla@example.com", phone: "+20 100 000 0001", address: "12 Nile St", city: "Cairo" },
+  { name: "Omar Khaled", email: "omar@example.com", phone: "+20 100 000 0002", address: "4 Garden Rd", city: "Giza" },
+  { name: "Sara Mahmoud", email: "sara@example.com", phone: "+20 100 000 0003", address: "8 Sea View", city: "Alexandria" },
+  { name: "Youssef Adel", email: "youssef@example.com", phone: "+20 100 000 0004", address: "21 Palm Ave", city: "Mansoura" },
+  { name: "Nour Ali", email: "nour@example.com", phone: "+20 100 000 0005", address: "3 Market Sq", city: "Tanta" },
 ];
 
 const orderPlans: Array<{
@@ -24,7 +25,7 @@ const orderPlans: Array<{
   status: OrderStatus;
   createdAt: string;
 }> = [
-  { items: [["nova-x1-phone", 1], ["aurora-wireless-headphones", 1]], paymentMethod: "card", status: "delivered", createdAt: "2026-09-21T10:15:00Z" },
+  { items: [["vela-x1-phone", 1], ["aurora-wireless-headphones", 1]], paymentMethod: "card", status: "delivered", createdAt: "2026-09-21T10:15:00Z" },
   { items: [["everyday-cotton-hoodie", 2]], paymentMethod: "cod", status: "shipped", createdAt: "2026-09-30T14:02:00Z" },
   { items: [["atlas-14-laptop", 1], ["voyager-laptop-backpack", 1]], paymentMethod: "card", status: "paid", createdAt: "2026-10-03T09:40:00Z" },
   { items: [["builder-robot-kit", 1], ["cozy-plush-bear", 1]], paymentMethod: "whatsapp", status: "pending", createdAt: "2026-10-06T18:25:00Z" },
@@ -39,18 +40,33 @@ function buildOrders(): Order[] {
     const items: OrderItem[] = plan.items.map(([slug, quantity]) => {
       const product = products.find((p) => p.slug === slug);
       if (!product) throw new Error(`Unknown product in seed order: ${slug}`);
-      return { productId: product.id, title: product.title.en, priceCents: product.priceCents, quantity };
+      const option = product.option?.values[0];
+      return {
+        productId: product.id,
+        slug: product.slug,
+        title: product.title,
+        image: product.images[0],
+        color: product.colors[0]?.name,
+        option: option?.label,
+        priceCents: unitPriceCents(product, option?.id),
+        quantity,
+      };
     });
-    const totalCents = items.reduce((sum, item) => sum + item.priceCents * item.quantity, 0);
+    const subtotalCents = items.reduce((sum, item) => sum + item.priceCents * item.quantity, 0);
+    const shippingCents = shippingFor(subtotalCents);
 
     return {
       id: `demo-${String(index + 1).padStart(3, "0")}`,
       customer: customers[index % customers.length],
       items,
-      totalCents,
+      subtotalCents,
+      discountCents: 0,
+      shippingCents,
+      totalCents: subtotalCents + shippingCents,
       currency: "USD",
       paymentMethod: plan.paymentMethod,
       status: plan.status,
+      locale: index % 2 ? "en" : "ar",
       createdAt: plan.createdAt,
     };
   });

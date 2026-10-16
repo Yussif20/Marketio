@@ -245,17 +245,82 @@
   },
   "checkout": {
     "title": "Checkout",
-    "billingDetails": "Billing details",
-    "name": "Full name",
-    "phone": "Phone number",
-    "address": "Address",
-    "email": "Email",
+    "browse": "Browse products",
+    "contactTitle": "Contact & delivery",
+    "signInPrompt": "Have an account? Sign in",
     "paymentMethod": "Payment method",
-    "cashOnDelivery": "Cash on delivery",
-    "card": "Card",
-    "whatsapp": "Order via WhatsApp",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone number",
+      "city": "City",
+      "address": "Street address",
+      "notes": "Delivery notes (optional)"
+    },
+    "errors": {
+      "name": "Please enter your full name.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number.",
+      "address": "Please enter your street address.",
+      "city": "Please enter your city.",
+      "notes": "Notes are limited to 300 characters.",
+      "invalid": "Please check the form and try again.",
+      "empty": "Your cart is empty.",
+      "unavailable": "An item in your cart is no longer available. Please review your cart.",
+      "stock": "Not enough stock for one of the items. Please lower the quantity.",
+      "coupon": "That coupon code isn't valid.",
+      "card-unavailable": "Card payment isn't available right now. Choose cash on delivery or WhatsApp.",
+      "server": "Something went wrong. Please try again."
+    },
+    "methods": {
+      "card": {
+        "title": "Card",
+        "text": "Pay securely with Stripe",
+        "unavailable": "Coming soon"
+      },
+      "cod": {
+        "title": "Cash on delivery",
+        "text": "Pay when your order arrives"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "text": "Confirm your order by chat"
+      }
+    },
+    "testCardHint": "Demo store: use the Stripe test card 4242 4242 4242 4242, any future date and any CVC. No real money is charged.",
+    "summary": "Order summary",
+    "coupon": "Coupon code",
+    "couponPlaceholder": "Try WELCOME10",
+    "applyCoupon": "Apply",
+    "couponApplied": "Coupon applied: {percent}% off",
+    "discount": "Discount ({code})",
+    "submit": {
+      "card": "Pay with card",
+      "cod": "Place order",
+      "whatsapp": "Place order on WhatsApp"
+    },
+    "demoNotice": "Demo store: orders are not shipped.",
+    "cancelled": "Payment cancelled. Your cart is still here.",
     "successTitle": "Thank you for your order!",
-    "successText": "Your order has been placed successfully."
+    "awaitingTitle": "We're confirming your payment",
+    "successText": {
+      "card": "Your payment was received and your order is being prepared.",
+      "cod": "Pay in cash when your order is delivered. We'll call you to confirm.",
+      "whatsapp": "One more step: send the order on WhatsApp so we can confirm it with you."
+    },
+    "orderNumber": "Order number",
+    "whatsappStep": "Tap the button to send your order summary to our WhatsApp.",
+    "whatsappButton": "Send order on WhatsApp",
+    "statusLabel": "Status",
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "shipped": "Shipped",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "keepShopping": "Continue shopping",
+    "viewOrders": "My orders"
   },
   "wishlist": {
     "title": "Wishlist",
@@ -540,5 +605,38 @@
   },
   "policies": {
     "updated": "Last updated {date}"
+  },
+  "account": {
+    "title": "My account",
+    "tabs": {
+      "signin": "Sign in",
+      "signup": "Create account"
+    },
+    "signinTitle": "Welcome back",
+    "signinText": "Sign in to see your orders and check out faster.",
+    "signupTitle": "Create your account",
+    "signupText": "Track your orders and save your details for next time.",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password (6+ characters)",
+    "signinButton": "Sign in",
+    "signupButton": "Create account",
+    "or": "or",
+    "google": "Continue with Google",
+    "demoNotice": "Demo store: use any test email, it isn't verified.",
+    "welcome": "You're signed in.",
+    "signOut": "Sign out",
+    "customer": "Marketio customer",
+    "myOrders": "My orders",
+    "noOrders": "You haven't placed any orders yet.",
+    "viewOrder": "View order",
+    "errors": {
+      "credentials": "Wrong email or password.",
+      "inUse": "An account with this email already exists. Sign in instead.",
+      "weak": "Please use at least 6 characters.",
+      "email": "Please enter a valid email address.",
+      "domain": "Google sign-in isn't enabled for this site address yet.",
+      "generic": "Something went wrong. Please try again."
+    }
   }
 }
