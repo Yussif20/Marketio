@@ -2,6 +2,8 @@
 
 A bilingual online store (Arabic and English) with real checkout and an admin panel, built with Next.js 16 and Firebase. Arabic is the default and renders right-to-left; English is a full second locale, not a translation layer bolted on.
 
+**Live demo: [marketio.yousefayman.com](https://marketio.yousefayman.com)** (Arabic at `/ar`, English at `/en`). For the admin, open `/en/admin` and choose **Try the admin demo**. Pay with Stripe's test card `4242 4242 4242 4242`, any future date and any CVC.
+
 All products, brands, customers and orders are invented demo data. Card payments run in Stripe test mode.
 
 ![Marketio home page in Arabic and English](docs/screenshots/home.jpg)
@@ -17,7 +19,7 @@ All products, brands, customers and orders are invented demo data. Card payments
 - Customer accounts with order history.
 - An admin panel with a public, read-only demo login.
 
-**Result.** Every page is server-rendered and indexable, with JSON-LD for products. The layout uses logical CSS only (`npm run check:rtl` fails on `left`/`right` classes), so both directions come from one codebase. Lighthouse scores 97–100 for accessibility and 100 for best practices on every storefront page.
+**Result.** Every page is server-rendered and indexable, with JSON-LD for products. The layout uses logical CSS only (`npm run check:rtl` fails on `left`/`right` classes), so both directions come from one codebase. PageSpeed Insights (mobile) scores the Arabic home page 85 / 100 / 100 / 100 and a product page 98 / 100 / 100 / 100 (performance / accessibility / best practices / SEO).
 
 ## Features
 
