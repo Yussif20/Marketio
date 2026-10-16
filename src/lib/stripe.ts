@@ -7,8 +7,8 @@ let client: Stripe | null | undefined;
 export function getStripe() {
   if (client === undefined) {
     const key = process.env.STRIPE_SECRET_KEY;
-    // Test mode only: a live key here would charge real cards from a demo store.
-    client = key && key.startsWith("sk_test_") ? new Stripe(key) : null;
+    // Test mode only (secret or restricted key): a live key would charge real cards from a demo store.
+    client = key && /^(sk|rk)_test_/.test(key) ? new Stripe(key) : null;
   }
   return client;
 }
