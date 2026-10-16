@@ -4,7 +4,7 @@ import { ImagePlus, Loader2, Star, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useRef, useState, useTransition } from "react";
-import { toast } from "sonner";
+import { toast } from "@/lib/toast";
 import { saveProduct, uploadProductImage, type ProductFormInput } from "@/app/[locale]/admin/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";

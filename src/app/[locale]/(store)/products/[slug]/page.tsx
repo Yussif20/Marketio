@@ -99,7 +99,7 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
         </a>
         <span aria-hidden>·</span>
         {product.stock > 0 ? (
-          <span className={product.stock <= 5 ? "font-medium text-amber-600 dark:text-amber-400" : "text-emerald-600 dark:text-emerald-400"}>
+          <span className={product.stock <= 5 ? "font-medium text-amber-600 dark:text-amber-400" : "text-emerald-700 dark:text-emerald-400"}>
             {product.stock <= 5 ? t("product.onlyLeft", { count: product.stock }) : t("product.inStock")}
           </span>
         ) : (

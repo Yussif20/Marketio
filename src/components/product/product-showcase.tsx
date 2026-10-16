@@ -100,7 +100,7 @@ export function ProductShowcase({ product, summary, details }: ProductShowcasePr
         <div className="flex flex-wrap items-center gap-3">
           <Price priceCents={price} oldPriceCents={oldPrice} size="lg" />
           {discount > 0 && oldPrice && (
-            <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+            <span className="text-sm font-medium text-emerald-700 dark:text-emerald-400">
               {t("youSave", { amount: formatPriceInline(oldPrice - price) })}
             </span>
           )}

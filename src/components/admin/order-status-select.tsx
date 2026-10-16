@@ -3,7 +3,7 @@
 import { Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState, useTransition } from "react";
-import { toast } from "sonner";
+import { toast } from "@/lib/toast";
 import { setOrderStatus } from "@/app/[locale]/admin/actions";
 import { useRouter } from "@/i18n/navigation";
 import { ORDER_STATUSES, type OrderStatus } from "@/types/order";

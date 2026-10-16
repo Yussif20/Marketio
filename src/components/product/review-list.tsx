@@ -26,7 +26,7 @@ export async function ReviewList({ reviews }: { reviews: ProductReview[] }) {
               </span>
               <div>
                 <p className="text-sm font-semibold" dir="ltr">{review.author}</p>
-                <p className="flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400">
+                <p className="flex items-center gap-1 text-xs text-emerald-700 dark:text-emerald-400">
                   <BadgeCheck className="size-3.5" aria-hidden />
                   {t("verifiedPurchase")}
                 </p>
