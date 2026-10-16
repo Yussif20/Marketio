@@ -1,0 +1,12 @@
+rules_version = '2';
+
+// Product photos are uploaded through a server action (Admin SDK, which ignores
+// these rules) and stored in Vercel Blob, because Firebase Storage needs the paid
+// Blaze plan. If Storage is turned on later, browsers still get no direct access.
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -756,7 +756,7 @@
       "uploaded": "Photo uploaded."
     },
     "errors": {
-      "demo": "This is the read-only demo, so changes aren't saved.",
+      "demo": "Demo mode — changes aren't saved.",
       "unauthorised": "Your session ended. Sign in again.",
       "invalid": "Some fields aren't valid. Check them and try again.",
       "notAdmin": "This account doesn't have admin access.",

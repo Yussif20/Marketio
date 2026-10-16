@@ -10,6 +10,7 @@
     "typecheck": "next typegen && tsc --noEmit",
     "check:rtl": "node scripts/check-logical-classes.mjs",
     "seed": "tsx --env-file=.env.local scripts/seed.ts",
+    "admin:grant": "tsx --env-file=.env.local scripts/grant-admin.ts",
     "images": "tsx scripts/generate-placeholders.tsx",
     "images:split": "tsx scripts/process-product-images.ts",
     "images:lifestyle": "tsx scripts/process-lifestyle-images.ts"
