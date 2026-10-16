@@ -1,0 +1,768 @@
+{
+  "meta": {
+    "title": "Marketio — Online Store",
+    "description": "Shop phones, laptops, cameras, clothing and more with fast delivery and secure checkout."
+  },
+  "topBanner": {
+    "text": "Free delivery on orders over $140 · Easy 30-day returns",
+    "cta": "Shop the sale"
+  },
+  "header": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact",
+    "signIn": "Account",
+    "searchPlaceholder": "What are you looking for?",
+    "cart": "Cart",
+    "wishlist": "Wishlist",
+    "menu": "Menu",
+    "skipToContent": "Skip to content",
+    "wishlistCount": "Wishlist, {count, plural, =0 {empty} one {# item} other {# items}}",
+    "cartCount": "Cart, {count, plural, =0 {empty} one {# item} other {# items}}",
+    "shopAll": "Shop all {category}",
+    "categories": "Categories",
+    "newArrivals": "New arrivals",
+    "bestSellers": "Best sellers",
+    "deals": "Deals",
+    "search": "Search",
+    "hello": "Hello, sign in",
+    "tabBar": "Main navigation",
+    "shop": "Shop",
+    "account": "Account",
+    "searching": "Searching…",
+    "noSuggestions": "No matching products.",
+    "suggestions": "Suggestions",
+    "seeAllResults": "See all {count} results for “{q}”",
+    "brands": "Brands",
+    "journal": "Journal"
+  },
+  "language": {
+    "label": "Language",
+    "ar": "العربية",
+    "en": "English"
+  },
+  "theme": {
+    "label": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "categories": {
+    "headline": "Categories",
+    "title": "Browse by category",
+    "cameras": "Cameras",
+    "phones": "Phones",
+    "laptops": "Laptops",
+    "clothing": "Clothing",
+    "monitors": "Monitors",
+    "toys": "Toys",
+    "accessories": "Accessories"
+  },
+  "home": {
+    "heroTitle": "Everyday tech,",
+    "heroSubtitle": "better prices",
+    "flashSales": {
+      "headline": "Today's",
+      "title": "Flash sales"
+    },
+    "bestSelling": {
+      "headline": "This month",
+      "title": "Best selling products",
+      "all": "All"
+    },
+    "explore": {
+      "headline": "Our products",
+      "title": "Explore our products"
+    },
+    "newArrival": {
+      "headline": "Featured",
+      "title": "New arrivals"
+    },
+    "heroEyebrow": "Deal of the week",
+    "hero": {
+      "label": "Featured offers",
+      "slideOf": "Slide {current} of {total}",
+      "previous": "Previous slide",
+      "next": "Next slide",
+      "goTo": "Go to slide {number}",
+      "audio": {
+        "eyebrow": "Aurora audio",
+        "title": "Sound that moves with you",
+        "text": "Noise-cancelling headphones and earbuds, up to 25% off this week.",
+        "cta": "Shop audio"
+      },
+      "fashion": {
+        "eyebrow": "Kora autumn edit",
+        "title": "New season essentials",
+        "text": "Trench coats, knits and everyday sneakers, made to layer.",
+        "cta": "Shop clothing"
+      },
+      "workspace": {
+        "eyebrow": "Work from home",
+        "title": "Upgrade your workspace",
+        "text": "Laptops, monitors and quiet audio for a desk you'll love.",
+        "cta": "Shop the collection"
+      }
+    },
+    "promos": {
+      "label": "Promotions",
+      "wearables": {
+        "eyebrow": "Wearables",
+        "title": "Smartwatches & earbuds",
+        "cta": "From $99"
+      },
+      "kids": {
+        "eyebrow": "For kids",
+        "title": "Toys they'll love",
+        "cta": "Up to 30% off"
+      }
+    },
+    "collections": {
+      "eyebrow": "Curated",
+      "title": "Shop the collections",
+      "shop": "Shop now",
+      "work-from-home": {
+        "title": "Work from home",
+        "text": "Everything for a calm, productive desk."
+      },
+      "travel-light": {
+        "title": "Travel light",
+        "text": "Packable layers and gear for the road."
+      },
+      "gift-ideas": {
+        "title": "Gift ideas",
+        "text": "Thoughtful picks for everyone on your list."
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Reviews",
+      "title": "What our customers say"
+    },
+    "gallery": {
+      "eyebrow": "#MarketioStyle",
+      "title": "Shop the look",
+      "text": "Ideas and inspiration from our latest collections.",
+      "cta": "Read the journal"
+    }
+  },
+  "product": {
+    "addToCart": "Add to cart",
+    "buyNow": "Buy now",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "reviews": "{count, plural, one {# review} other {# reviews}}",
+    "freeDelivery": {
+      "title": "Free delivery",
+      "text": "Enter your postal code to check delivery availability"
+    },
+    "returns": {
+      "title": "Free returns",
+      "text": "Free 30-day delivery returns"
+    },
+    "addedToCart": "Added to cart",
+    "viewCart": "View cart",
+    "addToWishlist": "Add to wishlist",
+    "removeFromWishlist": "Remove from wishlist",
+    "addedToWishlist": "Saved to your wishlist",
+    "removedFromWishlist": "Removed from your wishlist",
+    "ratingLabel": "Rated {rating} out of 5",
+    "gallery": "Product images",
+    "showImage": "Show image {number}",
+    "imageAlt": "{title}, image {number}",
+    "color": "Colour",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "onlyLeft": "Only {count} left",
+    "description": "Description",
+    "breadcrumb": "Breadcrumb",
+    "reviewsEyebrow": "Reviews",
+    "ratingsTitle": "Customer ratings",
+    "starsCount": "{stars, plural, one {# star} other {# stars}}",
+    "starsShare": "{stars, plural, one {# star} other {# stars}}: {percent}% of reviews",
+    "relatedEyebrow": "Related",
+    "related": "You may also like",
+    "youSave": "You save {amount}",
+    "specifications": "Specifications",
+    "verifiedPurchase": "Verified purchase"
+  },
+  "buttons": {
+    "viewAll": "View all",
+    "shopNow": "Shop now",
+    "continueShopping": "Continue shopping",
+    "createAccount": "Create account",
+    "googleSignIn": "Continue with Google",
+    "logIn": "Log in",
+    "logOut": "Log out",
+    "forgotPassword": "Forgot password?",
+    "moveAllToBag": "Move all to cart",
+    "seeAll": "See all",
+    "applyCoupon": "Apply coupon",
+    "proceedToCheckout": "Proceed to checkout",
+    "placeOrder": "Place order",
+    "goHome": "Back to home",
+    "saveRating": "Save rating",
+    "browseAll": "Browse all products"
+  },
+  "services": {
+    "freeDelivery": {
+      "title": "Free and fast delivery",
+      "description": "Free delivery on all orders over $140."
+    },
+    "customerService": {
+      "title": "24/7 customer service",
+      "description": "Friendly support around the clock."
+    },
+    "moneyBack": {
+      "title": "Money-back guarantee",
+      "description": "We refund your money within 30 days."
+    }
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "label": "Time left in today's flash sale"
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty.",
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "total": "Total",
+    "cartTotal": "Cart total",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "free": "Free",
+    "couponCode": "Coupon code",
+    "quantityFor": "Quantity of {title}",
+    "remove": "Remove {title}",
+    "clear": "Clear cart",
+    "freeShippingHint": "Add {amount} more for free shipping."
+  },
+  "checkout": {
+    "title": "Checkout",
+    "browse": "Browse products",
+    "contactTitle": "Contact & delivery",
+    "signInPrompt": "Have an account? Sign in",
+    "paymentMethod": "Payment method",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone number",
+      "city": "City",
+      "address": "Street address",
+      "notes": "Delivery notes (optional)"
+    },
+    "errors": {
+      "name": "Please enter your full name.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter a valid phone number.",
+      "address": "Please enter your street address.",
+      "city": "Please enter your city.",
+      "notes": "Notes are limited to 300 characters.",
+      "invalid": "Please check the form and try again.",
+      "empty": "Your cart is empty.",
+      "unavailable": "An item in your cart is no longer available. Please review your cart.",
+      "stock": "Not enough stock for one of the items. Please lower the quantity.",
+      "coupon": "That coupon code isn't valid.",
+      "card-unavailable": "Card payment isn't available right now. Choose cash on delivery or WhatsApp.",
+      "server": "Something went wrong. Please try again."
+    },
+    "methods": {
+      "card": {
+        "title": "Card",
+        "text": "Pay securely with Stripe",
+        "unavailable": "Coming soon"
+      },
+      "cod": {
+        "title": "Cash on delivery",
+        "text": "Pay when your order arrives"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "text": "Confirm your order by chat"
+      }
+    },
+    "testCardHint": "Demo store: use the Stripe test card 4242 4242 4242 4242, any future date and any CVC. No real money is charged.",
+    "summary": "Order summary",
+    "coupon": "Coupon code",
+    "couponPlaceholder": "Try WELCOME10",
+    "applyCoupon": "Apply",
+    "couponApplied": "Coupon applied: {percent}% off",
+    "discount": "Discount ({code})",
+    "submit": {
+      "card": "Pay with card",
+      "cod": "Place order",
+      "whatsapp": "Place order on WhatsApp"
+    },
+    "demoNotice": "Demo store: orders are not shipped.",
+    "cancelled": "Payment cancelled. Your cart is still here.",
+    "successTitle": "Thank you for your order!",
+    "awaitingTitle": "We're confirming your payment",
+    "successText": {
+      "card": "Your payment was received and your order is being prepared.",
+      "cod": "Pay in cash when your order is delivered. We'll call you to confirm.",
+      "whatsapp": "One more step: send the order on WhatsApp so we can confirm it with you."
+    },
+    "orderNumber": "Order number",
+    "whatsappStep": "Tap the button to send your order summary to our WhatsApp.",
+    "whatsappButton": "Send order on WhatsApp",
+    "statusLabel": "Status",
+    "status": {
+      "pending": "Pending",
+      "paid": "Paid",
+      "shipped": "Shipped",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    },
+    "keepShopping": "Continue shopping",
+    "viewOrders": "My orders"
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "empty": "Your wishlist is empty.",
+    "justForYou": "Just for you",
+    "count": "{count, plural, one {# saved item} other {# saved items}}",
+    "movedAll": "{count, plural, one {# item} other {# items}} moved to your cart",
+    "moveToCart": "Move to cart",
+    "remove": "Remove {title}"
+  },
+  "auth": {
+    "signUpTitle": "Create an account",
+    "logInTitle": "Log in to Marketio",
+    "enterDetails": "Enter your details below",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "email": "Email",
+    "password": "Password",
+    "welcome": "Welcome",
+    "alreadySignedIn": "You're already signed in."
+  },
+  "search": {
+    "title": "Search results",
+    "resultsFor": "Results for",
+    "empty": "No products match your search."
+  },
+  "contact": {
+    "title": "Contact",
+    "callUs": "Call us",
+    "emailUs": "Email us",
+    "available": "We're available 24/7.",
+    "name": "Your name",
+    "email": "Your email",
+    "phone": "Your phone",
+    "message": "Your message",
+    "send": "Send message",
+    "intro": "Questions about an order, a product or a return? Send us a message and we'll reply within a day.",
+    "channels": {
+      "whatsapp": {
+        "label": "WhatsApp"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "address": {
+        "label": "Address",
+        "value": "Cairo, Egypt (demo address)"
+      },
+      "hours": {
+        "label": "Opening hours",
+        "value": "Every day, 9:00–22:00"
+      }
+    },
+    "faqPrompt": "Looking for a quick answer?",
+    "faqLink": "Read the FAQ",
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "message": "Please write at least 10 characters."
+    },
+    "sentTitle": "Message received",
+    "sentText": "Thanks for getting in touch. In this demo nothing is sent, but a real store would reply within a day.",
+    "sendAnother": "Send another message"
+  },
+  "about": {
+    "title": "A store built for both languages",
+    "body": "Every page works right-to-left and left-to-right, prices are clear, and you can pay by card, in cash on delivery or by ordering over WhatsApp, whichever you prefer.",
+    "eyebrow": "Our story",
+    "lead": "Marketio brings everyday tech, clothing and gifts together in one fast store that feels natural in Arabic and English.",
+    "demoNote": "Marketio is a portfolio demo. The products, brands and reviews are invented, and orders are not shipped.",
+    "statsLabel": "Marketio in numbers",
+    "stats": {
+      "products": "Products",
+      "brands": "Brands",
+      "languages": "Languages",
+      "support": "Support"
+    },
+    "howTitle": "How your order reaches you",
+    "steps": {
+      "warehouse": {
+        "title": "Stocked and ready",
+        "text": "Every product sits in one organised warehouse, so we know exactly what's in stock."
+      },
+      "packing": {
+        "title": "Packed with care",
+        "text": "Orders are checked and packed the same day, with protective packaging that's easy to recycle."
+      },
+      "support": {
+        "title": "Real people to help",
+        "text": "Our support team answers by chat, email and WhatsApp, in Arabic or English."
+      },
+      "delivery": {
+        "title": "Delivered to your door",
+        "text": "Couriers deliver in 1–3 days in major cities, and you can track every step."
+      }
+    },
+    "valuesTitle": "What we care about",
+    "values": {
+      "quality": {
+        "title": "Quality you can trust",
+        "text": "Every product is checked before it ships."
+      },
+      "delivery": {
+        "title": "Fast, free delivery",
+        "text": "Free on orders over $140."
+      },
+      "support": {
+        "title": "Support that answers",
+        "text": "Help around the clock."
+      },
+      "bilingual": {
+        "title": "Arabic and English",
+        "text": "The whole store, in your language."
+      }
+    },
+    "cta": "Start shopping"
+  },
+  "footer": {
+    "tagline": "A bilingual demo store built with Next.js and Firebase.",
+    "subscribe": "Subscribe",
+    "subscribeText": "New arrivals, deals and 10% off your first order. No spam.",
+    "emailPlaceholder": "Enter your email",
+    "support": "Support",
+    "account": "Account",
+    "myAccount": "My account",
+    "quickLinks": "Quick links",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "faq": "FAQ",
+    "demoNotice": "Demo store — products and orders are fictional.",
+    "rights": "© {year} Marketio. All rights reserved.",
+    "shop": "Shop",
+    "help": "Help",
+    "company": "Company",
+    "shippingReturns": "Shipping & returns",
+    "trackOrder": "Track your order",
+    "journal": "Journal",
+    "newsletterTitle": "Join the Marketio list",
+    "emailInvalid": "Please enter a valid email address.",
+    "subscribed": "You're on the list! Check your inbox for 10% off.",
+    "address": "Cairo, Egypt (demo address)",
+    "paymentMethods": "Payment methods",
+    "payments": {
+      "card": "Card",
+      "cod": "Cash on delivery",
+      "whatsapp": "WhatsApp order"
+    },
+    "perks": {
+      "freeDelivery": {
+        "title": "Free delivery",
+        "text": "On orders over $140"
+      },
+      "returns": {
+        "title": "30-day returns",
+        "text": "Free and easy"
+      },
+      "securePayment": {
+        "title": "Secure payment",
+        "text": "Card, cash or WhatsApp"
+      },
+      "support": {
+        "title": "24/7 support",
+        "text": "We're here to help"
+      }
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "The page you're looking for doesn't exist."
+  },
+  "listing": {
+    "title": "All products",
+    "resultsFor": "Results for “{q}”",
+    "count": "{count, plural, =0 {No products} one {# product} other {# products}}",
+    "filters": "Filters",
+    "category": "Category",
+    "price": "Price ($)",
+    "min": "Min",
+    "max": "Max",
+    "apply": "Apply price",
+    "rating": "Rating",
+    "andUp": "{rating} & up",
+    "anyRating": "Any rating",
+    "inStockOnly": "In stock only",
+    "clearFilters": "Clear filters",
+    "clearAll": "Show all products",
+    "sortBy": "Sort by",
+    "sort": {
+      "new": "Newest",
+      "price-asc": "Price: low to high",
+      "price-desc": "Price: high to low",
+      "rating": "Top rated",
+      "discount": "Biggest discount"
+    },
+    "empty": "No products match these filters.",
+    "pagination": "Pages",
+    "previous": "Previous page",
+    "next": "Next page",
+    "brand": "Brand",
+    "gridHeading": "Products"
+  },
+  "subcategories": {
+    "smartphones": "Smartphones",
+    "tablets": "Tablets",
+    "phone-gear": "Chargers & power",
+    "ultrabooks": "Ultrabooks",
+    "gaming-laptops": "Gaming laptops",
+    "everyday-laptops": "Everyday laptops",
+    "compact-cameras": "Compact cameras",
+    "mirrorless": "Mirrorless & lenses",
+    "action-cameras": "Action cameras",
+    "kids-cameras": "Kids' cameras",
+    "office-monitors": "Office monitors",
+    "gaming-monitors": "Gaming monitors",
+    "creator-monitors": "Creator monitors",
+    "tops": "Tops & shirts",
+    "outerwear": "Jackets & coats",
+    "bottoms": "Trousers & jeans",
+    "footwear": "Shoes",
+    "building": "Building sets",
+    "remote-control": "Remote control",
+    "plush": "Plush toys",
+    "games": "Board games & puzzles",
+    "audio": "Audio",
+    "watches": "Watches",
+    "bags": "Bags",
+    "eyewear": "Eyewear"
+  },
+  "brands": {
+    "title": "Shop by brand",
+    "vela": "Phones and tablets for every day",
+    "atlas": "Laptops that go where you go",
+    "lumen": "Cameras for every story",
+    "clarity": "Screens that are easy on the eyes",
+    "kora": "Everyday clothing and bags",
+    "playlab": "Toys that make kids think",
+    "aurora": "Sound without the wires",
+    "halden": "Watches and eyewear",
+    "intro": "Eight brands we work with, from phones to plush toys."
+  },
+  "options": {
+    "size": "Size",
+    "storage": "Storage",
+    "memory": "Memory"
+  },
+  "categoryIntro": {
+    "phones": "Smartphones, tablets and the chargers to keep them going.",
+    "laptops": "Ultrabooks, gaming rigs and dependable everyday laptops.",
+    "cameras": "Vlog cameras, mirrorless kits, action cams and lenses.",
+    "monitors": "Office, gaming and colour-accurate creator displays.",
+    "clothing": "Everyday tops, outerwear, trousers and shoes.",
+    "toys": "Building kits, remote-control fun, plush friends and games.",
+    "accessories": "Headphones, watches, bags and eyewear."
+  },
+  "categoryPage": {
+    "shopBy": "Shop by type",
+    "bestIn": "Best sellers in {category}"
+  },
+  "searchPage": {
+    "title": "Search",
+    "popular": "Popular searches",
+    "terms": {
+      "headphones": "headphones",
+      "laptop": "laptop",
+      "hoodie": "hoodie",
+      "watch": "watch",
+      "camera": "camera",
+      "sneakers": "sneakers"
+    }
+  },
+  "journal": {
+    "title": "Journal",
+    "intro": "Buying guides, styling ideas and practical tips from the Marketio team.",
+    "minutes": "{count, plural, one {# min read} other {# min read}}",
+    "readMore": "Read the article",
+    "shopThePost": "Shop this article"
+  },
+  "faqPage": {
+    "title": "Frequently asked questions",
+    "intro": "Quick answers about orders, delivery, returns and payment.",
+    "stillNeedHelp": "Still need help?",
+    "contactUs": "Contact us"
+  },
+  "policies": {
+    "updated": "Last updated {date}"
+  },
+  "account": {
+    "title": "My account",
+    "tabs": {
+      "signin": "Sign in",
+      "signup": "Create account"
+    },
+    "signinTitle": "Welcome back",
+    "signinText": "Sign in to see your orders and check out faster.",
+    "signupTitle": "Create your account",
+    "signupText": "Track your orders and save your details for next time.",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password (6+ characters)",
+    "signinButton": "Sign in",
+    "signupButton": "Create account",
+    "or": "or",
+    "google": "Continue with Google",
+    "demoNotice": "Demo store: use any test email, it isn't verified.",
+    "welcome": "You're signed in.",
+    "signOut": "Sign out",
+    "customer": "Marketio customer",
+    "myOrders": "My orders",
+    "noOrders": "You haven't placed any orders yet.",
+    "viewOrder": "View order",
+    "errors": {
+      "credentials": "Wrong email or password.",
+      "inUse": "An account with this email already exists. Sign in instead.",
+      "weak": "Please use at least 6 characters.",
+      "email": "Please enter a valid email address.",
+      "domain": "Google sign-in isn't enabled for this site address yet.",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "admin": {
+    "title": "Admin",
+    "panel": "Marketio admin",
+    "nav": {
+      "dashboard": "Dashboard",
+      "orders": "Orders",
+      "products": "Products",
+      "store": "View store",
+      "signOut": "Sign out"
+    },
+    "role": {
+      "admin": "Admin",
+      "demo": "Read-only demo"
+    },
+    "demoBanner": "You're viewing the read-only demo. Changes aren't saved and customer details are hidden.",
+    "login": {
+      "title": "Sign in to the admin",
+      "text": "Use an account that has admin access.",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign in",
+      "or": "or",
+      "demo": "Try the admin demo",
+      "demoText": "No account needed. Read-only: you can look around, but nothing is saved.",
+      "errors": {
+        "credentials": "Wrong email or password.",
+        "notAdmin": "This account doesn't have admin access.",
+        "generic": "Couldn't sign in. Try again."
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "revenue": "Revenue",
+      "revenueHint": "Paid, shipped and delivered orders",
+      "orders": "Orders",
+      "average": "Average order",
+      "pending": "Pending orders",
+      "sales": "Sales, last 14 days",
+      "noSales": "No sales on this day",
+      "methods": "Orders by payment method",
+      "latest": "Latest orders",
+      "lowStock": "Low stock",
+      "noLowStock": "Every product has more than 5 in stock.",
+      "inStock": "{count} left",
+      "topProducts": "Best sellers",
+      "sold": "{count} sold",
+      "viewAll": "View all"
+    },
+    "orders": {
+      "title": "Orders",
+      "count": "{count, plural, one {# order} other {# orders}}",
+      "all": "All",
+      "search": "Search by order number, name or email",
+      "empty": "No orders match.",
+      "order": "Order",
+      "date": "Date",
+      "customer": "Customer",
+      "payment": "Payment",
+      "status": "Status",
+      "total": "Total",
+      "items": "Items",
+      "quantity": "Qty",
+      "back": "All orders",
+      "details": "Customer details",
+      "phone": "Phone",
+      "address": "Address",
+      "notes": "Notes",
+      "summary": "Summary",
+      "subtotal": "Subtotal",
+      "discount": "Discount",
+      "shipping": "Shipping",
+      "changeStatus": "Order status",
+      "statusSaved": "Status updated.",
+      "notFound": "Order not found."
+    },
+    "products": {
+      "title": "Products",
+      "count": "{count, plural, one {# product} other {# products}}",
+      "new": "New product",
+      "search": "Search products",
+      "product": "Product",
+      "category": "Category",
+      "price": "Price",
+      "stock": "Stock",
+      "edit": "Edit",
+      "editTitle": "Edit product",
+      "newTitle": "Add a product",
+      "back": "All products",
+      "notFound": "Product not found.",
+      "fields": {
+        "id": "Slug",
+        "idHint": "Lowercase letters, numbers and dashes. Used in the product URL.",
+        "titleEn": "Name (English)",
+        "titleAr": "Name (Arabic)",
+        "descriptionEn": "Description (English)",
+        "descriptionAr": "Description (Arabic)",
+        "brand": "Brand",
+        "category": "Category",
+        "subcategory": "Subcategory",
+        "price": "Price (USD)",
+        "oldPrice": "Price before discount (optional)",
+        "stock": "Stock",
+        "featured": "Featured on the home page",
+        "images": "Photos",
+        "imagesHint": "The first photo is the cover. WebP, JPEG or PNG, up to 4 MB.",
+        "upload": "Upload photo",
+        "imageUrl": "Or paste an image path",
+        "add": "Add",
+        "remove": "Remove photo",
+        "moveFirst": "Make cover"
+      },
+      "save": "Save product",
+      "create": "Create product",
+      "saved": "Product saved.",
+      "uploaded": "Photo uploaded."
+    },
+    "errors": {
+      "demo": "Demo mode — changes aren't saved.",
+      "unauthorised": "Your session ended. Sign in again.",
+      "invalid": "Some fields aren't valid. Check them and try again.",
+      "notAdmin": "This account doesn't have admin access.",
+      "noStorage": "Photo uploads aren't set up yet (BLOB_READ_WRITE_TOKEN is missing).",
+      "server": "Something went wrong. Try again."
+    }
+  }
+}
