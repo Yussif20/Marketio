@@ -1,21 +1,36 @@
 import "server-only";
 import { cacheLife, cacheTag } from "next/cache";
 import { products as demoProducts } from "@/data/products";
+import { adminDb } from "@/lib/firebase/admin";
 import { discountPercent } from "@/lib/product";
 import { PAGE_SIZE, type ProductQuery } from "@/lib/product-query";
 import { BRANDS, CATEGORIES, SUBCATEGORIES, type Brand, type Category, type Product } from "@/types/product";
 
 /**
- * The only place pages read products from. It serves the local demo catalogue
- * today; switching to Firestore means changing `getAllProducts` alone.
- * Results are cached for an hour and tagged "products" so an admin edit can
- * call revalidateTag("products").
+ * The only place pages read products from. Reads the Firestore `products`
+ * collection (kept up to date by the admin) when server credentials are set,
+ * and falls back to the bundled demo catalogue otherwise or if Firestore fails,
+ * so a build without secrets still renders the full store.
+ * Cached for an hour and tagged "products"; admin saves call updateTag("products").
  */
 export async function getAllProducts(): Promise<Product[]> {
   "use cache";
   cacheLife("hours");
   cacheTag("products");
-  return demoProducts;
+
+  if (!process.env.FIREBASE_PRIVATE_KEY) return demoProducts;
+  try {
+    const snapshot = await adminDb().collection("products").get();
+    if (snapshot.empty) return demoProducts;
+    // Keep the curated catalogue order; products added in the admin go last.
+    const order = new Map(demoProducts.map((p, i) => [p.id, i]));
+    return snapshot.docs
+      .map((doc) => doc.data() as Product)
+      .sort((a, b) => (order.get(a.id) ?? Infinity) - (order.get(b.id) ?? Infinity) || a.createdAt.localeCompare(b.createdAt));
+  } catch (error) {
+    console.error("Reading products from Firestore failed; using the bundled catalogue.", error);
+    return demoProducts;
+  }
 }
 
 export async function getProductBySlug(slug: string) {

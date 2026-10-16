@@ -7,7 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { checkCoupon, placeOrder } from "@/app/[locale]/checkout/actions";
+import { checkCoupon, placeOrder } from "@/app/[locale]/(store)/checkout/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

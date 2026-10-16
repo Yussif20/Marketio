@@ -15,7 +15,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState, useTransition } from "react";
 import { toast } from "sonner";
-import { getMyOrders } from "@/app/[locale]/account/actions";
+import { getMyOrders } from "@/app/[locale]/(store)/account/actions";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
