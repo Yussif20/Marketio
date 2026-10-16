@@ -61,11 +61,15 @@ async function ProductResults({ searchParams }: Pick<PageProps<"/[locale]/produc
           </div>
 
           {items.length > 0 ? (
-            <ProductGrid>
-              {items.map((product, index) => (
-                <ProductCard key={product.id} product={product} priority={index < 4} />
-              ))}
-            </ProductGrid>
+            <>
+              {/* Cards use <h3>, so the grid gets a visually hidden <h2> to keep the heading order. */}
+              <h2 className="sr-only">{t("gridHeading")}</h2>
+              <ProductGrid>
+                {items.map((product, index) => (
+                  <ProductCard key={product.id} product={product} priority={index < 4} />
+                ))}
+              </ProductGrid>
+            </>
           ) : (
             <div className="rounded-xl border border-dashed p-12 text-center">
               <p className="font-medium">{t("empty")}</p>

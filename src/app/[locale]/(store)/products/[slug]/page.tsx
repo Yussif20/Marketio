@@ -14,6 +14,7 @@ import { routing, type Locale } from "@/i18n/routing";
 import { getProductBySlug, getProductSlugs, getRelatedProducts } from "@/lib/catalog";
 import { absoluteUrl } from "@/lib/site";
 import type { Product } from "@/types/product";
+import { Suspense } from "react";
 
 export async function generateStaticParams() {
   return (await getProductSlugs()).map((slug) => ({ slug }));
@@ -178,23 +179,28 @@ export default async function ProductPage({ params }: PageProps<"/[locale]/produ
         </div>
       </section>
 
-      <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-36">
-        <SectionHeading id="reviews-title" eyebrow={t("product.reviewsEyebrow")} title={t("product.ratingsTitle")} />
-        <div className="grid gap-10 lg:grid-cols-[22rem_1fr]">
-          <RatingBreakdown rating={product.rating} />
-          <ReviewList reviews={product.reviews} />
-        </div>
-      </section>
+      {/* Below the fold: separate boundaries so these hydrate in their own tasks. */}
+      <Suspense>
+        <section id="reviews" aria-labelledby="reviews-title" className="scroll-mt-36">
+          <SectionHeading id="reviews-title" eyebrow={t("product.reviewsEyebrow")} title={t("product.ratingsTitle")} />
+          <div className="grid gap-10 lg:grid-cols-[22rem_1fr]">
+            <RatingBreakdown rating={product.rating} />
+            <ReviewList reviews={product.reviews} />
+          </div>
+        </section>
+      </Suspense>
 
       {related.length > 0 && (
-        <section aria-labelledby="related-title">
-          <SectionHeading id="related-title" eyebrow={t("product.relatedEyebrow")} title={t("product.related")} />
-          <ProductGrid>
-            {related.map((item) => (
-              <ProductCard key={item.id} product={item} />
-            ))}
-          </ProductGrid>
-        </section>
+        <Suspense>
+          <section aria-labelledby="related-title">
+            <SectionHeading id="related-title" eyebrow={t("product.relatedEyebrow")} title={t("product.related")} />
+            <ProductGrid>
+              {related.map((item) => (
+                <ProductCard key={item.id} product={item} />
+              ))}
+            </ProductGrid>
+          </section>
+        </Suspense>
       )}
     </div>
   );

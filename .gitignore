@@ -41,8 +41,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# local notes
+# local notes (README screenshots are the exception; their raw captures stay local)
 docs/*
+!docs/screenshots/
+docs/screenshots/raw/
 todo
 
 # AI image downloads before processing

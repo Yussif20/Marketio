@@ -12,6 +12,7 @@ import { MobileNav } from "./mobile-nav";
 import { navLinks } from "./nav-links";
 import { SearchBox } from "./search-box";
 import { ThemeSwitcher } from "./theme-switcher";
+import { Suspense } from "react";
 
 export async function SiteHeader() {
   const t = await getTranslations("header");
@@ -37,18 +38,24 @@ export async function SiteHeader() {
             </Link>
           </p>
           <div className="flex shrink-0 items-center gap-1 [&_button]:text-white [&_button]:hover:bg-white/10 [&_button]:hover:text-white">
-            <LocaleSwitcher />
-            <ThemeSwitcher />
+            <Suspense>
+              <LocaleSwitcher />
+              <ThemeSwitcher />
+            </Suspense>
           </div>
         </div>
       </div>
 
       <div className="border-b">
         <div className="container flex h-16 items-center gap-2 sm:gap-4 lg:h-20">
-          <MobileNav menu={menu} />
+          <Suspense>
+            <MobileNav menu={menu} />
+          </Suspense>
           <Logo />
 
-          <SearchBox className="mx-auto hidden max-w-2xl md:block" />
+          <Suspense>
+            <SearchBox className="mx-auto hidden max-w-2xl md:block" />
+          </Suspense>
 
           <div className="ms-auto flex items-center gap-1 md:ms-0">
             <Button variant="ghost" size="icon" className="md:hidden" asChild>
@@ -65,13 +72,15 @@ export async function SiteHeader() {
                 </span>
               </Link>
             </Button>
-            <HeaderStoreLinks />
+            <Suspense>
+              <HeaderStoreLinks />
+            </Suspense>
           </div>
         </div>
       </div>
 
       <div className="hidden border-b lg:block">
-        <nav aria-label={t("categories")} className="container flex h-12 items-center gap-2">
+        <nav aria-label={t("categories")} className="relative container flex h-12 items-center gap-2">
           <MegaMenu menu={menu} />
           <div className="ms-auto flex items-center gap-1">
             {navLinks.map((link) => (

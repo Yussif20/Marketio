@@ -4,21 +4,23 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DirectionProvider } from "@/components/ui/direction";
-import { Toaster } from "@/components/ui/sonner";
+import { LazyToaster } from "@/components/lazy-toaster";
 import { localeDirection, routing } from "@/i18n/routing";
 import { siteUrl } from "@/lib/site";
 import { StoreHydration } from "@/stores/hydration";
 import "../globals.css";
 
+// Neither font is preloaded: text renders in the size-adjusted fallback and swaps,
+// so the fonts never compete with the CSS and the hero image on slow connections.
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
 });
 
-// Not preloaded: the CSS unicode-range means English pages never download it, and on
-// Arabic pages it would compete with the hero image for bandwidth. Medium (500)
-// text uses the 400 file, which saves a whole extra weight.
+// unicode-range means English pages never download it. Medium (500) text uses
+// the 400 file, which saves a whole extra weight.
 const plexArabic = IBM_Plex_Sans_Arabic({
   subsets: ["arabic"],
   weight: ["400", "600", "700"],
@@ -72,7 +74,7 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
           <ThemeProvider>
             <DirectionProvider dir={dir}>
               {children}
-              <Toaster dir={dir} position={dir === "rtl" ? "bottom-left" : "bottom-right"} />
+              <LazyToaster dir={dir} position={dir === "rtl" ? "bottom-left" : "bottom-right"} />
               <StoreHydration />
             </DirectionProvider>
           </ThemeProvider>

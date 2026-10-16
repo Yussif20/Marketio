@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button";
 import { brands, categories } from "@/data/categories";
 import { testimonials } from "@/data/testimonials";
 import { Link } from "@/i18n/navigation";
-import { localeDirection } from "@/i18n/routing";
+import { localeDirection, type Locale } from "@/i18n/routing";
+import { getProductsBySlugs } from "@/lib/catalog";
 import { COLLECTIONS } from "@/types/product";
 import { SectionHeading } from "./section-heading";
 
@@ -167,14 +168,23 @@ export async function Testimonials() {
 /** Instagram-style photo grid made from product and lifestyle shots. */
 export async function StyleGallery() {
   const t = await getTranslations("home.gallery");
-  const photos = [
-    { src: "/products/kora-trench-coat/1.webp", href: "/products/kora-trench-coat" },
-    { src: "/collections/travel-light.webp", href: "/products?collection=travel-light" },
-    { src: "/products/aurora-wireless-headphones/2.webp", href: "/products/aurora-wireless-headphones" },
-    { src: "/products/halden-minimal-watch/4.webp", href: "/products/halden-minimal-watch" },
-    { src: "/collections/work-from-home.webp", href: "/products?collection=work-from-home" },
-    { src: "/products/kora-runner-sneakers/1.webp", href: "/products/kora-runner-sneakers" },
-  ];
+  const collections = await getTranslations("home.collections");
+  const locale = (await getLocale()) as Locale;
+  const shots = [
+    { src: "/products/kora-trench-coat/1.webp", product: "kora-trench-coat" },
+    { src: "/collections/travel-light.webp", collection: "travel-light" },
+    { src: "/products/aurora-wireless-headphones/2.webp", product: "aurora-wireless-headphones" },
+    { src: "/products/halden-minimal-watch/4.webp", product: "halden-minimal-watch" },
+    { src: "/collections/work-from-home.webp", collection: "work-from-home" },
+    { src: "/products/kora-runner-sneakers/1.webp", product: "kora-runner-sneakers" },
+  ] as const;
+  const products = await getProductsBySlugs(shots.flatMap((shot) => ("product" in shot ? [shot.product] : [])));
+  // Each photo links somewhere, so its alt text names the destination for screen readers.
+  const photos = shots.map((shot) =>
+    "product" in shot
+      ? { src: shot.src, href: `/products/${shot.product}`, label: products.find((p) => p.slug === shot.product)?.title[locale] ?? "" }
+      : { src: shot.src, href: `/products?collection=${shot.collection}`, label: collections(`${shot.collection}.title`) },
+  );
   return (
     <section aria-labelledby="gallery-title" className="text-center">
       <p className="text-sm font-semibold text-primary" dir="ltr">{t("eyebrow")}</p>
@@ -184,7 +194,7 @@ export async function StyleGallery() {
         {photos.map((photo) => (
           <li key={photo.src}>
             <Link href={photo.href} className="group relative block aspect-square overflow-hidden rounded-xl bg-muted">
-              <Image src={photo.src} alt="" fill sizes="(min-width: 1024px) 16vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-110" />
+              <Image src={photo.src} alt={photo.label} fill sizes="(min-width: 1024px) 16vw, 33vw" className="object-cover transition-transform duration-500 group-hover:scale-110" />
             </Link>
           </li>
         ))}

@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { localeDirection } from "@/i18n/routing";
 import { getBestSellersByCategory, getHomeSections } from "@/lib/catalog";
+import { Suspense } from "react";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("meta");
@@ -55,53 +56,72 @@ export default async function HomePage() {
   return (
     <div className="container space-y-16 py-6 sm:space-y-20 sm:py-8">
       <HeroSlider />
+      {/* Each section below the hero is its own boundary so React hydrates it in a separate task. */}
 
-      <CategoryTiles />
+      <Suspense>
+        <CategoryTiles />
+      </Suspense>
 
-      <section aria-labelledby="flash-title">
-        <SectionHeading id="flash-title" eyebrow={t("home.flashSales.headline")} title={t("home.flashSales.title")}>
-          <Countdown />
-        </SectionHeading>
-        <ul className="scrollbar-none -mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-2">
-          {flashSale.map((product) => (
-            <li key={product.id} className="w-56 shrink-0 snap-start sm:w-64">
-              <ProductCard product={product} />
-            </li>
-          ))}
-        </ul>
-        <div className="mt-6 flex justify-center">{viewAll("/products?sort=discount")}</div>
-      </section>
+      <Suspense>
+        <section aria-labelledby="flash-title">
+          <SectionHeading id="flash-title" eyebrow={t("home.flashSales.headline")} title={t("home.flashSales.title")}>
+            <Countdown />
+          </SectionHeading>
+          <ul className="scrollbar-none -mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-2">
+            {flashSale.map((product) => (
+              <li key={product.id} className="w-56 shrink-0 snap-start sm:w-64">
+                <ProductCard product={product} />
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 flex justify-center">{viewAll("/products?sort=discount")}</div>
+        </section>
+      </Suspense>
 
-      <PromoBanners />
+      <Suspense>
+        <PromoBanners />
+      </Suspense>
 
-      <section aria-labelledby="best-title">
-        <SectionHeading id="best-title" eyebrow={t("home.bestSelling.headline")} title={t("home.bestSelling.title")}>
-          {viewAll("/products?sort=rating")}
-        </SectionHeading>
-        <TabbedProducts
-          id="best-sellers"
-          tabs={[
-            { key: "all", label: t("home.bestSelling.all") },
-            ...BEST_SELLER_TABS.map((category) => ({ key: category, label: t(`categories.${category}`) })),
-          ]}
-          panels={[grid(bestSellers, "all"), ...BEST_SELLER_TABS.map((category) => grid(byCategory[category], category))]}
-        />
-      </section>
+      <Suspense>
+        <section aria-labelledby="best-title">
+          <SectionHeading id="best-title" eyebrow={t("home.bestSelling.headline")} title={t("home.bestSelling.title")}>
+            {viewAll("/products?sort=rating")}
+          </SectionHeading>
+          <TabbedProducts
+            id="best-sellers"
+            tabs={[
+              { key: "all", label: t("home.bestSelling.all") },
+              ...BEST_SELLER_TABS.map((category) => ({ key: category, label: t(`categories.${category}`) })),
+            ]}
+            panels={[grid(bestSellers, "all"), ...BEST_SELLER_TABS.map((category) => grid(byCategory[category], category))]}
+          />
+        </section>
+      </Suspense>
 
-      <BrandStrip />
+      <Suspense>
+        <BrandStrip />
+      </Suspense>
 
-      <section aria-labelledby="new-title">
-        <SectionHeading id="new-title" eyebrow={t("home.newArrival.headline")} title={t("home.newArrival.title")}>
-          {viewAll("/products?sort=new")}
-        </SectionHeading>
-        {grid(newArrivals)}
-      </section>
+      <Suspense>
+        <section aria-labelledby="new-title">
+          <SectionHeading id="new-title" eyebrow={t("home.newArrival.headline")} title={t("home.newArrival.title")}>
+            {viewAll("/products?sort=new")}
+          </SectionHeading>
+          {grid(newArrivals)}
+        </section>
+      </Suspense>
 
-      <CollectionTiles />
+      <Suspense>
+        <CollectionTiles />
+      </Suspense>
 
-      <Testimonials />
+      <Suspense>
+        <Testimonials />
+      </Suspense>
 
-      <StyleGallery />
+      <Suspense>
+        <StyleGallery />
+      </Suspense>
     </div>
   );
 }

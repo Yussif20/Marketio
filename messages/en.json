@@ -519,7 +519,8 @@
     "pagination": "Pages",
     "previous": "Previous page",
     "next": "Next page",
-    "brand": "Brand"
+    "brand": "Brand",
+    "gridHeading": "Products"
   },
   "subcategories": {
     "smartphones": "Smartphones",

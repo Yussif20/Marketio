@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link } from "@/i18n/navigation";
-import { formatPrice } from "@/lib/product";
+import { formatPrice, formatPriceInline } from "@/lib/product";
 import { FREE_SHIPPING_FROM_CENTS, shippingFor, unitPriceCents } from "@/lib/product-snapshot";
 import { selectCartSubtotal, useCartStore } from "@/stores/cart";
 import { useStoresHydrated } from "@/stores/hydration";
@@ -48,7 +48,7 @@ export function CartView() {
   }
 
   return (
-    <div className="grid items-start gap-8 lg:grid-cols-[1fr_22rem]">
+    <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-8 lg:grid-cols-[minmax(0,1fr)_22rem]">
       <div>
         <ul className="divide-y rounded-xl border">
           {items.map((item) => {
@@ -64,8 +64,8 @@ export function CartView() {
                 >
                   <Image src={item.product.images[item.colorIndex] ?? item.product.images[0]} alt={title} fill sizes="96px" className="object-cover" />
                 </Link>
-                <div className="flex flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
-                  <div className="flex-1">
+                <div className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:gap-4">
+                  <div className="min-w-0 flex-1">
                     <Link href={`/products/${item.product.slug}`} className="font-medium hover:underline">
                       {title}
                     </Link>
@@ -84,7 +84,7 @@ export function CartView() {
                     </p>
                     <p className="mt-1 text-sm text-muted-foreground">{price(unitPrice)}</p>
                   </div>
-                  <div className="flex items-center justify-between gap-4">
+                  <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                     <QuantityInput
                       value={item.quantity}
                       max={item.product.stock}
@@ -126,7 +126,7 @@ export function CartView() {
           </div>
           {shipping > 0 && (
             <p className="text-xs text-muted-foreground">
-              {t("freeShippingHint", { amount: price(FREE_SHIPPING_FROM_CENTS - subtotal) })}
+              {t("freeShippingHint", { amount: formatPriceInline(FREE_SHIPPING_FROM_CENTS - subtotal) })}
             </p>
           )}
           <Separator />

@@ -519,7 +519,8 @@
     "pagination": "الصفحات",
     "previous": "الصفحة السابقة",
     "next": "الصفحة التالية",
-    "brand": "العلامة التجارية"
+    "brand": "العلامة التجارية",
+    "gridHeading": "المنتجات"
   },
   "subcategories": {
     "smartphones": "الهواتف الذكية",

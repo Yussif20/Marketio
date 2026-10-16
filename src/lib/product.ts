@@ -31,6 +31,14 @@ export function formatPrice(cents: number, currency = "USD") {
   }).format(cents / 100);
 }
 
+/**
+ * A price for use inside a translated sentence. The Unicode isolate marks keep
+ * "$100.00" in one piece in Arabic text, where it would otherwise show as "100.00$".
+ */
+export function formatPriceInline(cents: number) {
+  return `\u2066${formatPrice(cents)}\u2069`;
+}
+
 /** Discount badge text, e.g. "-25%". */
 export function formatDiscount(percent: number, locale: Locale) {
   return new Intl.NumberFormat(numberLocale(locale), { style: "percent" }).format(-percent / 100);

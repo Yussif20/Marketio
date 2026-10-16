@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "@/i18n/navigation";
-import { discountPercent, formatDiscount, formatPrice } from "@/lib/product";
+import { discountPercent, formatDiscount, formatPrice, formatPriceInline } from "@/lib/product";
 import { toSnapshot, unitPriceCents } from "@/lib/product-snapshot";
 import { cn } from "@/lib/utils";
 import { useCartStore } from "@/stores/cart";
@@ -101,7 +101,7 @@ export function ProductShowcase({ product, summary, details }: ProductShowcasePr
           <Price priceCents={price} oldPriceCents={oldPrice} size="lg" />
           {discount > 0 && oldPrice && (
             <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
-              {t("youSave", { amount: formatPrice(oldPrice - price) })}
+              {t("youSave", { amount: formatPriceInline(oldPrice - price) })}
             </span>
           )}
         </div>

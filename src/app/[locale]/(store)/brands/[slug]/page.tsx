@@ -62,6 +62,7 @@ async function BrandContent({ params }: Pick<PageProps<"/[locale]/brands/[slug]"
         <p className="mt-1 text-sm text-white/60">{t("listing.count", { count: products.length })}</p>
       </header>
 
+      <h2 className="sr-only">{t("listing.gridHeading")}</h2>
       <ProductGrid>
         {products.map((product, i) => (
           <ProductCard key={product.id} product={product} priority={i < 4} />
