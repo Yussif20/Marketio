@@ -1,7 +1,6 @@
 import { RotateCcw, Truck } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
 import { getLocale, getTranslations } from "next-intl/server";
 import { SectionHeading } from "@/components/home/section-heading";
 import { ProductCard, ProductGrid } from "@/components/product/product-card";
@@ -9,7 +8,6 @@ import { ProductShowcase } from "@/components/product/product-showcase";
 import { RatingBreakdown } from "@/components/product/rating-breakdown";
 import { ReviewList } from "@/components/product/review-list";
 import { RatingStars } from "@/components/product/rating-stars";
-import { Skeleton } from "@/components/ui/skeleton";
 import { brands } from "@/data/categories";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
@@ -70,17 +68,9 @@ function productJsonLd(product: Product, locale: Locale) {
   };
 }
 
-// Every known slug is prerendered; the Suspense boundary gives unknown or new
-// slugs an instant skeleton while the page renders on demand.
-export default function ProductPage({ params }: PageProps<"/[locale]/products/[slug]">) {
-  return (
-    <Suspense fallback={<ProductSkeleton />}>
-      <ProductContent params={params} />
-    </Suspense>
-  );
-}
-
-async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[slug]">, "params">) {
+// Every known slug is prerendered, so the page is static HTML with no Suspense
+// boundary (a boundary would make the browser wait for a reveal script).
+export default async function ProductPage({ params }: PageProps<"/[locale]/products/[slug]">) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) notFound();
@@ -206,23 +196,6 @@ async function ProductContent({ params }: Pick<PageProps<"/[locale]/products/[sl
           </ProductGrid>
         </section>
       )}
-    </div>
-  );
-}
-
-function ProductSkeleton() {
-  return (
-    <div className="container py-8 sm:py-10" aria-hidden>
-      <Skeleton className="mb-6 h-4 w-64" />
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-        <Skeleton className="aspect-square" />
-        <div className="space-y-4">
-          <Skeleton className="h-9 w-3/4" />
-          <Skeleton className="h-4 w-1/2" />
-          <Skeleton className="h-10 w-40" />
-          <Skeleton className="h-24" />
-        </div>
-      </div>
     </div>
   );
 }

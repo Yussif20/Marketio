@@ -63,9 +63,9 @@ export default async function HomePage() {
           <Countdown />
         </SectionHeading>
         <ul className="scrollbar-none -mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-2">
-          {flashSale.map((product, index) => (
+          {flashSale.map((product) => (
             <li key={product.id} className="w-56 shrink-0 snap-start sm:w-64">
-              <ProductCard product={product} priority={index < 2} />
+              <ProductCard product={product} />
             </li>
           ))}
         </ul>

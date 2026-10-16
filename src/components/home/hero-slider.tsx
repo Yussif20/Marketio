@@ -66,6 +66,7 @@ export function HeroSlider() {
               alt=""
               fill
               priority={i === 0}
+              fetchPriority={i === 0 ? "high" : "low"}
               sizes="(min-width: 1408px) 1344px, 100vw"
               className={cn("object-cover object-[75%_50%] sm:object-center", rtl && "-scale-x-100")}
             />

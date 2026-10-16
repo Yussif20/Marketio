@@ -1,4 +1,3 @@
-import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface RatingStarsProps {
@@ -8,23 +7,17 @@ interface RatingStarsProps {
   className?: string;
 }
 
-/** Five stars; a partial star fills from the inline-start edge, so it reads correctly in RTL too. */
+/**
+ * Five stars drawn with one CSS mask (see `rating-stars` in globals.css); the
+ * amber layer is as wide as the rating, so a partial star fills from the
+ * inline-start edge and reads correctly in RTL too.
+ */
 export function RatingStars({ rating, label, className }: RatingStarsProps) {
+  const filled = Math.max(0, Math.min(5, rating));
   return (
-    <span role="img" aria-label={label} className={cn("inline-flex items-center gap-0.5", className)}>
-      {Array.from({ length: 5 }, (_, index) => {
-        const fill = Math.max(0, Math.min(1, rating - index));
-        return (
-          <span key={index} className="relative inline-flex size-4" aria-hidden>
-            <Star className="size-4 text-muted-foreground/30" strokeWidth={1.5} />
-            {fill > 0 && (
-              <span className="absolute inset-y-0 start-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
-                <Star className="size-4 fill-amber-400 text-amber-400" strokeWidth={1.5} />
-              </span>
-            )}
-          </span>
-        );
-      })}
+    <span role="img" aria-label={label} className={cn("relative inline-block h-4 w-[88px] shrink-0", className)}>
+      <span aria-hidden className="rating-stars absolute inset-0 bg-muted-foreground/25" />
+      <span aria-hidden className="rating-stars absolute inset-y-0 start-0 bg-amber-400" style={{ width: `${filled * 18}px` }} />
     </span>
   );
 }

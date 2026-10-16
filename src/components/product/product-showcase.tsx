@@ -84,6 +84,7 @@ export function ProductShowcase({ product, summary, details }: ProductShowcasePr
             alt={t("imageAlt", { title, number: imageIndex + 1 })}
             fill
             priority
+            fetchPriority="high"
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover"
           />
