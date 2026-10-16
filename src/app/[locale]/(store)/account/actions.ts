@@ -1,6 +1,6 @@
 "use server";
 
-import { adminAuth } from "@/lib/firebase/admin";
+import { adminAuth } from "@/lib/firebase/admin-auth";
 import { getOrdersForUser } from "@/lib/orders";
 import type { Order } from "@/types/order";
 

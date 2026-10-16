@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "*.public.blob.vercel-storage.com" }],
   },
   partialPrefetching: true,
+  // Bundle firebase-admin instead of loading it from node_modules at runtime. Its
+  // auth module pulls in jwks-rsa, which require()s the ESM-only jose 6; that works
+  // locally but fails in Vercel's function runtime (ERR_REQUIRE_ESM).
+  transpilePackages: ["firebase-admin"],
   turbopack: {
     rules: {
       "*.css": {

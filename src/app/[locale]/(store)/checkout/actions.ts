@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { checkoutSchema } from "@/lib/checkout-schema";
-import { adminAuth } from "@/lib/firebase/admin";
+import { adminAuth } from "@/lib/firebase/admin-auth";
 import { CheckoutError, couponPercent, createOrder, priceCart, updateOrder } from "@/lib/orders";
 import { getStripe } from "@/lib/stripe";
 

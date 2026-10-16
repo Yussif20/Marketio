@@ -3,7 +3,7 @@ import { createHmac, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import { connection } from "next/server";
 import { cache } from "react";
-import { adminAuth } from "@/lib/firebase/admin";
+import { adminAuth } from "@/lib/firebase/admin-auth";
 
 /** Firebase session cookie for real admins (users with the `admin` custom claim). */
 export const ADMIN_COOKIE = "mk_admin";

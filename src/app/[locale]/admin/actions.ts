@@ -13,7 +13,8 @@ import {
   DemoReadOnlyError,
   requireAdminWrite,
 } from "@/lib/admin/session";
-import { adminAuth, adminDb } from "@/lib/firebase/admin";
+import { adminDb } from "@/lib/firebase/admin";
+import { adminAuth } from "@/lib/firebase/admin-auth";
 import { updateOrder } from "@/lib/orders";
 import { ratingFromBreakdown } from "@/lib/product";
 import { BRANDS, CATEGORIES, SUBCATEGORIES, type Product } from "@/types/product";
